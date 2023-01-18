@@ -1,0 +1,765 @@
+on_game_start_country = {
+	events = {
+		honor_leader.3
+	}
+}
+
+# No scope, like on_game_start
+# Does not run when loading MP saves due to OOS concerns
+# on_single_player_save_game_load = {
+# 	events = {
+# 		honor_leader.1
+# 	}
+# }
+
+# this = country
+on_yearly_pulse_country = {
+	events = {
+		honor_leader.2
+	}
+}
+
+# Executed as a leader has died.
+# this = Country
+# from = Leader
+on_leader_death = {
+	events = {
+		honor_leader.2000
+	}
+}
+
+# Executed as new ruler has been set.
+# this = Country
+on_ruler_set = {
+	events = {
+		honor_leader.4
+	}
+}
+
+# Executed when a ruler has been removed.
+# from = previous Ruler
+# this = Country
+on_ruler_removed = {
+	events = {
+		honor_leader.5
+	}
+}
+
+# Executed when the ruler is ousted and goes back to their pre-ruler class
+# from = previous Ruler, already has the new class
+# this = Country
+on_ruler_back_to_pre_ruler_class = {
+	events = {
+		honor_leader.5
+	}
+}
+
+# Triggered when two empires discover each other.
+on_first_contact = {
+	events = {
+		honor_leader.6
+	}
+}
+
+# Executed right after country has established communications with another country.
+# this = Country which established the communications
+# from = Country which communications were established with
+on_post_communications_established = {
+	events = {
+		honor_leader.7
+	}
+}
+
+# Triggers event when a system is entered by ships from a country (not pirates or monsters) for the first time.
+# Scope = Ship
+# from = System
+# fromfrom = Country
+on_entering_system_first_time = {
+	events = {
+		honor_leader.8
+	}
+}
+
+# A ship has surveyed a planet.
+# Scope = Ship
+# from = Planet
+on_survey = {
+	events = {
+		honor_leader.9
+	}
+}
+
+# A ship is done surveying the last unsurveyed planet in a system
+# Scope = ship
+# from = system
+on_system_survey_ship = {
+	events = {
+		honor_leader.10
+	}
+}
+
+# A planet has been colonized.
+# Scope = Planet
+on_colonized = {
+	events = {
+		honor_leader.11
+	}
+}
+
+# A colony has been destroyed. Called just before owner and controller is cleared
+# Scope = Planet
+on_colony_destroyed = {
+	events = {
+		honor_leader.12
+	}
+}
+
+# The game will generate one on_building_X on_action for every station ship-size
+# Orbital stations will get the planet in from, space stations only get they building ship.
+# this = construction ship
+# from = planet it is built on
+# Fires when construction is complete,
+# Immediately before station is created.
+on_building_mining_station = {
+	events = {
+		honor_leader.13
+	}
+}
+
+# this = construction ship
+# from = planet it is built on
+# Fires when construction is complete,
+# Immediately before station is created.
+on_building_research_station = {
+	events = {
+		honor_leader.14
+	}
+}
+
+on_building_observation_station = {
+	events = {
+		honor_leader.15
+	}
+}
+
+# this = construction ship
+# from = planet it is built on
+# Fires when construction is complete,
+# Immediately before station is created.
+on_building_outpost_station = {
+	events = {
+		honor_leader.16
+	}
+}
+
+on_building_starbase_outpost = {
+	events = {
+		honor_leader.16
+	}
+}
+
+# Triggers when a Special Project to uplift a pre-sapient species is completed.
+# Note that this will trigger once for each combination of planet & original
+# Species (but for uplifting this should be only once).
+#
+# Scope = planet_event
+# this = planet scope
+# from = uplifted species (pre-modification)
+on_uplift_completion = {
+	events = {
+		honor_leader.17
+	}
+}
+
+# Planet has been terraformed
+# this = Planet
+# from = Terraforming country
+on_terraforming_complete = {
+	events = {
+		honor_leader.18
+	}
+}
+
+# this = Planet
+on_blocker_cleared = {
+	events = {
+		honor_leader.19
+	}
+}
+
+# this = owner of fleet
+# from = disbanded fleet
+on_fleet_disbanded = {
+	events = {
+		honor_leader.20
+	}
+}
+
+# A ship has been built
+# root = Ship
+# from = Planet
+on_ship_built = {
+	events = {
+		honor_leader.21
+	}
+}
+
+# A ship design has been finished
+# root = Country
+on_ship_designed = {
+	events = {
+		honor_leader.22
+	}
+}
+
+# A ship has been upgraded
+# root = Ship
+on_ship_upgraded = {
+	events = {
+		honor_leader.23
+	}
+}
+
+# Executes after a policy has been changed.
+# Use last_changed_policy to identify which policy it was.
+# this = Country
+on_policy_changed = {
+	events = {
+		honor_leader.24
+	}
+}
+
+# We changed a species right.
+# this = pop
+on_pop_rights_change = {
+	events = {
+		honor_leader.25
+	}
+}
+
+# A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
+# this = Country
+on_tech_increased = {
+	events = {
+		honor_leader.26
+	}
+}
+
+# A pop has finished assembling
+# this = Planet scope
+# from = Country
+# fromfrom = Pop
+on_pop_assembled = {
+	events = {
+		honor_leader.27
+	}
+}
+
+# A pop has finished purging
+# this = Planet scope
+# from = Country
+# fromfrom = Pop
+on_pop_purged = {
+	events = {
+		honor_leader.1200
+	}
+}
+
+# A pop has finished declining (while not being purged)
+# this = Planet scope
+# from = Country
+# fromfrom = Pop
+on_pop_declined = {
+	events = {
+		honor_leader.29
+	}
+}
+
+# A pop has been displaced
+# this = Planet scope
+# from = Country
+# fromfrom = Pop
+on_pop_displaced = {
+	events = {
+		honor_leader.30
+	}
+}
+
+# A pop has been added to the planet
+# root = pop
+# from = planet
+on_pop_added = {
+	events = {
+		honor_leader.31
+	}
+}
+
+# A pop has finished growing
+# this = Planet scope
+# from = Country
+# fromfrom = Pop
+on_pop_grown = {
+	events = {
+		honor_leader.32
+	}
+}
+
+# An army construction has been completed.
+# this = Planet
+# from = Army
+on_army_recruited = {
+	events = {
+		honor_leader.33
+	}
+}
+
+# A building construction has been completed.
+# this = Planet
+on_building_complete = {
+	events = {
+		honor_leader.34
+	}
+}
+
+# A building construction has been completed, which is an upgrade of previous building.
+# this = Planet
+on_building_upgraded = {
+	events = {
+		honor_leader.35
+	}
+}
+
+# A district construction has been completed.
+# this = Planet
+on_district_complete = {
+	events = {
+		honor_leader.36
+	}
+}
+
+# A building construction has finished, replacing another building.
+# this = Planet
+on_building_replaced = {
+	events = {
+		honor_leader.37
+	}
+}
+
+# A district construction has demolished.
+# this = Planet
+on_district_demolished = {
+	events = {
+		honor_leader.38
+	}
+}
+
+# Triggers when a Special Project to apply a species modification template has completed.
+# Note that this will trigger once for each combination of planet & original species.
+#
+# this = Country
+# from = Species ( Post Modification )
+on_modification_complete = {
+	events = {
+		honor_leader.39
+	}
+}
+
+# Called when an election starts.
+# scope: country
+on_election_started = {
+	events = {
+		honor_leader.40
+	}
+}
+
+# Called when an election ends.
+# scope: country
+on_election_ended = {
+	events = {
+		honor_leader.41
+	}
+}
+
+# this = country
+on_pirate_spawn = {
+	events = {
+		honor_leader.42
+	}
+}
+
+# WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGGGHHHHH!!!!!!!!!
+# this = owner of ship 1 (combatant)
+# from = owner of ship 2 (destroyed)
+# fromfrom = ship 1
+# fromfromfrom = ship 2
+on_ship_destroyed_perp = {
+	events = {
+		honor_leader.43
+	}
+}
+
+# this = owner of ship 1 (destroyed)
+# from = owner of ship 2 (combatant)
+# fromfrom = ship 1
+# fromfromfrom = ship 2
+on_ship_destroyed_victim = {
+	events = {
+		honor_leader.2001
+		honor_leader.44
+	}
+}
+
+# this = owner of fleet 1 (combatant)
+# from = owner of fleet 2 (destroyed)
+# fromfrom = fleet 1
+# fromfromfrom = fleet 2
+on_fleet_destroyed_perp = {
+	events = {
+		honor_leader.45
+	}
+}
+
+# this = owner of fleet 1 (destroyed)
+# from = owner of fleet 2 (combatant)
+# fromfrom = fleet 1
+# fromfromfrom = fleet 2
+on_fleet_destroyed_victim = {
+	events = {
+		honor_leader.46
+	}
+}
+
+# this = owner of fleet 1 (winner)
+# from = owner of fleet 2 (loser)
+# fromfrom = fleet 1
+# fromfromfrom = fleet 2
+on_space_battle_won = {
+	events = {
+		honor_leader.47
+	}
+}
+
+# this = owner of fleet 1 (loser)
+# from = owner of fleet 2 (winner)
+# fromfrom = fleet 1
+# fromfromfrom = fleet 2
+on_space_battle_lost = {
+	events = {
+		honor_leader.48
+	}
+}
+
+# Planet has taken damage from orbital bombardment.
+# this = Planet
+# from = Bombarder
+on_planet_bombarded = {
+	events = {
+		honor_leader.49
+	}
+}
+
+# A war is beginning, executed for every country in the war.
+# root = Country
+# from = War
+on_war_beginning = {
+	events = {
+		honor_leader.51
+	}
+}
+
+# A war has ended
+# root = Loser
+# from = Main Winner
+on_war_ended = {
+	events = {
+		honor_leader.52
+	}
+}
+
+# A status quo has been signed
+# root = Actor
+# from = Recipient
+# fromfrom = Main Attacker
+# fromfromfrom = Main Defender
+# fromfromfromfrom = War
+on_status_quo = {
+	events = {
+		honor_leader.53
+	}
+}
+
+# A status quo has been signed, by force
+# root = Recipient
+# from = Actor
+# fromfrom = Main Attacker
+# fromfromfrom = Main Defender
+# fromfromfromfrom = War
+on_status_quo_forced = {
+	events = {
+		honor_leader.54
+	}
+}
+
+# Triggers country_event for the attacker upon victory.
+# (Before controller is switched)
+# this = country, leader attacker
+# from = country, planet owner
+# fromfrom = planet
+# IDENTITIES: attacker is the side that "IsHostile" to
+# The planet controller; e.g. spawned monster armies.
+# Are attackers, but if they win and the player attempts.
+# To retake the planet, the player is the attacker.
+on_planet_attackers_win = {
+	events = {
+		honor_leader.55
+	}
+}
+
+# Triggers country_event for the attacker upon defeat.
+# this = country, attack leader
+# from = country, planet owner
+# fromfrom = planet
+on_planet_attackers_lose = {
+	events = {
+		honor_leader.56
+	}
+}
+
+# Triggers country_event for the defender upon victory.
+# root = country, planet owner
+# from = country, attack leader
+# fromfrom = planet
+on_planet_defenders_win = {
+	events = {
+		honor_leader.57
+	}
+}
+
+# Triggers country_event for the defender upon defeat.
+# this = country, planet owner
+# from = country, attack leader
+# fromfrom = planet
+on_planet_defenders_lose = {
+	events = {
+		honor_leader.58
+	}
+}
+
+# A fleet has successfully escaped from combat, executed right before the fleet enters FTL
+# this = escaping fleet
+# from = system escaped from
+# fromfrom = system escaping to
+on_emergency_ftl = {
+	events = {
+		honor_leader.59
+	}
+}
+
+# Initial rebels manage to take control of the planet, happens before the new owner is set, after the war is created.
+# this = Rebel Country
+# from = Planet
+# fromfrom = War
+on_rebels_take_planet = {
+	events = {
+		honor_leader.60
+	}
+}
+
+# Fired whenever a new owner is set for a planet, and the planet was aggressively conquered.
+# Fired in ADDITION to on_planet_transfer.
+# from = Country scope (new owner)
+# this = Planet scope
+on_planet_conquer = {
+	events = {
+		honor_leader.61
+	}
+}
+
+# this = destroyed country
+# from = optional, destroyer (country)
+on_country_destroyed = {
+	events = {
+		honor_leader.62
+	}
+}
+
+# from = system
+# fromfrom = country (new owner)
+# this = country (previous owner)
+on_system_lost = {
+	events = {
+		honor_leader.63
+	}
+}
+
+# from = system
+# fromfrom = country (previous owner)
+# this = country (new owner)
+on_system_gained = {
+	events = {
+		honor_leader.64
+	}
+}
+
+# Misc events
+# A planet has begun the colonization process.
+# Scope = Planet
+on_colonization_started = {
+	events = {
+		honor_leader.65
+	}
+}
+
+# this = owner of fleet 1
+# from = owner of fleet 2
+# fromfrom = fleet 1
+# fromfromfrom = fleet 2
+on_entering_battle = {
+	events = {
+		honor_leader.66
+	}
+}
+
+# Planets starts being terraformed
+# this = Planet
+# from = Terraforming country
+on_terraforming_begun = {
+	events = {
+		honor_leader.67
+	}
+}
+
+# A building construction has demolished.
+# this = Planet
+on_building_demolished = {
+	events = {
+		honor_leader.68
+	}
+}
+
+# this = Pop
+# from = Country (buyer)
+# fromfrom = Country (seller)
+on_slave_sold_on_market = {
+	events = {
+		honor_leader.69
+	}
+}
+
+# Pop is enslaved
+# this = Pop scope
+# owner_species = { (species)
+# owner = { owner_species = { (empire main species)
+# owner = { (empire)
+on_pop_enslaved = {
+	events = {
+		honor_leader.70
+	}
+}
+
+# Pop is released from slavery.
+# this = Pop scope
+# owner_species = { (species)
+# owner = { owner_species = { (empire main species)
+# owner = { (empire)
+on_pop_emancipated = {
+	events = {
+		honor_leader.71
+	}
+}
+
+# A ship has started a new order
+# root = Ship
+# from = Country
+on_ship_order = {
+	events = {
+		honor_leader.72
+	}
+}
+
+# a new leader is generated for an empire, to be available for recruitment
+# scope: country, from: leader
+on_leader_spawned = {
+	events = {
+		honor_leader.73
+	}
+}
+
+# Planet has reached 0 health from collateral damage.
+# this = Planet
+# from = Army owner
+on_planet_zero_health_ground_combat = {
+	events = {
+		honor_leader.74
+	}
+}
+
+# Planet has reached 0 pops from orbital bombardment.
+# this = Planet
+# from = Bombarder
+on_planet_zero_pops = {
+	events = {
+		honor_leader.75
+	}
+}
+
+# Pop is abducted by raiding stance.
+# this = Pop scope
+# from = planet abducted from
+on_pop_abducted = {
+	events = {
+		honor_leader.76
+	}
+}
+
+# A Megastructure has been built
+# root = Country
+# from = Megastructure
+# fromfrom = System
+# fromfromfrom = Fleet
+on_megastructure_built = {
+	events = {
+		honor_leader.77
+	}
+}
+
+# this = Country
+on_relic_activated = {
+	events = {
+		honor_leader.78
+	}
+}
+
+# this = Fleet ( science vessel )
+# from = Archaeological Site
+on_arch_site_finished = {
+	events = {
+		honor_leader.79
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_CRACKER = {
+	events = {
+		honor_leader.80
+	}
+}
+on_destroy_planet_with_PLANET_KILLER_SHIELDER = {
+	events = {
+		honor_leader.80
+	}
+}
+on_destroy_planet_with_PLANET_KILLER_NEUTRON = {
+	events = {
+		honor_leader.80
+	}
+}
+on_destroy_planet_with_PLANET_KILLER_GODRAY = {
+	events = {
+		honor_leader.80
+	}
+}
+on_destroy_planet_with_PLANET_KILLER_NANOBOTS = {
+	events = {
+		honor_leader.80
+	}
+}

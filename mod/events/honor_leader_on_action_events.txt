@@ -1,0 +1,4153 @@
+namespace = honor_leader
+# TRACKING EVENTS
+
+# on_single_player_save_game_load
+# country_event = {
+# 	id = honor_leader.1
+# 	hide_window = yes
+# 	is_triggered_only = yes
+# 	trigger = { is_ai = no }
+# 	immediate = {
+# 		# temp fix: remove on 3.5
+# 		every_playable_country = {
+# 			limit = {
+# 				is_ai = no
+# 				NOT = { has_country_flag = governor_corrupt_memorialized }
+# 			}
+# 			remove_modifier = country_memorialized_governor_corrupt
+# 			set_country_flag = governor_corrupt_memorialized
+# 		}
+# 	}
+# }
+
+# On Country game start - setup calender and ruler start date.
+# TODO also AI Player!?
+country_event = {
+	id = honor_leader.3
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		set_variable = { which = honor_leader_calender_year value = 2200 }
+		every_owned_leader = {
+			set_variable = { which = honor_leader_calender_year value = 2200 }
+		}
+		if = { limit = { exists = leader }
+			leader = {
+				set_variable = { which = honor_leader_office_start value = 2200 }
+				set_leader_flag = honor_leader_ruler_starting_ruler
+				set_variable = { which = honor_leader_ruler_starting_ruler_date value = 2200 }
+			}
+		}
+		every_owned_leader = { remove_leader_flag = honor_leader_is_pool_leader }
+		every_pool_leader = { set_leader_flag = honor_leader_is_pool_leader }
+	}
+}
+
+# On yearly country pulse - years of service, in office, calender ++, also idle leaders stats ++
+country_event = {
+	id = honor_leader.2
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		save_event_target_as = honor_leader_country
+		change_variable = { which = honor_leader_calender_year value = 1 }
+		every_owned_leader = {
+			change_variable = { which = honor_leader_years_of_service value = 1 }
+			change_variable = { which = honor_leader_calender_year value = 1 }
+		}
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_years_in_office value = 1 }
+			}
+		}
+		every_owned_fleet = {
+			limit = {
+				has_fleet_order = assist_research_order
+				exists = leader
+			}
+			leader = {
+				if = { limit = { leader_class = scientist }
+					change_variable = { which = honor_leader_years_assisting_research value = 1 }
+				}
+			}
+		}
+		every_owned_fleet = {
+			limit = {
+				has_fleet_order = auto_explore_order
+				exists = leader
+			}
+			leader = {
+				if = { limit = { leader_class = scientist }
+					change_variable = { which = honor_leader_years_exploring_automatically value = 1 }
+				}
+			}
+		}
+		every_owned_fleet = {
+			limit = {
+				exists = leader
+				exists = orbit
+				orbit = {
+					NOT = { is_scope_type = starbase }
+					is_owned_by = root
+				}
+			}
+			leader = {
+				if = { limit = { leader_class = admiral }
+					change_variable = { which = honor_leader_years_orbital_training_excersises value = 1 }
+				}
+			}
+		}
+		every_owned_fleet = {
+			limit = {
+				NOT = { has_fleet_order = land_armies_order }
+				exists = leader
+				exists = orbit
+				orbit = {
+					NOT = { is_scope_type = starbase }
+					is_owned_by = root
+				}
+			}
+			leader = {
+				if = { limit = { leader_class = general }
+					change_variable = { which = honor_leader_years_orbital_training_excersises value = 1 }
+				}
+			}
+		}
+		every_owned_planet = {
+			limit = {
+				has_army = yes
+				any_planet_army = { exists = leader }
+			}
+			random_planet_army = {
+				limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_years_planet_training_excersises value = 1 }
+				}
+			}
+		}
+		hidden_effect = {
+			every_owned_sector = {
+				limit = { exists = leader }
+				leader = {
+					if = { limit = { leader_class = governor }
+						change_variable = { which = honor_leader_years_governing_sector value = 1 }
+					}
+				}
+			}
+		}
+		every_owned_leader = { remove_leader_flag = honor_leader_is_pool_leader }
+		every_pool_leader = { set_leader_flag = honor_leader_is_pool_leader }
+	}
+}
+
+# On ruler set - set office start year.
+country_event = {
+	id = honor_leader.4
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		if = { limit = { exists = leader }
+			leader = {
+				set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
+				set_variable = { which = honor_leader_office_start value = this.honor_leader_calender_year }
+			}
+		}
+	}
+}
+
+# On ruler_back_to_pre_ruler_class AND on_ruler_removed - set office end year and was_ruler flag.
+country_event = {
+	id = honor_leader.5
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+	}
+	immediate = {
+		from = {
+			set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
+			set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
+			set_leader_flag = honor_leader_was_ruler
+		}
+	}
+}
+
+# On first contact - set ruler first contact flag and first contacts ++
+country_event = {
+	id = honor_leader.6
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = leader
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_first_contacts value = 1 }
+			set_leader_flag = honor_leader_ruler_first_contact
+		}
+	}
+}
+
+# on_post_communications_established - set establishing ruler - communications established flag and comms established ++
+country_event = {
+	id = honor_leader.7
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = leader
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_communications_established value = 1 }
+			set_leader_flag = honor_leader_ruler_communications_established
+		}
+	}
+}
+
+# on_entering_system_first_time - set ship fleet leader new systems discovered ++
+ship_event = {
+	id = honor_leader.8
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = fromfrom
+	}
+	immediate = {
+		if = { limit = { exists = fleet.leader }
+			fleet = {
+				leader = {
+					change_variable = { which = honor_leader_systems_discovered value = 1 }
+				}
+			}
+		}
+		fromfrom = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_systems_discovered value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_survey - set ship fleet leader objects surveyed ++
+ship_event = {
+	id = honor_leader.9
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_objects_surveyed value = 1 }
+		}
+	}
+}
+
+# on_system_survey_ship - set ship fleet leader systems surveyed ++
+ship_event = {
+	id = honor_leader.10
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_systems_surveyed value = 1 }
+		}
+	}
+}
+
+# on_colonized - set colonies founded ++
+planet_event = {
+	id = honor_leader.11
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_colonies_founded value = 1 }
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_colonies_founded value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_colony_destroyed - set ruler colonies lost ++
+planet_event = {
+	id = honor_leader.12
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner # as has_owner is not sure
+		owner = {
+			is_ai = no
+			exists = leader
+		}
+	}
+	immediate = {
+		owner = {
+			leader = {
+				change_variable = { which = honor_leader_colonies_lost value = 1 }
+				set_leader_flag = honor_leader_ruler_lost_colony
+			}
+		}
+	}
+}
+
+# on_building_mining_station - set ruler mining station built ++
+ship_event = {
+	id = honor_leader.13
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		from = {
+			if = { limit = { exists = sector }
+				sector = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_mining_stations_built value = 1 }
+						}
+					}
+				}
+			}
+			# else_if = {
+			# 	limit = { exists = leader }
+			# 	leader = {
+			# 		change_variable = { which = honor_leader_mining_stations_built value = 1 }
+			# 	}
+			# }
+		}
+	}
+}
+
+# on_building_research_station - set ruler research station built ++
+ship_event = {
+	id = honor_leader.14
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		from = {
+			if = { limit = { exists = sector }
+				sector = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_research_stations_built value = 1 }
+						}
+					}
+				}
+			}
+			# else_if = {
+			# 	limit = { exists = leader }
+			# 	leader = {
+			# 		change_variable = { which = honor_leader_research_stations_built value = 1 }
+			# 	}
+			# }
+		}
+	}
+}
+
+# on_building_observation_station - set ruler observation station built ++
+ship_event = {
+	id = honor_leader.15
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		from = {
+			if = { limit = { exists = sector }
+				sector = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_observation_stations_built value = 1 }
+						}
+					}
+				}
+			}
+			# else_if = {
+			# 	limit = { exists = leader }
+			# 	leader = {
+			# 		change_variable = { which = honor_leader_observation_stations_built value = 1 }
+			# 	}
+			# }
+		}
+	}
+}
+
+# on_building_outpost_station AND on_building_starbase_outpost - set ruler New Systems Claimed ++
+ship_event = {
+	id = honor_leader.16
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		owner = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_new_systems_claimed value = 1 }
+					set_leader_flag = honor_leader_ruler_gained_territory
+				}
+			}
+		}
+	}
+}
+
+# on_uplift_completion - set ruler species uplifted ++
+planet_event = {
+	id = honor_leader.17
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		owner = {
+			every_owned_leader = {
+				limit = { leader_class = ruler }
+				change_variable = { which = honor_leader_species_uplifted value = 1 }
+				set_leader_flag = honor_leader_ruler_uplift
+			}
+		}
+	}
+}
+
+# on_terraforming_complete - set ruler planets terraformed ++
+planet_event = {
+	id = honor_leader.18
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_planets_terraformed value = 1 }
+					}
+				}
+			}
+		} else_if = { limit = { exists = owner }
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_planets_terraformed value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_blocker_cleared - set blockers cleared ++
+planet_event = {
+	id = honor_leader.19
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_blockers_cleared value = 1 }
+					}
+				}
+			}
+		} else_if = { limit = { exists = owner }
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_blockers_cleared value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_fleet_disbanded - set ruler Fleets disbanded ++
+# this = owner of fleet
+# from = disbanded fleet
+country_event = {
+	id = honor_leader.20
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+	}
+	immediate = {
+		from = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_fleets_disbanded value = 1 }
+					set_timed_leader_flag = { flag = honor_leader_probably_dead days = 2 }
+				}
+			}
+			if = { limit = { exists = solar_system }
+				solar_system = { save_event_target_as = honor_leader_system }
+			}
+		}
+		if = {
+			limit = {
+				# is_ai = no
+				exists = leader
+			}
+			leader = {
+				change_variable = { which = honor_leader_fleets_disbanded value = 1 }
+			}
+		}
+	}
+}
+
+# on_ship_built - set ruler ships built ++ also check for admiral and governor
+ship_event = {
+	id = honor_leader.21
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					is_ship_class = shipclass_colonizer
+					is_ship_class = shipclass_constructor
+					is_ship_class = shipclass_science_ship
+				}
+			}
+			from = {
+				if = { limit = { exists = sector }
+					sector = {
+						if = { limit = { exists = leader }
+							leader = {
+								change_variable = { which = honor_leader_civilian_ships_built value = 1 }
+							}
+						}
+					}
+				} else = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_civilian_ships_built value = 1 }
+						}
+					}
+				}
+			}
+		} else_if = {
+			limit = {
+				NOR = {
+					is_ship_class = shipclass_colonizer
+					is_ship_class = shipclass_constructor
+					is_ship_class = shipclass_science_ship
+				}
+			}
+			from = {
+				if = { limit = { exists = sector }
+					sector = {
+						if = { limit = { exists = leader }
+							leader = {
+								change_variable = { which = honor_leader_military_ships_built value = 1 }
+							}
+						}
+					}
+				} else_if = {
+					limit = {
+						NOT = { is_scope_type = starbase }
+						exists = owner
+						owner = { exists = leader }
+					}
+					leader = {
+						change_variable = { which = honor_leader_military_ships_built value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_ship_designed - set ruler ship designed and commissioned design flag ++
+country_event = {
+	id = honor_leader.22
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+	}
+	immediate = {
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_ship_designs_commissioned value = 1 }
+				set_leader_flag = honor_leader_ruler_commissioned_new_ship_design
+			}
+		}
+	}
+}
+
+# on_ship_upgraded - set ships upgraded ++
+ship_event = {
+	id = honor_leader.23
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_ships_upgraded value = 1 }
+			}
+		}
+	}
+}
+
+# on_policy_changed - set ruler policies changed ++ also set flags for consequential policy decisions
+country_event = {
+	id = honor_leader.24
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		save_event_target_as = honor_leader_country
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_policies_changed value = 1 }
+				set_leader_flag = honor_leader_ruler_changed_policy
+				if = {
+					limit = {
+						root = {
+							last_changed_policy = war_philosophy
+							has_policy_flag = unrestricted_wars
+						}
+					}
+					set_leader_flag = honor_leader_ruler_unrestricted_wars
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = war_philosophy
+							has_policy_flag = no_wars
+						}
+					}
+					set_leader_flag = honor_leader_ruler_defensive_only
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = artificial_intelligence_policy
+							has_policy_flag = ai_outlawed
+						}
+					}
+					set_leader_flag = honor_leader_ruler_banned_ai
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = robot_pop_policy
+							has_policy_flag = robots_outlawed
+						}
+					}
+					set_leader_flag = honor_leader_ruler_banned_robots
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = refugees
+							has_policy_flag = refugees_not_allowed
+						}
+					}
+					set_leader_flag = honor_leader_ruler_refugees_not_allowed
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = refugees
+							has_policy_flag = refugees_allowed
+						}
+					}
+					set_leader_flag = honor_leader_ruler_refugees_allowed
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = slavery
+							has_policy_flag = slavery_not_allowed
+						}
+					}
+					set_leader_flag = honor_leader_ruler_slavery_not_allowed
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = slavery
+							has_policy_flag = slavery_allowed
+						}
+					}
+					set_leader_flag = honor_leader_ruler_slavery_allowed
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = purge
+							has_policy_flag = purge_not_allowed
+						}
+					}
+					set_leader_flag = honor_leader_ruler_purge_not_allowed
+				} else_if = {
+					limit = {
+						root = {
+							last_changed_policy = purge
+							has_policy_flag = slavery_allowed
+						}
+					}
+					set_leader_flag = honor_leader_ruler_purge_allowed
+				}
+			}
+		}
+	}
+}
+
+# on_pop_rights_change - set ruler species rights changed ++ also set flags for consequential species decisions
+# TODO:THIS FIRES FOR EVERY POP AND THERE IS NO SPECIES LEVEL CHECK- refactor to pop check species flag set flag - or have
+# People affected by policies...
+pop_event = {
+	id = honor_leader.25
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = {
+			is_ai = no
+			NOT = { has_country_flag = honor_leader_rights_changed }
+		}
+		years_passed != 0
+	}
+	immediate = {
+		owner = {
+			set_timed_country_flag = { flag = honor_leader_rights_changed days = 2 }
+			if = { limit = { exists = leader }
+				leader = {
+					save_event_target_as = honor_leader_ruler
+					change_variable = { which = honor_leader_rights_changed value = 1 }
+					set_leader_flag = honor_leader_ruler_changed_species_rights
+				}
+			}
+		}
+		if = { limit = { exists = event_target:honor_leader_ruler }
+			if = { limit = { last_changed_species_rights_type = citizenship }
+				if = {
+					limit = {
+						has_citizenship_type = {
+							country = owner
+							type = citizenship_full
+						}
+					}
+					event_target:honor_leader_ruler = { set_leader_flag = honor_leader_ruler_species_given_citizenship }
+				} else_if = {
+					limit = {
+						has_citizenship_type = {
+							country = owner
+							type = citizenship_slavery
+						}
+					}
+					event_target:honor_leader_ruler = { set_leader_flag = honor_leader_ruler_species_enslaved }
+				} else_if = {
+					limit = {
+						has_citizenship_type = {
+							country = owner
+							type = citizenship_purge
+						}
+					}
+					event_target:honor_leader_ruler = { set_leader_flag = honor_leader_ruler_species_purging }
+				}
+			} else_if = {
+				limit = {
+					last_changed_species_rights_type = living_standard
+					has_living_standard = {
+						country = owner
+						type = living_standard_chemical_bliss
+					}
+				}
+				event_target:honor_leader_ruler = { set_leader_flag = honor_leader_ruler_species_drugged }
+			}
+		}
+	}
+}
+
+# on_tech_increased - set (assigned area) scientist (area) techs researched ++ also set flags for consequential technology researched
+country_event = {
+	id = honor_leader.26
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		save_event_target_as = honor_leader_country
+		# Physics leader
+		random_owned_leader = {
+			limit = {
+				leader_class = scientist
+				is_researching_area = physics
+				# All vanilla organic physics techs.
+				root = {
+					OR = {
+						last_increased_tech = tech_basic_science_lab_2
+						last_increased_tech = tech_basic_science_lab_3
+						last_increased_tech = tech_space_science_1
+						last_increased_tech = tech_space_science_2
+						last_increased_tech = tech_space_science_3
+						last_increased_tech = tech_space_science_4
+						last_increased_tech = tech_space_science_5
+						last_increased_tech = tech_physics_1
+						last_increased_tech = tech_physics_2
+						last_increased_tech = tech_physics_3
+						last_increased_tech = tech_global_research_initiative
+						last_increased_tech = tech_administrative_ai
+						last_increased_tech = tech_cryostasis_1
+						last_increased_tech = tech_cryostasis_2
+						last_increased_tech = tech_self_aware_logic
+						last_increased_tech = tech_automated_exploration
+						last_increased_tech = tech_sapient_ai
+						last_increased_tech = tech_combat_computers_1
+						last_increased_tech = tech_combat_computers_2
+						last_increased_tech = tech_combat_computers_3
+						last_increased_tech = tech_auxiliary_fire_control
+						last_increased_tech = tech_synchronized_defences
+						last_increased_tech = tech_fusion_power
+						last_increased_tech = tech_cold_fusion_power
+						last_increased_tech = tech_antimatter_power
+						last_increased_tech = tech_zero_point_power
+						last_increased_tech = tech_reactor_boosters_1
+						last_increased_tech = tech_reactor_boosters_2
+						last_increased_tech = tech_reactor_boosters_3
+						last_increased_tech = tech_shields_2
+						last_increased_tech = tech_shields_3
+						last_increased_tech = tech_shields_4
+						last_increased_tech = tech_shields_5
+						last_increased_tech = tech_shield_rechargers_1
+						last_increased_tech = tech_planetary_shield_generator
+						last_increased_tech = tech_sensors_2
+						last_increased_tech = tech_sensors_3
+						last_increased_tech = tech_sensors_4
+						last_increased_tech = tech_power_plant_2
+						last_increased_tech = tech_power_plant_3
+						last_increased_tech = tech_power_plant_4
+						last_increased_tech = tech_power_hub_1
+						last_increased_tech = tech_power_hub_2
+						last_increased_tech = tech_hyper_drive_2
+						last_increased_tech = tech_hyper_drive_3
+						last_increased_tech = tech_wormhole_stabilization
+						last_increased_tech = tech_jump_drive_1
+						last_increased_tech = tech_ftl_inhibitor
+						last_increased_tech = tech_repeatable_improved_tile_energy_output
+						last_increased_tech = tech_repeatable_improved_shield_output
+						last_increased_tech = tech_repeatable_weapon_type_energy_damage
+						last_increased_tech = tech_repeatable_weapon_type_energy_fire_rate
+						last_increased_tech = tech_repeatable_reduced_building_cost
+						last_increased_tech = tech_mine_volatile_motes
+						last_increased_tech = tech_volatile_motes
+						last_increased_tech = tech_mine_dark_matter
+						last_increased_tech = tech_lasers_2
+						last_increased_tech = tech_lasers_3
+						last_increased_tech = tech_lasers_4
+						last_increased_tech = tech_lasers_5
+						last_increased_tech = tech_energy_lance_1
+						last_increased_tech = tech_energy_lance_2
+						last_increased_tech = tech_plasma_1
+						last_increased_tech = tech_plasma_2
+						last_increased_tech = tech_plasma_3
+						last_increased_tech = tech_arc_emitter_1
+						last_increased_tech = tech_arc_emitter_2
+						last_increased_tech = tech_disruptors_1
+						last_increased_tech = tech_disruptors_2
+						last_increased_tech = tech_disruptors_3
+						last_increased_tech = tech_energy_torpedoes_1
+						last_increased_tech = tech_energy_torpedoes_2
+						last_increased_tech = tech_pd_tracking_2
+						last_increased_tech = tech_pd_tracking_3
+						last_increased_tech = tech_extradimensional_weapon_1
+						last_increased_tech = tech_mining_drone_weapon_1
+						last_increased_tech = tech_space_cloud_weapon_1
+						last_increased_tech = null_void_beam
+						last_increased_tech = tech_dark_matter_deflector
+						last_increased_tech = tech_dark_matter_power_core
+					}
+				}
+			}
+			change_variable = { which = honor_leader_physics_techs_researched value = 1 }
+			# Flags for consequential techs
+			if = {
+				limit = {
+					root = { last_increased_tech = tech_automated_exploration }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_automated_exploration
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_cold_fusion_power }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_cold_fusion_power
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_wormhole_stabilization }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_wormhole_stabilization
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_jump_drive_1 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_jump_drive_1
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_ftl_inhibitor }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_ftl_inhibitor
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_combat_computers_3 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_combat_computers_3
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_synchronized_defences }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_synchronized_defences
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_planetary_shield_generator }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_planetary_shield_generator
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_mine_volatile_motes }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_mine_volatile_motes
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_mine_dark_matter }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_mine_dark_matter
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_lasers_2 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_lasers_2
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_extradimensional_weapon_1 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_extradimensional_weapon_1
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_mining_drone_weapon_1 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_mining_drone_weapon_1
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_space_cloud_weapon_1 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_space_cloud_weapon_1
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = null_void_beam }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_null_void_beam
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_dark_matter_deflector }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_dark_matter_deflector
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_dark_matter_power_core }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_dark_matter_power_core
+			}
+		}
+		# Society leader
+		random_owned_leader = {
+			limit = {
+				leader_class = scientist
+				is_researching_area = society
+				# All vanilla organic society techs.
+				root = {
+					OR = {
+						last_increased_tech = tech_space_trading
+						last_increased_tech = tech_interstellar_economics
+						last_increased_tech = tech_galactic_markets
+						last_increased_tech = tech_eco_simulation
+						last_increased_tech = tech_gene_crops
+						last_increased_tech = tech_nano_vitality_crops
+						last_increased_tech = tech_nutrient_replication
+						last_increased_tech = tech_hydroponics
+						last_increased_tech = tech_food_processing_1
+						last_increased_tech = tech_food_processing_2
+						last_increased_tech = tech_society_1
+						last_increased_tech = tech_society_2
+						last_increased_tech = tech_society_3
+						last_increased_tech = tech_alien_life_studies
+						last_increased_tech = tech_colonization_1
+						last_increased_tech = tech_colonization_2
+						last_increased_tech = tech_colonization_3
+						last_increased_tech = tech_colonization_4
+						last_increased_tech = tech_colonization_5
+						last_increased_tech = tech_tomb_world_adaption
+						last_increased_tech = tech_frontier_health
+						last_increased_tech = tech_frontier_hospital
+						last_increased_tech = tech_mountain_range
+						last_increased_tech = tech_volcano
+						last_increased_tech = tech_dangerous_wildlife
+						last_increased_tech = tech_dense_jungle
+						last_increased_tech = tech_quicksand_basin
+						last_increased_tech = tech_noxious_swamp
+						last_increased_tech = tech_massive_glacier
+						last_increased_tech = tech_toxic_kelp
+						last_increased_tech = tech_deep_sinkhole
+						last_increased_tech = tech_terrestrial_sculpting
+						last_increased_tech = tech_ecological_adaptation
+						last_increased_tech = tech_climate_restoration
+						last_increased_tech = tech_genome_mapping
+						last_increased_tech = tech_vitality_boosters
+						last_increased_tech = tech_epigenetic_triggers
+						last_increased_tech = tech_cloning
+						last_increased_tech = tech_gene_banks
+						last_increased_tech = tech_morphogenetic_field_mastery
+						last_increased_tech = tech_gene_tailoring
+						last_increased_tech = tech_glandular_acclimation
+						last_increased_tech = tech_gene_expressions
+						last_increased_tech = tech_selected_lineages
+						last_increased_tech = tech_capacity_boosters
+						last_increased_tech = tech_regenerative_hull_tissue
+						last_increased_tech = tech_doctrine_fleet_size_1
+						last_increased_tech = tech_doctrine_fleet_size_2
+						last_increased_tech = tech_doctrine_fleet_size_3
+						last_increased_tech = tech_doctrine_fleet_size_4
+						last_increased_tech = tech_doctrine_fleet_size_5
+						last_increased_tech = tech_interstellar_fleet_traditions
+						last_increased_tech = tech_refit_standards
+						last_increased_tech = tech_command_matrix
+						last_increased_tech = tech_doctrine_navy_size_1
+						last_increased_tech = tech_doctrine_navy_size_2
+						last_increased_tech = tech_doctrine_navy_size_3
+						last_increased_tech = tech_doctrine_navy_size_4
+						last_increased_tech = tech_centralized_command
+						last_increased_tech = tech_combat_training
+						last_increased_tech = tech_ground_defense_planning
+						last_increased_tech = tech_global_defense_grid
+						last_increased_tech = tech_psionic_theory
+						last_increased_tech = tech_galactic_ambitions
+						last_increased_tech = tech_manifest_destiny
+						last_increased_tech = tech_interstellar_campaigns
+						last_increased_tech = tech_galactic_campaigns
+						last_increased_tech = tech_planetary_unification
+						last_increased_tech = tech_colonial_centralization
+						last_increased_tech = tech_galactic_administration
+						last_increased_tech = tech_subdermal_stimulation
+						last_increased_tech = tech_global_production_strategy
+						last_increased_tech = tech_adaptive_bureaucracy
+						last_increased_tech = tech_colonial_bureaucracy
+						last_increased_tech = tech_galactic_bureaucracy
+						last_increased_tech = tech_living_state
+						last_increased_tech = tech_collective_self
+						last_increased_tech = tech_neural_implants
+						last_increased_tech = tech_artificial_moral_codes
+						last_increased_tech = tech_synthetic_thought_patterns
+						last_increased_tech = tech_hyper_entertainment_forum
+						last_increased_tech = tech_paradise_dome
+						last_increased_tech = tech_heritage_site
+						last_increased_tech = tech_hypercomms_forum
+						last_increased_tech = tech_autocurating_vault
+						last_increased_tech = tech_holographic_rituals
+						last_increased_tech = tech_consecration_fields
+						last_increased_tech = tech_transcendent_faith
+						last_increased_tech = tech_ascension_theory
+						last_increased_tech = tech_psionic_barrier
+						last_increased_tech = tech_penal_colonies
+						last_increased_tech = tech_resort_colonies
+						last_increased_tech = tech_slave_colonies
+						last_increased_tech = tech_housing_agrarian_idyll
+						last_increased_tech = tech_repeatable_improved_tile_food_output
+						last_increased_tech = tech_repeatable_improved_core_system_cap
+						# last_increased_tech = tech_repeatable_improved_edict_length < v.3.3
+						last_increased_tech = tech_repeatable_improved_army_damage
+						last_increased_tech = tech_repeatable_improved_army_health
+						last_increased_tech = tech_repeatable_improved_leader_life_span
+						last_increased_tech = tech_repeatable_naval_cap
+						last_increased_tech = tech_repeatable_command_limit
+						last_increased_tech = tech_repeatable_improved_starbase_capacity
+						last_increased_tech = tech_amoeba_strike_craft_1
+						last_increased_tech = tech_swarm_strike_craft_1
+						last_increased_tech = tech_scourge_missile_1
+						last_increased_tech = tech_space_whale_weapon_1
+						last_increased_tech = tech_mine_zro
+					}
+				}
+			}
+			change_variable = { which = honor_leader_society_techs_researched value = 1 }
+			# Flags for consequential techs
+			if = {
+				limit = {
+					root = { last_increased_tech = tech_psionic_barrier }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_psionic_barrier
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_space_whale_weapon_1 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_space_whale_weapon_1
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_galactic_markets }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_galactic_markets
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_nutrient_replication }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_nutrient_replication
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_tomb_world_adaption }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_tomb_world_adaption
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_gene_banks }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_gene_banks
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_morphogenetic_field_mastery }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_morphogenetic_field_mastery
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_genetic_resequencing }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_genetic_resequencing
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_gene_expressions }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_gene_expressions
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_selected_lineages }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_selected_lineages
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_capacity_boosters }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_capacity_boosters
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_regenerative_hull_tissue }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_regenerative_hull_tissue
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_psionic_theory }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_psionic_theory
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_subdermal_stimulation }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_subdermal_stimulation
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_ascension_theory }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_ascension_theory
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_penal_colonies }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_penal_colonies
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_resort_colonies }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_resort_colonies
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_epigenetic_triggers }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_epigenetic_triggers
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_gene_tailoring }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_gene_tailoring
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_terrestrial_sculpting }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_terrestrial_sculpting
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_ecological_adaptation }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_ecological_adaptation
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_climate_restoration }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_climate_restoration
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_neural_implants }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_neural_implants
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_galactic_administration }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_galactic_administration
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_mine_zro }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_mine_zro
+			}
+		}
+		# Engineering leader
+		random_owned_leader = {
+			limit = {
+				leader_class = scientist
+				is_researching_area = engineering
+				# All vanilla organic engineering techs.
+				root = {
+					OR = {
+						last_increased_tech = tech_destroyers
+						last_increased_tech = tech_cruisers
+						last_increased_tech = tech_battleships
+						last_increased_tech = tech_corvette_build_speed
+						last_increased_tech = tech_corvette_hull_1
+						last_increased_tech = tech_corvette_hull_2
+						last_increased_tech = tech_destroyer_build_speed
+						last_increased_tech = tech_destroyer_hull_1
+						last_increased_tech = tech_destroyer_hull_2
+						last_increased_tech = tech_cruiser_build_speed
+						last_increased_tech = tech_cruiser_hull_1
+						last_increased_tech = tech_cruiser_hull_2
+						last_increased_tech = tech_battleship_build_speed
+						last_increased_tech = tech_battleship_hull_1
+						last_increased_tech = tech_battleship_hull_2
+						last_increased_tech = tech_starbase_3
+						last_increased_tech = tech_starbase_4
+						last_increased_tech = tech_starbase_5
+						last_increased_tech = tech_modular_engineering
+						last_increased_tech = tech_space_defense_station_improvement
+						last_increased_tech = tech_strike_craft_1
+						last_increased_tech = tech_strike_craft_2
+						last_increased_tech = tech_strike_craft_3
+						last_increased_tech = tech_ship_armor_2
+						last_increased_tech = tech_ship_armor_3
+						last_increased_tech = tech_ship_armor_4
+						last_increased_tech = tech_ship_armor_5
+						last_increased_tech = tech_crystal_armor_1
+						last_increased_tech = tech_crystal_armor_2
+						last_increased_tech = tech_thrusters_2
+						last_increased_tech = tech_thrusters_3
+						last_increased_tech = tech_thrusters_4
+						last_increased_tech = tech_defense_platform_hull_1
+						last_increased_tech = tech_powered_exoskeletons
+						last_increased_tech = tech_space_mining_1
+						last_increased_tech = tech_space_mining_2
+						last_increased_tech = tech_space_mining_3
+						last_increased_tech = tech_space_mining_4
+						last_increased_tech = tech_space_mining_5
+						last_increased_tech = tech_mining_1
+						last_increased_tech = tech_mining_2
+						last_increased_tech = tech_mining_3
+						last_increased_tech = tech_mineral_purification_1
+						last_increased_tech = tech_mineral_purification_2
+						last_increased_tech = tech_alloys_1
+						last_increased_tech = tech_alloys_2
+						last_increased_tech = tech_luxuries_1
+						last_increased_tech = tech_luxuries_2
+						last_increased_tech = tech_engineering_1
+						last_increased_tech = tech_engineering_2
+						last_increased_tech = tech_engineering_3
+						last_increased_tech = tech_robotic_workers
+						last_increased_tech = tech_droid_workers
+						last_increased_tech = tech_synthetic_workers
+						last_increased_tech = tech_synthetic_leaders
+						last_increased_tech = tech_afterburners_1
+						last_increased_tech = tech_afterburners_2
+						last_increased_tech = tech_assembly_pattern
+						last_increased_tech = tech_construction_templates
+						last_increased_tech = tech_housing_1
+						last_increased_tech = tech_housing_2
+						last_increased_tech = tech_repeatable_improved_tile_mineral_output
+						last_increased_tech = tech_repeatable_improved_military_station_damage
+						last_increased_tech = tech_repeatable_improved_military_station_health
+						last_increased_tech = tech_repeatable_improved_armor_output
+						last_increased_tech = tech_repeatable_weapon_type_explosive_damage
+						last_increased_tech = tech_repeatable_weapon_type_explosive_fire_rate
+						last_increased_tech = tech_repeatable_weapon_type_kinetic_damage
+						last_increased_tech = tech_repeatable_weapon_type_kinetic_fire_rate
+						last_increased_tech = tech_repeatable_weapon_type_strike_craft_fire_damage
+						last_increased_tech = tech_repeatable_weapon_type_strike_craft_fire_rate
+						last_increased_tech = tech_repeatable_reduced_building_time
+						last_increased_tech = tech_mass_drivers_2
+						last_increased_tech = tech_mass_drivers_3
+						last_increased_tech = tech_mass_drivers_4
+						last_increased_tech = tech_mass_drivers_5
+						last_increased_tech = tech_kinetic_artillery_1
+						last_increased_tech = tech_kinetic_artillery_2
+						last_increased_tech = tech_mass_accelerator_1
+						last_increased_tech = tech_mass_accelerator_2
+						last_increased_tech = tech_autocannons_1
+						last_increased_tech = tech_autocannons_2
+						last_increased_tech = tech_autocannons_3
+						last_increased_tech = tech_flak_batteries_2
+						last_increased_tech = tech_flak_batteries_3
+						last_increased_tech = tech_missiles_2
+						last_increased_tech = tech_missiles_3
+						last_increased_tech = tech_missiles_4
+						last_increased_tech = tech_missiles_5
+						last_increased_tech = tech_swarmer_missiles_1
+						last_increased_tech = tech_swarmer_missiles_2
+						last_increased_tech = tech_torpedoes_1
+						last_increased_tech = tech_torpedoes_2
+						last_increased_tech = tech_torpedoes_3
+						last_increased_tech = tech_mine_living_metal
+						last_increased_tech = tech_mine_betharian
+						last_increased_tech = tech_mine_exotic_gases
+						last_increased_tech = tech_exotic_gases
+						last_increased_tech = tech_mine_rare_crystals
+						last_increased_tech = tech_rare_crystals
+						last_increased_tech = tech_dark_matter_propulsion
+					}
+				}
+			}
+			change_variable = { which = honor_leader_engineering_techs_researched value = 1 }
+			# Flags for consequential techs
+			if = {
+				limit = {
+					root = { last_increased_tech = tech_corvette_hull_2 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_corvette_hull_2
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_destroyer_hull_2 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_destroyer_hull_2
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_cruiser_hull_2 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_cruiser_hull_2
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_battleship_hull_2 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_battleship_hull_2
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_modular_engineering }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_modular_engineering
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_space_defense_station_improvement }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_space_defense_station_improvement
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_crystal_armor_2 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_crystal_armor_2
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_defense_platform_hull_1 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_defense_platform_hull_1
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_robotic_workers }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_robotic_workers
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_droid_workers }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_droid_workers
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_synthetic_workers }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_synthetic_workers
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_construction_templates }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_construction_templates
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_starbase_5 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_starbase_5
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_crystal_armor_1 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_crystal_armor_1
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_housing_1 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_housing_1
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_housing_2 }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_housing_2
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_mine_living_metal }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_mine_living_metal
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_mine_betharian }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_mine_betharian
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_mine_exotic_gases }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_mine_exotic_gases
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_mine_rare_crystals }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_mine_rare_crystals
+			} else_if = {
+				limit = {
+					root = { last_increased_tech = tech_dark_matter_propulsion }
+				}
+				set_leader_flag = honor_leader_scientist_discovered_dark_matter_propulsion
+			}
+		}
+	}
+}
+
+# on_pop_assembled - set synthetics assembled ++
+planet_event = {
+	id = honor_leader.27
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_synthetics_assembled value = 1 }
+						subtract_variable = { which = honor_leader_pops_resettled value = 1 }
+					}
+				}
+			}
+		} else = {
+			from = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_synthetics_assembled value = 1 }
+						subtract_variable = { which = honor_leader_pops_resettled value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_pop_purged timer to save the pop, species and owner, then delay-trigger other events to allow purge code to run
+planet_event = {
+	id = honor_leader.1200
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+		exists = fromfrom
+	}
+	immediate = {
+		save_event_target_as = honor_leader_purging_owner_planet
+		owner = { save_event_target_as = honor_leader_purging_owner_empire }
+		owner_species = { save_event_target_as = honor_leader_purging_owner_species }
+		fromfrom = {
+			save_event_target_as = honor_leader_purging_pop
+			species = { save_event_target_as = honor_leader_purging_pop_species }
+		}
+		event_target:honor_leader_purging_owner_planet = {
+			planet_event = { id = honor_leader.28 days = 31 }
+		}
+	}
+}
+
+# on_pop_purged - set pops purged ++
+planet_event = {
+	id = honor_leader.28
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_pops_purged value = 1 }
+						set_leader_flag = honor_leader_governor_purged_pops
+						if = {
+							limit = {
+								NOT = {
+									any_galaxy_species = { is_same_species = event_target:honor_leader_purging_pop_species }
+								}
+							}
+							change_variable = { which = honor_leader_species_purged value = 1 }
+							set_leader_flag = honor_leader_governor_purged_species_from_galaxy
+						}
+					}
+				}
+			}
+		}
+		event_target:honor_leader_purging_owner_empire = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_pops_purged value = 1 }
+					set_leader_flag = honor_leader_ruler_purged_pops
+					if = {
+						limit = {
+							NOT = {
+								any_galaxy_species = { is_same_species = event_target:honor_leader_purging_pop_species }
+							}
+						}
+						change_variable = { which = honor_leader_species_purged value = 1 }
+						set_leader_flag = honor_leader_ruler_purged_species_from_galaxy
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_pop_declined - set pops declined (overcrowding) ++
+planet_event = {
+	id = honor_leader.29
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_pops_declined value = 1 }
+						set_leader_flag = honor_leader_governor_slumlord
+					}
+				}
+			}
+		} else_if = { limit = { exists = from.leader }
+			from.leader = {
+				change_variable = { which = honor_leader_pops_declined value = 1 }
+				set_leader_flag = honor_leader_ruler_slumlord
+			}
+		}
+	}
+}
+
+# on_pop_displaced - set pops displaced (non-violent purging) ++
+planet_event = {
+	id = honor_leader.30
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_pops_displaced value = 1 }
+					}
+				}
+			}
+		} else = {
+			from = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_pops_displaced value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_pop_added - set pops resettled (refugees, events, and resettlement, maybe colonization?) ++
+# from = planet
+pop_event = {
+	id = honor_leader.31
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		years_passed != 0
+		exists = from
+	}
+	immediate = {
+		from = {
+			if = {
+				limit = {
+					exists = sector
+					exists = sector.owner
+				}
+				sector = {
+					if = {
+						limit = {
+							exists = leader
+							owner = { is_ai = no }
+						}
+						leader = {
+							change_variable = { which = honor_leader_pops_resettled value = 1 }
+						}
+					}
+				}
+			} else_if = {
+				limit = {
+					exists = owner
+					owner = {
+						is_ai = no
+						exists = leader
+					}
+				}
+				owner = {
+					leader = {
+						change_variable = { which = honor_leader_pops_resettled value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_pop_grown - set pops grown ++ AND -- pops resettled -- since both events fire on growth
+planet_event = {
+	id = honor_leader.32
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_pops_grown value = 1 }
+						subtract_variable = { which = honor_leader_pops_resettled value = 1 }
+					}
+				}
+			}
+		} else = {
+			from = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_pops_grown value = 1 }
+						subtract_variable = { which = honor_leader_pops_resettled value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_army_recruited - set armies recruited ++
+planet_event = {
+	id = honor_leader.33
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = from
+	}
+	immediate = {
+		from = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_armies_recruited value = 1 }
+				}
+			}
+		}
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_armies_recruited value = 1 }
+					}
+				}
+			}
+		} else = {
+			owner = {
+				every_owned_leader = {
+					limit = { leader_class = ruler }
+					change_variable = { which = honor_leader_armies_recruited value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_building_complete - set buildings constructed ++ check if potential reached
+planet_event = {
+	id = honor_leader.34
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		save_event_target_as = honor_leader_planet
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_buildings_constructed value = 1 }
+						if = {
+							limit = {
+								event_target:honor_leader_planet = {
+									free_building_slots = 0
+									num_buildings = {
+										type = any
+										value >= 16
+									}
+								}
+							}
+							set_leader_flag = honor_leader_governor_fully_developed_buildings
+						}
+						if = {
+							limit = {
+								event_target:honor_leader_planet = {
+									free_district_slots = 0
+									free_building_slots = 0
+									num_uncleared_blockers = 0
+									num_buildings = {
+										type = any
+										value >= 16
+									}
+								}
+							}
+							set_leader_flag = honor_leader_governor_fully_developed_planet
+						}
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_buildings_constructed value = 1 }
+						if = {
+							limit = {
+								event_target:honor_leader_planet = {
+									free_building_slots = 0
+									num_buildings = {
+										type = any
+										value >= 16
+									}
+								}
+							}
+							set_leader_flag = honor_leader_ruler_fully_developed_buildings
+						}
+						if = {
+							limit = {
+								event_target:honor_leader_planet = {
+									free_district_slots = 0
+									free_building_slots = 0
+									num_uncleared_blockers = 0
+									num_buildings = {
+										type = any
+										value >= 16
+									}
+								}
+							}
+							set_leader_flag = honor_leader_ruler_fully_developed_planet
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_building_upgraded - set buildings upgraded ++
+planet_event = {
+	id = honor_leader.35
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_buildings_upgraded value = 1 }
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_buildings_upgraded value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_district_complete - set districts constructed ++ check for potential reached
+planet_event = {
+	id = honor_leader.36
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		save_event_target_as = honor_leader_planet
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_districts_constructed value = 1 }
+						if = {
+							limit = {
+								event_target:honor_leader_planet = {
+									free_district_slots = 0
+									num_uncleared_blockers = 0
+								}
+							}
+							set_leader_flag = honor_leader_governor_fully_developed_districts
+						}
+						if = {
+							limit = {
+								event_target:honor_leader_planet = {
+									free_district_slots = 0
+									free_building_slots = 0
+									num_uncleared_blockers = 0
+									num_buildings = {
+										type = any
+										value >= 16
+									}
+								}
+							}
+							set_leader_flag = honor_leader_governor_fully_developed_planet
+						}
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_districts_constructed value = 1 }
+						if = {
+							limit = {
+								event_target:honor_leader_planet = {
+									free_district_slots = 0
+									num_uncleared_blockers = 0
+								}
+							}
+							set_leader_flag = honor_leader_ruler_fully_developed_districts
+						}
+						if = {
+							limit = {
+								event_target:honor_leader_planet = {
+									free_district_slots = 0
+									free_building_slots = 0
+									num_uncleared_blockers = 0
+									num_buildings = {
+										type = any
+										value >= 16
+									}
+								}
+							}
+							set_leader_flag = honor_leader_ruler_fully_developed_planet
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_building_replaced - set buildings replaced ++
+planet_event = {
+	id = honor_leader.37
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_buildings_replaced value = 1 }
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_buildings_replaced value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_district_demolished - set districts demolished ++
+planet_event = {
+	id = honor_leader.38
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+	}
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_districts_demolished value = 1 }
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_districts_demolished value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_modification_complete - set species modified (# Of planetary populations modified) ++
+country_event = {
+	id = honor_leader.39
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_planetary_populations_modified value = 1 }
+				set_leader_flag = honor_leader_ruler_species_modified
+			}
+		}
+	}
+}
+
+# on_election_started - set elections participated (no way to check candidates picked, so go with faction leaders) ++
+country_event = {
+	id = honor_leader.40
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		if = {
+			limit = {
+				exists = leader
+				leader = { leader_of_faction = no }
+			}
+			leader = {
+				change_variable = { which = honor_leader_elections_participated value = 1 }
+				set_leader_flag = honor_leader_ruler_in_election
+			}
+		}
+		if = {
+			limit = {
+				exists = leader
+				leader = { leader_of_faction = yes }
+			}
+			leader = { set_leader_flag = honor_leader_ruler_in_election }
+		}
+		every_owned_leader = {
+			limit = { leader_of_faction = yes }
+			change_variable = { which = honor_leader_elections_participated value = 1 }
+			set_leader_flag = honor_leader_leader_in_election
+		}
+	}
+}
+
+# on_election_ended - set times reelected (no way to check candidates picked, so go with faction leaders) ++
+country_event = {
+	id = honor_leader.41
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		if = {
+			limit = {
+				exists = leader
+				leader = { has_leader_flag = honor_leader_ruler_in_election }
+			}
+			leader = {
+				change_variable = { which = honor_leader_times_reelected value = 1 }
+			}
+		}
+		every_owned_leader = {
+			limit = { has_leader_flag = honor_leader_ruler_in_election }
+			remove_leader_flag = honor_leader_ruler_in_election
+		}
+		every_owned_leader = {
+			limit = { has_leader_flag = honor_leader_leader_in_election }
+			remove_leader_flag = honor_leader_leader_in_election
+		}
+	}
+}
+
+# on_pirate_spawn - set pirates allowed ++
+country_event = {
+	id = honor_leader.42
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_pirates_allowed value = 1 }
+				set_leader_flag = honor_leader_ruler_allowed_pirates
+			}
+		}
+	}
+}
+
+# WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGGGHHHHH!!!!!!!!!
+# on_ship_destroyed_perp - set ships destroyed ++
+# this = owner of ship 1 (combatant)
+# from = owner of ship 2 (destroyed)
+# fromfrom = ship 1
+# fromfromfrom = ship 2
+country_event = {
+	id = honor_leader.43
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+		exists = fromfrom
+		# exists = fromfromfrom
+		from = {
+			is_ai = yes
+			is_country_type_with_subjects = no
+		}
+	}
+	immediate = {
+		fromfrom = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_ships_destroyed value = 1 }
+					# Check ship_size for types
+					if = {
+						limit = {
+							root.from = {
+								OR = {
+									is_drone_country_type = yes
+									is_crystal_country_type = yes
+									is_amoeba_country_type = yes
+									is_tiyanki_country_type = yes
+									is_country_type = vluur
+									is_country_type = cloud
+								}
+							}
+							# from = {
+							# 	OR = {
+							# 		# Ancient Mining Drones
+							# 		is_ship_size = ancient_mining_drone
+							# 		is_ship_size = ancient_corvette
+							# 		is_ship_size = ancient_destroyer
+							# 		is_ship_size = homebase
+							# 		# Crystalline Entities
+							# 		is_ship_size = crystal_ship_small_blue
+							# 		is_ship_size = crystal_ship_medium_blue
+							# 		is_ship_size = crystal_ship_large_blue
+							# 		is_ship_size = crystal_ship_small_green
+							# 		is_ship_size = crystal_ship_medium_green
+							# 		is_ship_size = crystal_ship_large_green
+							# 		is_ship_size = crystal_ship_small_yellow
+							# 		is_ship_size = crystal_ship_medium_yellow
+							# 		is_ship_size = crystal_ship_large_yellow
+							# 		is_ship_size = crystal_ship_small_red
+							# 		is_ship_size = crystal_ship_medium_red
+							# 		is_ship_size = crystal_ship_large_red
+							# 		is_ship_size = crystal_ship_small_blue_elite
+							# 		is_ship_size = crystal_ship_medium_blue_elite
+							# 		is_ship_size = crystal_ship_large_blue_elite
+							# 		is_ship_size = crystal_ship_small_green_elite
+							# 		is_ship_size = crystal_ship_medium_green_elite
+							# 		is_ship_size = crystal_ship_large_green_elite
+							# 		is_ship_size = crystal_ship_small_yellow_elite
+							# 		is_ship_size = crystal_ship_medium_yellow_elite
+							# 		is_ship_size = crystal_ship_large_yellow_elite
+							# 		is_ship_size = crystal_ship_small_red_elite
+							# 		is_ship_size = crystal_ship_medium_red_elite
+							# 		is_ship_size = crystal_ship_large_red_elite
+							# 		is_ship_size = crystal_station_large
+							# 		# Space Amoeba
+							# 		is_ship_size = space_amoeba_mother
+							# 		is_ship_size = space_amoeba
+							# 		# Void Clouds
+							# 		is_ship_size = space_cloud
+							# 		# Tiyanki Space Whales
+							# 		is_ship_size = space_whale_1
+							# 		is_ship_size = space_whale_2
+							# 		is_ship_size = space_whale_3
+							# 	}
+							# }
+						}
+						change_variable = { which = honor_leader_space_critters_destroyed value = 1 }
+					} else_if = { # Pirates
+						limit = { # Not Awakened Marauders
+							root.from = {
+								OR = {
+									is_pirate = yes
+									is_country_type = marauder_raiders
+									# is_country_type = dormant_marauders
+									# is_country_type = ruined_marauders
+									# is_country_type = awakened_marauders
+								}
+							}
+							# from = {
+							# 	OR = {
+							# 		is_ship_size = pirate_station
+							# 		is_ship_size = pirate_corvette
+							# 		is_ship_size = pirate_destroyer
+							# 		is_ship_size = pirate_cruiser
+							# 		is_ship_size = galleon
+							# 		is_ship_size = transport
+							# 	}
+							# }
+						}
+						change_variable = { which = honor_leader_pirate_ships_destroyed value = 1 }
+					} else_if = { # Crisis
+						limit = { # Not Awakened Marauders
+							root.from = { is_crisis_faction = yes }
+							# from = {
+							# 	OR = {
+							# 		# Swarm
+							# 		is_ship_size = large_ship_swarm
+							# 		is_ship_size = large_ship_carrier_swarm
+							# 		is_ship_size = small_ship_swarm
+							# 		is_ship_size = starbase_swarm
+							# 		is_ship_size = queen_swarm
+							# 		is_ship_size = transport_ship_swarm
+							# 		is_ship_size = colony_ship_swarm
+							# 		is_ship_size = construction_ship_swarm
+							# 		# Extradimensional
+							# 		is_ship_size = large_ship_ed
+							# 		is_ship_size = medium_ship_ed
+							# 		is_ship_size = small_ship_ed
+							# 		is_ship_size = construction_ship_ed
+							# 		is_ship_size = dimensional_portal_ed
+							# 		is_ship_size = starbase_exd
+							# 		# AI
+							# 		is_ship_size = large_ship_ai
+							# 		is_ship_size = small_ship_ai
+							# 		is_ship_size = starbase_ai
+							# 		is_ship_size = military_station_large_ai
+							# 		is_ship_size = military_station_small_ai
+							# 		is_ship_size = core_ai
+							# 		is_ship_size = final_core_ai
+							# 		is_ship_size = transport_ship_ai
+							# 		is_ship_size = colony_ship_ai
+							# 		is_ship_size = construction_ship_ai
+							# 	}
+							# }
+						}
+						change_variable = { which = honor_leader_crisis_ships_destroyed value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_ship_destroyed_victim - set ships lost ++
+country_event = {
+	id = honor_leader.44
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		from = { is_ai = no }
+		exists = fromfrom
+	}
+	immediate = {
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_ships_lost value = 1 }
+			}
+		}
+		fromfrom = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_ships_lost value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_fleet_destroyed_perp - set fleets destroyed ++
+country_event = {
+	id = honor_leader.45
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = fromfrom
+	}
+	immediate = {
+		fromfrom = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_fleets_destroyed value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_fleet_destroyed_victim - set fleets lost ++
+country_event = {
+	id = honor_leader.46
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		from = { is_ai = no }
+		exists = fromfrom
+	}
+	immediate = {
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_fleets_lost value = 1 }
+			}
+		}
+		fromfrom = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_fleets_lost value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_space_battle_won - set space battles won ++
+country_event = {
+	id = honor_leader.47
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = fromfrom
+	}
+	immediate = {
+		fromfrom = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_space_battles_won value = 1 }
+					if = {
+						limit = {
+							check_variable = { which = honor_leader_space_battles_lost value = 0 }
+						}
+						set_leader_flag = honor_leader_admiral_undefeated
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_space_battle_lost - set space battles lost ++
+country_event = {
+	id = honor_leader.48
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = fromfrom
+	}
+	immediate = {
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_space_battles_lost value = 1 }
+			}
+		}
+		fromfrom = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_space_battles_lost value = 1 }
+					remove_leader_flag = honor_leader_admiral_undefeated
+				}
+			}
+		}
+	}
+}
+
+# on_planet_bombarded - set days bombarding planet ++
+planet_event = {
+	id = honor_leader.49
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = { has_owner = yes }
+	trigger = {
+		exists = from
+		from = {
+			is_ai = no
+			exists = leader
+		}
+	}
+	immediate = {
+		from.leader = {
+			change_variable = { which = honor_leader_days_bombarding_planet value = 1 }
+		}
+	}
+}
+
+# on_war_beginning - check war type for country then set (type) wars involved in ++
+country_event = {
+	id = honor_leader.51
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+	}
+	immediate = {
+		save_event_target_as = honor_leader_country
+		from = {
+			if = {
+				limit = {
+					is_war_participant = { who = root side = defenders }
+				}
+				root = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_defensive_wars_initiated value = 1 }
+						}
+					}
+				}
+			} else_if = {
+				limit = {
+					is_war_participant = { who = root side = attackers }
+				}
+				root = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_offensive_wars_initiated value = 1 }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_war_ended - check war type for country then set (type) wars lost/won in ++
+country_event = {
+	id = honor_leader.52
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+	}
+	immediate = {
+		# save_event_target_as = honor_leader_country_loser
+		# from = { save_event_target_as = honor_leader_country_winner }
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_wars_endured value = 1 }
+			}
+		}
+		from = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_wars_endured value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_status_quo - check war type for country then set status quo result ++
+country_event = {
+	id = honor_leader.53
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+	}
+	immediate = {
+		# save_event_target_as = honor_leader_country_actor
+		# from = { save_event_target_as = honor_leader_country_recipient }
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_status_quo_result value = 1 }
+			}
+		}
+		from = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_status_quo_result value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_status_quo_forced - check war type for country then set status quo result ++
+country_event = {
+	id = honor_leader.54
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+	}
+	immediate = {
+		# save_event_target_as = honor_leader_country_recipient
+		# from = { save_event_target_as = honor_leader_country_actor }
+		from = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_status_quo_forced_on value = 1 }
+				}
+			}
+		}
+		if = { limit = { exists = leader }
+			leader = {
+				change_variable = { which = honor_leader_status_quo_forced_upon value = 1 }
+			}
+		}
+	}
+}
+
+# on_planet_attackers_win - check attacker army for leader, set ground combats won ++
+country_event = {
+	id = honor_leader.55
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		# exists = from
+		exists = fromfrom
+	}
+	immediate = {
+		save_event_target_as = honor_leader_country_attacker
+		# fromfrom = { save_event_target_as = honor_leader_defending_planet }
+		fromfrom = {
+			if = { limit = { has_army = yes }
+				every_planet_army = {
+					limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_ground_combats_won value = 1 }
+						if = {
+							limit = {
+								check_variable = { which = honor_leader_ground_combats_lost value = 0 }
+							}
+							set_leader_flag = honor_leader_general_undefeated
+						}
+					}
+				}
+			} else = {
+				root = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_ground_combats_won value = 1 }
+							if = {
+								limit = {
+									check_variable = { which = honor_leader_ground_combats_lost value = 0 }
+								}
+								set_leader_flag = honor_leader_general_undefeated
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_planet_attackers_lose - check attacker army for leader, set ground combats lost ++
+# this = country, attack leader
+# from = country, planet owner
+# fromfrom = planet
+country_event = {
+	id = honor_leader.56
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+		exists = fromfrom
+	}
+	immediate = {
+		# save_event_target_as = honor_leader_country_attacker
+		# fromfrom = { save_event_target_as = honor_leader_defending_planet }
+		fromfrom = {
+			if = { limit = { has_army = yes }
+				every_planet_army = {
+					limit = {
+						exists = leader
+						is_owned_by = root
+					}
+					leader = {
+						change_variable = { which = honor_leader_ground_combats_lost value = 1 }
+						remove_leader_flag = honor_leader_general_undefeated
+					}
+				}
+			} else = {
+				root = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_ground_combats_lost value = 1 }
+							remove_leader_flag = honor_leader_general_undefeated
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_planet_defenders_win - check defender army for leader, set ground combats won ++
+country_event = {
+	id = honor_leader.57
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+		exists = fromfrom
+	}
+	immediate = {
+		# save_event_target_as = honor_leader_country_defender
+		# fromfrom = { save_event_target_as = honor_leader_defending_planet }
+		fromfrom = {
+			if = { limit = { has_army = yes }
+				every_planet_army = {
+					limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_ground_combats_won value = 1 }
+						if = {
+							limit = {
+								check_variable = { which = honor_leader_ground_combats_lost value = 0 }
+							}
+							set_leader_flag = honor_leader_general_undefeated
+						}
+					}
+				}
+			} else = {
+				root = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_ground_combats_won value = 1 }
+							if = {
+								limit = {
+									check_variable = { which = honor_leader_ground_combats_lost value = 0 }
+								}
+								set_leader_flag = honor_leader_general_undefeated
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_planet_defenders_lose - check defender army for leader, set ground combats lost ++
+country_event = {
+	id = honor_leader.58
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+		exists = fromfrom
+	}
+	immediate = {
+		# save_event_target_as = honor_leader_country_defender
+		# fromfrom = { save_event_target_as = honor_leader_defending_planet }
+		fromfrom = {
+			if = { limit = { has_army = yes }
+				every_planet_army = {
+					limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_ground_combats_lost value = 1 }
+						remove_leader_flag = honor_leader_general_undefeated
+					}
+				}
+			} else = {
+				root = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_ground_combats_lost value = 1 }
+							remove_leader_flag = honor_leader_general_undefeated
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_emergency_ftl - set emergency ftl jumps ++
+fleet_event = {
+	id = honor_leader.59
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = leader
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_emergency_ftl_jumps value = 1 }
+		}
+	}
+}
+
+# on_rebels_take_planet - set planets lost to rebels, set leader flag ++
+country_event = {
+	id = honor_leader.60
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = from
+		from.owner = { is_ai = no }
+	}
+	immediate = {
+		# from = { save_event_target_as = honor_leader_rebel_planet }
+		from = {
+			if = { limit = { exists = sector }
+				sector = {
+					if = { limit = { exists = leader }
+						leader = {
+							change_variable = { which = honor_leader_planets_lost_to_rebels value = 1 }
+							set_leader_flag = honor_leader_governor_allowed_rebels
+						}
+					}
+				}
+			} else = {
+				owner = {
+					every_owned_leader = {
+						limit = { leader_class = ruler }
+						change_variable = { which = honor_leader_planets_lost_to_rebels value = 1 }
+						set_leader_flag = honor_leader_ruler_allowed_rebels
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_planet_conquer - set planets conquered ++
+planet_event = {
+	id = honor_leader.61
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = { has_owner = yes }
+	trigger = {
+		exists = from
+		from = { is_ai = no }
+	}
+	immediate = {
+		# from = { save_event_target_as = honor_leader_country_conqueror }
+		from = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_planets_conquered value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_country_destroyed - set nations destroyed ++
+country_event = {
+	id = honor_leader.62
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = from
+		from = { is_ai = no }
+	}
+	immediate = {
+		# from = { save_event_target_as = honor_leader_country_destroyer }
+		from = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_nations_destroyed value = 1 }
+					set_leader_flag = honor_leader_ruler_destroyer_of_nations
+				}
+			}
+		}
+	}
+}
+
+# on_system_lost - set systems lost ++
+country_event = {
+	id = honor_leader.63
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = leader
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_systems_lost value = 1 }
+			set_leader_flag = honor_leader_ruler_lost_territory
+		}
+	}
+}
+
+# on_system_gained - set systems gained ++
+country_event = {
+	id = honor_leader.64
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = leader
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_systems_gained value = 1 }
+			set_leader_flag = honor_leader_ruler_gained_territory
+		}
+	}
+}
+
+# on_colonized - set colonies started ++
+planet_event = {
+	id = honor_leader.65
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = { exists = owner }
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_colonies_started value = 1 }
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_colonies_started value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_entering_battle - set space battles fought ++
+country_event = {
+	id = honor_leader.66
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = fromfrom
+		exists = fromfrom.leader
+	}
+	immediate = {
+		fromfrom.leader = {
+			change_variable = { which = honor_leader_space_battles_fought value = 1 }
+		}
+	}
+}
+
+# on_terraforming_started - set terraforming started ++
+planet_event = {
+	id = honor_leader.67
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = { exists = owner exists = owner }
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_terraforming_started value = 1 }
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_terraforming_started value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_building_demolished - set building demolished ++
+planet_event = {
+	id = honor_leader.68
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = { exists = owner exists = owner }
+	immediate = {
+		if = { limit = { exists = sector }
+			sector = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_building_demolished value = 1 }
+					}
+				}
+			}
+		} else = {
+			owner = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_building_demolished value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_slave_sold_on_market - set slaves sold/bought ++
+pop_event = {
+	id = honor_leader.69
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = from
+		exists = fromfrom
+	}
+	immediate = {
+		# from = {
+		# 	save_event_target_as = honor_leader_country_buyer
+		# }
+		# fromfrom = {
+		# 	save_event_target_as = honor_leader_country_seller
+		# }
+		from = {
+			if = {
+				limit = {
+					is_ai = no
+					exists = leader
+				}
+				leader = {
+					change_variable = { which = honor_leader_slaves_bought value = 1 }
+				}
+			}
+		}
+		fromfrom = {
+			if = {
+				limit = {
+					is_ai = no
+					exists = leader
+				}
+				leader = {
+					change_variable = { which = honor_leader_slaves_sold value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# on_pop_enslaved - set pops enslaved ++
+pop_event = {
+	id = honor_leader.70
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = {
+			is_ai = no
+			exists = leader
+		}
+	}
+	immediate = {
+		owner.leader = {
+			change_variable = { which = honor_leader_pops_enslaved value = 1 }
+		}
+	}
+}
+
+# on_pop_emancipated - set pops emancipated ++
+pop_event = {
+	id = honor_leader.71
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = {
+			is_ai = no
+			exists = leader
+		}
+	}
+	immediate = {
+		owner.leader = {
+			change_variable = { which = honor_leader_pops_emancipated value = 1 }
+		}
+	}
+}
+
+# on_ship_order - check if research_anomaly_order or collect_data_fleet_order, set anomaly/special projects sent to research ++, also, evaded_hostiles ++
+ship_event = {
+	id = honor_leader.72
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = owner
+		owner = { is_ai = no }
+		exists = leader
+	}
+	immediate = {
+		if = { limit = { has_fleet_order = research_anomaly_order }
+			leader = {
+				change_variable = { which = honor_leader_anomalies_researched value = 1 }
+			}
+		} else_if = { limit = { has_fleet_order = collect_data_fleet_order }
+			leader = {
+				change_variable = { which = honor_leader_special_projects_researched value = 1 }
+			}
+		} else_if = { limit = { has_fleet_order = evade_hostiles_order }
+			leader = {
+				change_variable = { which = honor_leader_evaded_hostiles value = 1 }
+			}
+		}
+	}
+}
+
+# on_leader_spawned - Set pool leader and calender
+country_event = {
+	id = honor_leader.73
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+		is_variable_set = honor_leader_calender_year
+	}
+	immediate = {
+		from = {
+			set_variable = { which = honor_leader_calender_year value = root.honor_leader_calender_year }
+			set_leader_flag = honor_leader_is_pool_leader
+		}
+	}
+}
+
+# on_planet_zero_health_ground_combat - set planet leveled due to ground combat ++
+planet_event = {
+	id = honor_leader.74
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+		is_ai = no
+	}
+	trigger = {
+		exists = owner
+		exists = from
+		owner = { is_ai = no }
+	}
+	immediate = {
+		# save_event_target_as = honor_leader_defending_planet
+		# from = { save_event_target_as = honor_leader_country_attacker }
+		if = { limit = { has_army = yes }
+			every_planet_army = {
+				limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_planets_leveled_ground_combat value = 1 }
+					set_leader_flag = honor_leader_general_leveled_a_planet
+				}
+			}
+		} else = {
+			from = {
+				if = { limit = { exists = leader }
+					leader = {
+						change_variable = { which = honor_leader_planets_leveled_ground_combat value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_planet_zero_pops - set colony destroyed due to bombardment ++
+planet_event = {
+	id = honor_leader.75
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = from
+		from = { is_ai = no }
+	}
+	immediate = {
+		# save_event_target_as = honor_leader_defending_planet
+		# from = { save_event_target_as = honor_leader_fleet_attacker
+		from = {
+			if = { limit = { exists = leader }
+				leader = {
+					change_variable = { which = honor_leader_colonies_eradicated value = 1 }
+					set_leader_flag = honor_leader_admiral_eradicated_colony
+				}
+			}
+		}
+	}
+}
+
+# on_pop_abducted - set pops abducted ++
+# From = planet abducted from
+pop_event = {
+	id = honor_leader.76
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { exists = from }
+	immediate = {
+		# save_event_target_as = honor_leader_abducted_pop
+		# from = { save_event_target_as = honor_leader_abducted_pop_planet }
+		from = {
+			if = { limit = { exists = orbit }
+				orbit = {
+					if = {
+						limit = {
+							is_scope_valid = yes
+							has_owner = yes
+							exists = owner
+							owner = {
+								is_ai = no
+								NOT = { is_same_empire = root.from.owner }
+							}
+						}
+						# Not supported anymore
+						# if = { limit = { is_scope_type = planet exists = leader }
+						# 	leader = {
+						# 		change_variable = { which = honor_leader_pops_abducted value = 1 }
+						# 	}
+						# }
+						owner = {
+							if = { limit = { exists = leader }
+								leader = {
+									change_variable = { which = honor_leader_pops_abducted value = 1 }
+								}
+							}
+						}
+					}
+				}
+			} else_if = {
+				limit = {
+					any_fleet_in_orbit = {
+						exists = leader
+						exists = owner
+						owner = {
+							is_ai = no
+							NOT = { is_same_empire = root.from.owner }
+						}
+					}
+				}
+				random_fleet_in_orbit = {
+					limit = {
+						exists = leader
+						exists = owner
+						owner = {
+							is_ai = no
+							NOT = { is_same_empire = root.from.owner }
+						}
+					}
+					leader = {
+						change_variable = { which = honor_leader_pops_abducted value = 1 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_megastructure_built - set megastructures built ++
+country_event = {
+	id = honor_leader.77
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = leader
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_megastructures_built value = 1 }
+		}
+	}
+}
+
+# on_relic_activated - set relics activated ++
+country_event = {
+	id = honor_leader.78
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = leader
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_relics_activated value = 1 }
+		}
+	}
+}
+
+# on_arch_site_finished - set archeology sites finished ++
+fleet_event = {
+	id = honor_leader.79
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = leader
+		NAND = {
+			exists = owner
+			owner = { is_ai = yes }
+		}
+	}
+	immediate = {
+		leader = {
+			change_variable = { which = honor_leader_archeology_sites_finished value = 1 }
+		}
+	}
+}
+
+# on_destroy_planet_with_PLANET_KILLER_component - set times_used_colossus ++
+planet_event = {
+	id = honor_leader.80
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		exists = from
+		exists = from.owner
+		from.owner = {
+			is_ai = no
+			exists = leader
+		}
+	}
+	immediate = {
+		from.owner.leader = {
+			change_variable = { which = honor_leader_times_used_colossus value = 1 }
+		}
+	}
+}
+
+# on_leader_death - save event and if possible determine leader death
+country_event = {
+	id = honor_leader.2000
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+		from = {
+			is_scope_valid = yes
+			is_scope_type = leader
+			NOR = {
+				has_leader_flag = honor_leader_is_pool_leader
+				has_leader_flag = honor_leader_dead_leader
+			}
+			leader_age > 1
+			OR = {
+				has_skill > 1
+				has_experience > 100
+			}
+		}
+	}
+	immediate = {
+		set_update_modifiers_batch = begin
+		from = { save_event_target_as = honor_leader }
+		clone_leader = {
+			target = event_target:honor_leader # from
+			effect = {
+				save_event_target_as = honor_leader_clone
+				leader_event = { id = honor_leader.200 }
+				honor_leader_copy_flags_and_vars = yes
+			}
+		}
+		# log = "death event 2000 Starting Scope"
+		# log = "This: \\[This.GetName]"
+		# log = "ThisScope: \\[This.GetScopeType]"
+		# log = "From: \\[From.GetName]"
+		# log = "FromScope: \\[From.GetScopeType]"
+		# log = "Fromfrom: \\[From.from.GetName] FromfromScope: \\[From.from.GetScopeType]"
+		# log = "Fromfromfrom: \\[From.from.from.GetName]"
+		# log = "FromfromfromScope: \\[From.from.from.GetScopeType]"
+		# log = "Fromfromfromfrom: \\[From.from.from.from.GetName]"
+		# log = "FromfromfromfromScope: \\[From.from.from.from.GetScopeType]"
+		# if = {
+		# 	limit = {
+		# 		NAND = {
+		# 			exists = event_target:honor_leader
+		# 			event_target:honor_leader = { is_scope_valid = yes is_scope_type = leader }
+		# 		}
+		# 		exists = from
+		# 		from = { is_scope_valid = yes is_scope_type = leader }
+		# 	}
+		# 	from = {
+		# 		save_event_target_as = honor_leader
+		# 		# species = { save_event_target_as = honor_leader_species }
+		# 	}
+		# }
+		from = {
+			# save_event_target_as = honor_leader
+			# species = { save_event_target_as = honor_leader_species }
+			if = { limit = { exists = from }
+				from = {
+					if = {
+						limit = {
+							is_scope_valid = yes
+							# OR = {
+							# 	AND = {
+							# 		is_scope_type = leader
+							# 		has_leader_flag = honor_leader_probably_dead
+							# 	}
+							# 	NOT = { is_same_value = prev }
+							# }
+							OR = {
+								is_scope_type = ship
+								is_scope_type = fleet
+								is_scope_type = country
+								is_scope_type = leader
+								is_scope_type = galactic_object
+								is_scope_type = planet
+								is_scope_type = army
+							}
+						}
+						save_event_target_as = honor_leader_cause_of_death
+						# "Cause of Death Scope" if on fleet this is exact same as the leader??
+						#  log = "honor_leader_cause_of_death: \\[honor_leader_cause_of_death.GetName] Scope: \\[honor_leader_cause_of_death.GetScopeType]"
+					}
+				}
+				# TODO: to much recources?
+				# if = { limit = { exists = fleet }
+				# 	set_leader_flag = leader_on_fleet
+				# 	fleet = {
+				# 		if = { limit = { exists = solar_system }
+				# 			solar_system = { save_event_target_as = honor_leader_system }
+				# 		}
+				# 	}
+				# }
+			}
+			prev = { save_event_target_as = honor_leader_country }
+			# if = { limit = { gender = female }
+			# 	set_variable = { which = honor_leader_gender value = 1 }
+			# } else = { # indeterminable still not used
+			# 	set_variable = { which = honor_leader_gender value = 2 }
+			# }
+			# export_trigger_value_to_variable = { trigger = has_skill variable = honor_leader_skill }
+			if = {
+				limit = {
+					NOR = {
+						has_leader_flag = honor_leader_ruler_in_election
+						exists = event_target:honor_leader_clone
+					}
+				}
+				# Clone current leader and set to honor_leader - for Old Age death trigger.
+				# Add time effects if not dead.
+				switch = {
+					trigger = leader_class
+					ruler = {
+						if = { limit = { NOT = { has_leader_flag = honor_leader_dead_leader } }
+							set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
+							set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
+							set_variable = { which = honor_leader_class value = 1 }
+							root = {
+								create_leader = {
+									class = ruler
+									species = prev.species
+									name = "NAME"
+									skill = 1
+									# traits = { trait = trait_ruler_eye_for_talent }
+									traits = { trait = leader_trait_resilient }
+									gender = male
+									set_age = 21
+									effect = {
+										set_variable = { which = honor_leader_class value = 1 }
+										save_event_target_as = honor_leader_clone
+										honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
+										leader_event = { id = honor_leader.200 days = -1 }
+									}
+								}
+							}
+						}
+					}
+					governor = {
+						set_variable = { which = honor_leader_class value = 2 }
+						root = {
+							create_leader = {
+								class = governor
+								species = prev.species
+								name = "NAME"
+								skill = 1
+								traits = { trait = leader_trait_resilient }
+								gender = male
+								set_age = 21
+								effect = {
+									set_variable = { which = honor_leader_class value = 2 }
+									save_event_target_as = honor_leader_clone
+									honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
+									leader_event = { id = honor_leader.200 days = -1 }
+								}
+							}
+						}
+					}
+					scientist = {
+						set_variable = { which = honor_leader_class value = 3 }
+						root = {
+							create_leader = {
+								class = scientist
+								species = prev.species
+								name = "NAME"
+								skill = 1
+								traits = { trait = leader_trait_resilient }
+								gender = male
+								set_age = 21
+								effect = {
+									set_variable = { which = honor_leader_class value = 3 }
+									save_event_target_as = honor_leader_clone
+									honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
+									leader_event = { id = honor_leader.200 days = -1 }
+								}
+							}
+						}
+					}
+					admiral = {
+						set_variable = { which = honor_leader_class value = 4 }
+						root = {
+							create_leader = {
+								class = admiral
+								species = prev.species
+								name = "NAME"
+								skill = 1
+								traits = { trait = leader_trait_resilient }
+								gender = male
+								set_age = 21
+								effect = {
+									set_variable = { which = honor_leader_class value = 4 }
+									save_event_target_as = honor_leader_clone
+									honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
+									leader_event = { id = honor_leader.200 days = -1 }
+								}
+							}
+						}
+					}
+					general = {
+						set_variable = { which = honor_leader_class value = 5 }
+						root = {
+							create_leader = {
+								class = general
+								species = prev.species
+								name = "NAME"
+								skill = 1
+								traits = { trait = leader_trait_resilient }
+								gender = male
+								set_age = 21
+								effect = {
+									set_variable = { which = honor_leader_class value = 5 }
+									save_event_target_as = honor_leader_clone
+									honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
+									leader_event = { id = honor_leader.200 days = -1 }
+								}
+							}
+						}
+					}
+				}
+			} else_if = {
+				limit = {
+					# has_leader_flag = honor_leader_ruler_in_election
+					has_leader_flag = honor_leader_ruler_starting_ruler
+					NOT = { exists = event_target:honor_leader_clone }
+				}
+				# Clone current leader and set to honor_leader - for Starting ruler losing election - become governor
+				# Add time effects if not dead.
+				if = {
+					limit = {
+						leader_class = ruler
+						NOT = { has_leader_flag = honor_leader_dead_leader }
+					}
+					set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
+					set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
+				}
+				root = {
+					create_leader = {
+						class = governor
+						species = prev.species
+						name = "NAME"
+						skill = 1
+						traits = { trait = random_trait }
+						gender = male
+						set_age = 28
+						effect = {
+							set_leader_flag = honor_leader_was_ruler # Was Ruler Flag
+							honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
+							honor_leader_add_traits = yes # Add Traits
+							# Remove unnessesary flags and traits.
+							remove_trait = leader_trait_trickster
+							remove_leader_flag = honor_leader_is_pool_leader
+							# save_event_target_as = honor_leader
+							save_event_target_as = honor_leader_clone
+							# leader_event = { id = honor_leader.200 }
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = event_target:honor_leader_clone
+					event_target:honor_leader_clone = { is_scope_valid = yes is_scope_type = leader }
+					exists = last_created_leader
+					last_created_leader = { is_same_value = event_target:honor_leader_clone }
+					# NOT = { has_active_event = { honor_leader.200 } }
+				}
+				event_target:honor_leader_clone = {
+					# save_event_target_as = honor_leader_clone
+					# log="Class [This.honor_leader_class]"
+					# Remove for empty trait set.
+					remove_trait = leader_trait_resilient
+					# Dead Leader Flags
+					set_leader_flag = honor_leader_dead_leader
+					set_leader_flag = honor_leader_interim_leader
+					# Add Traitss
+					honor_leader_add_traits = yes
+					if = {
+						limit = {
+							NAND = {
+								exists = event_target:honor_leader
+								event_target:honor_leader = { is_scope_valid = yes is_scope_type = leader }
+							}
+						}
+						save_event_target_as = honor_leader
+					}
+				}
+			}
+		}
+
+		# if = { NOT working
+		# 	limit = {
+		# 		exists = event_target:honor_leader
+		# 		event_target:honor_leader = { is_scope_valid = yes is_scope_type = leader }
+		# 	}
+		# 	# SOMEHOW NOT WORKING?
+		# 	clone_leader = {
+		# 		target = from
+		# 		# effect = {
+		# 		# 	# log = "Clone Root: [Root.GetScopeType]" is leader!
+		# 		# 	# Clone has already all native values
+		# 		# }
+		# 	}
+		# 	if = { limit = { NOT = { has_active_event = { honor_leader.200 } } }
+		# 		last_created_leader = {
+		# 			set_leader_flag = honor_leader_dead_leader
+		# 			set_leader_flag = honor_leader_interim_leader
+		# 			# Copy Vars and flags
+		# 			honor_leader_copy_flags_and_vars = yes
+		# 			# Add Traits
+		# 			honor_leader_add_traits = yes
+		# 			# leader_event = { id = honor_leader.200 scopes = { from = event_target:honor_leader_country fromfrom = event_target:honor_leader_cause_of_death } days = 3 }
+		# 			set_owner = event_target:honor_leader_country
+		# 			save_event_target_as = honor_leader
+		# 			# log = "last_created_leader: [This.GetName]"
+		# 			leader_event = { id = honor_leader.200 }
+		# 			save_event_target_as = honor_leader_clone
+		# 		}
+		# 	}
+		# }
+		set_update_modifiers_batch = end
+	}
+	after = {
+		if = {
+			limit = {
+				exists = event_target:honor_leader_clone
+				event_target:honor_leader_clone = { is_scope_valid = yes is_scope_type = leader }
+				exists = last_created_leader
+				last_created_leader = { is_same_value = event_target:honor_leader_clone }
+			}
+			event_target:honor_leader_clone = {
+				# log="Class [This.honor_leader_class]"
+				# leader_event = { id = honor_leader.200 days = -1 }
+				# Remove for empty trait set.
+				remove_trait = leader_trait_resilient
+				# Dead Leader Flags
+				set_leader_flag = honor_leader_dead_leader
+				set_leader_flag = honor_leader_interim_leader
+				# Add Traitss
+				honor_leader_add_traits = yes
+				save_event_target_as = honor_leader
+			}
+		}
+	}
+}
+
+# Set Death flags for ship types (on_ship_destroyed_victim).
+# this = owner of fleet 1 (destroyed)
+# from = owner of fleet 2 (combatant)
+# fromfrom = ship 1
+# fromfromfrom = ship 2
+country_event = {
+	id = honor_leader.2001
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = from
+		exists = fromfrom
+		fromfrom = {
+			exists = leader
+			NAND = {
+				exists = fleet
+				fleet = { num_ships > 0 }
+			}
+		}
+	}
+	immediate = {
+		# log = "death event 2001 Starting"
+		# fromfrom = { save_event_target_as = honor_leader_victim_ship }
+		# fromfromfrom = { save_event_target_as = honor_leader_aggressor_ship }
+		from = {
+			if = {
+				limit = { # Xeno Empire
+					is_country_type = default
+					# from = {
+					# 	OR = {
+					# 		is_ship_size = corvette
+					# 		is_ship_size = destroyer
+					# 		is_ship_size = cruiser
+					# 		is_ship_size = battleship
+					# 		is_ship_size = titan
+					# 		is_ship_size = military_station_small
+					# 		is_ship_size = military_station_medium
+					# 		is_ship_size = military_station_large
+					# 		is_ship_size = starbase_outpost
+					# 		is_ship_size = starbase_starport
+					# 		is_ship_size = starbase_starhold
+					# 		is_ship_size = starbase_starfortress
+					# 		is_ship_size = starbase_citadel
+					# 		is_ship_size = starbase_fe_outpost
+					# 		is_ship_size = ion_cannon
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_xeno_empire }
+				}
+			} else_if = { # Fallen Empire
+				limit = {
+					is_fallen_empire = yes
+					# fromfrom = {
+					# 	# Fallen Empire
+					# 	OR = {
+					# 		is_ship_size = massive_ship_fallen_empire
+					# 		is_ship_size = large_ship_fallen_empire
+					# 		is_ship_size = small_ship_fallen_empire
+					# 		is_ship_size = military_station_small_fallen_empire
+					# 		is_ship_size = military_station_large_fallen_empire
+					# 		is_ship_size = starbase_fe_outpost
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_fallen_empire }
+				}
+			}
+			# Vanilla Critters
+			else_if = {
+				limit = {
+					is_drone_country_type = yes
+					# Ancient Mining Drones
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = ancient_mining_drone
+					# 		is_ship_size = ancient_corvette
+					# 		is_ship_size = ancient_destroyer
+					# 		is_ship_size = homebase
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_ancient_mining_drone }
+				}
+			} else_if = { # Crystalline Entities
+				limit = {
+					is_crystal_country_type = yes
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = crystal_ship_small_blue
+					# 		is_ship_size = crystal_ship_medium_blue
+					# 		is_ship_size = crystal_ship_large_blue
+					# 		is_ship_size = crystal_ship_small_green
+					# 		is_ship_size = crystal_ship_medium_green
+					# 		is_ship_size = crystal_ship_large_green
+					# 		is_ship_size = crystal_ship_small_yellow
+					# 		is_ship_size = crystal_ship_medium_yellow
+					# 		is_ship_size = crystal_ship_large_yellow
+					# 		is_ship_size = crystal_ship_small_red
+					# 		is_ship_size = crystal_ship_medium_red
+					# 		is_ship_size = crystal_ship_large_red
+					# 		is_ship_size = crystal_ship_small_blue_elite
+					# 		is_ship_size = crystal_ship_medium_blue_elite
+					# 		is_ship_size = crystal_ship_large_blue_elite
+					# 		is_ship_size = crystal_ship_small_green_elite
+					# 		is_ship_size = crystal_ship_medium_green_elite
+					# 		is_ship_size = crystal_ship_large_green_elite
+					# 		is_ship_size = crystal_ship_small_yellow_elite
+					# 		is_ship_size = crystal_ship_medium_yellow_elite
+					# 		is_ship_size = crystal_ship_large_yellow_elite
+					# 		is_ship_size = crystal_ship_small_red_elite
+					# 		is_ship_size = crystal_ship_medium_red_elite
+					# 		is_ship_size = crystal_ship_large_red_elite
+					# 		is_ship_size = crystal_station_large
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_crystal_ship }
+				}
+			} else_if = { # Space Amoeba
+				limit = {
+					is_amoeba_country_type = yes
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = space_amoeba_mother
+					# 		is_ship_size = space_amoeba
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_space_amoeba }
+				}
+			} else_if = { # Void Clouds
+				limit = {
+					OR = {
+						is_country_type = vluur
+						is_country_type = cloud
+						fromfrom = { is_ship_size = space_cloud }
+					}
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_space_cloud }
+				}
+			} else_if = { # Tiyanki Space Whales
+				limit = {
+					is_tiyanki_country_type = yes
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = space_whale_1
+					# 		is_ship_size = space_whale_2
+					# 		is_ship_size = space_whale_3
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_space_whale }
+				}
+			} else_if = { # Marauders
+				limit = {
+					OR = {
+						is_country_type = dormant_marauders
+						is_country_type = ruined_marauders
+						is_country_type = awakened_marauders
+						is_country_type = marauder_raiders
+					}
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = marauder_corvette
+					# 		is_ship_size = marauder_destroyer
+					# 		is_ship_size = marauder_cruiser
+					# 		is_ship_size = marauder_galleon
+					# 		is_ship_size = marauder_station
+					# 		is_ship_size = marauder_void_dwelling
+					# 		is_ship_size = starbase_marauder
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_marauders }
+				}
+			} else_if = { # Pirates
+				limit = {
+					is_pirate = yes
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = pirate_station
+					# 		is_ship_size = pirate_corvette
+					# 		is_ship_size = pirate_destroyer
+					# 		is_ship_size = pirate_cruiser
+					# 		is_ship_size = galleon
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_pirates }
+				}
+			} else_if = { # Caravaneers
+				limit = {
+					OR = {
+						is_country_type = caravaneer_home
+						is_country_type = caravaneer_fleet
+					}
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = caravaneer_cargoship_01
+					# 		is_ship_size = caravaneer_destroyer_01
+					# 		is_ship_size = caravaneer_cruiser_01
+					# 		is_ship_size = starbase_caravaneer
+					# 		is_ship_size = caravaneer_station_01
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_caravaneers }
+				}
+			} else_if = { # Shroud Entities
+				limit = {
+					OR = {
+						is_country_type = shroud
+						is_country_type = shroud_spirits
+					}
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = psionic_avatar
+					# 		is_ship_size = corrupted_avatar
+					# 		is_ship_size = shroud_manifestation
+					# 		is_ship_size = warped_consciousness
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_shroud_entities }
+				}
+			}
+			## Crisis Ships is_crisis_faction = yes
+			else_if = {
+				limit = { # Swarm
+					is_country_type = swarm
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = large_ship_swarm
+					# 		is_ship_size = large_ship_carrier_swarm
+					# 		is_ship_size = small_ship_swarm
+					# 		is_ship_size = starbase_swarm
+					# 		is_ship_size = queen_swarm
+					# 		is_ship_size = transport_ship_swarm
+					# 		is_ship_size = colony_ship_swarm
+					# 		is_ship_size = construction_ship_swarm
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_swarm }
+				}
+			} else_if = { # Extradimensional
+				limit = {
+					OR = {
+						is_country_type = extradimensional
+						is_country_type = extradimensional_2
+						is_country_type = extradimensional_3
+					}
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = large_ship_ed
+					# 		is_ship_size = medium_ship_ed
+					# 		is_ship_size = small_ship_ed
+					# 		is_ship_size = construction_ship_ed
+					# 		is_ship_size = dimensional_portal_ed
+					# 		is_ship_size = starbase_exd
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_ed }
+				}
+			} else_if = { # AI
+				limit = {
+					is_country_type = ai_empire
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = large_ship_ai
+					# 		is_ship_size = small_ship_ai
+					# 		is_ship_size = starbase_ai
+					# 		is_ship_size = military_station_large_ai
+					# 		is_ship_size = military_station_small_ai
+					# 		is_ship_size = core_ai
+					# 		is_ship_size = final_core_ai
+					# 		is_ship_size = transport_ship_ai
+					# 		is_ship_size = colony_ship_ai
+					# 		is_ship_size = construction_ship_ai
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_ai }
+				}
+			} else_if = {
+				limit = { # Nano
+					OR = {
+						is_country_type = gray_goo
+						is_country_type = gate_builders
+						is_country_type = awakened_gate_builders # (Mod) ADT
+					}
+					# fromfrom = {
+					# 	OR = {
+					# 		is_ship_size = starbase_gatebuilders
+					# 		is_ship_size = graygoo_mothership
+					# 		is_ship_size = graygoo_interdictor
+					# 		is_ship_size = graygoo_factory
+					# 	}
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_nano }
+				}
+			}
+			# Leviathans
+			else_if = {
+				limit = { # Enclave
+					is_country_type = enclave
+					# fromfrom = {
+					# 	is_ship_size = enclave_station
+					# }
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_enclave_station }
+				}
+			}
+			## Guardians # is_guardian_country = yes
+			else_if = { limit = { is_guardian_country = yes }
+				from.leader = { set_leader_flag = honor_leader_cod_guardian }
+				switch = { trigger = is_country_type
+					guardian_dragon			= { from.leader = { set_leader_flag = honor_leader_cod_dragon } }
+					guardian_sphere			= { from.leader = { set_leader_flag = honor_leader_cod_sphere } }
+					guardian_wraith			= { from.leader = { set_leader_flag = honor_leader_cod_wraith } }
+					guardian_horror			= { from.leader = { set_leader_flag = honor_leader_cod_horror } }
+					guardian_fortress		= { from.leader = { set_leader_flag = honor_leader_cod_fortress } }
+					guardian_hiver			= { from.leader = { set_leader_flag = honor_leader_cod_hiver } }
+					guardian_stellarite		= { from.leader = { set_leader_flag = honor_leader_cod_stellarite } }
+					guardian_dreadnought	= { from.leader = { set_leader_flag = honor_leader_cod_dreadnought } }
+					guardian_scavenger_bot	= { from.leader = { set_leader_flag = honor_leader_cod_scavenger_bot } }
+					guardian_elderly_tiyanki= { from.leader = { set_leader_flag = honor_leader_cod_elderly_tiyanki } }
+					guardian_hatchling		= { from.leader = { set_leader_flag = honor_leader_cod_voidspawn } }
+					guardian_toxic_god		= { from.leader = { set_leader_flag = honor_leader_cod_toxic_god } }
+				}
+				# if = { # Stellarite Devourer
+				# 	limit = {
+				# 		OR = {
+				# 			fromfrom = {
+				# 				is_ship_size = stellarite
+				# 			}
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_stellarite }
+				# 	}
+				# } else_if = { # Technosphere
+				# 	limit = {
+				# 		OR = {
+				# 			is_country_type = guardian_sphere
+				# 			fromfrom = {
+				# 				is_ship_size = sphere
+				# 			}
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_sphere }
+				# 	}
+				# } else_if = { # Enigmatic Station
+				# 	limit = {
+				# 		is_country_type = guardian_fortress
+				# 		# fromfrom = {
+				# 		# 	OR = {
+				# 		# 		is_ship_size = station_xl
+				# 		# 		is_ship_size = station_l
+				# 		# 		is_ship_size = station_m
+				# 		# 		is_ship_size = station_s
+				# 		# 		is_ship_size = station_xs
+				# 		# 	}
+				# 		# }
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_fortress }
+				# 	}
+				# } else_if = {
+				# 	limit = {
+				# 		fromfrom = {
+				# 			# Dimensional Horror
+				# 			is_ship_size = dimensional_horror
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_horror }
+				# 	}
+				# } else_if = {
+				# 	limit = {
+				# 		fromfrom = {
+				# 			# Automated Dreadnought
+				# 			is_ship_size = npc_warship_01
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_dreadnought }
+				# 	}
+				# } else_if = {
+				# 	limit = {
+				# 		fromfrom = {
+				# 			# Wraith
+				# 			OR = {
+				# 				is_ship_size = wraith_01_blue
+				# 				is_ship_size = wraith_01_red
+				# 				is_ship_size = wraith_01_yellow
+				# 			}
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_wraith }
+				# 	}
+				# } else_if = {
+				# 	limit = {
+				# 		fromfrom = {
+				# 			# Space Dragon
+				# 			OR = {
+				# 				is_ship_size = space_dragon_baby
+				# 				is_ship_size = space_dragon_blue
+				# 				is_ship_size = space_dragon_red
+				# 				is_ship_size = nanite_space_dragon_baby
+				# 			}
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_dragon }
+				# 	}
+				# } else_if = {
+				# 	limit = {
+				# 		fromfrom = {
+				# 			# Scavenger Bot
+				# 			is_ship_size = leviathan_01_scavenger_bot
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_scavenger_bot }
+				# 	}
+				# } else_if = {
+				# 	limit = {
+				# 		fromfrom = {
+				# 			# Tiyanki Matriarch
+				# 			is_ship_size = leviathan_01_elder_tiyanki
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_elderly_tiyanki }
+				# 	}
+				# } else_if = {
+				# 	limit = {
+				# 		fromfrom = {
+				# 			# Voidspawn
+				# 			is_ship_size = leviathan_01_voidspawn
+				# 		}
+				# 	}
+				# 	from = {
+				# 		leader = { set_leader_flag = honor_leader_cod_voidspawn }
+				# 	}
+				# }
+			} else_if = { # Enigmatic Cache
+				limit = {
+					OR = {
+						is_country_type = enigmatic_cache
+						fromfrom = { is_ship_size = enigmatic_cache }
+					}
+				}
+				from = {
+					leader = { set_leader_flag = honor_leader_cod_enigmatic_cache }
+				}
+			}
+			# Save system (not sure)
+			if = {
+				limit = {
+					exists = fromfrom
+					exists = fromfrom.fleet
+					exists = fromfrom.fleet.solar_system
+				}
+				fromfrom.fleet.solar_system = { save_event_target_as = honor_leader_system }
+			}
+		}
+	}
+}

@@ -1,0 +1,1250 @@
+###########
+# Balance #
+###########
+# Effects on research traits
+@categorybonus = 0.08
+# Generic leader Trait Modifiers
+country_memorialized_leader_adaptable = {
+	species_leader_exp_gain = 0.125
+}
+country_memorialized_leader_stubborn = {
+	species_leader_exp_gain = -0.125
+}
+country_memorialized_leader_resilient = {
+	leader_age = 13
+}
+country_memorialized_leader_substance_abuser = {
+	leader_age = -10
+}
+country_memorialized_leader_eager = {
+	leaders_cost_mult = -0.25
+	leaders_upkeep_mult = -0.25
+}
+country_memorialized_leader_arrested_development = {
+	species_leader_exp_gain = -5
+}
+# Ruler Trait Modifiers
+country_memorialized_ruler_corvette = {
+	ship_corvette_cost_mult = -0.1
+}
+country_memorialized_ruler_destroyer = {
+	ship_destroyer_cost_mult = -0.1
+}
+country_memorialized_ruler_cruiser = {
+	ship_cruiser_cost_mult = -0.1
+}
+country_memorialized_ruler_battleship = {
+	ship_battleship_cost_mult = -0.1
+}
+country_memorialized_ruler_recruiter = {
+	planet_army_build_speed_mult = 0.25
+	armies_cost_mult = -0.1
+}
+country_memorialized_ruler_from_the_ranks = {
+	army_morale = 0.1
+	army_experience_gain_mult = 0.17
+}
+country_memorialized_ruler_fortifier = {
+	starbase_upgrade_cost_mult = -0.05
+	ship_military_station_small_cost_mult = -0.17
+}
+country_memorialized_ruler_logistic_understanding = {
+	ships_upkeep_mult = -0.025
+	armies_upkeep_mult = -0.05
+}
+country_memorialized_ruler_military_pioneer = {
+	country_ship_upgrade_cost_mult = -0.05
+	starbase_shipyard_build_cost_mult = -0.05
+}
+country_memorialized_ruler_warlike = {
+	ship_weapon_damage = 0.025
+	army_damage_mult = 0.05
+}
+country_memorialized_ruler_architectural_sense = {
+	planet_buildings_cost_mult = -0.05
+	planet_districts_cost_mult = -0.05
+	planet_building_build_speed_mult = 0.05
+}
+country_memorialized_ruler_frontier_spirit = {
+	ship_colonizer_cost_mult = -0.17
+	planet_colony_development_speed_mult = 0.12
+}
+country_memorialized_ruler_world_shaper = {
+	terraform_speed_mult = 0.12
+	deposit_blockers_cost_mult = -0.07
+}
+country_memorialized_ruler_home_in_the_sky = {
+	starbase_modules_cost_mult = -0.1
+	starbase_upgrade_cost_mult = -0.05
+}
+country_memorialized_ruler_industrialist = {
+	country_minerals_produces_mult = 0.05
+}
+country_memorialized_ruler_eye_for_talent = {
+	leader_skill_levels = 1
+	species_leader_exp_gain = 0.1
+}
+country_memorialized_ruler_deep_connections = {
+	country_base_influence_produces_add = 0.5
+}
+country_memorialized_ruler_charismatic = {
+	edicts_cost_mult = -0.05
+	edict_length_mult = 0.1
+}
+country_memorialized_ruler_champion_of_the_people = {
+	pop_happiness = 0.025
+}
+country_memorialized_ruler_expansionist = {
+	starbase_outpost_cost_mult = -0.075
+	country_starbase_influence_cost_mult = -0.075
+}
+country_memorialized_ruler_fertility_preacher = {
+	planet_jobs_food_produces_mult = 0.05
+	pop_growth_speed = 0.025
+}
+country_memorialized_ruler_investor = {
+	trade_value_mult = 0.05
+}
+country_memorialized_ruler_space_miner = {
+	station_gatherers_produces_mult = 0.05
+	station_gatherers_cost_mult = -0.125
+}
+country_memorialized_ruler_explorer = {
+	ship_science_cost_mult = -0.125
+	ship_anomaly_research_speed_mult = 0.17
+}
+country_memorialized_ruler_fleet_organizer = {
+	country_naval_cap_mult = 0.075
+}
+# Governor traits
+country_memorialized_governor_iron_fist = {
+	planet_jobs_slave_produces_mult = 0.05
+}
+country_memorialized_governor_army_veteran = {
+	planet_army_build_speed_mult = 0.1
+	armies_cost_mult = -0.1
+	army_defense_damage_mult = 0.1
+}
+country_memorialized_governor_retired_fleet_officer = {
+	starbase_shipyard_build_speed_mult = 0.1
+	starbase_shipyard_build_cost_mult = -0.05
+}
+country_memorialized_governor_architectural_interest = {
+	planet_buildings_cost_mult = -0.05
+	planet_districts_cost_mult = -0.05
+	planet_building_build_speed_mult = 0.05
+}
+country_memorialized_governor_agrarian_upbringing = {
+	planet_jobs_food_produces_mult = 0.05
+}
+country_memorialized_governor_intellectual = {
+	planet_jobs_engineering_research_produces_mult = 0.05
+	planet_jobs_physics_research_produces_mult = 0.05
+	planet_jobs_society_research_produces_mult = 0.05
+}
+country_memorialized_governor_environmental_engineer = {
+	deposit_blockers_cost_mult = -0.125
+	planet_clear_blocker_time_mult = -0.125
+}
+# Scientist traits
+country_memorialized_scientist_meticulous = {
+	ship_anomaly_generation_chance_mult = 0.05
+}
+country_memorialized_scientist_spark_of_genius = {
+	all_technology_research_speed = 0.05
+}
+country_memorialized_scientist_carefree = {
+	ship_anomaly_research_speed_mult = 0.175
+}
+country_memorialized_scientist_roamer = {
+	science_ship_survey_speed = 0.125
+}
+# Figure out ancient relics dlc vs base.
+# country_memorialized_scientist_archaeologist = {
+# custom_tooltip = leader_trait_archaeologist_tooltip_honor_leader
+# Every Precursor anomaly category needs to be listed here.
+#	vultaum_1_cat_research_speed_mult = 0.25
+#	vultaum_2_cat_research_speed_mult = 0.25
+#	vultaum_3_cat_research_speed_mult = 0.25
+#	vultaum_4_cat_research_speed_mult = 0.25
+#	vultaum_5_cat_research_speed_mult = 0.25
+#	vultaum_6_cat_research_speed_mult = 0.25
+#	vultaum_7_cat_research_speed_mult = 0.25
+#	vultaum_8_cat_research_speed_mult = 0.25
+#	vultaum_9_cat_research_speed_mult = 0.25
+#	vultaum_10_cat_research_speed_mult = 0.25
+#	vultaum_11_cat_research_speed_mult = 0.25
+#	yuht_1_cat_research_speed_mult = 0.25
+#	yuht_2_cat_research_speed_mult = 0.25
+#	yuht_3_cat_research_speed_mult = 0.25
+#	yuht_4_cat_research_speed_mult = 0.25
+#	yuht_5_cat_research_speed_mult = 0.25
+#	yuht_6_cat_research_speed_mult = 0.25
+#	yuht_7_cat_research_speed_mult = 0.25
+#	yuht_8_cat_research_speed_mult = 0.25
+#	yuht_9_cat_research_speed_mult = 0.25
+#	league_1_cat_research_speed_mult = 0.25
+#	league_2_cat_research_speed_mult = 0.25
+#	league_3_cat_research_speed_mult = 0.25
+#	league_4_cat_research_speed_mult = 0.25
+#	league_5_cat_research_speed_mult = 0.25
+#	league_6_cat_research_speed_mult = 0.25
+#	league_8_cat_research_speed_mult = 0.25
+#	league_9_cat_research_speed_mult = 0.25
+#	league_10_cat_research_speed_mult = 0.25
+#	league_11_cat_research_speed_mult = 0.25
+#	league_12_cat_research_speed_mult = 0.25
+#	league_13_cat_research_speed_mult = 0.25
+#	league_14_cat_research_speed_mult = 0.25
+#	irassian_1_cat_research_speed_mult = 0.25
+#	irassian_2_cat_research_speed_mult = 0.25
+#	irassian_3_cat_research_speed_mult = 0.25
+#	irassian_4_cat_research_speed_mult = 0.25
+#	irassian_5_cat_research_speed_mult = 0.25
+#	irassian_6_cat_research_speed_mult = 0.25
+#	irassian_7_cat_research_speed_mult = 0.25
+#	irassian_8_cat_research_speed_mult = 0.25
+#	irassian_9_cat_research_speed_mult = 0.25
+#	irassian_10_cat_research_speed_mult = 0.25
+#	irassian_11_cat_research_speed_mult = 0.25
+#	cybrex_1_cat_research_speed_mult = 0.25
+#	cybrex_2_cat_research_speed_mult = 0.25
+#	cybrex_3_cat_research_speed_mult = 0.25
+#	cybrex_4_cat_research_speed_mult = 0.25
+#	cybrex_5_cat_research_speed_mult = 0.25
+#	cybrex_6_cat_research_speed_mult = 0.25
+#	cybrex_7_cat_research_speed_mult = 0.25
+#	cybrex_8_cat_research_speed_mult = 0.25
+#	cybrex_9_cat_research_speed_mult = 0.25
+#	cybrex_10_cat_research_speed_mult = 0.25
+#	cybrex_11_cat_research_speed_mult = 0.25
+#	VULTAUMAR_research_speed_mult = 0.25
+#	YUHTAAN_research_speed_mult = 0.25
+#	FEN_HABBANIS_research_speed_mult = 0.25
+#	IRASSIA_research_speed_mult = 0.25
+#}
+country_memorialized_scientist_paranoid = {
+	all_technology_research_speed = -0.025
+	ship_anomaly_research_speed_mult = -0.05
+}
+country_memorialized_scientist_maniacal = {
+	all_technology_research_speed = 0.025
+}
+country_memorialized_scientist_custom_AI_assistant = {
+	all_technology_research_speed = 0.025
+	science_ship_survey_speed = 0.05
+	ship_anomaly_research_speed_mult = 0.08
+}
+country_memorialized_scientist_sapient_AI_assistant = {
+	all_technology_research_speed = 0.05
+	science_ship_survey_speed = 0.1
+	ship_anomaly_research_speed_mult = 0.15
+}
+country_memorialized_scientist_expertise_materials = {
+	category_materials_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_propulsion = {
+	category_propulsion_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_voidcraft = {
+	category_voidcraft_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_industry = {
+	category_industry_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_field_manipulation = {
+	category_field_manipulation_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_particles = {
+	category_particles_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_computing = {
+	category_computing_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_psionics = {
+	category_psionics_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_new_worlds = {
+	category_new_worlds_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_statecraft = {
+	category_statecraft_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_biology = {
+	category_biology_research_speed_mult = 0.075
+}
+country_memorialized_scientist_expertise_military_theory = {
+	category_military_theory_research_speed_mult = 0.075
+}
+country_memorialized_scientist_towel = {
+	science_ship_survey_speed = 0.2
+}
+# Admiral Trait Modifiers
+country_memorialized_admiral_trickster = {
+	ship_emergency_ftl_mult = -0.075
+	ship_disengage_chance_mult = 0.125
+}
+country_memorialized_admiral_fleet_logistician = {
+	ships_upkeep_mult = -0.05
+}
+country_memorialized_admiral_engineer = {
+	ship_hull_regen_add_perc = 0.25
+	ship_armor_regen_add_perc = 0.25
+}
+country_memorialized_admiral_aggressive = {
+	ship_fire_rate_mult = 0.025
+	ship_speed_mult = 0.05
+}
+country_memorialized_admiral_cautious = {
+	ship_weapon_range_mult = 0.1
+}
+country_memorialized_admiral_scout = {
+	ship_sensor_range_add = 1
+	ship_hyperlane_range_add = 1
+	ship_speed_mult = 0.05
+}
+country_memorialized_admiral_unyielding = {
+	ship_hull_mult = 0.05
+	ship_weapon_damage = 0.025
+	ship_disengage_chance_mult = -0.165
+}
+country_memorialized_admiral_nervous = {
+	ship_fire_rate_mult = -0.05
+}
+country_memorialized_admiral_gale_speed = {
+	ship_evasion_mult = 0.025
+	ship_speed_mult = 0.1
+}
+country_memorialized_admiral_lethargic = {
+	ship_evasion_mult = -0.025
+	ship_speed_mult = -0.05
+}
+# General Trait Modifiers
+country_memorialized_general_restrained = {
+	army_disengage_chance_mult = 0.1
+	army_collateral_damage_mult = -0.165
+}
+country_memorialized_general_charismatic = {
+	army_morale = 0.125
+}
+country_memorialized_general_butcher = {
+	army_damage_mult = 0.05
+	army_collateral_damage_mult = 0.165
+}
+country_memorialized_general_glory_seeker = {
+	army_morale = 0.05
+	army_damage_mult = 0.025
+}
+country_memorialized_general_armchair_commander = {
+	army_morale = -0.05
+	army_damage_mult = -0.05
+}
+country_memorialized_general_army_logistician = {
+	armies_upkeep_mult = -0.1
+}
+# Achievements Modifiers
+#Ruler
+country_memorialized_ruler_achievement_starting_ruler = {
+	ruler_skill_levels = 1
+	edict_length_mult = 0.1
+	country_unity_produces_mult = 0.1
+}
+country_memorialized_ruler_achievement_first_contact_peaceful = {
+	science_ship_survey_speed = 0.1
+}
+country_memorialized_ruler_achievement_first_contact_aggressive = {
+	ship_fire_rate_mult = 0.05
+}
+country_memorialized_ruler_achievement_communications_established = {
+	country_insult_efficiency = 0.1
+}
+country_memorialized_ruler_achievement_allowed_rebels = {
+	damage_vs_country_type_rebel_mult = -0.1
+	planet_stability_add = -10
+}
+country_memorialized_ruler_achievement_banned_ai = {
+	damage_vs_country_type_ai_empire_mult = 0.1
+	country_synthetic_trust_cap_add = -10
+}
+country_memorialized_ruler_achievement_banned_robots = {
+	country_synthetic_trust_cap_add = -5
+}
+country_memorialized_ruler_achievement_commissioned_new_ship_design = {
+	country_ship_upgrade_cost_mult = -0.1
+	starbase_shipyard_build_cost_mult = -0.1
+}
+country_memorialized_ruler_achievement_defensive_only = {
+	defensive_war_influence_gain_add = 1
+	starbase_defensive_war_ship_build_speed_mult = 0.25
+}
+country_memorialized_ruler_achievement_destroyer_of_nations = {
+	country_subject_acceptance_add = 10
+	damage_vs_country_type_adversary_mult = 0.1
+	damage_vs_country_type_default_mult = 0.05
+	country_claim_influence_cost_mult = -0.1
+}
+country_memorialized_ruler_achievement_new_territory_expansionist = {
+	country_starbase_influence_cost_mult = -0.1
+	starbase_outpost_cost_mult = -0.1
+}
+country_memorialized_ruler_achievement_gained_territory = {
+	country_starbase_influence_cost_mult = -0.05
+	starbase_outpost_cost_mult = -0.05
+	country_claim_influence_cost_mult = -0.05
+}
+country_memorialized_ruler_achievement_territory_expansionist = {
+	country_claim_influence_cost_mult = -0.1
+}
+country_memorialized_ruler_achievement_lost_territory = {
+	country_starbase_influence_cost_mult = 0.05
+	starbase_outpost_cost_mult = 0.05
+	country_claim_influence_cost_mult = 0.05
+}
+country_memorialized_ruler_achievement_purge_allowed = {
+	pop_decline_speed = 1
+}
+country_memorialized_ruler_achievement_purge_not_allowed = {
+	pop_happiness = 0.05
+}
+country_memorialized_ruler_achievement_refugees_allowed = {
+	planet_immigration_pull_mult = 1
+	pop_growth_from_immigration = 0.25
+}
+country_memorialized_ruler_achievement_refugees_not_allowed = {
+	planet_immigration_pull_mult = -1
+	pop_growth_from_immigration = -0.25
+}
+country_memorialized_ruler_achievement_slavery_allowed = {
+	slave_market_cost_mult = -0.1
+	pop_cat_slave_political_power = -0.125
+	pop_category_slave_upkeep_mult = -0.1
+}
+country_memorialized_ruler_achievement_slavery_not_allowed = {
+	slave_market_cost_mult = 0.1
+	pop_happiness = 0.1
+}
+country_memorialized_ruler_achievement_species_drugged = {
+	pop_happiness = 0.1
+	planet_jobs_produces_mult = -0.15
+}
+country_memorialized_ruler_achievement_species_enslaved = {
+	slave_market_cost_mult = -0.1
+	pop_cat_slave_political_power = -0.125
+	pop_category_slave_upkeep_mult = -0.1
+}
+country_memorialized_ruler_achievement_species_given_citizenship = {
+	pop_citizen_happiness = 0.1
+}
+country_memorialized_ruler_achievement_species_purging = {
+	pop_decline_speed = 1
+}
+country_memorialized_ruler_achievement_unrestricted_wars = {
+	country_war_exhaustion_mult = -0.2
+	country_claim_influence_cost_mult = -0.1
+}
+country_memorialized_ruler_achievement_uplift = {
+	pop_growth_speed = 0.1
+	pop_happiness = 0.1
+}
+country_memorialized_ruler_achievement_changed_policy = {
+	edict_length_mult = 0.05
+}
+country_memorialized_ruler_achievement_changed_species_rights = {
+	edict_length_mult = 0.05
+}
+country_memorialized_ruler_achievement_great_explorer = {
+	science_ship_survey_speed = 0.5
+	shipclass_science_ship_disengage_mult = 0.5
+	ship_speed_mult = 0.25
+	ship_sensor_range_add = 1
+}
+country_memorialized_ruler_achievement_purged_pops = {
+	pop_growth_speed = 0.1
+	pop_ethic_xenophobe_attraction_mult = 0.25
+	pop_decline_speed = 1
+}
+country_memorialized_ruler_achievement_purged_pops_many = {
+	pop_growth_speed = 0.25
+	pop_ethic_xenophobe_attraction_mult = 1
+	pop_decline_speed = 2
+}
+country_memorialized_ruler_achievement_purged_species_from_galaxy = {
+	pop_growth_speed = 0.5
+	pop_ethic_xenophobe_attraction_mult = 1
+	pop_decline_speed = 2
+}
+country_memorialized_ruler_achievement_purged_species_many = {
+	pop_growth_speed = 1
+	pop_ethic_xenophobe_attraction_mult = 10
+	pop_decline_speed = 5
+}
+country_memorialized_ruler_achievement_slumlord = {
+	pop_growth_speed = 0.1
+	pop_housing_usage_mult = -0.1
+	pop_happiness = -0.1
+}
+# Governor
+country_memorialized_governor_achievement_civilian_buildup = {
+	shipsize_colonizer_build_speed_mult = 1
+	ship_colonizer_cost_mult = -0.5
+	shipsize_constructor_build_speed_mult = 1
+	shipclass_constructor_build_cost_mult = -0.5
+	shipsize_science_build_speed_mult = 1
+	ship_science_cost_mult = -0.5
+}
+country_memorialized_governor_achievement_mining_expansionist = {
+	shipsize_mining_station_build_speed_mult = 1
+	station_gatherers_cost_mult = -0.5
+}
+country_memorialized_governor_achievement_research_expansionist = {
+	shipsize_research_station_build_speed_mult = 1
+	shipclass_research_station_build_cost_mult = -0.5
+}
+country_memorialized_governor_achievement_observation_expansionist = {
+	shipsize_observation_station_build_speed_mult = 1
+	shipclass_observation_station_build_cost_mult = -0.5
+}
+country_memorialized_governor_achievement_colonization_wave = {
+	planet_colony_development_speed_mult = 1
+}
+country_memorialized_governor_achievement_colony_founder = {
+	colony_start_num_pops_add = 2
+}
+country_memorialized_governor_achievement_terrain_leveler = {
+	deposit_blockers_cost_mult = -0.25
+	planet_clear_blocker_time_mult = -0.25
+}
+country_memorialized_governor_achievement_pops_flourishing = {
+	pop_growth_speed = 0.25
+}
+country_memorialized_governor_achievement_edifice_constructor = {
+	building_time_mult = -0.15
+	planet_buildings_cost_mult = -0.15
+}
+country_memorialized_governor_achievement_district_constructor = {
+	planet_district_city_build_speed_mult = 0.15
+	planet_district_farming_build_speed_mult = 0.15
+	planet_district_generator_build_speed_mult = 0.15
+	planet_district_mining_build_speed_mult = 0.15
+	planet_districts_cost_mult = -0.15
+}
+country_memorialized_governor_achievement_military_buildup = {
+	ship_corvette_cost_mult = -0.25
+	ship_destroyer_cost_mult = -0.25
+	ship_cruiser_cost_mult = -0.25
+	ship_battleship_cost_mult = -0.25
+	shipsize_corvette_build_speed_mult = 0.25
+	shipsize_destroyer_build_speed_mult = 0.25
+	shipsize_cruiser_build_speed_mult = 0.25
+	shipsize_battleship_build_speed_mult = 0.25
+}
+country_memorialized_governor_achievement_recruitment_drive = {
+	planet_army_build_speed_mult = 0.2
+	armies_cost_mult = -0.2
+	army_morale = 0.2
+}
+country_memorialized_governor_achievement_allowed_rebels = {
+	damage_vs_country_type_rebel_mult = -0.1
+	planet_stability_add = -10
+}
+country_memorialized_governor_achievement_fully_developed_buildings = {
+	planet_amenities_mult = 0.125
+	planet_buildings_upkeep_mult = -0.25
+}
+country_memorialized_governor_achievement_fully_developed_districts = {
+	planet_amenities_mult = 0.125
+	planet_districts_upkeep_mult = -0.25
+}
+country_memorialized_governor_achievement_fully_developed_planet = {
+	planet_amenities_mult = 0.25
+	planet_buildings_upkeep_mult = -0.25
+	planet_districts_upkeep_mult = -0.25
+}
+country_memorialized_governor_achievement_purged_pops = {
+	pop_growth_speed = 0.1
+	pop_ethic_xenophobe_attraction_mult = 0.25
+	pop_decline_speed = 1
+}
+country_memorialized_governor_achievement_purged_pops_many = {
+	pop_growth_speed = 0.25
+	pop_ethic_xenophobe_attraction_mult = 1
+	pop_decline_speed = 2
+}
+country_memorialized_governor_achievement_purged_species_from_galaxy = {
+	pop_growth_speed = 0.5
+	pop_ethic_xenophobe_attraction_mult = 1
+	pop_decline_speed = 2
+}
+country_memorialized_governor_achievement_purged_species_many = {
+	pop_growth_speed = 1
+	pop_ethic_xenophobe_attraction_mult = 10
+	pop_decline_speed = 5
+}
+country_memorialized_governor_achievement_slumlord = {
+	pop_growth_speed = 0.1
+	pop_housing_usage_mult = -0.1
+	pop_happiness = -0.1
+}
+# Scientist
+country_memorialized_scientist_achievement_survivor = {
+	shipclass_science_ship_evasion_add = 25
+	shipclass_science_ship_disengage_mult = 0.25
+}
+country_memorialized_scientist_achievement_grand_explorer = {
+	ship_sensor_range_add = 1
+}
+country_memorialized_scientist_achievement_expert_rock_turner = {
+	science_ship_survey_speed = 1
+}
+country_memorialized_scientist_achievement_system_surveyor = {
+	science_ship_survey_speed = 0.5
+}
+country_memorialized_scientist_achievement_anomalist = {
+	ship_anomaly_generation_chance_mult = 0.25
+	ship_anomaly_research_speed_mult = 0.25
+}
+country_memorialized_scientist_achievement_project_manager = {
+	science_ship_survey_speed = 0.25
+	ship_anomaly_generation_chance_mult = 0.05
+	ship_anomaly_research_speed_mult = 0.05
+}
+country_memorialized_scientist_achievement_research_assistant = {
+	planet_researchers_physics_research_produces_mult = 0.2
+	planet_researchers_society_research_produces_mult = 0.2
+	planet_researchers_engineering_research_produces_mult = 0.2
+}
+country_memorialized_scientist_achievement_physics_researcher = {
+	country_physics_tech_research_speed = 0.1
+}
+country_memorialized_scientist_achievement_society_researcher = {
+	country_society_tech_research_speed = 0.1
+}
+country_memorialized_scientist_achievement_engineering_researcher = {
+	country_engineering_tech_research_speed = 0.1
+}
+country_memorialized_scientist_achievement_discovered_automated_exploration = {
+	science_ship_survey_speed = 0.25
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_cold_fusion_power = {
+	ships_energy_upkeep_mult = -0.01
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_wormhole_stabilization = {
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_jump_drive_1 = {
+	ship_ftl_jumpdrive_range_mult = 0.1
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_ftl_inhibitor = {
+	ship_emergency_ftl_min_days_mult = -0.5
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_combat_computers_3 = {
+	ship_accuracy_add = 1
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_synchronized_defences = {
+	starbase_defense_platform_capacity_add = 1
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_planetary_shield_generator = {
+	planet_orbital_bombardment_damage = 0.05
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_mine_volatile_motes = {
+	country_volatile_motes_produces_mult = 0.05
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_mine_dark_matter = {
+	country_sr_dark_matter_produces_mult = 0.05
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_lasers_2 = {
+	weapon_type_energy_weapon_damage_mult = 0.05
+	weapon_type_energy_weapon_fire_rate_mult = 0.05
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_extradimensional_weapon_1 = {
+	weapon_type_energy_weapon_damage_mult = 0.05
+	weapon_type_energy_weapon_fire_rate_mult = 0.05
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_mining_drone_weapon_1 = {
+	weapon_type_energy_weapon_damage_mult = 0.05
+	weapon_type_energy_weapon_fire_rate_mult = 0.05
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_space_cloud_weapon_1 = {
+	weapon_type_energy_weapon_damage_mult = 0.05
+	weapon_type_energy_weapon_fire_rate_mult = 0.05
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_null_void_beam = {
+	weapon_type_energy_weapon_damage_mult = 0.05
+	weapon_type_energy_weapon_fire_rate_mult = 0.05
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_dark_matter_deflector = {
+	ship_shield_mult = 0.1
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_dark_matter_power_core = {
+	ships_energy_upkeep_mult = -0.1
+	country_physics_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_psionic_barrier = {
+	ship_shield_mult = 0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_space_whale_weapon_1 = {
+	weapon_type_energy_weapon_damage_mult = 0.05
+	weapon_type_energy_weapon_fire_rate_mult = 0.05
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_galactic_markets = {
+	country_energy_produces_mult = 0.05
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_nutrient_replication = {
+	planet_jobs_food_produces_mult = 0.075
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_tomb_world_adaption = {
+	pc_nuked_habitability = 0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_gene_banks = {
+	planet_army_build_speed_mult = 0.25
+	pop_growth_speed = 0.25
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_morphogenetic_field_mastery = {
+	army_attack_damage_mult = 0.25
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_genetic_resequencing = {
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_gene_expressions = {
+	modify_species_cost_mult = -0.15
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_selected_lineages = {
+	leader_skill_levels = 1
+	leader_age = 5
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_capacity_boosters = {
+	leader_skill_levels = 2
+	leader_age = 10
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_regenerative_hull_tissue = {
+	ship_armor_regen_add_perc = 0.01
+	ship_hull_regen_add_perc = 0.01
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_psionic_theory = {
+	country_unity_produces_mult = 0.05
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_subdermal_stimulation = {
+	pop_happiness = 0.05
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_ascension_theory = {
+	pop_happiness = 0.05
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_penal_colonies = {
+	planet_crime_mult = -0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_resort_colonies = {
+	planet_amenities_mult = 0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_epigenetic_triggers = {
+	modify_species_cost_mult = -0.15
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_gene_tailoring = {
+	modify_species_cost_mult = -0.15
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_terrestrial_sculpting = {
+	terraform_speed_mult = 0.1
+	terraforming_cost_mult = -0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_ecological_adaptation = {
+	terraform_speed_mult = 0.1
+	terraforming_cost_mult = -0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_climate_restoration = {
+	terraform_speed_mult = 0.1
+	terraforming_cost_mult = -0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_neural_implants = {
+	pop_cat_slave_happiness = 0.1
+	pop_category_slave_upkeep_mult = -0.1
+	slave_market_cost_mult = -0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_galactic_administration = {
+	edict_length_mult = 0.1
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_mine_zro = {
+	country_sr_zro_produces_mult = 0.05
+	country_society_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_corvette_hull_2 = {
+	shipsize_corvette_hull_add = 10
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_destroyer_hull_2 = {
+	shipsize_destroyer_hull_add = 20
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_cruiser_hull_2 = {
+	shipsize_cruiser_hull_add = 50
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_battleship_hull_2 = {
+	shipsize_battleship_hull_add = 80
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_defense_platform_hull_1 = {
+	shipsize_military_station_small_hull_add = 50
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_modular_engineering = {
+	starbase_buildings_cost_mult = -0.125
+	starbase_modules_cost_mult = -0.125
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_space_defense_station_improvement = {
+	starbase_upgrade_cost_mult = -0.075
+	starbase_upgrade_speed_mult = 0.125
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_crystal_armor_1 = {
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_crystal_armor_2 = {
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_robotic_workers = {
+	planet_jobs_robotic_produces_mult = 0.05
+	planet_pops_robotics_upkeep_mult = -0.05
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_droid_workers = {
+	planet_jobs_robotic_produces_mult = 0.05
+	planet_pops_robotics_upkeep_mult = -0.05
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_synthetic_workers = {
+	planet_jobs_robotic_produces_mult = 0.05
+	planet_pops_robotics_upkeep_mult = -0.05
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_construction_templates = {
+	planet_building_build_speed_mult = 0.25
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_starbase_5 = {
+	starbase_upgrade_cost_mult = -0.075
+	starbase_upgrade_speed_mult = 0.125
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_housing_1 = {
+	pop_housing_usage_mult = -0.05
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_housing_2 = {
+	pop_housing_usage_mult = -0.05
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_dark_matter_propulsion = {
+	ship_speed_mult = 0.25
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_mine_living_metal = {
+	country_sr_living_metal_produces_mult = 0.05
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_mine_betharian = {
+	country_energy_produces_mult = 0.05
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_mine_exotic_gases = {
+	country_exotic_gases_produces_mult = 0.05
+	country_engineering_tech_research_speed = 0.01
+}
+country_memorialized_scientist_achievement_discovered_mine_rare_crystals = {
+	country_rare_crystals_produces_mult = 0.05
+	country_engineering_tech_research_speed = 0.01
+}
+# Admiral
+country_memorialized_admiral_achievement_cursed_command = {
+	ship_disengage_chance_mult = 0.5
+	ship_emergency_ftl_min_days_mult = -0.5
+	ship_fire_rate_mult = -0.33
+}
+country_memorialized_admiral_achievement_skilled_combat_veteran = {
+	ship_disengage_chance_mult = 0.5
+	ship_fire_rate_mult = 0.33
+}
+country_memorialized_admiral_achievement_exterminator = {
+	damage_vs_country_type_amoeba_mult = 0.25
+	damage_vs_country_type_cloud_mult = 0.25
+	damage_vs_country_type_crystal_mult = 0.25
+	damage_vs_country_type_drone_mult = 0.25
+	damage_vs_country_type_tiyanki_mult = 0.25
+}
+country_memorialized_admiral_achievement_pirate_cleanser = {
+	damage_vs_country_type_pirate_mult = 0.25
+}
+country_memorialized_admiral_achievement_hero_of_the_galaxy = {
+	damage_vs_country_type_ai_empire_mult = 0.25
+	damage_vs_country_type_swarm_mult = 0.25
+	damage_vs_country_type_extradimensional_mult = 0.25
+	damage_vs_country_type_extradimensional_2_mult = 0.25
+	damage_vs_country_type_extradimensional_3_mult = 0.25
+	ship_fire_rate_mult = 0.1
+}
+country_memorialized_admiral_achievement_red_death = {
+	ship_disengage_chance_mult = -0.5
+	ship_fire_rate_mult = 1
+	ship_orbital_bombardment_mult = 1
+	ship_armor_penetration_mult = 0.25
+	ship_shield_penetration_mult = 0.25
+	ship_tracking_mult = 0.25
+	ship_evasion_mult = 0.25
+	ship_weapon_range_mult = 0.25
+}
+country_memorialized_admiral_achievement_undefeated = {
+	ship_fire_rate_mult = 0.1
+}
+country_memorialized_admiral_achievement_orbital_bombarder = {
+	ship_orbital_bombardment_mult = 1
+}
+country_memorialized_admiral_achievement_seasoned_veteran = {
+	ship_disengage_chance_mult = 0.05
+	ship_tracking_mult = 0.05
+	ship_evasion_mult = 0.05
+}
+country_memorialized_admiral_achievement_desk_admiral = {
+	ship_tracking_mult = 0.05
+	ship_evasion_mult = 0.05
+	ship_weapon_range_mult = 0.05
+	ship_orbit_upkeep_mult = -0.05
+}
+# General
+country_memorialized_general_achievement_desk_general_orbit = {
+	ship_orbit_upkeep_mult = -0.25
+	armies_cost_mult = -0.25
+	armies_upkeep_mult = -0.25
+	army_starting_experience_add = 100
+	army_experience_gain_mult = 1
+}
+country_memorialized_general_achievement_desk_general_planet = {
+	armies_cost_mult = -0.25
+	armies_upkeep_mult = -0.25
+	army_defense_morale_mult = 0.25
+	army_starting_experience_add = 100
+	army_experience_gain_mult = 1
+}
+country_memorialized_general_achievement_undefeated = {
+	army_damage_mult = 0.25
+	army_morale_damage_mult = 0.25
+	army_attack_morale_mult = 0.25
+	army_defense_morale_mult = 0.25
+}
+country_memorialized_general_achievement_seasoned = {
+	army_damage_mult = 0.25
+	army_attack_morale_mult = 0.25
+	army_attack_health_mult = 0.25
+	army_defense_morale_mult = 0.25
+	army_defense_health_mult = 0.25
+}
+country_memorialized_general_achievement_total_war = {
+	army_collateral_damage_mult = 1
+	army_morale_damage_mult = 1
+	army_disengage_chance_mult = -1
+}
+# DLC Achivements
+country_memorialized_admiral_achievement_eradicated_colony = {
+	ship_orbital_bombardment_mult = 5
+}
+# DLC traits
+country_memorialized_leader_shroud_age = {
+	leader_age = 20
+}
+country_memorialized_leader_flexible_programming = {
+	species_leader_exp_gain = 0.125
+}
+country_memorialized_leader_rigid_programming = {
+	species_leader_exp_gain = -0.125
+}
+country_memorialized_leader_newboot = {
+	leaders_cost_mult = -0.25
+	leaders_upkeep_mult = -0.25
+}
+country_memorialized_ruler_reformer = {
+	country_unity_produces_mult = 0.05
+}
+country_memorialized_ruler_erudite = {
+	all_technology_research_speed = 0.025
+}
+country_memorialized_ruler_cyborg = {
+	planet_jobs_robotic_produces_mult = 0.0125
+}
+country_memorialized_ruler_synthetic = {
+	planet_jobs_robotic_produces_mult = 0.025
+}
+country_memorialized_ruler_psionic = {
+	pop_government_ethic_attraction = 0.05
+	country_base_influence_produces_add = 1
+}
+country_memorialized_ruler_chosen = {
+	pop_government_ethic_attraction = 0.1
+	country_base_influence_produces_add = 1
+	leader_age = 99
+}
+country_memorialized_ruler_hive_mind = {
+	country_base_influence_produces_add = 1
+	leader_age = 99
+}
+country_memorialized_ruler_machine_intelligence = {
+	country_base_influence_produces_add = 1
+}
+country_memorialized_ruler_brainslug = {
+	country_naval_cap_mult = 0.05
+	country_physics_research_produces_mult = 0.05
+	country_society_research_produces_mult = 0.05
+	country_engineering_research_produces_mult = 0.05
+}
+country_memorialized_governor_erudite = {
+	planet_jobs_engineering_research_produces_mult = 0.025
+	planet_jobs_physics_research_produces_mult = 0.025
+	planet_jobs_society_research_produces_mult = 0.025
+}
+country_memorialized_governor_cyborg = {
+	planet_jobs_minerals_produces_mult = 0.025
+}
+country_memorialized_governor_synthetic = {
+	planet_jobs_energy_produces_mult = 0.025
+	planet_jobs_minerals_produces_mult = 0.025
+}
+country_memorialized_governor_psionic = {
+	planet_stability_add = 3
+	planet_jobs_unity_produces_mult = 0.05
+}
+country_memorialized_governor_chosen = {
+	planet_stability_add = 5
+	planet_jobs_unity_produces_mult = 0.1
+}
+country_memorialized_governor_righteous = {
+	planet_crime_add = -12.5
+}
+country_memorialized_governor_corrupt = {
+	planet_crime_add = 7 # 12.5
+}
+country_memorialized_governor_warbot_tinkerer = {
+	planet_army_build_speed_mult = 0.1
+	armies_cost_mult = -0.1
+	army_defense_damage_mult = 0.1
+}
+country_memorialized_governor_ai_aided_design = {
+	starbase_shipyard_build_speed_mult = 0.1
+	starbase_shipyard_build_cost_mult = -0.05
+}
+country_memorialized_governor_bulldozer = {
+	deposit_blockers_cost_mult = -0.125
+	planet_clear_blocker_time_mult = -0.125
+}
+country_memorialized_governor_analytical = {
+	planet_jobs_engineering_research_produces_mult = 0.05
+	planet_jobs_physics_research_produces_mult = 0.05
+	planet_jobs_society_research_produces_mult = 0.05
+}
+country_memorialized_governor_brainslug = {
+	planet_building_build_speed_mult = 0.05
+	planet_jobs_engineering_research_produces_mult = 0.075
+	planet_jobs_physics_research_produces_mult = 0.075
+	planet_jobs_society_research_produces_mult = 0.075
+}
+country_memorialized_governor_gray = {
+	planet_buildings_cost_mult = -0.2
+	planet_building_build_speed_mult = 0.2
+	planet_jobs_energy_produces_mult = 0.075
+	planet_jobs_minerals_produces_mult = 0.075
+	deposit_blockers_cost_mult = -0.2
+	planet_clear_blocker_time_mult = -0.2
+}
+country_memorialized_governor_enclave_trader = {
+	trade_value_mult = 0.05
+}
+country_memorialized_governor_waste_management_specialist = {
+	planet_buildings_upkeep_mult = -0.05
+}
+country_memorialized_governor_nuumismatic_priest = {
+	trade_value_mult = 0.05
+	planet_pops_consumer_goods_upkeep_mult = -0.05
+}
+country_memorialized_governor_oracle = {
+	planet_stability_add = 5
+	planet_jobs_unity_produces_mult = 0.1
+	planet_crime_add = -23
+	planet_jobs_engineering_research_produces_mult = -0.05
+	planet_jobs_physics_research_produces_mult = -0.05
+	planet_jobs_society_research_produces_mult = -0.05
+}
+country_memorialized_scientist_curator = {
+	all_technology_research_speed = 0.075
+	science_ship_survey_speed = 0.125
+}
+country_memorialized_scientist_erudite = {
+	all_technology_research_speed = 0.025
+}
+country_memorialized_scientist_cyborg = {
+	all_technology_research_speed = 0.025
+}
+country_memorialized_scientist_synthetic = {
+	all_technology_research_speed = 0.025
+	ship_anomaly_research_speed_mult = 0.075
+}
+country_memorialized_scientist_psionic = {
+	all_technology_research_speed = 0.05
+	category_psionics_research_speed_mult = 0.05
+	science_ship_survey_speed = 0.125
+	ship_archaeological_site_clues_add = 1
+}
+country_memorialized_scientist_chosen = {
+	all_technology_research_speed = 0.1
+	science_ship_survey_speed = 0.25
+	ship_archaeological_site_clues_add = 2
+}
+country_memorialized_scientist_cataloger = {
+	science_ship_survey_speed = 0.125
+}
+country_memorialized_scientist_brainslug = {
+	all_technology_research_speed = 0.05
+	science_ship_survey_speed = 0.075
+	ship_anomaly_research_speed_mult = 0.075
+}
+# country_memorialized_scientist_traumatized = {
+# 	all_technology_research_speed = -0.05
+# 	ship_anomaly_research_speed_mult = -0.05
+# 	ship_archaeological_site_excavation_speed_mult = -5
+# }
+country_memorialized_scientist_maimed = {
+	leader_age = -20
+}
+country_memorialized_scientist_inspired_archaeologist = {
+	species_leader_exp_gain = 0.125
+	ship_archaeological_site_excavation_speed_mult = 5
+}
+country_memorialized_scientist_inspired_researcher = {
+	species_leader_exp_gain = 0.125
+	all_technology_research_speed = 0.05
+}
+country_memorialized_scientist_inspired_surveyor = {
+	species_leader_exp_gain = 0.125
+	ship_anomaly_research_speed_mult = 0.05
+}
+country_memorialized_admiral_dragonslayer = {
+	ship_speed_mult = 0.05
+	ship_fire_rate_mult = 0.05
+}
+country_memorialized_admiral_erudite = {
+	ship_fire_rate_mult = 0.025
+	ship_disengage_chance_mult = 0.05
+}
+country_memorialized_admiral_cyborg = {
+	ship_fire_rate_mult = 0.025
+}
+country_memorialized_admiral_synthetic = {
+	ship_fire_rate_mult = 0.025
+	ship_weapon_range_mult = 0.05
+}
+country_memorialized_admiral_psionic = {
+	ship_weapon_damage = 0.05
+	ship_evasion_mult = 0.075
+}
+country_memorialized_admiral_chosen = {
+	ship_weapon_damage = 0.1
+	ship_evasion_mult = 0.15
+}
+country_memorialized_admiral_mercenary_warrior = {
+	ship_evasion_mult = 0.05
+	ship_fire_rate_mult = 0.05
+}
+country_memorialized_admiral_foredoomed_to_a_rendezvous = {
+	ship_speed_mult = 0.125
+}
+country_memorialized_admiral_maintenance_loop = {
+	ships_upkeep_mult = -0.05
+}
+country_memorialized_admiral_unstable_code_base = {
+	ship_fire_rate_mult = -0.05
+}
+country_memorialized_admiral_restore_point = {
+	ship_disengage_chance_mult = 0.25
+}
+country_memorialized_admiral_brainslug = {
+	ship_fire_rate_mult = 0.025
+	ship_evasion_mult = 0.025
+	ships_upkeep_mult = -0.05
+}
+country_memorialized_admiral_hells_heart = {
+	ship_fire_rate_mult = 0.05
+	ship_weapon_damage = 0.05
+	ship_speed_mult = 0.05
+	ship_evasion_mult = -0.025
+	ship_disengage_chance_mult = -0.165
+}
+country_memorialized_admiral_caravan_counter = {
+	ship_emergency_ftl_mult = -0.05
+}
+country_memorialized_general_erudite = {
+	army_damage_mult = 0.025
+	army_disengage_chance_mult = 0.05
+}
+country_memorialized_general_cyborg = {
+	army_damage_mult = 0.025
+}
+country_memorialized_general_synthetic = {
+	army_damage_mult = 0.05
+}
+country_memorialized_general_psionic = {
+	army_morale = 0.075
+	army_morale_damage_mult = 0.075
+}
+country_memorialized_general_chosen = {
+	army_morale = 0.15
+	army_morale_damage_mult = 0.15
+	army_damage_mult = 0.1
+}
+country_memorialized_general_mercenary_warrior = {
+	army_damage_mult = 0.05
+}
+country_memorialized_general_parts_cannibalizer = {
+	armies_upkeep_mult = -0.1
+}
+country_memorialized_general_demoralizer = {
+	army_morale_damage_mult = 0.15
+}
+country_memorialized_general_erratic_morality_core = {
+	army_damage_mult = -0.05
+}
+country_memorialized_general_brainslug = {
+	armies_upkeep_mult = -0.075
+}

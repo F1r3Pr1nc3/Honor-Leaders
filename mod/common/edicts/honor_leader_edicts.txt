@@ -1,0 +1,48 @@
+honor_leader_honor_specific_leader_edict = {
+	icon = GFX_topbar_leaders_button
+	length = -1
+	# resources = { category = edicts cost = { } }
+	effect = {
+		country_event = { id = honor_leader.100 }
+	}
+	potential = {  }
+	allow = {
+		is_ai = no
+		NOT = { has_active_event = { honor_leader.100 } }
+	}
+	ai_weight = { weight = 0 }
+}
+
+# Living Leader Viewer
+honor_leader_view_living_leaders_edict = {
+	icon = GFX_mod_country_leader_pool_size
+	length = -1
+	# resources = { category = edicts cost = { } }
+	effect = {
+		country_event = { id = honor_leader.110 }
+	}
+	potential = { }
+	allow = {
+		is_ai = no
+		NOT = { has_active_event = { honor_leader.110 } }
+	}
+	ai_weight = { weight = 0 }
+}
+# GFX_army_info_leader x14
+# GFX_text_empire x18
+# GFX_text_icons_leaders same as GFX_topbar_leaders_button
+# Disable/Enable Options
+honor_leader_options_edict = {
+	icon = GFX_text_empire
+	length = -1
+	# resources = { category = edicts cost = { } }
+	effect = {
+		country_event = { id = honor_leader.3000 }
+	}
+	potential = { }
+	allow = {
+		is_ai = no
+		NOT = { has_active_event = { honor_leader.3000 } }
+	}
+	ai_weight = { weight = 0 }
+}

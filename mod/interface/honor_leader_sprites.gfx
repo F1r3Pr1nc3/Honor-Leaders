@@ -1,0 +1,27 @@
+spriteTypes = {
+	#Leader Icons
+	spriteType = {
+		name = "GFX_text_leader_icons"
+		texturefile = "gfx/interface/icons/leaders.dds"
+		noOfFrames = 8
+		default_frame = 4
+	}
+	# unused
+	spriteType = {
+		name = "GFX_text_icons_leaders"
+		texturefile = "gfx/interface/icons/navbar_icons_leaders.dds"
+		noOfFrames = 3
+		default_frame = 2
+	}
+	spriteType = {
+		name = "GFX_mod_country_leader_pool_size"
+		texturefile = "gfx/interface/icons/modifiers/mod_country_leader_pool_size.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_menu_icon_leaders"
+		texturefile = "gfx/interface/icons/menu_icon_leaders.dds"
+		noOfFrames = 1
+	}
+
+}

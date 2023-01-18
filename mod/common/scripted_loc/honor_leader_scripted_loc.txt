@@ -1,0 +1,3291 @@
+# Get Honorific
+defined_text = { # Country/leader scope
+	name = GetSpecificHonorific
+	text = {
+		trigger = {
+			owner = {
+				is_egalitarian = yes
+				check_variable = { which = honor_leader_ethic_selected value = 1 }
+			}
+		}
+		localization_key = honorific.egalitarian
+	}
+	text = {
+		trigger = {
+			owner = {
+				is_authoritarian = yes
+				check_variable = { which = honor_leader_ethic_selected value = 2 }
+			}
+		}
+		localization_key = honorific.authoritarian
+	}
+	text = {
+		trigger = {
+			owner = {
+				is_xenophobe = yes
+				check_variable = { which = honor_leader_ethic_selected value = 3 }
+			}
+		}
+		localization_key = honorific.xenophobe
+	}
+	text = {
+		trigger = {
+			owner = {
+				is_xenophile = yes
+				check_variable = { which = honor_leader_ethic_selected value = 4 }
+			}
+		}
+		localization_key = honorific.xenophile
+	}
+	text = {
+		trigger = {
+			owner = {
+				is_pacifist = yes
+				check_variable = { which = honor_leader_ethic_selected value = 5 }
+			}
+		}
+		localization_key = honorific.pacifist
+	}
+	text = {
+		trigger = {
+			owner = {
+				is_militarist = yes
+				check_variable = { which = honor_leader_ethic_selected value = 6 }
+			}
+		}
+		localization_key = honorific.militarist
+	}
+	text = {
+		trigger = {
+			owner = {
+				is_spiritualist = yes
+				check_variable = { which = honor_leader_ethic_selected value = 7 }
+			}
+		}
+		localization_key = honorific.spiritualist
+	}
+	text = {
+		trigger = {
+			owner = {
+				is_materialist = yes
+				check_variable = { which = honor_leader_ethic_selected value = 8 }
+			}
+		}
+		localization_key = honorific.materialist
+	}
+	text = {
+		trigger = {
+			owner = {
+				is_gestalt = yes
+				check_variable = { which = honor_leader_ethic_selected value = 9 }
+			}
+		}
+		localization_key = honorific.gestalt
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Weighted towards fanatic
+defined_text = { # Country/leader scope
+	name = GetHonorific
+	text = {
+		trigger = {
+			owner = { has_ethic = ethic_fanatic_egalitarian }
+		}
+		localization_key = honorific.egalitarian
+	}
+	text = {
+		trigger = {
+			owner = { has_ethic = ethic_fanatic_authoritarian }
+		}
+		localization_key = honorific.authoritarian
+	}
+	text = {
+		trigger = {
+			owner = { has_ethic = ethic_fanatic_xenophobe }
+		}
+		localization_key = honorific.xenophobe
+	}
+	text = {
+		trigger = {
+			owner = { has_ethic = ethic_fanatic_xenophile }
+		}
+		localization_key = honorific.xenophile
+	}
+	text = {
+		trigger = {
+			owner = { has_ethic = ethic_fanatic_pacifist }
+		}
+		localization_key = honorific.pacifist
+	}
+	text = {
+		trigger = {
+			owner = { has_ethic = ethic_fanatic_militarist }
+		}
+		localization_key = honorific.militarist
+	}
+	text = {
+		trigger = {
+			owner = { has_ethic = ethic_fanatic_spiritualist }
+		}
+		localization_key = honorific.spiritualist
+	}
+	text = {
+		trigger = {
+			owner = { has_ethic = ethic_fanatic_materialist }
+		}
+		localization_key = honorific.materialist
+	}
+	text = {
+		trigger = {
+			owner = { is_egalitarian = yes }
+		}
+		localization_key = honorific.egalitarian
+	}
+	text = {
+		trigger = {
+			owner = { is_authoritarian = yes }
+		}
+		localization_key = honorific.authoritarian
+	}
+	text = {
+		trigger = {
+			owner = { is_xenophobe = yes }
+		}
+		localization_key = honorific.xenophobe
+	}
+	text = {
+		trigger = {
+			owner = { is_xenophile = yes }
+		}
+		localization_key = honorific.xenophile
+	}
+	text = {
+		trigger = {
+			owner = { is_pacifist = yes }
+		}
+		localization_key = honorific.pacifist
+	}
+	text = {
+		trigger = {
+			owner = { is_militarist = yes }
+		}
+		localization_key = honorific.militarist
+	}
+	text = {
+		trigger = {
+			owner = { is_spiritualist = yes }
+		}
+		localization_key = honorific.spiritualist
+	}
+	text = {
+		trigger = {
+			owner = { is_materialist = yes }
+		}
+		localization_key = honorific.materialist
+	}
+	text = {
+		trigger = {
+			owner = { is_gestalt = yes }
+		}
+		localization_key = honorific.gestalt
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Traits localization + customization from leader tracking vars.
+
+# Generic traits
+defined_text = { # Country/leader scope
+	name = GetTraitAdaptable
+	text = {
+		trigger = { has_trait = leader_trait_adaptable }
+		localization_key = get_trait_adaptable
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTraitStubborn
+	text = {
+		trigger = { has_trait = leader_trait_stubborn }
+		localization_key = get_trait_stubborn
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTraitResilient
+	text = {
+		trigger = { has_trait = leader_trait_resilient }
+		localization_key = get_trait_resilient
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTraitSubstanceAbuser
+	text = {
+		trigger = { has_trait = leader_trait_substance_abuser }
+		localization_key = get_trait_substance_abuser
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTraitEager
+	text = {
+		trigger = { has_trait = leader_trait_eager }
+		localization_key = get_trait_eager
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTraitArrestedDevelopment
+	text = {
+		trigger = { has_trait = leader_trait_arrested_development }
+		localization_key = get_trait_arrested_development
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Ruler traits
+defined_text = { # Country/leader scope
+	name = GetTraitCorvetteFocus
+	text = {
+		trigger = { has_trait = trait_ruler_corvette_focus }
+		localization_key = get_trait_corvette_focus
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitDestroyerFocus
+	text = {
+		trigger = { has_trait = trait_ruler_destroyer_focus }
+		localization_key = get_trait_destroyer_focus
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitCruiserFocus
+	text = {
+		trigger = { has_trait = trait_ruler_cruiser_focus }
+		localization_key = get_trait_cruiser_focus
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitBattleshipFocus
+	text = {
+		trigger = { has_trait = trait_ruler_battleship_focus }
+		localization_key = get_trait_battleship_focus
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRecruiter
+	text = {
+		trigger = { has_trait = trait_ruler_recruiter }
+		localization_key = get_trait_recruiter
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitFromTheRanks
+	text = {
+		trigger = { has_trait = trait_ruler_from_the_ranks }
+		localization_key = get_trait_from_the_ranks
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitFortifier
+	text = {
+		trigger = { has_trait = trait_ruler_fortifier }
+		localization_key = get_trait_fortifier
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitLogisticUnderstanding
+	text = {
+		trigger = { has_trait = trait_ruler_logistic_understanding }
+		localization_key = get_trait_logistic_understanding
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitMilitaryPioneer
+	text = {
+		trigger = { has_trait = trait_ruler_military_pioneer }
+		localization_key = get_trait_military_pioneer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitWarlike
+	text = {
+		trigger = { has_trait = trait_ruler_warlike }
+		localization_key = get_trait_warlike
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitArchitecturalSense
+	text = {
+		trigger = { has_trait = trait_ruler_architectural_sense }
+		localization_key = get_trait_architectural_sense
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitFrontierSpirit
+	text = {
+		trigger = { has_trait = trait_ruler_frontier_spirit }
+		localization_key = get_trait_frontier_spirit
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitWorldShaper
+	text = {
+		trigger = { has_trait = trait_ruler_world_shaper }
+		localization_key = get_trait_world_shaper
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitHomeInTheSky
+	text = {
+		trigger = { has_trait = trait_ruler_home_in_the_sky }
+		localization_key = get_trait_home_in_the_sky
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitIndustrialist
+	text = {
+		trigger = { has_trait = trait_ruler_industrialist }
+		localization_key = get_trait_industrialist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitEyeForTalent
+	text = {
+		trigger = { has_trait = trait_ruler_eye_for_talent }
+		localization_key = get_trait_eye_for_talent
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitDeepConnections
+	text = {
+		trigger = { has_trait = trait_ruler_deep_connections }
+		localization_key = get_trait_deep_connections
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetRulerTraitCharismatic
+	text = {
+		trigger = { has_trait = trait_ruler_charismatic }
+		localization_key = get_trait_charismatic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitChampionOfThePeople
+	text = {
+		trigger = { has_trait = trait_ruler_champion_of_the_people }
+		localization_key = get_trait_champion_of_the_people
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpansionist
+	text = {
+		trigger = { has_trait = trait_ruler_expansionist }
+		localization_key = get_trait_expansionist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitFertilityPreacher
+	text = {
+		trigger = { has_trait = trait_ruler_fertility_preacher }
+		localization_key = get_trait_fertility_preacher
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitInvestor
+	text = {
+		trigger = { has_trait = trait_ruler_investor }
+		localization_key = get_trait_investor
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitSpaceMiner
+	text = {
+		trigger = { has_trait = trait_ruler_space_miner }
+		localization_key = get_trait_space_miner
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExplorer
+	text = {
+		trigger = { has_trait = trait_ruler_explorer }
+		localization_key = get_trait_explorer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitFleetOrganizer
+	text = {
+		trigger = { has_trait = leader_trait_fleet_organizer }
+		localization_key = get_trait_fleet_organizer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Governor Traits
+defined_text = { # Country/leader scope
+	name = GetTraitIronFist
+	text = {
+		trigger = { has_trait = leader_trait_iron_fist }
+		localization_key = get_trait_iron_fist
+	}
+	text = {
+		trigger = {
+			has_trait = leader_trait_iron_fist
+			owner = { has_policy_flag = slavery_not_allowed }
+		}
+		localization_key = get_trait_iron_fist_banned
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTraitArmyVeteran
+	text = {
+		trigger = { has_trait = leader_trait_army_veteran }
+		localization_key = get_trait_army_veteran
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRetiredFleetOfficer
+	text = {
+		trigger = { has_trait = leader_trait_retired_fleet_officer }
+		localization_key = get_trait_retired_fleet_officer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitArchitecturalInterest
+	text = {
+		trigger = { has_trait = leader_trait_architectural_interest }
+		localization_key = get_trait_architectural_interest
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAgrarianUpbringing
+	text = {
+		trigger = { has_trait = leader_trait_agrarian_upbringing }
+		localization_key = get_trait_agrarian_upbringing
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitIntellectual
+	text = {
+		trigger = { has_trait = leader_trait_intellectual }
+		localization_key = get_trait_intellectual
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitEnvironmentalEngineer
+	text = {
+		trigger = { has_trait = leader_trait_environmental_engineer }
+		localization_key = get_trait_environmental_engineer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Scientist Traits
+defined_text = { # Country/leader scope
+	name = GetTraitMeticulous
+	text = {
+		trigger = { has_trait = leader_trait_meticulous }
+		localization_key = get_trait_meticulous
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitSparkOfGenius
+	text = {
+		trigger = { has_trait = leader_trait_spark_of_genius }
+		localization_key = get_trait_spark_of_genius
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitCarefree
+	text = {
+		trigger = { has_trait = leader_trait_carefree }
+		localization_key = get_trait_carefree
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRoamer
+	text = {
+		trigger = { has_trait = leader_trait_roamer }
+		localization_key = get_trait_roamer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitArchaeologist
+	text = {
+		trigger = { has_trait = leader_trait_archaeologist }
+		localization_key = get_trait_archaeologist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitParanoid
+	text = {
+		trigger = { has_trait = leader_trait_paranoid }
+		localization_key = get_trait_paranoid
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitManiacal
+	text = {
+		trigger = { has_trait = leader_trait_maniacal }
+		localization_key = get_trait_maniacal
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitCustomAIAssistant
+	text = {
+		trigger = { has_trait = leader_trait_custom_AI_assistant }
+		localization_key = get_trait_custom_AI_assistant
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitSapientAIAssistant
+	text = {
+		trigger = { has_trait = leader_trait_sapient_AI_assistant }
+		localization_key = get_trait_sapient_AI_assistant
+	}
+	text = {
+		trigger = {
+			has_trait = leader_trait_sapient_AI_assistant
+			owner = { has_policy_flag = ai_outlawed }
+		}
+		localization_key = get_trait_sapient_AI_assistant_banned
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseMaterials
+	text = {
+		trigger = { has_trait = leader_trait_expertise_materials }
+		localization_key = get_trait_expertise_materials
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertisePropulsion
+	text = {
+		trigger = { has_trait = leader_trait_expertise_propulsion }
+		localization_key = get_trait_expertise_propulsion
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseVoidcraft
+	text = {
+		trigger = { has_trait = leader_trait_expertise_voidcraft }
+		localization_key = get_trait_expertise_voidcraft
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseIndustry
+	text = {
+		trigger = { has_trait = leader_trait_expertise_industry }
+		localization_key = get_trait_expertise_industry
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseFieldManipulation
+	text = {
+		trigger = { has_trait = leader_trait_expertise_field_manipulation }
+		localization_key = get_trait_expertise_field_manipulation
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseParticles
+	text = {
+		trigger = { has_trait = leader_trait_expertise_particles }
+		localization_key = get_trait_expertise_particles
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertisePsionics
+	text = {
+		trigger = { has_trait = leader_trait_expertise_psionics }
+		localization_key = get_trait_expertise_psionics
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseComputing
+	text = {
+		trigger = { has_trait = leader_trait_expertise_computing }
+		localization_key = get_trait_expertise_computing
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseNewWorlds
+	text = {
+		trigger = { has_trait = leader_trait_expertise_new_worlds }
+		localization_key = get_trait_expertise_new_worlds
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseStatecraft
+	text = {
+		trigger = { has_trait = leader_trait_expertise_statecraft }
+		localization_key = get_trait_expertise_statecraft
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseBiology
+	text = {
+		trigger = { has_trait = leader_trait_expertise_biology }
+		localization_key = get_trait_expertise_biology
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitExpertiseMilitaryTheory
+	text = {
+		trigger = { has_trait = leader_trait_expertise_military_theory }
+		localization_key = get_trait_expertise_military_theory
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitTowel
+	text = {
+		trigger = { has_trait = leader_trait_towel }
+		localization_key = get_trait_towel
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Admiral Traits
+defined_text = { # Country/leader scope
+	name = GetTraitTrickster
+	text = {
+		trigger = { has_trait = leader_trait_trickster }
+		localization_key = get_trait_trickster
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitFleetLogistician
+	text = {
+		trigger = { has_trait = leader_trait_fleet_logistician }
+		localization_key = get_trait_fleet_logistician
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitNervous
+	text = {
+		trigger = { has_trait = leader_trait_nervous }
+		localization_key = get_trait_nervous
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitEngineer
+	text = {
+		trigger = { has_trait = leader_trait_engineer }
+		localization_key = get_trait_engineer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAggressive
+	text = {
+		trigger = { has_trait = leader_trait_aggressive }
+		localization_key = get_trait_aggressive
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitCautious
+	text = {
+		trigger = { has_trait = leader_trait_cautious }
+		localization_key = get_trait_cautious
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitScout
+	text = {
+		trigger = { has_trait = leader_trait_scout }
+		localization_key = get_trait_scout
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitUnyielding
+	text = {
+		trigger = { has_trait = leader_trait_unyielding }
+		localization_key = get_trait_unyielding
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGaleSpeed
+	text = {
+		trigger = { has_trait = leader_trait_gale_speed }
+		localization_key = get_trait_gale_speed
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitLethargic
+	text = {
+		trigger = { has_trait = leader_trait_lethargic }
+		localization_key = get_trait_lethargic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# General Traits
+defined_text = { # Country/leader scope
+	name = GetTraitRestrained
+	text = {
+		trigger = { has_trait = leader_trait_restrained }
+		localization_key = get_trait_restrained
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetLeaderTraitCharismatic
+	text = {
+		trigger = { has_trait = leader_trait_charismatic }
+		localization_key = get_trait_charismatic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitButcher
+	text = {
+		trigger = { has_trait = leader_trait_butcher }
+		localization_key = get_trait_butcher
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGlorySeeker
+	text = {
+		trigger = { has_trait = leader_trait_glory_seeker }
+		localization_key = get_trait_glory_seeker
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitArmchairCommander
+	text = {
+		trigger = { has_trait = leader_trait_armchair_commander }
+		localization_key = get_trait_armchair_commander
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitArmyLogistician
+	text = {
+		trigger = { has_trait = leader_trait_army_logistician }
+		localization_key = get_trait_army_logistician
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# DLC Traits
+defined_text = { # Country/leader scope
+	name = GetTraitShroudAge
+	text = {
+		trigger = { has_trait = leader_trait_shroud_age }
+		localization_key = get_trait_shroud_age
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitFlexibleProgramming
+	text = {
+		trigger = { has_trait = leader_trait_flexible_programming }
+		localization_key = get_trait_flexible_programming
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRigidProgramming
+	text = {
+		trigger = { has_trait = leader_trait_rigid_programming }
+		localization_key = get_trait_rigid_programming
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitNewboot
+	text = {
+		trigger = { has_trait = leader_trait_newboot }
+		localization_key = get_trait_newboot
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitReformer
+	text = {
+		trigger = { has_trait = leader_trait_reformer }
+		localization_key = get_trait_reformer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRulerErudite
+	text = {
+		trigger = { has_trait = leader_trait_ruler_erudite }
+		localization_key = get_trait_ruler_erudite
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRulerCyborg
+	text = {
+		trigger = { has_trait = leader_trait_ruler_cyborg }
+		localization_key = get_trait_ruler_cyborg
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRulerSynthetic
+	text = {
+		trigger = { has_trait = leader_trait_ruler_synthetic }
+		localization_key = get_trait_ruler_synthetic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRulerPsionic
+	text = {
+		trigger = { has_trait = leader_trait_ruler_psionic }
+		localization_key = get_trait_ruler_psionic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRulerChosen
+	text = {
+		trigger = { has_trait = leader_trait_ruler_chosen }
+		localization_key = get_trait_ruler_chosen
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRulerHiveMind
+	text = {
+		trigger = { has_trait = leader_trait_ruler_hive_mind }
+		localization_key = get_trait_ruler_hive_mind
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRulerMachineIntelligence
+	text = {
+		trigger = { has_trait = leader_trait_ruler_machine_intelligence }
+		localization_key = get_trait_ruler_machine_intelligence
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRulerBrainslug
+	text = {
+		trigger = { has_trait = leader_trait_ruler_brainslug }
+		localization_key = get_trait_ruler_brainslug
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGovernorErudite
+	text = {
+		trigger = { has_trait = leader_trait_governor_erudite }
+		localization_key = get_trait_governor_erudite
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGovernorCyborg
+	text = {
+		trigger = { has_trait = leader_trait_governor_cyborg }
+		localization_key = get_trait_governor_cyborg
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGovernorSynthetic
+	text = {
+		trigger = { has_trait = leader_trait_governor_synthetic }
+		localization_key = get_trait_governor_synthetic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGovernorPsionic
+	text = {
+		trigger = { has_trait = leader_trait_governor_psionic }
+		localization_key = get_trait_governor_psionic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGovernorChosen
+	text = {
+		trigger = { has_trait = leader_trait_governor_chosen }
+		localization_key = get_trait_governor_chosen
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRighteous
+	text = {
+		trigger = { has_trait = leader_trait_righteous }
+		localization_key = get_trait_righteous
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitCorrupt
+	text = {
+		trigger = { has_trait = leader_trait_corrupt }
+		localization_key = get_trait_corrupt
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitWarbotTinkerer
+	text = {
+		trigger = { has_trait = leader_trait_warbot_tinkerer }
+		localization_key = get_trait_warbot_tinkerer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAIAidedDesign
+	text = {
+		trigger = { has_trait = leader_trait_ai_aided_design }
+		localization_key = get_trait_ai_aided_design
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitBulldozer
+	text = {
+		trigger = { has_trait = leader_trait_bulldozer }
+		localization_key = get_trait_bulldozer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAnalytical
+	text = {
+		trigger = { has_trait = leader_trait_analytical }
+		localization_key = get_trait_analytical
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGovernorBrainslug
+	text = {
+		trigger = { has_trait = leader_trait_governor_brainslug }
+		localization_key = get_trait_governor_brainslug
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGovernorGray
+	text = {
+		trigger = { has_trait = leader_trait_governor_gray }
+		localization_key = get_trait_governor_gray
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitEnclaveTrader
+	text = {
+		trigger = { has_trait = leader_trait_enclave_trader }
+		localization_key = get_trait_enclave_trader
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitWasteManagementSpecialist
+	text = {
+		trigger = { has_trait = leader_trait_waste_management_specialist }
+		localization_key = get_trait_waste_management_specialist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitNuumismaticPriest
+	text = {
+		trigger = { has_trait = leader_trait_nuumismatic_priest }
+		localization_key = get_trait_nuumismatic_priest
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGovernorOracle
+	text = {
+		trigger = { has_trait = leader_trait_governor_oracle }
+		localization_key = get_trait_governor_oracle
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitCurator
+	text = {
+		trigger = { has_trait = leader_trait_curator }
+		localization_key = get_trait_curator
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitScientistErudite
+	text = {
+		trigger = { has_trait = leader_trait_scientist_erudite }
+		localization_key = get_trait_scientist_erudite
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitScientistCyborg
+	text = {
+		trigger = { has_trait = leader_trait_scientist_cyborg }
+		localization_key = get_trait_scientist_cyborg
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitScientistSynthetic
+	text = {
+		trigger = { has_trait = leader_trait_scientist_synthetic }
+		localization_key = get_trait_scientist_synthetic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitScientistPsionic
+	text = {
+		trigger = { has_trait = leader_trait_scientist_psionic }
+		localization_key = get_trait_scientist_psionic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitScientistChosen
+	text = {
+		trigger = { has_trait = leader_trait_scientist_chosen }
+		localization_key = get_trait_scientist_chosen
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitCataloger
+	text = {
+		trigger = { has_trait = leader_trait_cataloger }
+		localization_key = get_trait_cataloger
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitScientistBrainslug
+	text = {
+		trigger = { has_trait = leader_trait_scientist_brainslug }
+		localization_key = get_trait_scientist_brainslug
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitTraumatized
+	text = {
+		trigger = { has_trait = leader_trait_traumatized }
+		localization_key = get_trait_traumatized
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitMaimed
+	text = {
+		trigger = { has_trait = leader_trait_maimed }
+		localization_key = get_trait_maimed
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitInspiredArchaeologist
+	text = {
+		trigger = { has_trait = leader_trait_inspired_archaeologist }
+		localization_key = get_trait_inspired_archaeologist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitInspiredResearcher
+	text = {
+		trigger = { has_trait = leader_trait_inspired_researcher }
+		localization_key = get_trait_inspired_researcher
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitInspiredSurveyor
+	text = {
+		trigger = { has_trait = leader_trait_inspired_surveyor }
+		localization_key = get_trait_inspired_surveyor
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitDragonslayer
+	text = {
+		trigger = { has_trait = leader_trait_dragonslayer }
+		localization_key = get_trait_dragonslayer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAdmiralErudite
+	text = {
+		trigger = { has_trait = leader_trait_admiral_erudite }
+		localization_key = get_trait_admiral_erudite
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAdmiralCyborg
+	text = {
+		trigger = { has_trait = leader_trait_admiral_cyborg }
+		localization_key = get_trait_admiral_cyborg
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAdmiralSynthetic
+	text = {
+		trigger = { has_trait = leader_trait_admiral_synthetic }
+		localization_key = get_trait_admiral_synthetic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAdmiralPsionic
+	text = {
+		trigger = { has_trait = leader_trait_admiral_psionic }
+		localization_key = get_trait_admiral_psionic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAdmiralChosen
+	text = {
+		trigger = { has_trait = leader_trait_admiral_chosen }
+		localization_key = get_trait_admiral_chosen
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitMercenaryWarrior
+	text = {
+		trigger = { has_trait = leader_trait_mercenary_warrior }
+		localization_key = get_trait_mercenary_warrior
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitForedoomedToARendezvous
+	text = {
+		trigger = { has_trait = leader_trait_foredoomed_to_a_rendezvous }
+		localization_key = get_trait_foredoomed_to_a_rendezvous
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitMaintenanceLoop
+	text = {
+		trigger = { has_trait = leader_trait_maintenance_loop }
+		localization_key = get_trait_maintenance_loop
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitUnstableCodeBase
+	text = {
+		trigger = { has_trait = leader_trait_unstable_code_base }
+		localization_key = get_trait_unstable_code_base
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitRestorePoint
+	text = {
+		trigger = { has_trait = leader_trait_restore_point }
+		localization_key = get_trait_restore_point
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAdmiralBrainslug
+	text = {
+		trigger = { has_trait = leader_trait_admiral_brainslug }
+		localization_key = get_trait_admiral_brainslug
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitAdmiralHellsHeart
+	text = {
+		trigger = { has_trait = leader_trait_admiral_hells_heart }
+		localization_key = get_trait_admiral_hells_heart
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitCaravanCounter
+	text = {
+		trigger = { has_trait = leader_trait_caravan_counter }
+		localization_key = get_trait_caravan_counter
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGeneralErudite
+	text = {
+		trigger = { has_trait = leader_trait_general_erudite }
+		localization_key = get_trait_general_erudite
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGeneralCyborg
+	text = {
+		trigger = { has_trait = leader_trait_general_cyborg }
+		localization_key = get_trait_general_cyborg
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGeneralSynthetic
+	text = {
+		trigger = { has_trait = leader_trait_general_synthetic }
+		localization_key = get_trait_general_synthetic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGeneralPsionic
+	text = {
+		trigger = { has_trait = leader_trait_general_psionic }
+		localization_key = get_trait_general_psionic
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGeneralChosen
+	text = {
+		trigger = { has_trait = leader_trait_general_chosen }
+		localization_key = get_trait_general_chosen
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGeneralMercenaryWarrior
+	text = {
+		trigger = { has_trait = leader_trait_general_mercenary_warrior }
+		localization_key = get_trait_general_mercenary_warrior
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitPartsCannibalizer
+	text = {
+		trigger = { has_trait = leader_trait_parts_cannibalizer }
+		localization_key = get_trait_parts_cannibalizer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitDemoralizer
+	text = {
+		trigger = { has_trait = leader_trait_demoralizer }
+		localization_key = get_trait_demoralizer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitErraticMoralityCore
+	text = {
+		trigger = { has_trait = leader_trait_erratic_morality_core }
+		localization_key = get_trait_erratic_morality_core
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetTraitGeneralBrainslug
+	text = {
+		trigger = { has_trait = leader_trait_general_brainslug }
+		localization_key = get_trait_general_brainslug
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Rulership Flags
+# Is starting ruler
+defined_text = { # Country/leader scope
+	name = GetStartingRuler
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_starting_ruler }
+		localization_key = ruler_starting_ruler
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetFirstContact
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_first_contact }
+		localization_key = ruler_first_contact
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetEstablishedCommunications
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_communications_established }
+		localization_key = ruler_communications_established
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetAllowedRebels
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_allowed_rebels }
+		localization_key = ruler_allowed_rebels
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetBannedAI
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_banned_ai }
+		localization_key = ruler_banned_ai
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetBannedRobots
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_banned_robots }
+		localization_key = ruler_banned_robots
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetCommissionedNewShipDesign
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_commissioned_new_ship_design }
+		localization_key = ruler_commissioned_new_ship_design
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDefensiveOnly
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_defensive_only }
+		localization_key = ruler_defensive_only
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDestroyerOfNations
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_destroyer_of_nations }
+		localization_key = ruler_destroyer_of_nations
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetClaimedNewTerritory
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_new_systems_claimed value > 10 }
+			}
+		}
+		localization_key = ruler_new_territory_expansionist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetGainedTerritory
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_gained_territory }
+		localization_key = ruler_gained_territory
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTerritoryExpansionist
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_systems_gained value > 10 }
+			}
+		}
+		localization_key = ruler_territory_expansionist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetLostTerritory
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_lost_territory }
+		localization_key = ruler_lost_territory
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetPurgeAllowed
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_purge_allowed }
+		localization_key = ruler_purge_allowed
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetPurgeNotAllowed
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_purge_not_allowed }
+		localization_key = ruler_purge_not_allowed
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetRefugeesAllowed
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_refugees_allowed }
+		localization_key = ruler_refugees_allowed
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetRefugeesNotAllowed
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_refugees_not_allowed }
+		localization_key = ruler_refugees_not_allowed
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSlaveryAllowed
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_slavery_allowed }
+		localization_key = ruler_slavery_allowed
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSlaveryNotAllowed
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_slavery_not_allowed }
+		localization_key = ruler_slavery_not_allowed
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSpeciesDrugged
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_species_drugged }
+		localization_key = ruler_species_drugged
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSpeciesEnslaved
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_species_enslaved }
+		localization_key = ruler_species_enslaved
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSpeciesGivenCitizenship
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_species_given_citizenship }
+		localization_key = ruler_species_given_citizenship
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSpeciesPurging
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_species_purging }
+		localization_key = ruler_species_purging
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetUnrestrictedWars
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_unrestricted_wars }
+		localization_key = ruler_unrestricted_wars
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetUplift
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_uplift }
+		localization_key = ruler_uplift
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetChangedPolicy
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_changed_policy }
+		localization_key = ruler_changed_policy
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetChangedSpeciesRights
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_changed_species_rights }
+		localization_key = ruler_changed_species_rights
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetGreatExplorer
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_systems_discovered value > 25 }
+			}
+		}
+		localization_key = ruler_great_explorer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetPurgedPopsRuler
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_purged_pops }
+		localization_key = ruler_purged_pops
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetPurgedPopsManyRuler
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_pops_purged value > 50 }
+			}
+		}
+		localization_key = ruler_purged_pops_many
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetPurgedSpeciesFromGalaxyRuler
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_purged_species_from_galaxy }
+		localization_key = ruler_purged_species_from_galaxy
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetPurgedSpeciesManyRuler
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_species_purged value > 10 }
+			}
+		}
+		localization_key = ruler_purged_species_many
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetSlumlordRuler
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_slumlord }
+		localization_key = ruler_slumlord
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Governor Flags/ thresholds
+defined_text = { # Country/leader scope
+	name = GetCivilianBuildup
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_civilian_ships_built value > 10 }
+			}
+		}
+		localization_key = governor_civilian_buildup
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetMiningExpansionist
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_mining_stations_built value > 10 }
+			}
+		}
+		localization_key = governor_mining_expansionist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetResearchExpansionist
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_research_stations_built value > 10 }
+			}
+		}
+		localization_key = governor_research_expansionist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetObservationExpansionist
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_observation_stations_built value > 2 }
+			}
+		}
+		localization_key = governor_observation_expansionist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetColonizationWave
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_colonies_started value > 4 }
+			}
+		}
+		localization_key = governor_colonization_wave
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetColonyFounder
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_colonies_founded value > 4 }
+			}
+		}
+		localization_key = governor_colony_founder
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTerrainLeveler
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_blockers_cleared value > 10 }
+			}
+		}
+		localization_key = governor_terrain_leveler
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetPopsFlourishing
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_pops_grown value > 50 }
+			}
+		}
+		localization_key = governor_pops_flourishing
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetEdificeConstructor
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_buildings_constructed value > 10 }
+			}
+		}
+		localization_key = governor_edifice_constructor
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDistrictConstructor
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_districts_constructed value > 20 }
+			}
+		}
+		localization_key = governor_district_constructor
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetMilitaryBuildup
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_military_ships_built value > 25 }
+			}
+		}
+		localization_key = governor_military_buildup
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetRecruitmentDrive
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_armies_recruited value > 15 }
+			}
+		}
+		localization_key = governor_recruitment_drive
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetAllowedRebelsGovernor
+	text = {
+		trigger = { has_leader_flag = honor_leader_governor_allowed_rebels }
+		localization_key = governor_allowed_rebels
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetFullyDevelopedBuildings
+	text = {
+		trigger = { has_leader_flag = honor_leader_governor_fully_developed_buildings }
+		localization_key = governor_fully_developed_buildings
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetFullyDevelopedDistricts
+	text = {
+		trigger = { has_leader_flag = honor_leader_governor_fully_developed_districts }
+		localization_key = governor_fully_developed_districts
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetFullyDevelopedPlanet
+	text = {
+		trigger = { has_leader_flag = honor_leader_governor_fully_developed_planet }
+		localization_key = governor_fully_developed_planet
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetPurgedPopsGovernor
+	text = {
+		trigger = { has_leader_flag = honor_leader_governor_purged_pops }
+		localization_key = governor_purged_pops
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetPurgedPopsManyGovernor
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_pops_purged value > 50 }
+			}
+		}
+		localization_key = governor_purged_pops_many
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetPurgedSpeciesFromGalaxyGovernor
+	text = {
+		trigger = { has_leader_flag = honor_leader_governor_purged_species_from_galaxy }
+		localization_key = governor_purged_species_from_galaxy
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetPurgedSpeciesManyGovernor
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_species_purged value > 10 }
+			}
+		}
+		localization_key = governor_purged_species_many
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetSlumlordGovernor
+	text = {
+		trigger = { has_leader_flag = honor_leader_governor_slumlord }
+		localization_key = governor_slumlord
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Scientist Flags/ thresholds
+defined_text = { # Country/leader scope
+	name = GetSurvivor
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_evaded_hostiles value > 10 }
+			}
+		}
+		localization_key = scientist_survivor
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetGrandExplorer
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_systems_discovered value > 15 }
+			}
+		}
+		localization_key = scientist_grand_explorer
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetExpertRockTurner
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_objects_surveyed value > 150 }
+			}
+		}
+		localization_key = scientist_expert_rock_turner
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSystemSurveyor
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_systems_surveyed value > 10 }
+			}
+		}
+		localization_key = scientist_system_surveyor
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetAnomalist
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_anomalies_researched value > 10 }
+			}
+		}
+		localization_key = scientist_anomalist
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetProjectManager
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_special_projects_researched value > 10 }
+			}
+		}
+		localization_key = scientist_project_manager
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetResearchAssistant
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_years_assisting_research value > 10 }
+			}
+		}
+		localization_key = scientist_research_assistant
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetPhysicsResearcher
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_physics_techs_researched value > 10 }
+			}
+		}
+		localization_key = scientist_physics_researcher
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSocietyResearcher
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_society_techs_researched value > 10 }
+			}
+		}
+		localization_key = scientist_society_researcher
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetEngineeringResearcher
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_engineering_techs_researched value > 10 }
+			}
+		}
+		localization_key = scientist_engineering_researcher
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Scientist tech discoveries
+defined_text = { # Country/leader scope
+	name = GetDiscoveredAutomatedExploration
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_automated_exploration }
+		localization_key = scientist_discovered_automated_exploration
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredColdFusionPower
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_cold_fusion_power }
+		localization_key = scientist_discovered_cold_fusion_power
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredWormholeStabilization
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_wormhole_stabilization }
+		localization_key = scientist_discovered_wormhole_stabilization
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredJumpDrive
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_jump_drive_1 }
+		localization_key = scientist_discovered_jump_drive_1
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredFTLInhibitor
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_ftl_inhibitor }
+		localization_key = scientist_discovered_ftl_inhibitor
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredCombatComputers
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_combat_computers_3 }
+		localization_key = scientist_discovered_combat_computers_3
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredSynchronizedDefences
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_synchronized_defences }
+		localization_key = scientist_discovered_synchronized_defences
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredPlanetaryShieldGenerator
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_planetary_shield_generator }
+		localization_key = scientist_discovered_planetary_shield_generator
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMineVolatileMotes
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_volatile_motes }
+		localization_key = scientist_discovered_mine_volatile_motes
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMineDarkMatter
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_dark_matter }
+		localization_key = scientist_discovered_mine_dark_matter
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredLasers
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_lasers_2 }
+		localization_key = scientist_discovered_lasers_2
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredExtradimensionalWeapon
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_extradimensional_weapon_1 }
+		localization_key = scientist_discovered_extradimensional_weapon_1
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMiningDroneWeapon
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_mining_drone_weapon_1 }
+		localization_key = scientist_discovered_mining_drone_weapon_1
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredSpaceCloudWeapon
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_space_cloud_weapon_1 }
+		localization_key = scientist_discovered_space_cloud_weapon_1
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredNullVoidBeam
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_null_void_beam }
+		localization_key = scientist_discovered_null_void_beam
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredDarkMatterDeflector
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_deflector }
+		localization_key = scientist_discovered_dark_matter_deflector
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredDarkMatterPowerCore
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_power_core }
+		localization_key = scientist_discovered_dark_matter_power_core
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredPsionicBarrier
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_psionic_barrier }
+		localization_key = scientist_discovered_psionic_barrier
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredSpaceWhaleWeapon
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_space_whale_weapon_1 }
+		localization_key = scientist_discovered_space_whale_weapon_1
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredGalacticMarkets
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_galactic_markets }
+		localization_key = scientist_discovered_galactic_markets
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredNutrientReplication
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_nutrient_replication }
+		localization_key = scientist_discovered_nutrient_replication
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredTombWorldAdaption
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_tomb_world_adaption }
+		localization_key = scientist_discovered_tomb_world_adaption
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredGeneBanks
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_gene_banks }
+		localization_key = scientist_discovered_gene_banks
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMorphogeneticFieldMastery
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_morphogenetic_field_mastery }
+		localization_key = scientist_discovered_morphogenetic_field_mastery
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredGeneticResequencing
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_genetic_resequencing }
+		localization_key = scientist_discovered_genetic_resequencing
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredGeneExpressions
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_gene_expressions }
+		localization_key = scientist_discovered_gene_expressions
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredSelectedLineages
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_selected_lineages }
+		localization_key = scientist_discovered_selected_lineages
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredCapacityBoosters
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_capacity_boosters }
+		localization_key = scientist_discovered_capacity_boosters
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredRegenerativeHullTissue
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_regenerative_hull_tissue }
+		localization_key = scientist_discovered_regenerative_hull_tissue
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredPsionicTheory
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_psionic_theory }
+		localization_key = scientist_discovered_psionic_theory
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredSubdermalStimulation
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_subdermal_stimulation }
+		localization_key = scientist_discovered_subdermal_stimulation
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredAscensionTheory
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_ascension_theory }
+		localization_key = scientist_discovered_ascension_theory
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredPenalColonies
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_penal_colonies }
+		localization_key = scientist_discovered_penal_colonies
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredResortColonies
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_resort_colonies }
+		localization_key = scientist_discovered_resort_colonies
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredEpigeneticTriggers
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_epigenetic_triggers }
+		localization_key = scientist_discovered_epigenetic_triggers
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredGeneTailoring
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_gene_tailoring }
+		localization_key = scientist_discovered_gene_tailoring
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredTerrestrialSculpting
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_terrestrial_sculpting }
+		localization_key = scientist_discovered_terrestrial_sculpting
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredEcologicalAdaptation
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_ecological_adaptation }
+		localization_key = scientist_discovered_ecological_adaptation
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredClimateRestoration
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_climate_restoration }
+		localization_key = scientist_discovered_climate_restoration
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredNeuralImplants
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_neural_implants }
+		localization_key = scientist_discovered_neural_implants
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredGalacticAdministration
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_galactic_administration }
+		localization_key = scientist_discovered_galactic_administration
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMineZro
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_zro }
+		localization_key = scientist_discovered_mine_zro
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredCorvetteHull
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_corvette_hull_2 }
+		localization_key = scientist_discovered_corvette_hull_2
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredDestroyerHull
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_destroyer_hull_2 }
+		localization_key = scientist_discovered_destroyer_hull_2
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredCruiserHull
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_cruiser_hull_2 }
+		localization_key = scientist_discovered_cruiser_hull_2
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredBattleshipHull
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_battleship_hull_2 }
+		localization_key = scientist_discovered_battleship_hull_2
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredDefensePlatformHull
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_defense_platform_hull_1 }
+		localization_key = scientist_discovered_defense_platform_hull_1
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredModularEngineering
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_modular_engineering }
+		localization_key = scientist_discovered_modular_engineering
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredSpaceDefenseStationImprovement
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_space_defense_station_improvement }
+		localization_key = scientist_discovered_space_defense_station_improvement
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+defined_text = { # Country/leader scope
+	name = GetDiscoveredCrystalInfusedArmor
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_crystal_armor_1 }
+		localization_key = scientist_discovered_crystal_armor_1
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredCrystalForgedArmor
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_crystal_armor_2 }
+		localization_key = scientist_discovered_crystal_armor_2
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredRoboticWorkers
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_robotic_workers }
+		localization_key = scientist_discovered_robotic_workers
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredDroidWorkers
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_droid_workers }
+		localization_key = scientist_discovered_droid_workers
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredSyntheticWorkers
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_synthetic_workers }
+		localization_key = scientist_discovered_synthetic_workers
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredConstructionTemplates
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_construction_templates }
+		localization_key = scientist_discovered_construction_templates
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredCitadelStarbase
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_starbase_5 }
+		localization_key = scientist_discovered_starbase_5
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredWeatherControlledHousing
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_housing_1 }
+		localization_key = scientist_discovered_housing_1
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredAntiGravityHousing
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_housing_2 }
+		localization_key = scientist_discovered_housing_2
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredDarkMatterPropulsion
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_propulsion }
+		localization_key = scientist_discovered_dark_matter_propulsion
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMineLivingMetal
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_living_metal }
+		localization_key = scientist_discovered_mine_living_metal
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMineBetharian
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_betharian }
+		localization_key = scientist_discovered_mine_betharian
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMineExoticGases
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_exotic_gases }
+		localization_key = scientist_discovered_mine_exotic_gases
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDiscoveredMineRareCrystals
+	text = {
+		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_rare_crystals }
+		localization_key = scientist_discovered_mine_rare_crystals
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Admiral accomplishments
+defined_text = { # Country/leader scope
+	name = GetCursedCommand
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_ships_lost value > 50 }
+			}
+		}
+		localization_key = admiral_cursed_command
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSkilledComabtVeteran
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_ships_destroyed value > 100 }
+			}
+		}
+		localization_key = admiral_skilled_combat_veteran
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetExterminator
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_space_critters_destroyed value > 100 }
+			}
+		}
+		localization_key = admiral_exterminator
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetPirateCleanser
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_pirate_ships_destroyed value > 100 }
+			}
+		}
+		localization_key = admiral_pirate_cleanser
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetHeroOfTheGalaxy
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_crisis_ships_destroyed value > 100 }
+			}
+		}
+		localization_key = admiral_hero_of_the_galaxy
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetRedDeath
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_fleets_destroyed value > 100 }
+			}
+		}
+		localization_key = admiral_red_death
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetUndefeated
+	text = {
+		trigger = { has_leader_flag = honor_leader_admiral_undefeated }
+		localization_key = admiral_undefeated
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetOrbitalBombarder
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_days_bombarding_planet value > 365 }
+			}
+		}
+		localization_key = admiral_orbital_bombarder
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSeasonedVeteran
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_space_battles_fought value > 25 }
+			}
+		}
+		localization_key = admiral_seasoned_veteran
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDeskAdmiral
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_years_orbital_training_excersises value > 25 }
+			}
+		}
+		localization_key = admiral_desk_admiral
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetEradicatedColony
+	text = {
+		trigger = { has_leader_flag = honor_leader_admiral_eradicated_colony }
+		localization_key = admiral_eradicated_colony
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# General accomplishments
+defined_text = { # Country/leader scope
+	name = GetDeskGeneralOrbit
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_years_orbital_training_excersises value > 25 }
+			}
+		}
+		localization_key = general_desk_general_orbit
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetDeskGeneralPlanet
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_years_planet_training_excersises value > 25 }
+			}
+		}
+		localization_key = general_desk_general_planet
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetUndefeatedGeneral
+	text = {
+		trigger = { has_leader_flag = honor_leader_general_undefeated }
+		localization_key = general_undefeated
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetSeasonedGeneral
+	text = {
+		trigger = {
+			this = {
+				check_variable = { which = honor_leader_ground_combats_won value > 10 }
+			}
+		}
+		localization_key = general_seasoned
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Country/leader scope
+	name = GetTotalWar
+	text = {
+		trigger = { has_leader_flag = honor_leader_general_leveled_a_planet }
+		localization_key = general_total_war
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# # Class icon
+# defined_text = { # leader scope
+# 	name = GetClassIcon
+# 	text = {
+# 		trigger = { leader_class = ruler }
+# 		localization_key = class_ruler_icon
+# 	}
+# 	text = {
+# 		trigger = { leader_class = governor }
+# 		localization_key = class_governor_icon
+# 	}
+# 	text = {
+# 		trigger = { leader_class = scientist }
+# 		localization_key = class_scientist_icon
+# 	}
+# 	text = {
+# 		trigger = { leader_class = admiral }
+# 		localization_key = class_admiral_icon
+# 	}
+# 	text = {
+# 		trigger = { leader_class = general }
+# 		localization_key = class_general_icon
+# 	}
+# 	text = { localization_key = emptystringnotstring.empty }
+# }
+
+# Somehow this works only random
+# ## Class
+# defined_text = { # leader scope
+# 	name = GetClass
+# 	text = { trigger = { leader_class = ruler } localization_key = class_ruler }
+# 	text = { trigger = { leader_class = governor } localization_key = class_governor }
+# 	text = { trigger = { leader_class = scientist } localization_key = class_scientist }
+# 	text = { trigger = { leader_class = admiral } localization_key = class_admiral }
+# 	text = { trigger = { leader_class = general } localization_key = class_general }
+# 	text = { localization_key = unknownproperty }
+# }
+
+## Class
+defined_text = { # leader scope
+	name = GetClass
+	text = { trigger = { check_variable = { which = honor_leader_class value = 1 } } localization_key = ruler }
+	text = { trigger = { check_variable = { which = honor_leader_class value = 2 } } localization_key = governor }
+	text = { trigger = { check_variable = { which = honor_leader_class value = 3 } } localization_key = scientist }
+	text = { trigger = { check_variable = { which = honor_leader_class value = 4 } } localization_key = admiral }
+	text = { trigger = { check_variable = { which = honor_leader_class value = 5 } } localization_key = general }
+	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 1 } } } localization_key = ruler }
+	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 2 } } } localization_key = governor }
+	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 3 } } } localization_key = scientist }
+	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 4 } } } localization_key = admiral }
+	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 5 } } } localization_key = general }
+	text = { localization_key = unknownproperty }
+}
+
+#Class
+# defined_text = { # Country/leader scope
+# 	name = GetClass
+# 	text = {
+# 		trigger = {
+# 			event_target:honor_leader = { leader_class = ruler }
+# 		}
+# 		localization_key = class_ruler
+# 	}
+# 	text = {
+# 		trigger = {
+# 			event_target:honor_leader = { leader_class = governor }
+# 		}
+# 		localization_key = class_governor
+# 	}
+# 	text = {
+# 		trigger = {
+# 			event_target:honor_leader = { leader_class = scientist }
+# 		}
+# 		localization_key = class_scientist
+# 	}
+# 	text = {
+# 		trigger = {
+# 			event_target:honor_leader = { leader_class = admiral }
+# 		}
+# 		localization_key = class_admiral
+# 	}
+# 	text = {
+# 		trigger = {
+# 			event_target:honor_leader = { leader_class = general }
+# 		}
+# 		localization_key = class_general
+# 	}
+# 	text = { localization_key = unknownproperty }
+# }
+
+# defined_text = { # leader scope
+# 	name = GetSkill
+# 	text = {
+# 		trigger = { has_skill = 1 }
+# 		localization_key = skill_icon_1
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 2 }
+# 		localization_key = skill_icon_2
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 3 }
+# 		localization_key = skill_icon_3
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 4 }
+# 		localization_key = skill_icon_4
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 5 }
+# 		localization_key = skill_icon_5
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 5 }
+# 		localization_key = skill_icon_5
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 6 }
+# 		localization_key = skill_icon_6
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 7 }
+# 		localization_key = skill_icon_7
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 8 }
+# 		localization_key = skill_icon_8
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 9 }
+# 		localization_key = skill_icon_9
+# 	}
+# 	text = {
+# 		trigger = { has_skill = 10 }
+# 		localization_key = skill_icon_10
+# 	}
+# 	text = { localization_key = unknownproperty }
+# }
+
+# DEPRECATED due performance issue
+defined_text = { # leader scope
+	name = GetSkill
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 1  } } localization_key = skill_icon_1 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 2  } } localization_key = skill_icon_2 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 3  } } localization_key = skill_icon_3 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 4  } } localization_key = skill_icon_4 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 5  } } localization_key = skill_icon_5 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 6  } } localization_key = skill_icon_6 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 7  } } localization_key = skill_icon_7 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 8  } } localization_key = skill_icon_8 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 9  } } localization_key = skill_icon_9 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 10 } } localization_key = skill_icon_10 }
+	text = { localization_key = unknownproperty }
+}
+
+# Cause of death (ALways TODO)
+defined_text = { # leader scope
+	name = GetCauseOfDeath
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_xeno_empire }
+		localization_key = known_ship_xeno_empire
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_fallen_empire }
+		localization_key = known_ship_fallen_empire
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_ancient_mining_drone }
+		localization_key = known_ship_ancient_mining_drone
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_crystal_ship }
+		localization_key = known_ship_crystal_ship
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_space_amoeba }
+		localization_key = known_ship_space_amoeba
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_space_cloud }
+		localization_key = known_ship_space_cloud
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_space_whale }
+		localization_key = known_ship_space_whale
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_pirates }
+		localization_key = known_ship_pirates
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_marauders }
+		localization_key = known_ship_marauders
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_caravaneers }
+		localization_key = known_ship_caravaneers
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_shroud_entities }
+		localization_key = known_ship_shroud_entities
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_swarm }
+		localization_key = known_ship_swarm
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_ed }
+		localization_key = known_ship_ed
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_ai }
+		localization_key = known_ship_ai
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_nano }
+		localization_key = known_ship_nano
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_enclave_station }
+		localization_key = known_ship_enclave_station
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_stellarite }
+		localization_key = known_ship_stellarite
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_sphere }
+		localization_key = known_ship_sphere
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_fortress }
+		localization_key = known_ship_enigmatic_station
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_horror }
+		localization_key = known_ship_dimensional_horror
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_dreadnought }
+		localization_key = known_ship_automated_dreadnought
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_wraith }
+		localization_key = known_ship_wraith
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_dragon }
+		localization_key = known_ship_space_dragon
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_scavenger_bot }
+		localization_key = known_ship_scavenger_bot
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_elderly_tiyanki }
+		localization_key = known_ship_elder_tiyanki
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_voidspawn }
+		localization_key = known_ship_voidspawn
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_enigmatic_cache }
+		localization_key = known_ship_enigmatic_cache
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_cod_toxic_god }
+		localization_key = known_ship_toxic_god
+	}
+	text = {
+		trigger = {
+			exists = event_target:honor_leader_cause_of_death
+			# exists = event_target:honor_leader_system
+			has_leader_flag = honor_leader_probably_dead
+			event_target:honor_leader_cause_of_death = { is_scope_type = leader }
+		}
+		localization_key = known_fleet_destroyed
+	}
+	text = {
+		localization_key = known_age
+		trigger = {
+			exists = event_target:honor_leader_cause_of_death
+			event_target:honor_leader_cause_of_death = {
+				OR = {
+					is_scope_type = country
+					AND = {
+						is_scope_type = leader
+						NOT = {
+							# exists = event_target:honor_leader_system
+							has_leader_flag = honor_leader_probably_dead
+						}
+					}
+				}
+			}
+			NOR = {
+				has_leader_flag = honor_leader_cod_xeno_empire
+				has_leader_flag = honor_leader_cod_fallen_empire
+				has_leader_flag = honor_leader_cod_ancient_mining_drone
+				has_leader_flag = honor_leader_cod_crystal_ship
+				has_leader_flag = honor_leader_cod_space_amoeba
+				has_leader_flag = honor_leader_cod_space_cloud
+				has_leader_flag = honor_leader_cod_space_whale
+				has_leader_flag = honor_leader_cod_pirates
+				has_leader_flag = honor_leader_cod_marauders
+				has_leader_flag = honor_leader_cod_caravaneers
+				has_leader_flag = honor_leader_cod_shroud_entities
+				has_leader_flag = honor_leader_cod_swarm
+				has_leader_flag = honor_leader_cod_ed
+				has_leader_flag = honor_leader_cod_ai
+				has_leader_flag = honor_leader_cod_nano
+				has_leader_flag = honor_leader_cod_enclave_station
+				has_leader_flag = honor_leader_cod_stellarite
+				has_leader_flag = honor_leader_cod_sphere
+				has_leader_flag = honor_leader_cod_fortress
+				has_leader_flag = honor_leader_cod_horror
+				has_leader_flag = honor_leader_cod_dreadnought
+				has_leader_flag = honor_leader_cod_wraith
+				has_leader_flag = honor_leader_cod_dragon
+				has_leader_flag = honor_leader_cod_scavenger_bot
+				has_leader_flag = honor_leader_cod_elderly_tiyanki
+				has_leader_flag = honor_leader_cod_voidspawn
+				has_leader_flag = honor_leader_cod_enigmatic_cache
+			}
+		}
+	}
+	text = { localization_key = unknown }
+}
+
+defined_text = { # Country/leader scope
+	name = GetInElection
+	text = {
+		trigger = { has_leader_flag = honor_leader_ruler_in_election }
+		localization_key = in_election_ruler
+	}
+	text = {
+		trigger = { has_leader_flag = honor_leader_leader_in_election }
+		localization_key = in_election_leader
+	}
+	text = { localization_key = emptystringnotstring.empty }
+}
+
+# Can't believe this isn't a default localization..
+defined_text = {
+	name = GetScopeType
+	text = {
+		trigger = { is_scope_type = none }
+		localization_key = succession_type_none
+	}
+	text = {
+		trigger = { is_scope_type = megastructure }
+		localization_key = megastructure
+	}
+	text = {
+		trigger = { is_scope_type = planet }
+		localization_key = planet
+	}
+	text = {
+		trigger = { is_scope_type = leader }
+		localization_key = leader
+	}
+	text = {
+		trigger = { is_scope_type = country }
+		localization_key = countryscope
+	}
+	text = {
+		trigger = { is_scope_type = ship }
+		localization_key = ship
+	}
+	text = {
+		trigger = { is_scope_type = pop }
+		localization_key = pop
+	}
+	text = {
+		trigger = { is_scope_type = fleet }
+		localization_key = FLEET
+	}
+	text = {
+		trigger = { is_scope_type = galactic_object }
+		localization_key = galactic_object
+	}
+	text = {
+		trigger = { is_scope_type = army }
+		localization_key = army
+	}
+	text = {
+		trigger = { is_scope_type = ambient_object }
+		localization_key = ambient_object
+	}
+	text = {
+		trigger = { is_scope_type = species }
+		localization_key = species
+	}
+	text = {
+		trigger = { is_scope_type = design }
+		localization_key = design
+	}
+	text = {
+		trigger = { is_scope_type = pop_faction }
+		localization_key = pop_faction
+	}
+	text = {
+		trigger = { is_scope_type = war }
+		localization_key = war
+	}
+	text = {
+		trigger = { is_scope_type = alliance }
+		localization_key = alliance
+	}
+	text = {
+		trigger = { is_scope_type = starbase }
+		localization_key = starbase
+	}
+	text = {
+		trigger = { is_scope_type = deposit }
+		localization_key = deposit
+	}
+	text = {
+		trigger = { is_scope_type = observer }
+		localization_key = observer
+	}
+	text = {
+		trigger = { is_scope_type = sector }
+		localization_key = sector
+	}
+}
+
+defined_text = { # Planet scope
+	name = GetMainstarName
+	text = { trigger = { check_variable = { which = honor_leader_stars value = 1  } } localization_key = HL_NAME_A }
+	text = { trigger = { check_variable = { which = honor_leader_stars value = 2  } } localization_key = HL_NAME_B }
+	text = { trigger = { check_variable = { which = honor_leader_stars value = 3  } } localization_key = HL_NAME_C }
+	# text = { localization_key = emptystringnotstring.empty }
+}
+
+# > v3.3
+defined_text = { # Planet/Moon scope
+	name = GetMainstarPlanetName
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 1  } } localization_key = HL_MAINSTAR_PLANET_I }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 2  } } localization_key = HL_MAINSTAR_PLANET_II }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 3  } } localization_key = HL_MAINSTAR_PLANET_III }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 4  } } localization_key = HL_MAINSTAR_PLANET_IV }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 5  } } localization_key = HL_MAINSTAR_PLANET_V }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 6  } } localization_key = HL_MAINSTAR_PLANET_VI }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 7  } } localization_key = HL_MAINSTAR_PLANET_VII }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 8  } } localization_key = HL_MAINSTAR_PLANET_VIII }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 9  } } localization_key = HL_MAINSTAR_PLANET_IX }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 10 } } localization_key = HL_MAINSTAR_PLANET_X }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 11 } } localization_key = HL_MAINSTAR_PLANET_XI }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 12 } } localization_key = HL_MAINSTAR_PLANET_XII }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 13 } } localization_key = HL_MAINSTAR_PLANET_XIII }
+	# text = { localization_key = emptystringnotstring.empty }
+}
+
+defined_text = { # Moon scope
+	name = GetMoonNameSS
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 1 } } localization_key = HL_MOON_NAME_SS_a }
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 2 } } localization_key = HL_MOON_NAME_SS_b }
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 3 } } localization_key = HL_MOON_NAME_SS_c }
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 4 } } localization_key = HL_MOON_NAME_SS_d }
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 5 } } localization_key = HL_MOON_NAME_SS_e }
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 6 } } localization_key = HL_MOON_NAME_SS_f }
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 7 } } localization_key = HL_MOON_NAME_SS_g }
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 8 } } localization_key = HL_MOON_NAME_SS_h }
+	text = { trigger = { check_variable = { which = honor_leader_moons value = 9 } } localization_key = HL_MOON_NAME_SS_i }
+	# text = { localization_key = emptystringnotstring.empty }
+}

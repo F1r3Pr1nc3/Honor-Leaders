@@ -1,0 +1,1476 @@
+# See README.txt for example
+
+honor_leader_memorial_ruler_0 = {
+	entity = "mega_art_institution_stage_1_entity"
+	construction_entity = "mega_art_institution_stage_1_entity"
+	portrait = "GFX_mega_art_installation_background"
+	place_entity_on_planet_plane = yes
+	entity_offset = { x = -7 y = -7 }
+	build_time = 360
+
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 100
+			influence = 50
+			unity = 100
+		}
+		produces = { unity = 10 }
+		upkeep = { energy = 1 }
+	}
+	construction_blocks_and_blocked_by = self_type
+
+	country_modifier = { edict_length_mult = 0.025 country_unity_produces_mult = 0.015 }
+	potential = {
+		OR = {
+			AND = {
+				has_country_flag = honor_leader_has_dead_ruler1
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler1 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_ruler2
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler2 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_ruler3
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler3 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_ruler4
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler4 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_ruler5
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler5 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		exists = starbase
+		custom_tooltip = {
+			fail_text = "requires_inside_border"
+			is_inside_border = from
+		}
+	}
+
+	placement_rules = {
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "requires_surveyed_planet"
+				is_surveyed = {			# Prevent leaking habitability information
+					who = prev.from
+					status = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				has_anomaly = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_existing_megastructure"
+				can_build_megastructure_on_planet = yes
+				NOR = {
+					has_planet_flag = megastructure
+					has_planet_flag = has_megastructure
+					solar_system = { has_star_flag = ring_world_built }
+				}
+				is_artificial = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_orbital_station"
+				has_orbital_station = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_minor_planetary_body"
+				NOR = {
+					is_asteroid = yes
+					is_moon = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_star"
+				is_star = no
+			}
+		} # Use these for all non-star megastructures
+	}
+
+	# root = system
+	# from = country
+	ai_weight = { factor = 0 }
+
+	on_build_start = {}
+	on_build_cancel = {}
+
+	on_build_complete = {
+		from = {
+			save_event_target_as = honor_leader_country
+			if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_ruler1
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler1 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_ruler1_stored
+					effect = { save_event_target_as = honor_leader }
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_ruler_memorial"
+						variable_string = "Prev.GetRulerTitle"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_ruler1
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_ruler1
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_ruler2
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler2 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_ruler2_stored
+					effect = { save_event_target_as = honor_leader }
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_ruler_memorial"
+						variable_string = "Prev.GetRulerTitle"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_ruler2
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_ruler2
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_ruler3
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler3 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_ruler3_stored
+					effect = { save_event_target_as = honor_leader }
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_ruler_memorial"
+						variable_string = "Prev.GetRulerTitle"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_ruler3
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_ruler3
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_ruler4
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler4 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_ruler4_stored
+					effect = { save_event_target_as = honor_leader }
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_ruler_memorial"
+						variable_string = "Prev.GetRulerTitle"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_ruler4
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_ruler4
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_ruler5
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_ruler5 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_ruler5_stored
+					effect = { save_event_target_as = honor_leader }
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_ruler_memorial"
+						variable_string = "Prev.GetRulerTitle"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_ruler5
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_ruler5
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			}
+		}
+		fromfrom.planet = { set_planet_flag = has_megastructure }
+	}
+}
+
+honor_leader_memorial_governor_0 = {
+	entity = "interstellar_assembly_stage_1_entity"
+	construction_entity = "interstellar_assembly_stage_1_entity"
+	portrait = "GFX_megastructure_interstellar_assembly_background"
+	place_entity_on_planet_plane = yes
+	entity_offset = { x = -7 y = -7 }
+	build_time = 360
+
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 100
+			influence = 50
+			unity = 100
+		}
+		produces = { unity = 10 }
+		upkeep = { energy = 1 }
+	}
+	construction_blocks_and_blocked_by = self_type
+
+	country_modifier = { planet_jobs_produces_mult = 0.01 species_empire_size_mult = -0.01 planet_crime_add = -1.5 }
+	potential = {
+		OR = {
+			AND = {
+				has_country_flag = honor_leader_has_dead_governor1
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor1 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_governor2
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor2 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_governor3
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor3 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_governor4
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor4 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_governor5
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor5 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		exists = starbase
+		custom_tooltip = {
+			fail_text = "requires_inside_border"
+			is_inside_border = from
+		}
+	}
+
+	placement_rules = {
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "requires_surveyed_planet"
+				is_surveyed = {			# Prevent leaking habitability information
+					who = prev.from
+					status = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				has_anomaly = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_existing_megastructure"
+				can_build_megastructure_on_planet = yes
+				NOR = {
+					has_planet_flag = megastructure
+					has_planet_flag = has_megastructure
+					solar_system = { has_star_flag = ring_world_built }
+				}
+				is_artificial = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_orbital_station"
+				has_orbital_station = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_minor_planetary_body"
+				NOR = {
+					is_asteroid = yes
+					is_moon = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_star"
+				is_star = no
+			}
+		} # Use these for all non-star megastructures
+	}
+
+	# root = system
+	# from = country
+	ai_weight = { factor = 0 }
+
+	on_build_start = {}
+	on_build_cancel = {}
+
+	on_build_complete = {
+		from = {
+			save_event_target_as = honor_leader_country
+			if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_governor1
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor1 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_governor1_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_governor1 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_governor_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_governor1
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_governor1
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_governor2
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor2 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_governor2_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_governor2 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_governor_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_governor2
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_governor2
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_governor3
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor3 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_governor3_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_governor3 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_governor_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_governor3
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_governor3
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_governor4
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor4 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_governor4_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_governor4 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_governor_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_governor4
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_governor4
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_governor5
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_governor5 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_governor5_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_governor5 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_governor_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_governor5
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_governor5
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			}
+		}
+		fromfrom.planet = { set_planet_flag = has_megastructure }
+	}
+}
+
+honor_leader_memorial_scientist_0 = {
+	entity = "thinktank_phase_01_entity"
+	construction_entity = "thinktank_phase_01_entity"
+	portrait = "GFX_megastructure_think_tank_background"
+	place_entity_on_planet_plane = yes
+	entity_offset = { x = -7 y = -7 }
+	build_time = 360
+
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 100
+			influence = 50
+			unity = 100
+		}
+		produces = {
+			unity = 10
+			society_research = 10
+			engineering_research = 10
+			physics_research = 10
+		}
+		upkeep = { energy = 1 }
+	}
+	construction_blocks_and_blocked_by = self_type
+
+	country_modifier = { all_technology_research_speed = 0.01 science_ship_survey_speed = 0.05 ship_archaeological_site_clues_add = 1 }
+	potential = {
+		OR = {
+			AND = {
+				has_country_flag = honor_leader_has_dead_scientist1
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist1 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_scientist2
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist2 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_scientist3
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist3 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_scientist4
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist4 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_scientist5
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist5 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		exists = starbase
+		custom_tooltip = {
+			fail_text = "requires_inside_border"
+			is_inside_border = from
+		}
+	}
+
+	placement_rules = {
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "requires_surveyed_planet"
+				is_surveyed = {			# Prevent leaking habitability information
+					who = prev.from
+					status = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				has_anomaly = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_existing_megastructure"
+				can_build_megastructure_on_planet = yes
+				NOR = {
+					has_planet_flag = megastructure
+					has_planet_flag = has_megastructure
+					solar_system = { has_star_flag = ring_world_built }
+				}
+				is_artificial = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_orbital_station"
+				has_orbital_station = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_minor_planetary_body"
+				NOR = {
+					is_asteroid = yes
+					is_moon = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_star"
+				is_star = no
+			}
+		} # Use these for all non-star megastructures
+	}
+
+	# root = system
+	# from = country
+	ai_weight = { factor = 0 }
+
+	on_build_start = {}
+	on_build_cancel = {}
+
+	on_build_complete = {
+		from = {
+			save_event_target_as = honor_leader_country
+			if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_scientist1
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist1 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_scientist1_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_scientist1 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_scientist_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_scientist1
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_scientist1
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_scientist2
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist2 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_scientist2_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_scientist2 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_scientist_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_scientist2
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_scientist2
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_scientist3
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist3 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_scientist3_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_scientist3 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_scientist_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_scientist3
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_scientist3
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_scientist4
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist4 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_scientist4_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_scientist4 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_scientist_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_scientist4
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_scientist4
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_scientist5
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_scientist5 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_scientist5_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_scientist5 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_scientist_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_scientist5
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_scientist5
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			}
+		}
+		fromfrom.planet = { set_planet_flag = has_megastructure }
+	}
+}
+
+honor_leader_memorial_admiral_0 = {
+	entity = "strategic_coordination_center_stage_1_entity"
+	construction_entity = "strategic_coordination_center_stage_1_entity"
+	portrait = "GFX_megastructure_strategic_coordination_center_background"
+	place_entity_on_planet_plane = yes
+	entity_offset = { x = -7 y = -7 }
+	build_time = 360
+
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 100
+			influence = 50
+			unity = 100
+		}
+		produces = { unity = 10 }
+		upkeep = { energy = 1 }
+	}
+	construction_blocks_and_blocked_by = self_type
+
+	country_modifier = { ship_fire_rate_mult = 0.015 }
+	potential = {
+		OR = {
+			AND = {
+				has_country_flag = honor_leader_has_dead_admiral1
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral1 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_admiral2
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral2 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_admiral3
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral3 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_admiral4
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral4 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_admiral5
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral5 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		exists = starbase
+		custom_tooltip = {
+			fail_text = "requires_inside_border"
+			is_inside_border = from
+		}
+	}
+
+	placement_rules = {
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "requires_surveyed_planet"
+				is_surveyed = {			# Prevent leaking habitability information
+					who = prev.from
+					status = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				has_anomaly = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_existing_megastructure"
+				can_build_megastructure_on_planet = yes
+				NOR = {
+					has_planet_flag = megastructure
+					has_planet_flag = has_megastructure
+					solar_system = { has_star_flag = ring_world_built }
+				}
+				is_artificial = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_orbital_station"
+				has_orbital_station = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_minor_planetary_body"
+				NOR = {
+					is_asteroid = yes
+					is_moon = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_star"
+				is_star = no
+			}
+		} # Use these for all non-star megastructures
+	}
+
+	# root = system
+	# from = country
+	ai_weight = { factor = 0 }
+
+	on_build_start = {}
+	on_build_cancel = {}
+
+	on_build_complete = {
+		from = {
+			save_event_target_as = honor_leader_country
+			if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_admiral1
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral1 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_admiral1_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_admiral1 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_admiral_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_admiral1
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_admiral1
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_admiral2
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral2 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_admiral2_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_admiral2 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_admiral_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_admiral2
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_admiral2
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_admiral3
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral3 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_admiral3_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_admiral3 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_admiral_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_admiral3
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_admiral3
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_admiral4
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral4 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_admiral4_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_admiral4 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_admiral_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_admiral4
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_admiral4
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_admiral5
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_admiral5 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_admiral5_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_admiral5 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_admiral_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_admiral5
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_admiral5
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			}
+		}
+		fromfrom.planet = { set_planet_flag = has_megastructure }
+	}
+}
+
+honor_leader_memorial_general_0 = {
+	entity = "strategic_coordination_center_stage_1_entity"
+	construction_entity = "strategic_coordination_center_stage_1_entity"
+	portrait = "GFX_megastructure_strategic_coordination_center_background"
+	place_entity_on_planet_plane = yes
+	entity_offset = { x = -7 y = -7 }
+	build_time = 360
+
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 100
+			influence = 50
+			unity = 100
+		}
+		produces = { unity = 10 }
+		upkeep = { energy = 1 }
+	}
+	construction_blocks_and_blocked_by = self_type
+
+	country_modifier = { army_damage_mult = 0.025 }
+	potential = {
+		OR = {
+			AND = {
+				has_country_flag = honor_leader_has_dead_general1
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general1 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_general2
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general2 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_general3
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general3 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_general4
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general4 }
+				}
+			}
+			AND = {
+				has_country_flag = honor_leader_has_dead_general5
+				NOT = {
+					any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general5 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		exists = starbase
+		custom_tooltip = {
+			fail_text = "requires_inside_border"
+			is_inside_border = from
+		}
+	}
+
+	placement_rules = {
+		planet_possible = {
+			custom_tooltip = {
+				fail_text = "requires_surveyed_planet"
+				is_surveyed = {			# Prevent leaking habitability information
+					who = prev.from
+					status = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				has_anomaly = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_existing_megastructure"
+				can_build_megastructure_on_planet = yes
+				NOR = {
+					has_planet_flag = megastructure
+					has_planet_flag = has_megastructure
+					solar_system = { has_star_flag = ring_world_built }
+				}
+				is_artificial = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_orbital_station"
+				has_orbital_station = no
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_minor_planetary_body"
+				NOR = {
+					is_asteroid = yes
+					is_moon = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_star"
+				is_star = no
+			}
+		} # Use these for all non-star megastructures
+	}
+
+	# root = system
+	# from = country
+	ai_weight = { factor = 0 }
+
+	on_build_start = {}
+	on_build_cancel = {}
+
+	on_build_complete = {
+		from = {
+			save_event_target_as = honor_leader_country
+			if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_general1
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general1 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_general1_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_general1 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_general_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_general1
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_general1
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_general2
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general2 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_general2_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_general2 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_general_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_general2
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_general2
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_general3
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general3 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_general3_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_general3 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_general_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_general3
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_general3
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_general4
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general4 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_general4_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_general4 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_general_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_general4
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_general4
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			} else_if = {
+				limit = {
+					has_country_flag = honor_leader_has_dead_general5
+					NOT = {
+						any_owned_megastructure = { has_megastructure_flag = honor_leader_memorial_dead_general5 }
+					}
+				}
+				activate_saved_leader = {
+					add_to_owned = yes
+					key = honor_general5_stored
+				}
+				random_owned_leader = {
+					limit = { has_leader_flag = honor_general5 }
+					save_event_target_as = honor_leader
+				}
+				from = {
+					set_name = {
+						key = "honor_leader.Rename_general_memorial"
+						variable_string = "honor_leader.GetName"
+					}
+					set_megastructure_flag = honor_leader_memorial_dead_general5
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = honor_leader_disable_bonus }
+					}
+					honor_leader_honor_leader_memorial = yes
+				}
+				remove_country_flag = honor_leader_has_dead_general5
+				event_target:honor_leader = {
+					honor_leader_save_leader = yes
+					# Civil Wars compat flag
+					set_leader_flag = dead_ruler
+					kill_leader = { show_notification = no }
+				}
+			}
+		}
+		fromfrom.planet = { set_planet_flag = has_megastructure }
+	}
+}
