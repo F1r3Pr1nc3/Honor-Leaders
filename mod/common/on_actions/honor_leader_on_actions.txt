@@ -1,3 +1,23 @@
+
+# Executed just as country is changing its government, after the new one is applied
+# THIS = country
+on_post_government_changed = {
+	events = {
+		honor_leader.1100		# Reset Stints
+	}
+}
+
+# this = country
+on_monthly_pulse_country = {
+	events = {
+		honor_leader.1200 		# Set months as Ruler
+	}
+}
+
+
+####################
+####################
+
 on_game_start_country = {
 	events = {
 		honor_leader.3
@@ -33,6 +53,7 @@ on_leader_death = {
 on_ruler_set = {
 	events = {
 		honor_leader.4
+		honor_leader.1000		# Set Reign Begin Date Flags
 	}
 }
 
@@ -42,6 +63,7 @@ on_ruler_set = {
 on_ruler_removed = {
 	events = {
 		honor_leader.5
+		honor_leader.1010		# Set Reign End Date Flags
 	}
 }
 
@@ -51,6 +73,7 @@ on_ruler_removed = {
 on_ruler_back_to_pre_ruler_class = {
 	events = {
 		honor_leader.5
+		honor_leader.1010		# Set Reign End Date Flags
 	}
 }
 
@@ -377,6 +400,7 @@ on_election_started = {
 on_election_ended = {
 	events = {
 		honor_leader.41
+		honor_leader.1015		
 	}
 }
 

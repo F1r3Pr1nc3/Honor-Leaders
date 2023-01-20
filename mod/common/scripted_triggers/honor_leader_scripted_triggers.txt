@@ -1,0 +1,11 @@
+
+is_fake_leader = {
+	OR = {
+		has_leader_flag = honor_leader_is_pool_leader
+		has_leader_flag = honor_leader_dead_leader
+		# Civil Wars Compat
+		has_leader_flag = dead_ruler
+		has_leader_flag = dummy_leader
+		has_leader_flag = switch_ruler
+	}
+}

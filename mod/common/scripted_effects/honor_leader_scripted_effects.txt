@@ -1400,7 +1400,8 @@ honor_leader_copy_flags_and_vars = {
 		limit = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } }
 		event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global }
 		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
-	} else_if = {
+	}
+	else_if = {
 		limit = { event_target:honor_leader = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } } }
 		event_target:honor_leader = { event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global } }
 		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
@@ -1535,7 +1536,8 @@ honor_leader_copy_flags_and_vars = {
 				if = { limit = { has_leader_flag = honor_leader_governor_slumlord } prev = { set_leader_flag = honor_leader_governor_slumlord } }
 				prev = { set_variable = { which = honor_leader_class value = 2 } }
 			}
-		} else = {
+		}
+		else = {
 			# Scientist check_variable = { which = honor_leader_class value = 3 }
 			if = { limit = {  prev = { leader_class = scientist } }
 				if = { limit = { is_variable_set = honor_leader_evaded_hostiles } prev = { set_variable = { which = honor_leader_evaded_hostiles value = prev.honor_leader_evaded_hostiles} } } else = { prev = { set_variable = { which = honor_leader_evaded_hostiles value = 0 } } }
@@ -1715,6 +1717,14 @@ honor_leader_copy_flags_and_vars = {
 					}
 					fleet.solar_system = { save_event_target_as = honor_leader_system }
 				}
+			}
+		}
+		### NEW
+		if = {
+			limit = { is_variable_set = total_elections_won }
+			prev = { set_variable = { which = total_elections_won value = prev.total_elections_won } }
+			if = {
+				limit = { has_leader_flag = ruler_term_start_date_1 }
 			}
 		}
 
@@ -1942,3 +1952,151 @@ honor_leader_add_traits = {
 # # Scope = leader
 # honor_leader_randomize_leader_stats = {
 # }
+
+######################
+
+get_ruler_term_begin_number = {
+	if = {
+		limit = { check_variable = { which = stints_as_ruler value = 1 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_1
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 2 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_2
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 3 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_3
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 4 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_4
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 5 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_5
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 6 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_6
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 7 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_7
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 8 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_8
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 9 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_9
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 10 } }
+		set_saved_date = {
+			key = ruler_stint_start_date_10
+			days_from_present = 0
+		}
+	}	
+}
+
+get_ruler_term_end_number = {
+	if = {
+		limit = { check_variable = { which = stints_as_ruler value = 1 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_1
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 2 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_2
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 3 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_3
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 4 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_4
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 5 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_5
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 6 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_6
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 7 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_7
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 8 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_8
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 9 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_9
+			days_from_present = 0
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = stints_as_ruler value = 10 } }
+		set_saved_date = {
+			key = ruler_stint_end_date_10
+			days_from_present = 0
+		}
+	}	
+}
