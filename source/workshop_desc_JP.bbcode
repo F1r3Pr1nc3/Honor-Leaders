@@ -1,0 +1,44 @@
+[H3][i]あなたのリーダーが在職中に何をしたのか疑問に思ったことはありませんか？あなたはリーダーの死の通知を受け取ります、そしてそれがあなたの大提督、偉大な探検家、またはあなたの研究の世界にぶら下がっている科学者であったかどうか覚えていませんか？もう不思議ではありません！[/i][/H3]
+
+これは[URL = // Steamcommunity.com/workshop/filedetails/?id=1978382517][i][i][b]アルママン[/b][/i]による素晴らしい作品の続き[/i]です。[/URL]、このmodを存続させるため（作成者の要求に応じていつでも削除される可能性があります）。私は新しい構文への変換にいくつかの作業を加えました（そして300以上の問題を修正しました）。現在のバージョン3.6は3.3と下位互換性があります。
+
+[H3] [B]要点[/B] [/H3]
+[LIST]
+[*][B]リーダーの統計の追跡[/B] –ほとんどのon_actionsは、リーダーの進行状況を追跡し、発生した内容に基づいてフラグを設定したり、統計をインクリメントしたりします：ポップの成長、コロニーの喪失、戦争の終了、船の破壊、技術の調査など。十分に長生きするリーダーは、次のような成果を得ることができます：多くの新しいシステムを主張した、多くの異常を研究した、多くの種を一掃した、または多くの船を失った。反政府勢力が惑星を乗っ取るのを許したり、人口過多のためにポップスを死なせたりするなど、独特の状況によってリーダーが悪名高くなることもあります。
+[*][B]生きているリーダーの統計を表示する[/B] –現在のリーダー名簿の統計と実績を、それらを繰り返す勅令を介して表示できます。
+[*][B]死んだリーダーを称える[/B] –リーダーが死ぬと、ステータスと実績を示すダイアログが表示され、次の3つのオプションが表示されます。[OLIST]
+[*]リーダーのスキルに基づいて団結し、リーダーの特性と成果に基づいて10年間のカントリーボーナスを与える、ある程度の影響力を犠牲にしてそれらを称えます。また、リーダークラスに基づいて、システム、惑星、軍隊、船などのオブジェクトのセットの名前を変更します。
+[*]後で名誉を与えるためにそれらを保存します–現在、各クラスの最大5人のリーダーを合計25人まで保存できます。
+[*]それらを無視すると、それらは永久に失われます。
+[/OLIST]
+[*][B]保存されたリーダーを表示してそれらを尊重/削除する[/B] –別の勅令を介して記念されたリーダーを表示し、影響力のコストで再びそれらを尊重するか、さらに記憶に値しないリーダーを削除できます。必要に応じて、ランダムに生成された歴史的リーダーを称えることもできます。
+[*][B]メモリアルの構築[/B] –惑星の軌道上に構築されたメガストラクチャーで、リーダークラスに基づいた団結とボーナス、およびメモリアルされたリーダーの特性と成果を永続的に提供します。
+[/LIST]
+
+敬語はあなたの倫理に基づいており、ローカリゼーションファイルで編集できます。
+名前の変更とボーナスは、オプションの勅令でオンまたはオフにできます。
+
+[H3] [B]互換性[/B] [/H3]
+上書きされたバニラファイルはないので、ほとんど何でも問題なく動作するはずです。残念ながら、実績は互換性がありません。当初はDLCが有効になっていないVanilla2.5用に開発されました。 DLCの任意の組み合わせで正常に動作するはずですが、新しい特性とイベントは含まれません。 Modには異なる特性名があるため、Modからの新しい特性は説明に表示されませんが、リーダーに追加されて表示される可能性があります。このmodをインストールするときに、新しい保存を開始することをお勧めします。
+
+[B]将来の機能：[/B]
+•成果のタイムライン-年次イベント（例：2200）-ハイパードライブが最初に発見されたときに君臨しました。
+•リーダーシップの歴史的偉業–火事の発見、統一戦争など。
+
+[H3][B][I]Credits[/I][/B][/H3]
+• [URL=//steamcommunity.com/workshop/filedetails/?id=1978382517][u]Original mod by [i][b]Armaman[/b][/i][/u][/URL]
+• [URL=//steamcommunity.com/sharedfiles/filedetails/?id=1323820517][u]Auto Rename Solar System MOD[/u][/URL] – for renaming system code idea
+• [URL=//steamcommunity.com/sharedfiles/filedetails/?id=1466534202][u]Stellaris Dashboard[/u][/URL] – for extensive logging idea – may be complimentary to this mod
+
+[H3]Localization notes[/H3]
+The included localizations were machine translated, and provided out of courtesy for players of different languages. The officially supported languages were included, but may or may not be continuously updated by me, as I am one person. You are free to improve the translation and send it for inclusion for subsequent updates.
+• Russian –[URL=//steamcommunity.com/profiles/76561198155825283][i]Doom[/i][/URL]
+• [URL=//steamcommunity.com/sharedfiles/filedetails/?id=1231481316]한국어 번역 –[i]Pinenuts[/i][/URL]
+
+[QUOTE=Armaman]
+[B]Current Known Issues:[/B]
+25% of the time, page fails to load the scripted localization, resulting in icons "ReloadView" and none of the accomplishments loading, but the set properties (years of service, ships destroyed, etc) work fine. Have been unable to determine why, may have to do with the parser engine, but going back to the same view again usually seems to work. If on a death screen, saving the leader for later allows you to reload the view state from the memorialization edict.
+
+[B]Personal Note:[/B]
+This is my first published mod. Let me know in the discussion section about [URL=//steamcommunity.com/workshop/filedetails/discussion/1978382517/1742265551914326826/]things I missed[/URL], [URL=//steamcommunity.com/workshop/filedetails/discussion/1978382517/1742265551914312185/]improvements, code optimizations, [/URL][URL=//steamcommunity.com/workshop/filedetails/discussion/1978382517/1742265551914321627/]bugs[/URL] etc. and I will try to address your concerns. This mod was created mostly for my own enjoyment of Stellaris, and I would like to share it with you. Improving it would help us both. I do this in my spare time, but if you want to send me a tip you can do so here: [URL=//www.paypal.me/AndrewFournier?locale.x=en_US]PayPal[/URL] [URL=//www.patreon.com/ArmamanModding]Patreon[/URL]. Also, this idea sprang from the Spiritualist "Declare Saint" edict, so now you actually can declare a specific Saint to honor!
+[/QUOTE]
