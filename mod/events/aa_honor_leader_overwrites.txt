@@ -397,10 +397,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 1 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_1
@@ -409,10 +405,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 2 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_2
@@ -421,10 +413,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 3 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_3
@@ -433,10 +421,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 4 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_4
@@ -445,10 +429,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 5 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_5
@@ -457,10 +437,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 6 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_6
@@ -469,10 +445,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 7 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_7
@@ -481,10 +453,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 8 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_8
@@ -493,10 +461,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 9 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_9
@@ -505,10 +469,6 @@ country_event = {
 		trigger = {
 			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 10 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
 			}
 		}
 		text = honor_leader.200.desc.deadruler_10
