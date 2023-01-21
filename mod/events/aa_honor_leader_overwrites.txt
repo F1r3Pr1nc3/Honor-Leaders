@@ -320,13 +320,6 @@ country_event = {
 # leader_event = {
 country_event = {
 	id = honor_leader.200
-	# desc = {
-	# 	trigger = {
-	# 		is_scope_type = leader
-	# 		is_scope_valid = no
-	# 	}
-	# 	text = known_dismissal
-	# }
 	desc = {
 		trigger = {
 			event_target:honor_leader = {
@@ -408,19 +401,29 @@ country_event = {
 		text = honor_leader.200.desc.deadruler_10
 	}
 	desc = {
-		trigger = { leader_class = governor }
+		# trigger = { leader_class = governor }
+		trigger = {
+			NOR = {
+				pre_ruler_leader_class = scientist
+				pre_ruler_leader_class = admiral
+				pre_ruler_leader_class = general
+			}
+		}
 		text = honor_leader.200.desc.deadgovernor
 	}
 	desc = {
-		trigger = { leader_class = scientist }
+		# trigger = { leader_class = scientist }
+		trigger = { pre_ruler_leader_class = scientist }
 		text = honor_leader.200.desc.deadscientist
 	}
 	desc = {
-		trigger = { leader_class = admiral }
+		# trigger = { leader_class = admiral }
+		trigger = { pre_ruler_leader_class = admiral }
 		text = honor_leader.200.desc.deadadmiral
 	}
 	desc = {
-		trigger = { leader_class = general }
+		# trigger = { leader_class = general }
+		trigger = { pre_ruler_leader_class = general }
 		text = honor_leader.200.desc.deadgeneral
 	}
 	title = "honor_leader.200.title"
