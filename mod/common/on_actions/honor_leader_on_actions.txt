@@ -400,7 +400,7 @@ on_election_started = {
 on_election_ended = {
 	events = {
 		honor_leader.41
-		honor_leader.1015		
+		honor_leader.1015		# Set Reign End Date Flag for first ruler
 	}
 }
 

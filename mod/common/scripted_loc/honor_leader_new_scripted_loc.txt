@@ -1,0 +1,27 @@
+# Get Honorific
+defined_text = { # Leader scope
+	name = GetOriginalClass
+	text = {
+		trigger = { pre_ruler_leader_class = scientist }
+		localization_key = leader.was.scientist
+	}
+	text = {
+		trigger = { pre_ruler_leader_class = admiral }
+		localization_key = leader.was.admiral
+	}
+	text = {
+		trigger = { pre_ruler_leader_class = general }
+		localization_key = leader.was.general
+	}
+	text = {
+		trigger = {
+			NOR = {
+				pre_ruler_leader_class = scientist
+				pre_ruler_leader_class = admiral
+				pre_ruler_leader_class = general
+			}
+		}
+		localization_key = leader.was.governor
+	}
+	# text = { localization_key = leader.was.leader }
+}

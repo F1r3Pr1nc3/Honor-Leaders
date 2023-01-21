@@ -56,13 +56,10 @@ country_event = {
 				honor_leader_save_leader = yes
 				root = {
 					every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
-					remove_country_flag = honor_leader_view_page_2
-					remove_country_flag = honor_leader_view_page_3
-					remove_country_flag = honor_leader_view_page_4
 					every_owned_leader = {
 						limit = { has_leader_flag = honor_leader_interim_leader }
 						# Civil Wars compat flag
-						is_fake_leader = yes
+						set_leader_flag = dead_ruler
 						kill_leader = { show_notification = no }
 					}
 				}
@@ -398,8 +395,7 @@ country_event = {
 	# }
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 1 }
 				OR = {
 					leader_class = ruler
@@ -407,12 +403,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_1
+		text = honor_leader.200.desc.deadruler_1
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 2 }
 				OR = {
 					leader_class = ruler
@@ -420,12 +415,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_2
+		text = honor_leader.200.desc.deadruler_2
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 3 }
 				OR = {
 					leader_class = ruler
@@ -433,12 +427,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_3
+		text = honor_leader.200.desc.deadruler_3
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 4 }
 				OR = {
 					leader_class = ruler
@@ -446,12 +439,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_4
+		text = honor_leader.200.desc.deadruler_4
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 5 }
 				OR = {
 					leader_class = ruler
@@ -459,12 +451,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_5
+		text = honor_leader.200.desc.deadruler_5
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 6 }
 				OR = {
 					leader_class = ruler
@@ -472,12 +463,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_6
+		text = honor_leader.200.desc.deadruler_6
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 7 }
 				OR = {
 					leader_class = ruler
@@ -485,12 +475,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_7
+		text = honor_leader.200.desc.deadruler_7
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 8 }
 				OR = {
 					leader_class = ruler
@@ -498,12 +487,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_8
+		text = honor_leader.200.desc.deadruler_8
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 9 }
 				OR = {
 					leader_class = ruler
@@ -511,12 +499,11 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_9
+		text = honor_leader.200.desc.deadruler_9
 	}
 	desc = {
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
 				check_variable = { which = stints_as_ruler value = 10 }
 				OR = {
 					leader_class = ruler
@@ -524,437 +511,7 @@ country_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler_sci_10
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 1 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_1
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 2 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_2
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 3 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_3
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 4 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_4
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 5 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_5
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 6 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_6
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 7 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_7
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 8 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_8
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 9 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_9
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
-				check_variable = { which = stints_as_ruler value = 10 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_adm_10
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 1 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_1
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 2 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_2
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 3 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_3
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 4 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_4
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 5 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_5
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 6 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_6
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 7 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_7
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 8 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_8
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 9 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_9
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
-				check_variable = { which = stints_as_ruler value = 10 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gen_10
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 1 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_1
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 2 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_2
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 3 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_3
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 4 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_4
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 5 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_5
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 6 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_6
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 7 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_7
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 8 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_8
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 9 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_9
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = generaL
-					pre_ruler_leader_class = admiral
-				}
-				check_variable = { which = stints_as_ruler value = 10 }
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-				}
-			}
-		}
-		text = honor_leader.200.desc.deadruler_gov_10
+		text = honor_leader.200.desc.deadruler_10
 	}
 	desc = {
 		trigger = { leader_class = governor }
@@ -975,7 +532,7 @@ country_event = {
 	title = "honor_leader.200.title"
 	diplomatic = yes
 	picture_event_data = {
-		portrait = event_target:honor_leader_clone
+		portrait = event_target:honor_leader
 		planet_background = root.capital_scope
 		graphical_culture = root
 		city_level = root.capital_scope
@@ -2427,9 +1984,6 @@ country_event = {
 				# SAVE LEADER HERE FOR LATER.
 				honor_leader_save_leader = yes
 				every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
-				remove_country_flag = honor_leader_view_page_2
-				remove_country_flag = honor_leader_view_page_3
-				remove_country_flag = honor_leader_view_page_4
 				every_owned_leader = {
 					limit = { has_leader_flag = honor_leader_interim_leader }
 					# Civil Wars compat flag
@@ -2446,11 +2000,8 @@ country_event = {
 		hidden_effect = {
 			event_target:honor_leader_country = {
 				# SAVE LEADER HERE FOR LATER.
-				event_target:honor_leader_clone = { honor_leader_save_leader = yes }
+				event_target:honor_leader = { honor_leader_save_leader = yes }
 				every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
-				remove_country_flag = honor_leader_view_page_2
-				remove_country_flag = honor_leader_view_page_3
-				remove_country_flag = honor_leader_view_page_4
 				every_owned_leader = {
 					limit = { has_leader_flag = honor_leader_interim_leader }
 					# Civil Wars compat flag
@@ -2466,9 +2017,6 @@ country_event = {
 		# DON'T SAVE AND CARRY ON.
 		from = {
 			every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
-			remove_country_flag = honor_leader_view_page_2
-			remove_country_flag = honor_leader_view_page_3
-			remove_country_flag = honor_leader_view_page_4
 			every_owned_leader = {
 				limit = { has_leader_flag = honor_leader_interim_leader }
 				# Civil Wars compat flag
@@ -2479,11 +2027,11 @@ country_event = {
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
-		response_text = "honor_leader.200.desc.deadruler_sci"
+		response_text = "honor_leader.200.desc.deadruler_1"
 		is_dialog_only = yes
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 1 }
 				OR = {
 					leader_class = ruler
 					has_leader_flag = honor_leader_was_ruler
@@ -2493,11 +2041,11 @@ country_event = {
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
-		response_text = "honor_leader.200.desc.deadruler_adm"
+		response_text = "honor_leader.200.desc.deadruler_2"
 		is_dialog_only = yes
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 2 }
 				OR = {
 					leader_class = ruler
 					has_leader_flag = honor_leader_was_ruler
@@ -2507,11 +2055,11 @@ country_event = {
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
-		response_text = "honor_leader.200.desc.deadruler_gen"
+		response_text = "honor_leader.200.desc.deadruler_3"
 		is_dialog_only = yes
 		trigger = {
-			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 3 }
 				OR = {
 					leader_class = ruler
 					has_leader_flag = honor_leader_was_ruler
@@ -2521,15 +2069,95 @@ country_event = {
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
-		response_text = "honor_leader.200.desc.deadruler_gov"
+		response_text = "honor_leader.200.desc.deadruler_4"
 		is_dialog_only = yes
 		trigger = {
-			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = general
-					pre_ruler_leader_class = admiral
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 4 }
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
 				}
+			}
+		}
+	}
+	option = {
+		name = "honor_leader.111.rulerpage1"
+		response_text = "honor_leader.200.desc.deadruler_5"
+		is_dialog_only = yes
+		trigger = {
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 5 }
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
+			}
+		}
+	}
+	option = {
+		name = "honor_leader.111.rulerpage1"
+		response_text = "honor_leader.200.desc.deadruler_6"
+		is_dialog_only = yes
+		trigger = {
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 6 }
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
+			}
+		}
+	}
+	option = {
+		name = "honor_leader.111.rulerpage1"
+		response_text = "honor_leader.200.desc.deadruler_7"
+		is_dialog_only = yes
+		trigger = {
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 7 }
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
+			}
+		}
+	}
+	option = {
+		name = "honor_leader.111.rulerpage1"
+		response_text = "honor_leader.200.desc.deadruler_8"
+		is_dialog_only = yes
+		trigger = {
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 8 }
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
+			}
+		}
+	}
+	option = {
+		name = "honor_leader.111.rulerpage1"
+		response_text = "honor_leader.200.desc.deadruler_9"
+		is_dialog_only = yes
+		trigger = {
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 9 }
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
+			}
+		}
+	}
+	option = {
+		name = "honor_leader.111.rulerpage1"
+		response_text = "honor_leader.200.desc.deadruler_10"
+		is_dialog_only = yes
+		trigger = {
+			event_target:honor_leader = {
+				check_variable = { which = stints_as_ruler value = 10 }
 				OR = {
 					leader_class = ruler
 					has_leader_flag = honor_leader_was_ruler
@@ -2542,7 +2170,7 @@ country_event = {
 		response_text = "honor_leader.200.desc.deadrulerpage2"
 		is_dialog_only = yes
 		trigger = {
-			event_target:honor_leader_clone = {
+			event_target:honor_leader = {
 				OR = {
 					leader_class = ruler
 					has_leader_flag = honor_leader_was_ruler
@@ -2555,7 +2183,7 @@ country_event = {
 		response_text = "honor_leader.200.desc.deadrulerpage3"
 		is_dialog_only = yes
 		trigger = {
-			event_target:honor_leader_clone = {
+			event_target:honor_leader = {
 				OR = {
 					leader_class = ruler
 					has_leader_flag = honor_leader_was_ruler
@@ -2568,7 +2196,7 @@ country_event = {
 		response_text = "honor_leader.200.desc.deadrulerpage4"
 		is_dialog_only = yes
 		trigger = {
-			event_target:honor_leader_clone = {
+			event_target:honor_leader = {
 				OR = {
 					leader_class = ruler
 					has_leader_flag = honor_leader_was_ruler

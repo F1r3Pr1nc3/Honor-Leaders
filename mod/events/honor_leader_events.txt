@@ -1,89 +1,6 @@
 # TODO convert events to leader_event.
 
 namespace = honor_leader
-# Honor Leader edict- open dialog
-country_event = {
-	id = honor_leader.100
-	desc = "honor_leader.100.desc"
-	title = "honor_leader.100.title"
-	picture = "GFX_evt_alien_propaganda"
-	show_sound = event_conversation
-	is_triggered_only = yes
-	trigger = { is_ai = no }
-	option = {
-		name = "honor_leader.100.egalitarian"
-		trigger = { is_egalitarian = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 1 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = {
-		name = "honor_leader.100.authoritarian"
-		trigger = { is_authoritarian = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 2 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = {
-		name = "honor_leader.100.xenophobe"
-		trigger = { is_xenophobe = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 3 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = {
-		name = "honor_leader.100.xenophile"
-		trigger = { is_xenophile = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 4 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = {
-		name = "honor_leader.100.pacifist"
-		trigger = { is_pacifist = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 5 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = {
-		name = "honor_leader.100.militarist"
-		trigger = { is_militarist = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 6 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = {
-		name = "honor_leader.100.spiritualist"
-		trigger = { is_spiritualist = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 7 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = {
-		name = "honor_leader.100.materialist"
-		trigger = { is_materialist = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 8 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = {
-		name = "honor_leader.100.gestalt"
-		trigger = { is_gestalt = yes }
-		hidden_effect = {
-			set_variable = { which = honor_leader_ethic_selected value = 9 }
-		}
-		country_event = { id = honor_leader.101 }
-	}
-	option = { name = "honor_leader.110.nope" }
-}
 
 # Honor Leader- Dynamic pick leader type - load names
 country_event = {
@@ -94,62 +11,6 @@ country_event = {
 			check_variable = { which = honor_leader_ethic_selected value = 1 }
 		}
 		text = honor_leader.102.desc.egalitarian
-	}
-	desc = {
-		trigger = {
-			is_authoritarian = yes
-			check_variable = { which = honor_leader_ethic_selected value = 2 }
-		}
-		text = honor_leader.102.desc.authoritarian
-	}
-	desc = {
-		trigger = {
-			is_xenophobe = yes
-			check_variable = { which = honor_leader_ethic_selected value = 3 }
-		}
-		text = honor_leader.102.desc.xenophobe
-	}
-	desc = {
-		trigger = {
-			is_xenophile = yes
-			check_variable = { which = honor_leader_ethic_selected value = 4 }
-		}
-		text = honor_leader.102.desc.xenophile
-	}
-	desc = {
-		trigger = {
-			is_pacifist = yes
-			check_variable = { which = honor_leader_ethic_selected value = 5 }
-		}
-		text = honor_leader.102.desc.pacifist
-	}
-	desc = {
-		trigger = {
-			is_militarist = yes
-			check_variable = { which = honor_leader_ethic_selected value = 6 }
-		}
-		text = honor_leader.102.desc.militarist
-	}
-	desc = {
-		trigger = {
-			is_spiritualist = yes
-			check_variable = { which = honor_leader_ethic_selected value = 7 }
-		}
-		text = honor_leader.102.desc.spiritualist
-	}
-	desc = {
-		trigger = {
-			is_materialist = yes
-			check_variable = { which = honor_leader_ethic_selected value = 8 }
-		}
-		text = honor_leader.102.desc.materialist
-	}
-	desc = {
-		trigger = {
-			is_gestalt = yes
-			check_variable = { which = honor_leader_ethic_selected value = 9 }
-		}
-		text = honor_leader.102.desc.gestalt
 	}
 	title = "honor_leader.101.title"
 	picture = "GFX_evt_alien_propaganda"
@@ -378,62 +239,6 @@ country_event = {
 		}
 		text = honor_leader.102.desc.egalitarian
 	}
-	desc = {
-		trigger = {
-			is_authoritarian = yes
-			check_variable = { which = honor_leader_ethic_selected value = 2 }
-		}
-		text = honor_leader.102.desc.authoritarian
-	}
-	desc = {
-		trigger = {
-			is_xenophobe = yes
-			check_variable = { which = honor_leader_ethic_selected value = 3 }
-		}
-		text = honor_leader.102.desc.xenophobe
-	}
-	desc = {
-		trigger = {
-			is_xenophile = yes
-			check_variable = { which = honor_leader_ethic_selected value = 4 }
-		}
-		text = honor_leader.102.desc.xenophile
-	}
-	desc = {
-		trigger = {
-			is_pacifist = yes
-			check_variable = { which = honor_leader_ethic_selected value = 5 }
-		}
-		text = honor_leader.102.desc.pacifist
-	}
-	desc = {
-		trigger = {
-			is_militarist = yes
-			check_variable = { which = honor_leader_ethic_selected value = 6 }
-		}
-		text = honor_leader.102.desc.militarist
-	}
-	desc = {
-		trigger = {
-			is_spiritualist = yes
-			check_variable = { which = honor_leader_ethic_selected value = 7 }
-		}
-		text = honor_leader.102.desc.spiritualist
-	}
-	desc = {
-		trigger = {
-			is_materialist = yes
-			check_variable = { which = honor_leader_ethic_selected value = 8 }
-		}
-		text = honor_leader.102.desc.materialist
-	}
-	desc = {
-		trigger = {
-			is_gestalt = yes
-			check_variable = { which = honor_leader_ethic_selected value = 9 }
-		}
-		text = honor_leader.102.desc.gestalt
-	}
 	title = "honor_leader.102.title"
 	picture = "GFX_evt_alien_propaganda"
 	is_triggered_only = yes
@@ -471,29 +276,23 @@ country_event = {
 		}
 		hidden_effect = {
 			if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 1 }
-				}
+				limit = { check_variable = { which = honor_leader_type_selected value = 1 } }
 				set_variable = { which = honor_ruler_selected value = 1 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 2 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 2 } }
 				set_variable = { which = honor_governor_selected value = 1 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 3 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 3 } }
 				set_variable = { which = honor_scientist_selected value = 1 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 4 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 4 } }
 				set_variable = { which = honor_admiral_selected value = 1 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 5 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 5 } }
 				set_variable = { which = honor_general_selected value = 1 }
 			}
 		}
@@ -532,29 +331,23 @@ country_event = {
 		}
 		hidden_effect = {
 			if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 1 }
-				}
+				limit = { check_variable = { which = honor_leader_type_selected value = 1 } }
 				set_variable = { which = honor_ruler_selected value = 2 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 2 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 2 } }
 				set_variable = { which = honor_governor_selected value = 2 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 3 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 3 } }
 				set_variable = { which = honor_scientist_selected value = 2 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 4 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 4 } }
 				set_variable = { which = honor_admiral_selected value = 2 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 5 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 5 } }
 				set_variable = { which = honor_general_selected value = 2 }
 			}
 		}
@@ -592,11 +385,11 @@ country_event = {
 			species = { save_event_target_as = honor_leader_species }
 		}
 		hidden_effect = {
-			if	=		{ limit = { check_variable = { which = honor_leader_type_selected value = 1 } } set_variable = { which = honor_ruler_selected value = 3 }
-			} else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 2 } } set_variable = { which = honor_governor_selected value = 3 }
-			} else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 3 } } set_variable = { which = honor_scientist_selected value = 3 }
-			} else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 4 } } set_variable = { which = honor_admiral_selected value = 3 }
-			} else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 5 } } set_variable = { which = honor_general_selected value = 3 } }
+			if	=	  { limit = { check_variable = { which = honor_leader_type_selected value = 1 } } set_variable = { which = honor_ruler_selected value = 3 } }
+			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 2 } } set_variable = { which = honor_governor_selected value = 3 } }
+			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 3 } } set_variable = { which = honor_scientist_selected value = 3 } }
+			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 4 } } set_variable = { which = honor_admiral_selected value = 3 } }
+			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 5 } } set_variable = { which = honor_general_selected value = 3 } }
 		}
 		event_target:honor_leader = { leader_event = { id = honor_leader.103 } }
 	}
@@ -633,29 +426,23 @@ country_event = {
 		}
 		hidden_effect = {
 			if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 1 }
-				}
+				limit = { check_variable = { which = honor_leader_type_selected value = 1 } }
 				set_variable = { which = honor_ruler_selected value = 4 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 2 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 2 } }
 				set_variable = { which = honor_governor_selected value = 4 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 3 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 3 } }
 				set_variable = { which = honor_scientist_selected value = 4 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 4 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 4 } }
 				set_variable = { which = honor_admiral_selected value = 4 }
-			} else_if = {
-				limit = {
-					check_variable = { which = honor_leader_type_selected value = 5 }
-				}
+			}
+			else_if = {
+				limit = { check_variable = { which = honor_leader_type_selected value = 5 } }
 				set_variable = { which = honor_general_selected value = 4 }
 			}
 		}
@@ -1129,54 +916,8 @@ leader_event = {
 				leader_class = ruler
 				has_leader_flag = honor_leader_was_ruler
 			}
-			from = {
-				NOR = {
-					has_country_flag = honor_leader_view_page_2
-					has_country_flag = honor_leader_view_page_3
-					has_country_flag = honor_leader_view_page_4
-				}
-			}
 		}
 		text = honor_leader.103.desc.deadruler
-	}
-	desc = {
-		trigger = {
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
-			}
-			from = {
-				has_country_flag = honor_leader_view_page_2
-				NOR = {
-					has_country_flag = honor_leader_view_page_3
-					has_country_flag = honor_leader_view_page_4
-				}
-			}
-		}
-		text = honor_leader.103.desc.deadrulerpage2
-	}
-	desc = {
-		trigger = {
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
-			}
-			from = {
-				has_country_flag = honor_leader_view_page_3
-				NOT = { has_country_flag = honor_leader_view_page_4 }
-			}
-		}
-		text = honor_leader.103.desc.deadrulerpage3
-	}
-	desc = {
-		trigger = {
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
-			}
-			from = { has_country_flag = honor_leader_view_page_4 }
-		}
-		text = honor_leader.103.desc.deadrulerpage4
 	}
 	desc = {
 		trigger = { leader_class = governor }

@@ -18,6 +18,10 @@ country_event = { # All - on_ruler_set - Set Reign Begin Date Flags
 				set_variable = { which = stints_as_ruler value = 1 }
 				get_ruler_term_begin_number = yes
 			}
+			if = {
+				limit = { days_passed < 2 }
+				ruler = { set_leader_flag = first_ruler }
+			}
 		}
 		else = {
 			ruler = {
@@ -42,8 +46,31 @@ country_event = { # ALL - on_ruler_back_to_pre_ruler_class - Set Reign End Date 
 	}
 
 	immediate = {
-		# from = { get_ruler_term_end_number = { COUNT = this.stints_as_ruler } }
 		from = { get_ruler_term_end_number = yes }
+	}
+}
+
+country_event = { # ALL - on_election_ended - Set Reign End Date Flag for first ruler
+	id = honor_leader.1015
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		is_regular_empire = yes
+		ruler = { NOT = { has_leader_flag = first_ruler } }
+		any_owned_leader = { has_leader_flag = first_ruler }
+	}
+
+	immediate = {
+		random_owned_leader = {
+			limit = { has_leader_flag = first_ruler }
+			remove_leader_flag = first_ruler
+			set_saved_date = {
+				key = ruler_stint_end_date_1
+				days_from_present = 0
+			}
+		}
 	}
 }
 

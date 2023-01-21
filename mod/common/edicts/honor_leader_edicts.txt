@@ -3,12 +3,12 @@ honor_leader_honor_specific_leader_edict = {
 	length = -1
 	# resources = { category = edicts cost = { } }
 	effect = {
-		country_event = { id = honor_leader.100 }
+		country_event = { id = honor_leader.101 }
 	}
 	potential = {  }
 	allow = {
 		is_ai = no
-		NOT = { has_active_event = { honor_leader.100 } }
+		NOT = { has_active_event = { honor_leader.101 } }
 	}
 	ai_weight = { weight = 0 }
 }
