@@ -3,14 +3,21 @@
 # THIS = country
 on_post_government_changed = {
 	events = {
-		honor_leader.1100		# Reset Stints
+		new_honor_leader.1100		# Reset Stints
 	}
 }
 
 # this = country
 on_monthly_pulse_country = {
 	events = {
-		honor_leader.1200 		# Set months as Ruler
+		new_honor_leader.1200 		# Set months as Ruler
+	}
+}
+
+# Scope: Leader (after assignment)
+on_leader_assigned = {
+	events = {
+		new_honor_leader.1001		# Create Clone leader for new leaders
 	}
 }
 
@@ -21,6 +28,7 @@ on_monthly_pulse_country = {
 on_game_start_country = {
 	events = {
 		honor_leader.3
+		new_honor_leader.1000		# Create Clone leaders
 	}
 }
 
@@ -53,7 +61,7 @@ on_leader_death = {
 on_ruler_set = {
 	events = {
 		honor_leader.4
-		honor_leader.1000		# Set Reign Begin Date Flags
+		new_honor_leader.1005		# Set Reign Begin Date Flags
 	}
 }
 
@@ -63,7 +71,7 @@ on_ruler_set = {
 on_ruler_removed = {
 	events = {
 		honor_leader.5
-		honor_leader.1010		# Set Reign End Date Flags
+		new_honor_leader.1010		# Set Reign End Date Flags
 	}
 }
 
@@ -73,7 +81,7 @@ on_ruler_removed = {
 on_ruler_back_to_pre_ruler_class = {
 	events = {
 		honor_leader.5
-		honor_leader.1010		# Set Reign End Date Flags
+		new_honor_leader.1010		# Set Reign End Date Flags
 	}
 }
 
@@ -400,7 +408,7 @@ on_election_started = {
 on_election_ended = {
 	events = {
 		honor_leader.41
-		honor_leader.1015		# Set Reign End Date Flag for first ruler
+		new_honor_leader.1015		# Set Reign End Date Flag for first ruler
 	}
 }
 
