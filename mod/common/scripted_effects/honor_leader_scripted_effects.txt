@@ -1723,9 +1723,9 @@ honor_leader_copy_flags_and_vars = {
 		if = {
 			limit = { is_variable_set = total_elections_won }
 			prev = { set_variable = { which = total_elections_won value = prev.total_elections_won } }
-			if = {
-				limit = { has_leader_flag = ruler_term_start_date_1 }
-			}
+			# if = { TODO
+			# 	limit = { has_leader_flag = ruler_term_start_date_1 }
+			# }
 		}
 
 		## Skill (if not clone)

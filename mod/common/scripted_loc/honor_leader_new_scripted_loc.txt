@@ -3,15 +3,15 @@ defined_text = { # Leader scope
 	name = GetOriginalClass
 	text = {
 		trigger = { pre_ruler_leader_class = scientist }
-		localization_key = leader.was.scientist
+		localization_key = scientist
 	}
 	text = {
 		trigger = { pre_ruler_leader_class = admiral }
-		localization_key = leader.was.admiral
+		localization_key = admiral
 	}
 	text = {
 		trigger = { pre_ruler_leader_class = general }
-		localization_key = leader.was.general
+		localization_key = general
 	}
 	text = {
 		trigger = {
@@ -21,7 +21,7 @@ defined_text = { # Leader scope
 				pre_ruler_leader_class = general
 			}
 		}
-		localization_key = leader.was.governor
+		localization_key = governor
 	}
 	# text = { localization_key = leader.was.leader }
 }

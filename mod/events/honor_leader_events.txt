@@ -8,7 +8,7 @@ country_event = {
 	desc = {
 		trigger = {
 			is_egalitarian = yes
-			check_variable = { which = honor_leader_ethic_selected value = 1 }
+			# check_variable = { which = honor_leader_ethic_selected value = 1 }
 		}
 		text = honor_leader.102.desc.egalitarian
 	}
@@ -235,7 +235,7 @@ country_event = {
 	desc = {
 		trigger = {
 			is_egalitarian = yes
-			check_variable = { which = honor_leader_ethic_selected value = 1 }
+			# check_variable = { which = honor_leader_ethic_selected value = 1 }
 		}
 		text = honor_leader.102.desc.egalitarian
 	}
@@ -917,7 +917,7 @@ leader_event = {
 				has_leader_flag = honor_leader_was_ruler
 			}
 		}
-		text = honor_leader.103.desc.deadruler
+		text = honor_leader.103.desc.deadrulerpage1
 	}
 	desc = {
 		trigger = { leader_class = governor }
@@ -935,7 +935,7 @@ leader_event = {
 		trigger = { leader_class = general }
 		text = honor_leader.103.desc.deadgeneral
 	}
-	title = "honor_leader.200.title"
+	title = "honor_leader.103.title"
 	picture_event_data = {
 		portrait = event_target:honor_leader.species # without species not working!?
 		planet_background = event_target:honor_leader_country
@@ -2309,7 +2309,7 @@ leader_event = {
 				}
 			}
 		}
-		text = honor_leader.111.desc.viewlivingruler
+		text = honor_leader.111.desc.viewlivingrulerpage1
 	}
 	desc = {
 		trigger = {
@@ -3001,7 +3001,7 @@ leader_event = {
 				}
 			}
 		}
-		text = honor_leader.200.desc.deadruler
+		text = honor_leader.200.desc.deadrulerpage1
 	}
 	desc = {
 		trigger = {
@@ -3058,7 +3058,7 @@ leader_event = {
 		trigger = { leader_class = general }
 		text = honor_leader.200.desc.deadgeneral
 	}
-	title = "honor_leader.200.title"
+	title = "honor_leader.103.title"
 	# picture = "GFX_evt_alien_propaganda"
 	diplomatic = yes
 	picture_event_data = {

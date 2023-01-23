@@ -1,89 +1,89 @@
 # Get Honorific
-defined_text = { # Country/leader scope
-	name = GetSpecificHonorific
-	text = {
-		trigger = {
-			owner = {
-				is_egalitarian = yes
-				check_variable = { which = honor_leader_ethic_selected value = 1 }
-			}
-		}
-		localization_key = honorific.egalitarian
-	}
-	text = {
-		trigger = {
-			owner = {
-				is_authoritarian = yes
-				check_variable = { which = honor_leader_ethic_selected value = 2 }
-			}
-		}
-		localization_key = honorific.authoritarian
-	}
-	text = {
-		trigger = {
-			owner = {
-				is_xenophobe = yes
-				check_variable = { which = honor_leader_ethic_selected value = 3 }
-			}
-		}
-		localization_key = honorific.xenophobe
-	}
-	text = {
-		trigger = {
-			owner = {
-				is_xenophile = yes
-				check_variable = { which = honor_leader_ethic_selected value = 4 }
-			}
-		}
-		localization_key = honorific.xenophile
-	}
-	text = {
-		trigger = {
-			owner = {
-				is_pacifist = yes
-				check_variable = { which = honor_leader_ethic_selected value = 5 }
-			}
-		}
-		localization_key = honorific.pacifist
-	}
-	text = {
-		trigger = {
-			owner = {
-				is_militarist = yes
-				check_variable = { which = honor_leader_ethic_selected value = 6 }
-			}
-		}
-		localization_key = honorific.militarist
-	}
-	text = {
-		trigger = {
-			owner = {
-				is_spiritualist = yes
-				check_variable = { which = honor_leader_ethic_selected value = 7 }
-			}
-		}
-		localization_key = honorific.spiritualist
-	}
-	text = {
-		trigger = {
-			owner = {
-				is_materialist = yes
-				check_variable = { which = honor_leader_ethic_selected value = 8 }
-			}
-		}
-		localization_key = honorific.materialist
-	}
-	text = {
-		trigger = {
-			owner = {
-				is_gestalt = yes
-				check_variable = { which = honor_leader_ethic_selected value = 9 }
-			}
-		}
-		localization_key = honorific.gestalt
-	}
-	text = { localization_key = emptystringnotstring.empty }
-}
+# defined_text = { # Country/leader scope
+# 	name = GetSpecificHonorific
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_egalitarian = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 1 }
+# 			}
+# 		}
+# 		localization_key = honorific.egalitarian
+# 	}
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_authoritarian = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 2 }
+# 			}
+# 		}
+# 		localization_key = honorific.authoritarian
+# 	}
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_xenophobe = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 3 }
+# 			}
+# 		}
+# 		localization_key = honorific.xenophobe
+# 	}
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_xenophile = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 4 }
+# 			}
+# 		}
+# 		localization_key = honorific.xenophile
+# 	}
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_pacifist = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 5 }
+# 			}
+# 		}
+# 		localization_key = honorific.pacifist
+# 	}
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_militarist = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 6 }
+# 			}
+# 		}
+# 		localization_key = honorific.militarist
+# 	}
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_spiritualist = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 7 }
+# 			}
+# 		}
+# 		localization_key = honorific.spiritualist
+# 	}
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_materialist = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 8 }
+# 			}
+# 		}
+# 		localization_key = honorific.materialist
+# 	}
+# 	text = {
+# 		trigger = {
+# 			owner = {
+# 				is_gestalt = yes
+# 				check_variable = { which = honor_leader_ethic_selected value = 9 }
+# 			}
+# 		}
+# 		localization_key = honorific.gestalt
+# 	}
+# 	text = { localization_key = emptystringnotstring.empty }
+# }
 
 # Weighted towards fanatic
 defined_text = { # Country/leader scope
@@ -3148,7 +3148,7 @@ defined_text = { # leader scope
 			}
 		}
 	}
-	text = { localization_key = unknown }
+	text = { localization_key = UNKNOWN }
 }
 
 defined_text = { # Country/leader scope

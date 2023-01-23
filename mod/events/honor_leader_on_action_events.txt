@@ -3414,7 +3414,7 @@ country_event = {
 						#  log = "honor_leader_cause_of_death: \\[honor_leader_cause_of_death.GetName] Scope: \\[honor_leader_cause_of_death.GetScopeType]"
 					}
 				}
-				# TODO: to much recources?
+				# TODO: to much resources?
 				# if = { limit = { exists = fleet }
 				# 	set_leader_flag = leader_on_fleet
 				# 	fleet = {
@@ -3702,7 +3702,7 @@ country_event = {
 		from = {
 			if = {
 				limit = { # Xeno Empire
-					is_country_type = default
+					is_country_type = default # merg_is_default_empire = yes #
 					# from = {
 					# 	OR = {
 					# 		is_ship_size = corvette

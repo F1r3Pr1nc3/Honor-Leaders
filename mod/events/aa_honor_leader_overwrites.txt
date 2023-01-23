@@ -31,7 +31,7 @@ country_event = {
 		event_target:honor_copy_@from = {
 			log = "COPY GOT: [this.GetName]"
 			save_event_target_as = honor_leader_clone
-			honor_leader_copy_flags_and_vars = yes	
+			honor_leader_copy_flags_and_vars = yes
 			set_saved_date = {
 				key = leader_death_fired_date
 				days_from_present = 0
@@ -90,7 +90,7 @@ country_event = {
 		# 				#  log = "honor_leader_cause_of_death: \\[honor_leader_cause_of_death.GetName] Scope: \\[honor_leader_cause_of_death.GetScopeType]"
 		# 			}
 		# 		}
-		# 		# TODO: to much recources?
+		# 		# TODO: to much resources?
 		# 		# if = { limit = { exists = fleet }
 		# 		# 	set_leader_flag = leader_on_fleet
 		# 		# 	fleet = {
@@ -451,7 +451,7 @@ country_event = {
 		}
 		text = honor_leader.200.desc.deadgeneral
 	}
-	title = "honor_leader.200.title"
+	title = "honor_leader.103.title"
 	diplomatic = yes
 	picture_event_data = {
 		# portrait = event_target:honor_leader_clone
@@ -1761,14 +1761,14 @@ country_event = {
 							every_system_planet = {
 								limit = {
 									NOR = {
-										is_planet_class = pc_habitat
+										merg_is_habitat = yes
 										is_planet_class = pc_habitat_shielded
 									}
 								}
 								every_moon = {
 									limit = {
 										OR = {
-											is_planet_class = pc_habitat
+											merg_is_habitat = yes
 											is_planet_class = pc_habitat_shielded
 										}
 									}
@@ -1889,7 +1889,7 @@ country_event = {
 				limit = { NOT = { has_country_flag = honor_leader_disable_bonus } }
 				honor_leader_honor_leader = yes
 			}
-			
+
 			# SAVE LEADER HERE FOR LATER.
 			event_target:honor_leader_clone = { honor_leader_save_leader = yes }
 			every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
@@ -1911,9 +1911,8 @@ country_event = {
 				event_target:honor_leader = { honor_leader_save_leader = yes }
 				every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
 				every_owned_leader = {
-					limit = { has_leader_flag = honor_leader_interim_leader }
+					limit = { has_leader_flag = honor_leader_interim_leader is_fake_leader = yes }
 					# Civil Wars compat flag
-					is_fake_leader = yes
 					kill_leader = { show_notification = no }
 				}
 			}
@@ -2122,7 +2121,7 @@ country_event = {
 
 	immediate = {
 		random_owned_leader = {
-			limit = { NOT { leader_class = ruler } }
+			limit = { NOT = { leader_class = ruler } }
 			set_leader_flag = test_kill_leader
 			save_event_target_as = clone_target
 		}
