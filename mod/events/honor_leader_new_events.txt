@@ -1,27 +1,23 @@
-
 namespace = new_honor_leader
-
-country_event = { # All - on_game_start_country - Create Clone leaders
+# All - on_game_start_country - Create Clone leaders
+country_event = {
 	id = new_honor_leader.1000
 	hide_window = yes
 	is_triggered_only = yes
-
 	trigger = {
 		is_ai = no
 		is_regular_empire = yes
 	}
-
 	immediate = {
-		export_trigger_value_to_variable = {
-			trigger = num_owned_leaders
-			variable = tot_leaders
-		}
+		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = tot_leaders }
 		while = {
 			count = tot_leaders
 			random_owned_leader = {
 				limit = {
-					NOT = { leader_class = envoy }
-					NOT = { has_leader_flag = honor_clone_created }
+					NOR = {
+						leader_class = envoy 
+						has_leader_flag = honor_clone_created 
+					}
 				}
 				set_leader_flag = honor_clone_created
 				save_event_target_as = hon_clone
@@ -41,18 +37,17 @@ country_event = { # All - on_game_start_country - Create Clone leaders
 		}
 		clear_variable = tot_leaders
 	}
-
 	after = {
 		country_event = { id = new_honor_leader.1005 days = 2 }
 	}
 }
 
 # Scope: Leader (after assignment)
-leader_event = { # All - on_leader_assigned - Create Clone leader for new leaders
+# All - on_leader_assigned - Create Clone leader for new leaders
+leader_event = {
 	id = new_honor_leader.1001
 	hide_window = yes
 	is_triggered_only = yes
-
 	trigger = {
 		owner = {
 			is_ai = no
@@ -60,7 +55,6 @@ leader_event = { # All - on_leader_assigned - Create Clone leader for new leader
 		}
 		NOT = { has_leader_flag = honor_clone_created }
 	}
-
 	immediate = {
 		set_leader_flag = honor_clone_created
 		save_event_target_as = new_leader_clone
@@ -77,18 +71,18 @@ leader_event = { # All - on_leader_assigned - Create Clone leader for new leader
 	}
 }
 
-country_event = { # All - on_ruler_set - Set Reign Begin Date Flags
+# All - on_ruler_set - Set Reign Begin Date Flags
+country_event = {
 	id = new_honor_leader.1005
 	hide_window = yes
 	is_triggered_only = yes
-
 	trigger = {
 		is_ai = no
 		is_regular_empire = yes
 		days_passed > 1
 	}
-
-	immediate = { # Consider adding event that lets you set term start date for auths
+	immediate = {
+		# Consider adding event that lets you set term start date for auths
 		if = {
 			limit = { NOT = { exists = event_target:honor_copy_@ruler } }
 			ruler = {
@@ -108,16 +102,13 @@ country_event = { # All - on_ruler_set - Set Reign Begin Date Flags
 			if = {
 				limit = { NOT = { is_variable_set = stints_as_ruler } }
 				set_variable = { which = stints_as_ruler value = 1 }
-				get_ruler_term_begin_number = yes
-				if = {
-					limit = { days_passed < 7 }
+				if = { limit = { days_passed < 7 }
 					root.ruler = { set_leader_flag = first_ruler }
 				}
-			}
-			else = {
+			} else = {
 				change_variable = { which = stints_as_ruler value = 1 }
-				get_ruler_term_begin_number = yes
 			}
+			get_ruler_term_begin_number = yes
 		}
 	}
 }
@@ -125,33 +116,31 @@ country_event = { # All - on_ruler_set - Set Reign Begin Date Flags
 # Executed when a ruler has been removed
 # From = Previous Ruler
 # This = Country
-country_event = { # ALL - on_ruler_back_to_pre_ruler_class - Set Reign End Date Flags
+# ALL - on_ruler_back_to_pre_ruler_class - Set Reign End Date Flags
+country_event = {
 	id = new_honor_leader.1010
 	hide_window = yes
 	is_triggered_only = yes
-
 	trigger = {
 		is_ai = no
 		is_regular_empire = yes
 	}
-
 	immediate = {
 		event_target:honor_copy_@from = { get_ruler_term_end_number = yes }
 	}
 }
 
-country_event = { # ALL - on_election_ended - Set Reign End Date Flag for first ruler
+# ALL - on_election_ended - Set Reign End Date Flag for first ruler
+country_event = {
 	id = new_honor_leader.1015
 	hide_window = yes
 	is_triggered_only = yes
-
 	trigger = {
 		is_ai = no
 		is_regular_empire = yes
 		ruler = { NOT = { has_leader_flag = first_ruler } }
 		any_owned_leader = { has_leader_flag = first_ruler }
 	}
-
 	immediate = {
 		random_owned_leader = {
 			limit = { has_leader_flag = first_ruler }
@@ -168,41 +157,38 @@ country_event = { # ALL - on_election_ended - Set Reign End Date Flag for first 
 
 # Executed just as country is changing its government, before the new one is applied
 # THIS = country
-country_event = { # ALL - on_post_government_changed - Reset Stints
+# ALL - on_post_government_changed - Reset Stints
+country_event = {
 	id = new_honor_leader.1100
 	hide_window = yes
 	is_triggered_only = yes
-
 	trigger = {
 		is_ai = no
 		is_regular_empire = yes
 		exists = ruler
 	}
-
 	immediate = {
 		event_target:honor_copy_@ruler = { subtract_variable = { which = stints_as_ruler value = 1 } }
 	}
 }
 
-country_event = { # ALL - on_monthly_pulse_country - Set months as Ruler
+# ALL - on_monthly_pulse_country - Set months as Ruler
+country_event = {
 	id = new_honor_leader.1200
 	hide_window = yes
 	is_triggered_only = yes
-
 	trigger = {
 		is_ai = no
 		is_regular_empire = yes
 		exists = ruler
 	}
-
 	immediate = {
-		if = {
-			limit = { event_target:honor_copy_@ruler = { NOT = { is_variable_set = months_as_ruler } } }
-			event_target:honor_copy_@ruler = { set_variable = { which = months_as_ruler value = 1 } }
+		event_target:honor_copy_@ruler = {
+			if = { limit = { NOT = { is_variable_set = months_as_ruler } }
+				set_variable = { which = months_as_ruler value = 1 }
+			} else = {
+				change_variable = { which = months_as_ruler value = 1 }
+			}
 		}
-		else = {
-			event_target:honor_copy_@ruler = { change_variable = { which = months_as_ruler value = 1 } }
-		}
-		
 	}
 }
