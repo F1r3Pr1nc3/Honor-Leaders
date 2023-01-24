@@ -9,7 +9,7 @@ country_event = {
 		is_regular_empire = yes
 	}
 	immediate = {
-		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = tot_leaders }
+		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = total_leaders }
 		while = {
 			count = total_leaders
 			random_owned_leader = {
@@ -33,9 +33,9 @@ country_event = {
 				}
 			}
 		}
-		clear_variable = total_leaders
 	}
 	after = {
+		clear_variable = total_leaders
 		country_event = { id = new_honor_leader.1005 days = 2 }
 	}
 }
@@ -58,10 +58,10 @@ leader_event = {
 		save_event_target_as = new_leader_clone
 		owner = {
 			clone_leader = {
-				target = prev
+				target = root
 				effect = {
 					set_immortal = yes
-					save_global_event_target_as = honor_copy_@prev
+					save_global_event_target_as = honor_copy_@event_target:new_leader_clone
 					exile_leader_as = clone_leader_exile
 				}
 			}
@@ -89,9 +89,11 @@ country_event = {
 						target = prev
 						effect = {
 							set_immortal = yes
-							save_global_event_target_as = honor_copy_@prev
 							exile_leader_as = clone_leader_exile
 						}
+					}
+					last_created_leader = {
+						save_global_event_target_as = honor_copy_@prevprev
 					}
 				}
 			}

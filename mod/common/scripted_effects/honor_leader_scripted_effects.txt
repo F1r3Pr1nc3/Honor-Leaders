@@ -1,8 +1,6 @@
 # HONOR CODE
 # Scope country
 honor_leader_honor_leader = {
-	# Unity given based on leader skill level and traits
-	add_resource = { unity = 100 mult = event_target:honor_leader.honor_leader_skill }
 	# event_target:honor_leader = {
 		# Test 3.3 var method - not working
 		# event_target:honor_leader_country = {
@@ -44,6 +42,11 @@ honor_leader_honor_leader = {
 		# }
 	# }
 	event_target:honor_leader = {
+		if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
+			export_trigger_value_to_variable = { trigger = has_skill variable = honor_leader_skill }
+		}
+		# Unity given based on leader skill level and traits
+		prev = { add_resource = { unity = 100 mult = prev.honor_leader_skill } }
 		# 10 year bonus based on leader traits - ALL VANILLA TRAITS CHECKED
 		# Generic leader traits
 		if = { limit = { has_trait = leader_trait_adaptable } prev = { add_modifier = { modifier = country_memorialized_leader_adaptable years = 10 } } }

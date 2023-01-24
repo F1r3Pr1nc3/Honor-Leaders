@@ -1347,12 +1347,10 @@ leader_event = {
 					set_spawn_system_batch = end
 				}
 				if = {
-					limit = {
-						NOT = { has_country_flag = honor_leader_disable_bonus }
-					}
+					limit = { NOT = { has_country_flag = honor_leader_disable_bonus } }
 					honor_leader_honor_leader = yes
 				}
-				# # Resave name leaders, key and flag of selected.
+				## Resave name leaders, key and flag of selected.
 				# Names
 				if = { limit = { exists = event_target:honor_leader1 }
 					event_target:honor_leader1 = {
@@ -2820,9 +2818,7 @@ leader_event = {
 					}
 				}
 				if = {
-					limit = {
-						NOT = { has_country_flag = honor_leader_disable_bonus }
-					}
+					limit = { NOT = { has_country_flag = honor_leader_disable_bonus } }
 					honor_leader_honor_leader = yes
 				}
 
@@ -5119,4 +5115,46 @@ country_event = {
 		}
 	}
 	option = { name = "honor_leader.110.nope" }
+}
+
+country_event = {
+	id = honor_leader.9000
+	is_triggered_only = yes
+	hide_window = yes
+	is_test_event = yes
+	immediate = {
+		random_owned_leader = {
+			limit = { NOT = { leader_class = ruler } }
+			set_leader_flag = test_kill_leader
+			save_event_target_as = clone_target
+		}
+		clone_leader = {
+			target = event_target:clone_target
+			effect = {
+				save_global_event_target_as = clone_target_@event_target:clone_target
+				set_immortal = yes
+				exile_leader_as = clone_leader_test
+				log = "NAME: [this.GetName]"
+			}
+		}
+	}
+}
+
+country_event = {
+	id = honor_leader.9010
+	is_triggered_only = yes
+	hide_window = yes
+	is_test_event = yes
+	immediate = {
+		random_owned_leader = {
+			limit = { has_leader_flag = test_kill_leader }
+			save_event_target_as = test_kill_target
+			event_target:clone_target_@this = {
+				log = "SUCCESS, FOUND: [this.GetName] == 1"
+			}
+		}
+		event_target:clone_target_@event_target:test_kill_target = {
+			log = "SUCCESS, FOUND: [this.GetName] == 2"
+		}
+	}
 }
