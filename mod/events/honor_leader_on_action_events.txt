@@ -3445,7 +3445,7 @@ country_event = {
 			is_scope_type = leader
 			leader_age > 1
 			is_owned_by = root
-			is_fake_leader = no # Civil Wars compat. flags.
+			is_fake_leader = no
 			has_experience > 99
 		}
 	}
@@ -3478,7 +3478,7 @@ country_event = {
 				}
 			}
 			if = {
-				limit = { from = { leader_class = ruler } }
+				limit = { event_target:honor_leader = { leader_class = ruler } }
 				get_ruler_term_end_number = yes
 			}
 			if = {
