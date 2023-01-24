@@ -3074,7 +3074,6 @@ country_event = {
 		text = honor_leader.200.desc.deadgovernor
 	}
 	desc = {
-		# trigger = { leader_class = scientist }
 		trigger = {
 			event_target:honor_leader_clone = {
 				pre_ruler_leader_class = scientist
@@ -3084,7 +3083,6 @@ country_event = {
 		text = honor_leader.200.desc.deadscientist
 	}
 	desc = {
-		# trigger = { leader_class = admiral }
 		trigger = {
 			event_target:honor_leader_clone = {
 				pre_ruler_leader_class = admiral
@@ -3094,7 +3092,6 @@ country_event = {
 		text = honor_leader.200.desc.deadadmiral
 	}
 	desc = {
-		# trigger = { leader_class = general }
 		trigger = {
 			event_target:honor_leader_clone = {
 				pre_ruler_leader_class = general

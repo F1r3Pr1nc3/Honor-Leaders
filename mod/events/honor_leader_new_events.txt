@@ -11,7 +11,7 @@ country_event = {
 	immediate = {
 		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = tot_leaders }
 		while = {
-			count = tot_leaders
+			count = total_leaders
 			random_owned_leader = {
 				limit = {
 					NOR = {
@@ -21,21 +21,19 @@ country_event = {
 				}
 				set_leader_flag = honor_clone_created
 				save_event_target_as = hon_clone
-				# set_leader_flag = honor_clone_created
 				owner = {
 					clone_leader = {
 						target = event_target:hon_clone
 						effect = {
 							set_immortal = yes
 							save_global_event_target_as = honor_copy_@event_target:hon_clone
-							exile_leader_as = clone_leader_test
-							log = "NAME: [this.GetName]"
+							exile_leader_as = clone_leader_exile
 						}
 					}
 				}
 			}
 		}
-		clear_variable = tot_leaders
+		clear_variable = total_leaders
 	}
 	after = {
 		country_event = { id = new_honor_leader.1005 days = 2 }
@@ -64,7 +62,7 @@ leader_event = {
 				effect = {
 					set_immortal = yes
 					save_global_event_target_as = honor_copy_@prev
-					exile_leader_as = clone_leader_test
+					exile_leader_as = clone_leader_exile
 				}
 			}
 		}
@@ -92,7 +90,7 @@ country_event = {
 						effect = {
 							set_immortal = yes
 							save_global_event_target_as = honor_copy_@prev
-							exile_leader_as = clone_leader_test
+							exile_leader_as = clone_leader_exile
 						}
 					}
 				}
@@ -189,50 +187,6 @@ country_event = {
 			} else = {
 				change_variable = { which = months_as_ruler value = 1 }
 			}
-		}
-	}
-}
-
-namespace = honor_leader
-
-country_event = {
-	id = honor_leader.9000
-	is_triggered_only = yes
-	hide_window = yes
-	is_test_event = yes
-	immediate = {
-		random_owned_leader = {
-			limit = { NOT = { leader_class = ruler } }
-			set_leader_flag = test_kill_leader
-			save_event_target_as = clone_target
-		}
-		clone_leader = {
-			target = event_target:clone_target
-			effect = {
-				save_global_event_target_as = clone_target_@event_target:clone_target
-				set_immortal = yes
-				exile_leader_as = clone_leader_test
-				log = "NAME: [this.GetName]"
-			}
-		}
-	}
-}
-
-country_event = {
-	id = honor_leader.9010
-	is_triggered_only = yes
-	hide_window = yes
-	is_test_event = yes
-	immediate = {
-		random_owned_leader = {
-			limit = { has_leader_flag = test_kill_leader }
-			save_event_target_as = test_kill_target
-			event_target:clone_target_@this = {
-				log = "SUCCESS, FOUND: [this.GetName] == 1"
-			}
-		}
-		event_target:clone_target_@event_target:test_kill_target = {
-			log = "SUCCESS, FOUND: [this.GetName] == 2"
 		}
 	}
 }
