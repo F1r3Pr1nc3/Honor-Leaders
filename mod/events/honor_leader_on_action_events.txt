@@ -3474,9 +3474,6 @@ country_event = {
 				limit = { leader_class = general }
 				set_leader_flag = hon_is_general
 			}
-			else = {
-				set_leader_flag = hon_is_governor
-			}
 		}
 		if = {
 			limit = { NOT = { exists = event_target:honor_copy_@from } }
