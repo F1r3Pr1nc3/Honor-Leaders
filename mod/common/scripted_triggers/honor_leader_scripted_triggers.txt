@@ -7,8 +7,6 @@ is_fake_leader = {
 		# Civil Wars Compat
 		has_leader_flag = dead_ruler
 		has_leader_flag = dummy_leader
-		has_leader_flag = civil_war_leader_nationalist_faction
-		has_leader_flag = new_faction_ruler
 		# Useful Heirs Compat
 		has_leader_flag = switch_ruler
 	}
