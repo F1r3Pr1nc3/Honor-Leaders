@@ -195,7 +195,6 @@ country_event = {
 
 #####
 
-# ALL - on_monthly_pulse_country - Set months as Ruler
 country_event = {
 	id = new_honor_leader.9500
 	hide_window = yes
