@@ -21,16 +21,11 @@ country_event = {
 				}
 				set_leader_flag = honor_clone_created
 				save_event_target_as = hon_clone
-				export_trigger_value_to_variable = {
-					trigger = leader_age
-					variable = honor_clone_age
-				}
 				owner = {
 					clone_leader = {
 						target = event_target:hon_clone
 						effect = {
 							set_immortal = yes
-							set_age = event_target:hon_clone.honor_clone_age
 							if = {
 								limit = { event_target:hon_clone = { leader_class = admiral } }
 								set_leader_flag = hon_is_admiral
@@ -51,7 +46,6 @@ country_event = {
 						}
 					}
 				}
-				clear_variable = honor_clone_age
 			}
 		}
 	}
@@ -77,16 +71,11 @@ leader_event = {
 	immediate = {
 		set_leader_flag = honor_clone_created
 		save_event_target_as = new_leader_clone
-		export_trigger_value_to_variable = {
-			trigger = leader_age
-			variable = honor_clone_age
-		}
 		owner = {
 			clone_leader = {
 				target = root
 				effect = {
 					set_immortal = yes
-					set_age = root.honor_clone_age
 					if = {
 						limit = { root = { leader_class = admiral } }
 						set_leader_flag = hon_is_admiral
@@ -107,7 +96,6 @@ leader_event = {
 				}
 			}
 		}
-		clear_variable = honor_clone_age
 	}
 }
 
@@ -126,16 +114,11 @@ country_event = {
 		if = {
 			limit = { NOT = { exists = event_target:honor_copy_@ruler } }
 			ruler = {
-				export_trigger_value_to_variable = {
-					trigger = leader_age
-					variable = honor_clone_age
-				}
 				owner = {
 					clone_leader = {
 						target = prev
 						effect = {
 							set_immortal = yes
-							set_age = root.honor_clone_age
 							if = {
 								limit = { root.ruler = { pre_ruler_leader_class = admiral } }
 								set_leader_flag = hon_is_admiral
@@ -158,7 +141,6 @@ country_event = {
 						save_global_event_target_as = honor_copy_@prevprev
 					}
 				}
-				clear_variable = honor_clone_age
 			}
 		}
 		event_target:honor_copy_@ruler = {
