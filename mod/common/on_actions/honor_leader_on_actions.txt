@@ -11,6 +11,7 @@ on_post_government_changed = {
 on_monthly_pulse_country = {
 	events = {
 		new_honor_leader.1200 		# Set months as Ruler
+		new_honor_leader.9500 		# Leader Class Fix
 	}
 }
 
