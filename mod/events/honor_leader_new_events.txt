@@ -26,21 +26,6 @@ country_event = {
 						target = event_target:hon_clone
 						effect = {
 							set_immortal = yes
-							if = {
-								limit = { event_target:hon_clone = { leader_class = admiral } }
-								set_leader_flag = hon_is_admiral
-							}
-							else_if = {
-								limit = { event_target:hon_clone = { leader_class = general } }
-								set_leader_flag = hon_is_general
-							}
-							else_if = {
-								limit = { event_target:hon_clone = { leader_class = scientist } }
-								set_leader_flag = hon_is_scientist
-							}
-							else = {
-								set_leader_flag = hon_is_governor
-							}
 							save_global_event_target_as = honor_copy_@event_target:hon_clone
 							exile_leader_as = clone_leader_exile
 						}
@@ -76,21 +61,6 @@ leader_event = {
 				target = root
 				effect = {
 					set_immortal = yes
-					if = {
-						limit = { root = { leader_class = admiral } }
-						set_leader_flag = hon_is_admiral
-					}
-					else_if = {
-						limit = { root = { leader_class = general } }
-						set_leader_flag = hon_is_general
-					}
-					else_if = {
-						limit = { root = { leader_class = scientist } }
-						set_leader_flag = hon_is_scientist
-					}
-					else = {
-						set_leader_flag = hon_is_governor
-					}
 					save_global_event_target_as = honor_copy_@event_target:new_leader_clone
 					exile_leader_as = clone_leader_exile
 				}
@@ -119,21 +89,6 @@ country_event = {
 						target = prev
 						effect = {
 							set_immortal = yes
-							if = {
-								limit = { root.ruler = { pre_ruler_leader_class = admiral } }
-								set_leader_flag = hon_is_admiral
-							}
-							else_if = {
-								limit = { root.ruler = { pre_ruler_leader_class = general } }
-								set_leader_flag = hon_is_general
-							}
-							else_if = {
-								limit = { root.ruler = { pre_ruler_leader_class = scientist } }
-								set_leader_flag = hon_is_scientist
-							}
-							else = {
-								set_leader_flag = hon_is_governor
-							}
 							exile_leader_as = clone_leader_exile
 						}
 					}
@@ -238,6 +193,9 @@ country_event = {
 	}
 }
 
+#####
+
+# ALL - on_monthly_pulse_country - Set months as Ruler
 country_event = {
 	id = new_honor_leader.9500
 	hide_window = yes
@@ -245,31 +203,29 @@ country_event = {
 	trigger = {
 		is_ai = no
 		is_regular_empire = yes
-		NOT = { has_global_flag = hon_leader_class_fix }
+		any_owned_leader = { has_leader_flag = honor_clone_created }
 	}
 	immediate = {
 		every_owned_leader = {
 			limit = { has_leader_flag = honor_clone_created }
-			save_event_target_as = hon_leader
-			event_target:honor_copy_@event_target:hon_leader = {
+			save_event_target_as = honor_clone_test
+			event_target:honor_copy_@event_target:honor_clone_test = {
 				if = {
-					limit = { event_target:hon_leader = { leader_class = admiral } }
-					set_leader_flag = hon_is_admiral
+					limit = { has_leader_flag = hon_is_scientist }
+					remove_leader_flag = hon_is_scientist
 				}
 				else_if = {
-					limit = { event_target:hon_leader = { leader_class = general } }
-					set_leader_flag = hon_is_general
+					limit = { has_leader_flag = hon_is_admiral }
+					remove_leader_flag = hon_is_admiral
 				}
 				else_if = {
-					limit = { event_target:hon_leader = { leader_class = scientist } }
-					set_leader_flag = hon_is_scientist
+					limit = { has_leader_flag = hon_is_general }
+					remove_leader_flag = hon_is_general
 				}
 				else = {
-					set_leader_flag = hon_is_governor
+					remove_leader_flag = hon_is_governor
 				}
 			}
 		}
-
-		set_global_flag = hon_leader_class_fix
 	}
 }

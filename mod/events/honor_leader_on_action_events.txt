@@ -3461,7 +3461,22 @@ country_event = {
 				trigger = leader_age
 				variable = dead_leader_age
 			}
-			# log = "FROM IS: [this.GetName]"
+			# Needs to be done this way, any other way seems to cause issues.
+			if = {
+				limit = { leader_class = scientist }
+				set_leader_flag = hon_is_scientist
+			}
+			else_if = {
+				limit = { leader_class = admiral }
+				set_leader_flag = hon_is_admiral
+			}
+			else_if = {
+				limit = { leader_class = general }
+				set_leader_flag = hon_is_general
+			}
+			else = {
+				set_leader_flag = hon_is_governor
+			}
 		}
 		if = {
 			limit = { NOT = { exists = event_target:honor_copy_@from } }
@@ -3495,15 +3510,29 @@ country_event = {
 				limit = { event_target:honor_leader = { leader_class = ruler } }
 				get_ruler_term_end_number = yes
 			}
+			if = {
+				limit = { event_target:honor_leader = { has_leader_flag = hon_is_scientist } }
+				set_leader_flag = hon_is_scientist
+			}
+			else_if = {
+				limit = { event_target:honor_leader = { has_leader_flag = hon_is_admiral } }
+				set_leader_flag = hon_is_admiral
+			}
+			else_if = {
+				limit = { event_target:honor_leader = { has_leader_flag = hon_is_general } }
+				set_leader_flag = hon_is_general
+			}
+			else = {
+				set_leader_flag = hon_is_governor
+			}
 		}
 		if = {
 			limit = { NOT = { has_country_flag = honor_popup_disabled } }
 			country_event = { id = honor_leader.200 }
-		} else = {
+		}
+		else = {
 			# SAVE LEADER HERE FOR LATER.
-			event_target:honor_leader_clone = {
-				honor_leader_save_leader = yes
-			}
+			event_target:honor_leader_clone = { honor_leader_save_leader = yes }
 			random_owned_leader = {
 				limit = { has_leader_flag = honor_leader_interim_leader }
 				# Civil Wars compat flag
