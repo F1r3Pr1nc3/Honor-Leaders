@@ -1,4 +1,4 @@
-# Get Honorific
+# Get Leader Type
 defined_text = { # Leader scope
 	name = GetOriginalClass
 	text = {
