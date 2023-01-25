@@ -3457,6 +3457,10 @@ country_event = {
 				trigger = has_level
 				variable = dead_leader_level
 			}
+			export_trigger_value_to_variable = {
+				trigger = leader_age
+				variable = dead_leader_age
+			}
 			# log = "FROM IS: [this.GetName]"
 		}
 		if = {
@@ -3477,6 +3481,7 @@ country_event = {
 				days_from_present = 0
 			}
 			set_variable = { which = dead_leader_level value = event_target:honor_leader.dead_leader_level }
+			set_variable = { which = dead_leader_age value = event_target:honor_leader.dead_leader_age }
 			if = {
 				limit = { is_variable_set = months_as_ruler }
 				if = { # Do not divide 0

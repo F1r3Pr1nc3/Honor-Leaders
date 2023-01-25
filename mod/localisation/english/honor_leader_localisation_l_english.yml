@@ -307,7 +307,7 @@
  country_memorialized_scientist_towel: "Memorialized The Towel-Bearer"
  country_memorialized_scientist_traumatized: "Memorialized Traumatized Scientist"
  countryscope: "Country"
- death: "§LDate of Death:§! [honor_leader_clone.leader_death_fired_date]\n§LAge:§! [honor_leader_clone.GetAge]\n"
+ death: "§LDate of Death:§! [honor_leader_clone.leader_death_fired_date]\n§LAge:§! [honor_leader_clone.dead_leader_age]\n"
  deposit: "deposit"
  design: "design"
  edict_honor_leader_honor_specific_leader_edict_desc: "This edict allows you to elevate a deceased leader as a unifying symbol to the people. Effects will be different based on leader type, traits, and other factors, but will always provide some unity and/or inspiration bonus."
