@@ -3459,6 +3459,15 @@ country_event = {
 			}
 			# log = "FROM IS: [this.GetName]"
 		}
+		if = {
+			limit = { NOT = { exists = event_target:honor_copy_@from } }
+			clone_leader = {
+				target = event_target:honor_leader
+				effect = {
+					save_event_target_as = event_target:honor_copy_@event_target:honor_leader
+				}
+			}
+		}
 		event_target:honor_copy_@from = {
 			# log = "COPY GOT: [this.GetName]"
 			save_event_target_as = honor_leader_clone
@@ -3470,33 +3479,33 @@ country_event = {
 			set_variable = { which = dead_leader_level value = event_target:honor_leader.dead_leader_level }
 			if = {
 				limit = { is_variable_set = months_as_ruler }
+				if = { # Do not divide 0
+					limit = { check_variable = { which = months_as_ruler value < 6 } }
+					set_variable = { which = months_as_ruler value = 0.12 }
+				}
 				divide_variable = { which = months_as_ruler value = 12 }
 				round_variable = months_as_ruler
-				if = {
-					limit = { check_variable = { which = months_as_ruler value < 1 } }
-					set_variable = { which = months_as_ruler value = 0 }
-				}
 			}
 			if = {
 				limit = { event_target:honor_leader = { leader_class = ruler } }
 				get_ruler_term_end_number = yes
 			}
-			if = {
-				limit = { root = { NOT = { has_country_flag = honor_popup_disabled } } }
-				root = { country_event = { id = honor_leader.200 } }
-			}
-			else = { # SAVE LEADER HERE FOR LATER.
+		}
+		if = {
+			limit = { NOT = { has_country_flag = honor_popup_disabled } }
+			country_event = { id = honor_leader.200 }
+		} else = {
+			# SAVE LEADER HERE FOR LATER.
+			event_target:honor_leader_clone = {
 				honor_leader_save_leader = yes
-				root = {
-					every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
-					every_owned_leader = {
-						limit = { has_leader_flag = honor_leader_interim_leader }
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
 			}
+			random_owned_leader = {
+				limit = { has_leader_flag = honor_leader_interim_leader }
+				# Civil Wars compat flag
+				set_leader_flag = dead_ruler
+				kill_leader = { show_notification = no }
+			}
+			random_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
 		}
 		# FUNE: From what I can tell, this is looking for a scope that doesnt exist
 		# from = {
