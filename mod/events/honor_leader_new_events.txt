@@ -105,7 +105,8 @@ country_event = {
 				if = { limit = { days_passed < 7 }
 					root.ruler = { set_leader_flag = first_ruler }
 				}
-			} else = {
+			}
+			else = {
 				change_variable = { which = stints_as_ruler value = 1 }
 			}
 			get_ruler_term_begin_number = yes
@@ -186,7 +187,8 @@ country_event = {
 		event_target:honor_copy_@ruler = {
 			if = { limit = { NOT = { is_variable_set = months_as_ruler } }
 				set_variable = { which = months_as_ruler value = 1 }
-			} else = {
+			}
+			else = {
 				change_variable = { which = months_as_ruler value = 1 }
 			}
 		}
@@ -196,35 +198,24 @@ country_event = {
 #####
 
 country_event = {
-	id = new_honor_leader.9500
-	hide_window = yes
+	id = new_honor_leader.9700
+	title = "[event_target:honor_copy_@ruler.GetName]"
+	desc = "[event_target:honor_copy_@ruler.GetTitle]"
+	hide_window = no
 	is_triggered_only = yes
-	trigger = {
-		is_ai = no
-		is_regular_empire = yes
-		any_owned_leader = { has_leader_flag = honor_clone_created }
+
+	picture_event_data = {
+		portrait = event_target:honor_copy_@ruler
+		planet_background = root
+		graphical_culture = root
+		city_level = root.capital_scope
+		room = root.ruler
 	}
-	immediate = {
-		every_owned_leader = {
-			limit = { has_leader_flag = honor_clone_created }
-			save_event_target_as = honor_clone_test
-			event_target:honor_copy_@event_target:honor_clone_test = {
-				if = {
-					limit = { has_leader_flag = hon_is_scientist }
-					remove_leader_flag = hon_is_scientist
-				}
-				else_if = {
-					limit = { has_leader_flag = hon_is_admiral }
-					remove_leader_flag = hon_is_admiral
-				}
-				else_if = {
-					limit = { has_leader_flag = hon_is_general }
-					remove_leader_flag = hon_is_general
-				}
-				else = {
-					remove_leader_flag = hon_is_governor
-				}
-			}
-		}
+
+	diplomatic = yes
+
+	option = {
+		text = "Okay"
+		trigger = { always = yes }
 	}
 }

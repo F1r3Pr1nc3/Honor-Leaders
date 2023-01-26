@@ -3056,7 +3056,6 @@ country_event = {
 		text = honor_leader.200.desc.deadruler_10
 	}
 	desc = {
-		# trigger = { leader_class = governor }
 		trigger = {
 			event_target:honor_leader_clone = {
 				NOR = {
@@ -3112,7 +3111,7 @@ country_event = {
 		planet_background = root.capital_scope
 		graphical_culture = root
 		city_level = root.capital_scope
-		room = root
+		room = root.ruler
 	}
 	show_sound = event_life_support_fail
 	is_triggered_only = yes

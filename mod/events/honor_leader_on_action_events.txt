@@ -157,20 +157,6 @@ country_event = {
 				set_variable = { which = honor_leader_office_start value = this.honor_leader_calender_year }
 			}
 		}
-
-		# if = {
-		# 	limit = { ruler = { NOT = { is_variable_set = stints_as_ruler } } } # In case of authority switches
-		# 	ruler = {
-		# 		set_variable = { which = stints_as_ruler value = 1 }
-		# 		get_ruler_term_begin_number = { COUNT = this.stints_as_ruler }
-		# 	}
-		# }
-		# else = {
-		# 	ruler = {
-		# 		change_variable = { which = stints_as_ruler value = 1 }
-		# 		get_ruler_term_begin_number = { COUNT = this.stints_as_ruler }
-		# 	}
-		# }
 	}
 }
 
@@ -3446,7 +3432,6 @@ country_event = {
 			leader_age > 1
 			is_owned_by = root
 			is_fake_leader = no
-			has_experience > 99
 		}
 	}
 	immediate = {
