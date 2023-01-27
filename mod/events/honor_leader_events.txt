@@ -953,7 +953,7 @@ leader_event = {
 		if = { limit = { NOT = { exists = event_target:honor_leader_country } }
 			from = { save_event_target_as = honor_leader_country }
 		}
-		export_trigger_value_to_variable = { trigger = has_skill variable = honor_leader_skill }
+		export_trigger_value_to_variable = { trigger = has_level variable = honor_leader_skill }
 	}
 	option = {
 		name = "honor_leader.111.rulerpage2"
@@ -2385,7 +2385,7 @@ leader_event = {
 		}
 		honor_leader_copy_flags_and_vars = yes
 		if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
-			export_trigger_value_to_variable = { trigger = has_skill variable = honor_leader_skill }
+			export_trigger_value_to_variable = { trigger = has_level variable = honor_leader_skill }
 		}
 	}
 	option = {

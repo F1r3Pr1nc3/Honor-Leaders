@@ -2863,17 +2863,18 @@ defined_text = { # Country/leader scope
 ## Class
 defined_text = { # leader scope
 	name = GetClass
-	text = { trigger = { check_variable = { which = honor_leader_class value = 1 } } localization_key = ruler }
+	# text = { trigger = { check_variable = { which = honor_leader_class value = 1 } } localization_key = ruler }
 	text = { trigger = { check_variable = { which = honor_leader_class value = 2 } } localization_key = governor }
 	text = { trigger = { check_variable = { which = honor_leader_class value = 3 } } localization_key = scientist }
 	text = { trigger = { check_variable = { which = honor_leader_class value = 4 } } localization_key = admiral }
 	text = { trigger = { check_variable = { which = honor_leader_class value = 5 } } localization_key = general }
-	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 1 } } } localization_key = ruler }
+	# text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 1 } } } localization_key = ruler }
 	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 2 } } } localization_key = governor }
 	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 3 } } } localization_key = scientist }
 	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 4 } } } localization_key = admiral }
 	text = { trigger = { event_target:honor_leader = { check_variable = { which = honor_leader_class value = 5 } } } localization_key = general }
-	text = { localization_key = unknownproperty }
+	text = { localization_key = ruler }
+	# text = { localization_key = unknownproperty }
 }
 
 #Class
@@ -3289,3 +3290,24 @@ defined_text = { # Moon scope
 	text = { trigger = { check_variable = { which = honor_leader_moons value = 9 } } localization_key = HL_MOON_NAME_SS_i }
 	# text = { localization_key = emptystringnotstring.empty }
 }
+
+## Get the previous leader class
+# defined_text = { # Leader scope
+# 	name = GetOriginalClass
+# 	text = {
+# 		trigger = { OR = { has_leader_flag = hon_is_scientist check_variable = { which = honor_leader_class value = 3 } } }
+# 		localization_key = scientist
+# 	}
+# 	text = {
+# 		trigger = { OR = { has_leader_flag = hon_is_admiral check_variable = { which = honor_leader_class value = 4 } } }
+# 		localization_key = admiral
+# 	}
+# 	text = {
+# 		trigger = { OR = { has_leader_flag = hon_is_general check_variable = { which = honor_leader_class value = 5 } } }
+# 		localization_key = general
+# 	}
+# 	text = {
+# 		trigger = { OR = { has_leader_flag = hon_is_governor check_variable = { which = honor_leader_class value = 2 } } }
+# 		localization_key = governor
+# 	}
+# }
