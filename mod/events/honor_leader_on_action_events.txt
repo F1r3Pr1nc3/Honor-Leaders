@@ -2,16 +2,15 @@ namespace = honor_leader
 # TRACKING EVENTS
 
 # on_single_player_save_game_load
-country_event = {
+event = {
 	id = honor_leader.1
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { is_ai = no }
 	immediate = {
 		every_playable_country = {
 			limit = { is_ai = no }
 			# Set Reign Begin Date Flags
-			country_event = { id = new_honor_leader.1005 }
+			country_event = { id = honor_leader.4 }
 		}
 	}
 }
@@ -22,12 +21,12 @@ country_event = {
 	id = honor_leader.3
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { is_ai = no }
+	trigger = {
+		is_ai = no
+		is_regular_empire = yes
+	}
 	immediate = {
 		set_variable = { which = honor_leader_calender_year value = 2200 }
-		every_owned_leader = {
-			set_variable = { which = honor_leader_calender_year value = 2200 }
-		}
 		if = { limit = { exists = leader }
 			leader = {
 				set_variable = { which = honor_leader_office_start value = 2200 }
@@ -35,8 +34,37 @@ country_event = {
 				set_variable = { which = honor_leader_ruler_starting_ruler_date value = 2200 }
 			}
 		}
-		every_owned_leader = { remove_leader_flag = honor_leader_is_pool_leader }
+		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = total_leaders }
+		while = {
+			count = total_leaders
+			random_owned_leader = {
+				limit = {
+					NOR = {
+						leader_class = envoy
+						has_leader_flag = honor_clone_created
+					}
+				}
+				set_leader_flag = honor_clone_created
+				save_event_target_as = hon_clone
+				owner = {
+					clone_leader = {
+						target = event_target:hon_clone
+						effect = {
+							set_immortal = yes
+							save_global_event_target_as = honor_copy_@event_target:hon_clone
+							exile_leader_as = clone_leader_exile
+						}
+					}
+				}
+				set_variable = { which = honor_leader_calender_year value = 2200 }
+				# remove_leader_flag = honor_leader_is_pool_leader
+			}
+		}
 		every_pool_leader = { set_leader_flag = honor_leader_is_pool_leader }
+	}
+	after = {
+		clear_variable = total_leaders
+		country_event = { id = honor_leader.4 days = 2 }
 	}
 }
 
@@ -138,24 +166,115 @@ country_event = {
 	}
 }
 
-# On ruler set - set office start year.
+# All - on_ruler_set - Set Reign/Office Begin Date Flags
 country_event = {
 	id = honor_leader.4
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { is_ai = no }
+	trigger = {
+		is_ai = no
+		is_regular_empire = yes
+		# days_passed > 1
+	}
 	immediate = {
-		if = {
-			limit = { exists = ruler }
+		if = { limit = { exists = ruler }
 			ruler = {
 				set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
-				set_variable = { which = honor_leader_office_start value = this.honor_leader_calender_year }
+				set_variable = { which = honor_leader_office_start value = honor_leader_calender_year }
+			}
+			# Consider adding event that lets you set term start date for auths
+			if = { limit = { NOT = { exists = event_target:honor_copy_@ruler } days_passed > 1 }
+				ruler = {
+					set_leader_flag = honor_clone_created
+					owner = {
+						clone_leader = {
+							target = prev
+							effect = {
+								set_immortal = yes
+								exile_leader_as = clone_leader_exile
+							}
+						}
+						last_created_leader = { save_global_event_target_as = honor_copy_@prevprev }
+					}
+				}
+			}
+			event_target:honor_copy_@ruler = {
+				if = { limit = { NOT = { is_variable_set = stints_as_ruler } }
+					set_variable = { which = stints_as_ruler value = 1 }
+					# if = { limit = { days_passed < 7 } will be done on game start and save load
+					# 	root.ruler = { set_leader_flag = first_ruler }
+					# }
+				} else = {
+					change_variable = { which = stints_as_ruler value = 1 }
+				}
+				# get_ruler_term_begin_number = yes
+				if = { limit = { check_variable = { which = stints_as_ruler value = 1 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_1
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 2 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_2
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 3 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_3
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 4 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_4
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 5 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_5
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 6 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_6
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 7 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_7
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 8 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_8
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 9 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_9
+						days_from_present = 0
+					}
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 10 } }
+					set_saved_date = {
+						key = ruler_stint_start_date_10
+						days_from_present = 0
+					}
+				}
+				prev.ruler = {
+					switch = { trigger = pre_ruler_leader_class
+						scientist	= { prev = { set_leader_flag = hon_is_scientist } }
+						admiral		= { prev = { set_leader_flag = hon_is_admiral } }
+						general		= { prev = { set_leader_flag = hon_is_general } }
+						governor	= { prev = { set_leader_flag = hon_is_governor } }
+					}
+				}
 			}
 		}
 	}
 }
 
-# On ruler_back_to_pre_ruler_class AND on_ruler_removed - set office end year and was_ruler flag.
+# on_ruler_removed - Executed when a ruler has been removed
+# on_ruler_back_to_pre_ruler_class - Set Reign/Office End Date Flags
+# From = Previous Ruler
 country_event = {
 	id = honor_leader.5
 	hide_window = yes
@@ -163,12 +282,109 @@ country_event = {
 	trigger = {
 		is_ai = no
 		exists = from
+		is_regular_empire = yes
 	}
 	immediate = {
 		from = {
 			set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
 			set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
 			set_leader_flag = honor_leader_was_ruler
+			# Savegame fallback
+			if = { limit = { NOT = { exists = event_target:honor_copy_@from } }
+				set_leader_flag = honor_clone_created
+				root = {
+					clone_leader = {
+						target = prev
+						effect = {
+							set_immortal = yes
+							exile_leader_as = clone_leader_exile
+						}
+					}
+					last_created_leader = { save_global_event_target_as = honor_copy_@prevprev }
+				}
+			}
+		}
+		event_target:honor_copy_@from = {
+			# get_ruler_term_end_number = yes
+			if = {
+				limit = { check_variable = { which = stints_as_ruler value = 1 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_1
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 2 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_2
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 3 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_3
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 4 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_4
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 5 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_5
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 6 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_6
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 7 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_7
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 8 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_8
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 9 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_9
+					days_from_present = 0
+				}
+			}
+			else_if = {
+				limit = { check_variable = { which = stints_as_ruler value = 10 } }
+				set_saved_date = {
+					key = ruler_stint_end_date_10
+					days_from_present = 0
+				}
+			}
+			root.from = {
+				switch = { trigger = pre_ruler_leader_class
+					scientist	= { prev = { set_leader_flag = hon_is_scientist } }
+					admiral		= { prev = { set_leader_flag = hon_is_admiral } }
+					general		= { prev = { set_leader_flag = hon_is_general } }
+					governor	= { prev = { set_leader_flag = hon_is_governor } }
+				}
+				set_leader_flag = honor_leader_was_ruler
+			}
 		}
 	}
 }
@@ -285,8 +501,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -484,8 +699,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else_if = { limit = { exists = owner }
+		} else_if = { limit = { exists = owner }
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -519,8 +733,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else_if = { limit = { exists = owner }
+		} else_if = { limit = { exists = owner }
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -595,8 +808,7 @@ ship_event = {
 							}
 						}
 					}
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						NOT = { is_scope_type = starbase }
 						exists = leader
@@ -606,8 +818,7 @@ ship_event = {
 					}
 				}
 			}
-		}
-		else_if = {
+		} else_if = {
 			limit = {
 				NOR = {
 					is_ship_class = shipclass_colonizer
@@ -624,8 +835,7 @@ ship_event = {
 							}
 						}
 					}
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						NOT = { is_scope_type = starbase }
 						exists = owner
@@ -697,8 +907,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_unrestricted_wars
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = war_philosophy
@@ -706,8 +915,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_defensive_only
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = artificial_intelligence_policy
@@ -715,8 +923,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_banned_ai
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = robot_pop_policy
@@ -724,8 +931,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_banned_robots
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = refugees
@@ -733,8 +939,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_refugees_not_allowed
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = refugees
@@ -742,8 +947,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_refugees_allowed
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = slavery
@@ -751,8 +955,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_slavery_not_allowed
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = slavery
@@ -760,8 +963,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_slavery_allowed
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = purge
@@ -769,8 +971,7 @@ country_event = {
 						}
 					}
 					set_leader_flag = honor_leader_ruler_purge_not_allowed
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						root = {
 							last_changed_policy = purge
@@ -820,8 +1021,7 @@ pop_event = {
 						}
 					}
 					event_target:honor_leader_ruler = { set_leader_flag = honor_leader_ruler_species_given_citizenship }
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						has_citizenship_type = {
 							country = owner
@@ -829,8 +1029,7 @@ pop_event = {
 						}
 					}
 					event_target:honor_leader_ruler = { set_leader_flag = honor_leader_ruler_species_enslaved }
-				}
-				else_if = {
+				} else_if = {
 					limit = {
 						has_citizenship_type = {
 							country = owner
@@ -839,8 +1038,7 @@ pop_event = {
 					}
 					event_target:honor_leader_ruler = { set_leader_flag = honor_leader_ruler_species_purging }
 				}
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					last_changed_species_rights_type = living_standard
 					has_living_standard = {
@@ -960,98 +1158,82 @@ country_event = {
 					root = { last_increased_tech = tech_automated_exploration }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_automated_exploration
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_cold_fusion_power }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_cold_fusion_power
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_wormhole_stabilization }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_wormhole_stabilization
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_jump_drive_1 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_jump_drive_1
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_ftl_inhibitor }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_ftl_inhibitor
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_combat_computers_3 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_combat_computers_3
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_synchronized_defences }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_synchronized_defences
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_planetary_shield_generator }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_planetary_shield_generator
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_mine_volatile_motes }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_mine_volatile_motes
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_mine_dark_matter }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_mine_dark_matter
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_lasers_2 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_lasers_2
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_extradimensional_weapon_1 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_extradimensional_weapon_1
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_mining_drone_weapon_1 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_mining_drone_weapon_1
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_space_cloud_weapon_1 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_space_cloud_weapon_1
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = null_void_beam }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_null_void_beam
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_dark_matter_deflector }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_dark_matter_deflector
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_dark_matter_power_core }
 				}
@@ -1184,146 +1366,122 @@ country_event = {
 					root = { last_increased_tech = tech_psionic_barrier }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_psionic_barrier
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_space_whale_weapon_1 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_space_whale_weapon_1
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_galactic_markets }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_galactic_markets
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_nutrient_replication }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_nutrient_replication
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_tomb_world_adaption }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_tomb_world_adaption
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_gene_banks }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_gene_banks
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_morphogenetic_field_mastery }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_morphogenetic_field_mastery
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_genetic_resequencing }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_genetic_resequencing
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_gene_expressions }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_gene_expressions
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_selected_lineages }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_selected_lineages
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_capacity_boosters }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_capacity_boosters
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_regenerative_hull_tissue }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_regenerative_hull_tissue
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_psionic_theory }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_psionic_theory
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_subdermal_stimulation }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_subdermal_stimulation
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_ascension_theory }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_ascension_theory
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_penal_colonies }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_penal_colonies
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_resort_colonies }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_resort_colonies
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_epigenetic_triggers }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_epigenetic_triggers
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_gene_tailoring }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_gene_tailoring
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_terrestrial_sculpting }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_terrestrial_sculpting
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_ecological_adaptation }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_ecological_adaptation
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_climate_restoration }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_climate_restoration
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_neural_implants }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_neural_implants
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_galactic_administration }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_galactic_administration
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_mine_zro }
 				}
@@ -1449,122 +1607,102 @@ country_event = {
 					root = { last_increased_tech = tech_corvette_hull_2 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_corvette_hull_2
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_destroyer_hull_2 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_destroyer_hull_2
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_cruiser_hull_2 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_cruiser_hull_2
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_battleship_hull_2 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_battleship_hull_2
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_modular_engineering }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_modular_engineering
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_space_defense_station_improvement }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_space_defense_station_improvement
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_crystal_armor_2 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_crystal_armor_2
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_defense_platform_hull_1 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_defense_platform_hull_1
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_robotic_workers }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_robotic_workers
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_droid_workers }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_droid_workers
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_synthetic_workers }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_synthetic_workers
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_construction_templates }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_construction_templates
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_starbase_5 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_starbase_5
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_crystal_armor_1 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_crystal_armor_1
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_housing_1 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_housing_1
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_housing_2 }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_housing_2
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_mine_living_metal }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_mine_living_metal
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_mine_betharian }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_mine_betharian
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_mine_exotic_gases }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_mine_exotic_gases
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_mine_rare_crystals }
 				}
 				set_leader_flag = honor_leader_scientist_discovered_mine_rare_crystals
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					root = { last_increased_tech = tech_dark_matter_propulsion }
 				}
@@ -1598,8 +1736,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			from = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -1718,8 +1855,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else_if = { limit = { exists = from.leader }
+		} else_if = { limit = { exists = from.leader }
 			from.leader = {
 				change_variable = { which = honor_leader_pops_declined value = 1 }
 				set_leader_flag = honor_leader_ruler_slumlord
@@ -1751,8 +1887,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			from = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -1792,8 +1927,7 @@ pop_event = {
 						}
 					}
 				}
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					exists = owner
 					owner = {
@@ -1835,8 +1969,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			from = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -1879,8 +2012,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				every_owned_leader = {
 					limit = { leader_class = ruler }
@@ -1940,8 +2072,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -2001,8 +2132,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -2060,8 +2190,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -2118,8 +2247,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -2153,8 +2281,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -2341,8 +2468,7 @@ country_event = {
 							# }
 						}
 						change_variable = { which = honor_leader_space_critters_destroyed value = 1 }
-					}
-					else_if = { # Pirates
+					} else_if = { # Pirates
 						limit = { # Not Awakened Marauders
 							root.from = {
 								OR = {
@@ -2365,8 +2491,7 @@ country_event = {
 							# }
 						}
 						change_variable = { which = honor_leader_pirate_ships_destroyed value = 1 }
-					}
-					else_if = { # Crisis
+					} else_if = { # Crisis
 						limit = { # Not Awakened Marauders
 							root.from = { is_crisis_faction = yes }
 							# from = {
@@ -2574,8 +2699,7 @@ country_event = {
 						}
 					}
 				}
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					is_war_participant = { who = root side = attackers }
 				}
@@ -2699,8 +2823,7 @@ country_event = {
 						}
 					}
 				}
-			}
-			else = {
+			} else = {
 				root = {
 					if = { limit = { exists = leader }
 						leader = {
@@ -2747,8 +2870,7 @@ country_event = {
 						remove_leader_flag = honor_leader_general_undefeated
 					}
 				}
-			}
-			else = {
+			} else = {
 				root = {
 					if = { limit = { exists = leader }
 						leader = {
@@ -2789,8 +2911,7 @@ country_event = {
 						}
 					}
 				}
-			}
-			else = {
+			} else = {
 				root = {
 					if = { limit = { exists = leader }
 						leader = {
@@ -2831,8 +2952,7 @@ country_event = {
 						remove_leader_flag = honor_leader_general_undefeated
 					}
 				}
-			}
-			else = {
+			} else = {
 				root = {
 					if = { limit = { exists = leader }
 						leader = {
@@ -2884,8 +3004,7 @@ country_event = {
 						}
 					}
 				}
-			}
-			else = {
+			} else = {
 				owner = {
 					every_owned_leader = {
 						limit = { leader_class = ruler }
@@ -2995,8 +3114,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -3044,8 +3162,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -3076,8 +3193,7 @@ planet_event = {
 					}
 				}
 			}
-		}
-		else = {
+		} else = {
 			owner = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -3183,13 +3299,11 @@ ship_event = {
 			leader = {
 				change_variable = { which = honor_leader_anomalies_researched value = 1 }
 			}
-		}
-		else_if = { limit = { has_fleet_order = collect_data_fleet_order }
+		} else_if = { limit = { has_fleet_order = collect_data_fleet_order }
 			leader = {
 				change_variable = { which = honor_leader_special_projects_researched value = 1 }
 			}
-		}
-		else_if = { limit = { has_fleet_order = evade_hostiles_order }
+		} else_if = { limit = { has_fleet_order = evade_hostiles_order }
 			leader = {
 				change_variable = { which = honor_leader_evaded_hostiles value = 1 }
 			}
@@ -3240,8 +3354,7 @@ planet_event = {
 					set_leader_flag = honor_leader_general_leveled_a_planet
 				}
 			}
-		}
-		else = {
+		} else = {
 			from = {
 				if = { limit = { exists = leader }
 					leader = {
@@ -3314,8 +3427,7 @@ pop_event = {
 						}
 					}
 				}
-			}
-			else_if = {
+			} else_if = {
 				limit = {
 					any_fleet_in_orbit = {
 						exists = leader
@@ -3428,31 +3540,31 @@ country_event = {
 			is_scope_type = leader
 			leader_age > 1
 			is_owned_by = root
-			is_fake_leader = no
+			is_fake_leader = no # Compat. support
 		}
 	}
 	immediate = {
 		set_update_modifiers_batch = begin
+		from = {
+			save_event_target_as = honor_leader
+			# log = "FROM IS: [this.GetName]"
+		}
 		if = { # Savegame Fallback (old method)
 			limit = { NOT = { exists = event_target:honor_copy_@from } }
 			clone_leader = {
 				target = from
 				effect = {
-					save_event_target_as = event_target:honor_copy_@event_target:honor_leader
+					# TODO probably omit global for performance reason
+					save_global_event_target_as = event_target:honor_copy_@event_target:honor_leader
+					# save_event_target_as = event_target:honor_copy_@event_target:honor_leader
 				}
 			}
 		}
-		from = {
-			save_event_target_as = honor_leader
-			log = "FROM IS: [this.GetName]"
-		}
-		event_target:honor_copy_@event_target:honor_leader = {
-			log = "COPY GOT: [this.GetName]"
+		event_target:honor_copy_@from = {
+			# log = "COPY GOT: [this.GetName]"
 			save_event_target_as = honor_leader_clone
 			honor_leader_copy_flags_and_vars = yes
 			set_saved_date = { key = leader_death_fired_date days_from_present = 0 }
-			set_variable = { which = dead_leader_level value = event_target:honor_leader.dead_leader_level }
-			set_variable = { which = dead_leader_age value = event_target:honor_leader.dead_leader_age }
 			# Is or was ruler
 			if = { limit = { is_variable_set = months_as_ruler }
 				if = { limit = { check_variable = { which = months_as_ruler value < 6 } }
@@ -3461,30 +3573,24 @@ country_event = {
 				divide_variable = { which = months_as_ruler value = 12 }
 				round_variable = months_as_ruler
 				event_target:honor_leader = {
-					export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level }
-					export_trigger_value_to_variable = { trigger = leader_age variable = dead_leader_age }
 					# Needs to be done this way, any other way seems to cause issues.
-					if		= { limit = { leader_class = scientist } set_leader_flag = hon_is_scientist }
-					else_if = { limit = { leader_class = admiral } set_leader_flag = hon_is_admiral }
-					else_if = { limit = { leader_class = general } set_leader_flag = hon_is_general }
-					if = { leader_class = ruler }
-						get_ruler_term_end_number = yes
+					switch = { trigger = leader_class
+						scientist	= { prev = { set_leader_flag = hon_is_scientist } }
+						admiral		= { prev = { set_leader_flag = hon_is_admiral } }
+						general		= { prev = { set_leader_flag = hon_is_general } }
+						governor	= { prev = { set_leader_flag = hon_is_governor } }
+						# ruler		= { prev = { get_ruler_term_end_number = yes } }
 					}
+					root = { country_event = { id = honor_leader.5 days = -1 scopes = { from = prev } } }
 				}
-
-				if = { limit = { event_target:honor_leader = { has_leader_flag = hon_is_scientist } } set_leader_flag = hon_is_scientist }
-				else_if = { limit = { event_target:honor_leader = { has_leader_flag = hon_is_admiral } } set_leader_flag = hon_is_admiral }
-				else_if = { limit = { event_target:honor_leader = { has_leader_flag = hon_is_general } } set_leader_flag = hon_is_general }
-				else = { set_leader_flag = hon_is_governor }
 			}
 		}
 		if = { limit = { NOT = { has_country_flag = honor_popup_disabled } }
-			country_event = { id = honor_leader.200 days = -1 } # Can't be leader event, because problem with the portrait display.
-		}
-		else = {
+			country_event = { id = honor_leader.200 } # Can't be leader event, because problem with the portrait display.
+		} else = {
 			# SAVE LEADER HERE FOR LATER.
 			event_target:honor_leader_clone = { honor_leader_save_leader = yes }
-			random_owned_leader = {
+			every_owned_leader = {
 				limit = { has_leader_flag = honor_leader_interim_leader }
 				# Civil Wars compat flag
 				set_leader_flag = dead_ruler
@@ -3695,7 +3801,6 @@ country_event = {
 		# 			event_target:honor_leader_clone = { is_scope_valid = yes is_scope_type = leader }
 		# 			exists = last_created_leader
 		# 			last_created_leader = { is_same_value = event_target:honor_leader_clone }
-		# 			# NOT = { has_active_event = { honor_leader.200 } }
 		# 		}
 		# 		event_target:honor_leader_clone = {
 		# 			# save_event_target_as = honor_leader_clone
@@ -3797,8 +3902,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_xeno_empire }
 				}
-			}
-			else_if = { # Fallen Empire
+			} else_if = { # Fallen Empire
 				limit = {
 					is_fallen_empire = yes
 					# fromfrom = {
@@ -3834,8 +3938,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_ancient_mining_drone }
 				}
-			}
-			else_if = { # Crystalline Entities
+			} else_if = { # Crystalline Entities
 				limit = {
 					is_crystal_country_type = yes
 					# fromfrom = {
@@ -3871,8 +3974,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_crystal_ship }
 				}
-			}
-			else_if = { # Space Amoeba
+			} else_if = { # Space Amoeba
 				limit = {
 					is_amoeba_country_type = yes
 					# fromfrom = {
@@ -3885,8 +3987,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_space_amoeba }
 				}
-			}
-			else_if = { # Void Clouds
+			} else_if = { # Void Clouds
 				limit = {
 					OR = {
 						is_country_type = vluur
@@ -3897,8 +3998,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_space_cloud }
 				}
-			}
-			else_if = { # Tiyanki Space Whales
+			} else_if = { # Tiyanki Space Whales
 				limit = {
 					is_tiyanki_country_type = yes
 					# fromfrom = {
@@ -3912,8 +4012,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_space_whale }
 				}
-			}
-			else_if = { # Marauders
+			} else_if = { # Marauders
 				limit = {
 					OR = {
 						is_country_type = dormant_marauders
@@ -3936,8 +4035,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_marauders }
 				}
-			}
-			else_if = { # Pirates
+			} else_if = { # Pirates
 				limit = {
 					is_pirate = yes
 					# fromfrom = {
@@ -3953,8 +4051,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_pirates }
 				}
-			}
-			else_if = { # Caravaneers
+			} else_if = { # Caravaneers
 				limit = {
 					OR = {
 						is_country_type = caravaneer_home
@@ -3973,8 +4070,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_caravaneers }
 				}
-			}
-			else_if = { # Shroud Entities
+			} else_if = { # Shroud Entities
 				limit = {
 					OR = {
 						is_country_type = shroud
@@ -4013,8 +4109,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_swarm }
 				}
-			}
-			else_if = { # Extradimensional
+			} else_if = { # Extradimensional
 				limit = {
 					OR = {
 						is_country_type = extradimensional
@@ -4035,8 +4130,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_ed }
 				}
-			}
-			else_if = { # AI
+			} else_if = { # AI
 				limit = {
 					is_country_type = ai_empire
 					# fromfrom = {
@@ -4057,8 +4151,7 @@ country_event = {
 				from = {
 					leader = { set_leader_flag = honor_leader_cod_ai }
 				}
-			}
-			else_if = {
+			} else_if = {
 				limit = { # Nano
 					OR = {
 						is_country_type = gray_goo
@@ -4235,8 +4328,7 @@ country_event = {
 				# 		leader = { set_leader_flag = honor_leader_cod_voidspawn }
 				# 	}
 				# }
-			}
-			else_if = { # Enigmatic Cache
+			} else_if = { # Enigmatic Cache
 				limit = {
 					OR = {
 						is_country_type = enigmatic_cache

@@ -2976,9 +2976,23 @@ leader_event = {
 country_event = {
 	id = honor_leader.200
 	desc = {
+		exclusive_trigger = {
+			NAND = {
+				exists = event_target:honor_leader_clone
+				event_target:honor_leader_clone = { is_scope_type = leader }
+			}
+		}
+		text = known_dismissal
+	}
+	desc = {
 		trigger = {
 			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 1 }
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+					is_variable_set = stints_as_ruler
+				}
+				check_variable = { which = stints_as_ruler value <= 1 }
 			}
 		}
 		text = honor_leader.200.desc.deadruler_1
@@ -3058,12 +3072,13 @@ country_event = {
 	desc = {
 		trigger = {
 			event_target:honor_leader_clone = {
-				NOR = {
-					pre_ruler_leader_class = scientist
-					pre_ruler_leader_class = admiral
-					pre_ruler_leader_class = general
-					is_variable_set = stints_as_ruler
-				}
+				leader_class = governor
+				NOT = { is_variable_set = stints_as_ruler }
+				# NOR = { falback does not work
+				# 	pre_ruler_leader_class = scientist
+				# 	pre_ruler_leader_class = admiral
+				# 	pre_ruler_leader_class = general
+				# }
 			}
 		}
 		text = honor_leader.200.desc.deadgovernor
@@ -3071,7 +3086,7 @@ country_event = {
 	desc = {
 		trigger = {
 			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = scientist
+				leader_class = scientist
 				NOT = { is_variable_set = stints_as_ruler }
 			}
 		}
@@ -3080,7 +3095,7 @@ country_event = {
 	desc = {
 		trigger = {
 			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = admiral
+				leader_class = admiral
 				NOT = { is_variable_set = stints_as_ruler }
 			}
 		}
@@ -3089,20 +3104,11 @@ country_event = {
 	desc = {
 		trigger = {
 			event_target:honor_leader_clone = {
-				pre_ruler_leader_class = general
+				leader_class = general
 				NOT = { is_variable_set = stints_as_ruler }
 			}
 		}
 		text = honor_leader.200.desc.deadgeneral
-	}
-	desc = {
-		exclusive_trigger = {
-			NAND = {
-				exists = event_target:honor_leader_clone
-				event_target:honor_leader_clone = { is_scope_type = leader }
-			}
-		}
-		text = known_dismissal
 	}
 	title = "honor_leader.103.title"
 	diplomatic = yes
@@ -3117,7 +3123,6 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		# from = {
-		# 	save_event_target_as = honor_leader_country
 		# 	log = "Honor Leader - IN death event 200"
 		# 	log = "honor_leader: [honor_leader.GetName]"
 		# 	log = "honor_leader: [honor_leader.GetScopeType]"
@@ -3135,11 +3140,26 @@ country_event = {
 		# 	log = "honor_leader_cause_of_death: [honor_leader_cause_of_death.GetName]"
 		# 	log = "honor_leader_cause_of_deathScope: [honor_leader_cause_of_death.GetScopeType]"
 		# }
+		set_country_flag = honor_leader_view_page_1
 	}
 	after = {
 		if = { # Only to be sure
-			limit = { exists = fromfrom fromfrom = { is_scope_type = leader } }
+			limit = {
+				exists = fromfrom
+				fromfrom = {
+					is_scope_type = leader
+					OR = {
+						has_leader_flag = honor_clone_created
+						NOT = { is_same_value = event_target:honor_leader_clone }
+					}
+				}
+			}
 			fromfrom = { kill_leader = { show_notification = no } }
+		}
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
 		}
 	}
 	option = {
@@ -4566,17 +4586,16 @@ country_event = {
 		custom_tooltip = honor_leader.103.notherhim.tooltip
 		trigger = { is_scope_valid = yes }
 		hidden_effect = {
-			event_target:honor_leader_country = {
-				# SAVE LEADER HERE FOR LATER.
-				event_target:honor_leader = { honor_leader_save_leader = yes }
-				every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
-				every_owned_leader = { # Civil Wars compat flag
-					limit = {
-						has_leader_flag = honor_leader_interim_leader
-						is_fake_leader = yes
-					}
-					kill_leader = { show_notification = no }
+			save_event_target_as = honor_leader_country
+			# SAVE LEADER HERE FOR LATER.
+			event_target:honor_leader = { honor_leader_save_leader = yes }
+			every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+			every_owned_leader = { # Civil Wars compat flag
+				limit = {
+					has_leader_flag = honor_leader_interim_leader
+					is_fake_leader = yes
 				}
+				kill_leader = { show_notification = no }
 			}
 		}
 	}
@@ -4601,6 +4620,13 @@ country_event = {
 				check_variable = { which = stints_as_ruler value = 1 }
 			}
 		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
@@ -4610,6 +4636,13 @@ country_event = {
 			event_target:honor_leader_clone = {
 				check_variable = { which = stints_as_ruler value = 2 }
 			}
+		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
 		}
 	}
 	option = {
@@ -4621,6 +4654,13 @@ country_event = {
 				check_variable = { which = stints_as_ruler value = 3 }
 			}
 		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
@@ -4630,6 +4670,13 @@ country_event = {
 			event_target:honor_leader_clone = {
 				check_variable = { which = stints_as_ruler value = 4 }
 			}
+		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
 		}
 	}
 	option = {
@@ -4641,6 +4688,13 @@ country_event = {
 				check_variable = { which = stints_as_ruler value = 5 }
 			}
 		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
@@ -4650,6 +4704,13 @@ country_event = {
 			event_target:honor_leader_clone = {
 				check_variable = { which = stints_as_ruler value = 6 }
 			}
+		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
 		}
 	}
 	option = {
@@ -4661,6 +4722,13 @@ country_event = {
 				check_variable = { which = stints_as_ruler value = 7 }
 			}
 		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
@@ -4670,6 +4738,13 @@ country_event = {
 			event_target:honor_leader_clone = {
 				check_variable = { which = stints_as_ruler value = 8 }
 			}
+		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
 		}
 	}
 	option = {
@@ -4681,6 +4756,13 @@ country_event = {
 				check_variable = { which = stints_as_ruler value = 9 }
 			}
 		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage1"
@@ -4690,6 +4772,13 @@ country_event = {
 			event_target:honor_leader_clone = {
 				check_variable = { which = stints_as_ruler value = 10 }
 			}
+		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_1 }	}
+		hidden_effect = {
+			set_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
 		}
 	}
 	option = {
@@ -4701,6 +4790,13 @@ country_event = {
 				check_variable = { which = stints_as_ruler value >= 1 }
 			}
 		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_2 }	}
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_1
+			set_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage3"
@@ -4711,6 +4807,13 @@ country_event = {
 				check_variable = { which = stints_as_ruler value >= 1 }
 			}
 		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_3 }	}
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			set_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage4"
@@ -4720,6 +4823,13 @@ country_event = {
 			event_target:honor_leader_clone = {
 				check_variable = { which = stints_as_ruler value >= 1 }
 			}
+		}
+		allow = { NOT = { has_country_flag = honor_leader_view_page_4 }	}
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_1
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			set_country_flag = honor_leader_view_page_4
 		}
 	}
 }

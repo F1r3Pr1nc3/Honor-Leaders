@@ -1,155 +1,170 @@
-
+# All only used once
 
 ######################
+# Scope = Ruler Clone
+# get_ruler_term_begin_number = {
+# 	if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 1 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_1
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 2 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_2
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 3 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_3
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 4 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_4
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 5 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_5
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 6 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_6
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 7 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_7
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 8 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_8
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 9 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_9
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 10 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_start_date_10
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	prev = {
+# 		switch = { trigger = pre_ruler_leader_class
+# 			scientist	= { prev = { set_leader_flag = hon_is_scientist } }
+# 			admiral		= { prev = { set_leader_flag = hon_is_admiral } }
+# 			general		= { prev = { set_leader_flag = hon_is_general } }
+# 			governor	= { prev = { set_leader_flag = hon_is_governor } }
+# 		}
+# 	}
+# }
 
-get_ruler_term_begin_number = {
-	if = {
-		limit = { check_variable = { which = stints_as_ruler value = 1 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_1
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 2 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_2
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 3 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_3
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 4 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_4
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 5 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_5
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 6 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_6
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 7 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_7
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 8 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_8
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 9 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_9
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 10 } }
-		set_saved_date = {
-			key = ruler_stint_start_date_10
-			days_from_present = 0
-		}
-	}
-}
-
-get_ruler_term_end_number = {
-	set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
-	set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
-	set_variable = { which = honor_leader_class value = 1 }
-	if = {
-		limit = { check_variable = { which = stints_as_ruler value = 1 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_1
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 2 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_2
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 3 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_3
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 4 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_4
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 5 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_5
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 6 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_6
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 7 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_7
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 8 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_8
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 9 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_9
-			days_from_present = 0
-		}
-	}
-	else_if = {
-		limit = { check_variable = { which = stints_as_ruler value = 10 } }
-		set_saved_date = {
-			key = ruler_stint_end_date_10
-			days_from_present = 0
-		}
-	}
-}
+# Scope = Ruler Clone
+# get_ruler_term_end_number = {
+# 	if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 1 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_1
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 2 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_2
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 3 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_3
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 4 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_4
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 5 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_5
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 6 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_6
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 7 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_7
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 8 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_8
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 9 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_9
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = { check_variable = { which = stints_as_ruler value = 10 } }
+# 		set_saved_date = {
+# 			key = ruler_stint_end_date_10
+# 			days_from_present = 0
+# 		}
+# 	}
+# 	root.from = {
+# 		switch = { trigger = pre_ruler_leader_class
+# 			scientist	= { prev = { set_leader_flag = hon_is_scientist } }
+# 			admiral		= { prev = { set_leader_flag = hon_is_admiral } }
+# 			general		= { prev = { set_leader_flag = hon_is_general } }
+# 			governor	= { prev = { set_leader_flag = hon_is_governor } }
+# 		}
+# 		set_leader_flag = honor_leader_was_ruler
+# 	}
+# }
 
 # honor_leader_honor_leader_memorial_reset = {
 # optimize_memory

@@ -2,19 +2,19 @@
 defined_text = { # Leader scope
 	name = GetOriginalClass
 	text = {
-		trigger = { has_leader_flag = hon_is_scientist }
+		trigger = { OR = { has_leader_flag = hon_is_scientist check_variable = { which = honor_leader_class value = 3 } } }
 		localization_key = scientist
 	}
 	text = {
-		trigger = { has_leader_flag = hon_is_admiral }
+		trigger = { OR = { has_leader_flag = hon_is_admiral check_variable = { which = honor_leader_class value = 4 } } }
 		localization_key = admiral
 	}
 	text = {
-		trigger = { has_leader_flag = hon_is_general }
+		trigger = { OR = { has_leader_flag = hon_is_general check_variable = { which = honor_leader_class value = 5 } } }
 		localization_key = general
 	}
 	text = {
-		trigger = { has_leader_flag = hon_is_governor }
+		trigger = { OR = { has_leader_flag = hon_is_governor check_variable = { which = honor_leader_class value = 2 } } }
 		localization_key = governor
 	}
 }

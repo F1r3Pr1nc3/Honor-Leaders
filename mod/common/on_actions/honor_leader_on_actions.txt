@@ -26,8 +26,7 @@ on_leader_assigned = {
 
 on_game_start_country = {
 	events = {
-		honor_leader.3
-		new_honor_leader.1000		# Create Clone leaders
+		honor_leader.3		# Create Clone leaders
 	}
 }
 
@@ -59,8 +58,7 @@ on_leader_death = {
 # this = Country
 on_ruler_set = {
 	events = {
-		honor_leader.4
-		new_honor_leader.1005		# Set Reign Begin Date Flags
+		honor_leader.4		# Set Reign Begin Date Flags
 	}
 }
 
@@ -69,8 +67,7 @@ on_ruler_set = {
 # this = Country
 on_ruler_removed = {
 	events = {
-		honor_leader.5
-		new_honor_leader.1010		# Set Reign End Date Flags
+		honor_leader.5		# Set Reign End Date Flags
 	}
 }
 
@@ -79,8 +76,7 @@ on_ruler_removed = {
 # this = Country
 on_ruler_back_to_pre_ruler_class = {
 	events = {
-		honor_leader.5
-		new_honor_leader.1010		# Set Reign End Date Flags
+		honor_leader.5		# Set Reign End Date Flags
 	}
 }
 

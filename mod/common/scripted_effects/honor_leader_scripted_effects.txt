@@ -1361,18 +1361,19 @@ honor_leader_copy_flags_and_vars = {
 
 	### Vars & Flags
 	event_target:honor_leader = {
+		export_trigger_value_to_variable = { trigger = leader_age variable = dead_leader_age }
 		# Time
-		if = { limit = { is_variable_set = honor_leader_years_of_service } prev = { set_variable = { which = honor_leader_years_of_service value = prev.honor_leader_years_of_service} } } else = { prev = { set_variable = { which = honor_leader_years_of_service value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_office_start } prev = { set_variable = { which = honor_leader_office_start value = prev.honor_leader_office_start} } } else = { prev = { set_variable = { which = honor_leader_office_start value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_office_end } prev = { set_variable = { which = honor_leader_office_end value = prev.honor_leader_office_end} } } else = { prev = { set_variable = { which = honor_leader_office_end value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_years_in_office } prev = { set_variable = { which = honor_leader_years_in_office value = prev.honor_leader_years_in_office} } } else = { prev = { set_variable = { which = honor_leader_years_in_office value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_years_assisting_research } prev = { set_variable = { which = honor_leader_years_assisting_research value = prev.honor_leader_years_assisting_research} } } else = { prev = { set_variable = { which = honor_leader_years_assisting_research value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_years_exploring_automatically } prev = { set_variable = { which = honor_leader_years_exploring_automatically value = prev.honor_leader_years_exploring_automatically} } } else = { prev = { set_variable = { which = honor_leader_years_exploring_automatically value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_years_governing_sector } prev = { set_variable = { which = honor_leader_years_governing_sector value = prev.honor_leader_years_governing_sector} } } else = { prev = { set_variable = { which = honor_leader_years_governing_sector value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_years_orbital_training_excersises } prev = { set_variable = { which = honor_leader_years_orbital_training_excersises value = prev.honor_leader_years_orbital_training_excersises} } } else = { prev = { set_variable = { which = honor_leader_years_orbital_training_excersises value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_years_planet_training_excersises } prev = { set_variable = { which = honor_leader_years_planet_training_excersises value = prev.honor_leader_years_planet_training_excersises} } } else = { prev = { set_variable = { which = honor_leader_years_planet_training_excersises value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_years_of_service } prev = { set_variable = { which = honor_leader_years_of_service value = prev.honor_leader_years_of_service } } } else = { prev = { set_variable = { which = honor_leader_years_of_service value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_office_start } prev = { set_variable = { which = honor_leader_office_start value = prev.honor_leader_office_start } } } else = { prev = { set_variable = { which = honor_leader_office_start value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_office_end } prev = { set_variable = { which = honor_leader_office_end value = prev.honor_leader_office_end } } } else = { prev = { set_variable = { which = honor_leader_office_end value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_years_in_office } prev = { set_variable = { which = honor_leader_years_in_office value = prev.honor_leader_years_in_office } } } else = { prev = { set_variable = { which = honor_leader_years_in_office value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_years_assisting_research } prev = { set_variable = { which = honor_leader_years_assisting_research value = prev.honor_leader_years_assisting_research } } } else = { prev = { set_variable = { which = honor_leader_years_assisting_research value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_years_exploring_automatically } prev = { set_variable = { which = honor_leader_years_exploring_automatically value = prev.honor_leader_years_exploring_automatically } } } else = { prev = { set_variable = { which = honor_leader_years_exploring_automatically value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_years_governing_sector } prev = { set_variable = { which = honor_leader_years_governing_sector value = prev.honor_leader_years_governing_sector } } } else = { prev = { set_variable = { which = honor_leader_years_governing_sector value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_years_orbital_training_excersises } prev = { set_variable = { which = honor_leader_years_orbital_training_excersises value = prev.honor_leader_years_orbital_training_excersises } } } else = { prev = { set_variable = { which = honor_leader_years_orbital_training_excersises value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_years_planet_training_excersises } prev = { set_variable = { which = honor_leader_years_planet_training_excersises value = prev.honor_leader_years_planet_training_excersises } } } else = { prev = { set_variable = { which = honor_leader_years_planet_training_excersises value = 0 } } }
 		# Bio
-		if = { limit = { is_variable_set = honor_leader_elections_participated } prev = { set_variable = { which = honor_leader_elections_participated value = prev.honor_leader_elections_participated} } } else = { prev = { set_variable = { which = honor_leader_elections_participated value = 0 } } }
+		if = { limit = { is_variable_set = honor_leader_elections_participated } prev = { set_variable = { which = honor_leader_elections_participated value = prev.honor_leader_elections_participated } } } else = { prev = { set_variable = { which = honor_leader_elections_participated value = 0 } } }
 		if = { limit = { has_leader_flag = honor_leader_leader_in_election } prev = { set_leader_flag = honor_leader_leader_in_election } }
 		if = {
 			limit = {
@@ -1381,32 +1382,32 @@ honor_leader_copy_flags_and_vars = {
 			}
 			# Ruler check_variable = { which = honor_leader_class value = 1
 			if = { limit = { prev = { leader_class = ruler } }
-				if = { limit = { is_variable_set = honor_leader_policies_changed } prev = { set_variable = { which = honor_leader_policies_changed value = prev.honor_leader_policies_changed} } } else = { prev = { set_variable = { which = honor_leader_policies_changed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_new_systems_claimed } prev = { set_variable = { which = honor_leader_new_systems_claimed value = prev.honor_leader_new_systems_claimed} } } else = { prev = { set_variable = { which = honor_leader_new_systems_claimed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_first_contacts } prev = { set_variable = { which = honor_leader_first_contacts value = prev.honor_leader_first_contacts} } } else = { prev = { set_variable = { which = honor_leader_first_contacts value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_communications_established } prev = { set_variable = { which = honor_leader_communications_established value = prev.honor_leader_communications_established} } } else = { prev = { set_variable = { which = honor_leader_communications_established value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_defensive_wars_initiated } prev = { set_variable = { which = honor_leader_defensive_wars_initiated value = prev.honor_leader_defensive_wars_initiated} } } else = { prev = { set_variable = { which = honor_leader_defensive_wars_initiated value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_systems_lost } prev = { set_variable = { which = honor_leader_systems_lost value = prev.honor_leader_systems_lost} } } else = { prev = { set_variable = { which = honor_leader_systems_lost value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_colonies_lost } prev = { set_variable = { which = honor_leader_colonies_lost value = prev.honor_leader_colonies_lost} } } else = { prev = { set_variable = { which = honor_leader_colonies_lost value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_status_quo_result } prev = { set_variable = { which = honor_leader_status_quo_result value = prev.honor_leader_status_quo_result} } } else = { prev = { set_variable = { which = honor_leader_status_quo_result value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_ship_designs_commissioned } prev = { set_variable = { which = honor_leader_ship_designs_commissioned value = prev.honor_leader_ship_designs_commissioned} } } else = { prev = { set_variable = { which = honor_leader_ship_designs_commissioned value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_offensive_wars_initiated } prev = { set_variable = { which = honor_leader_offensive_wars_initiated value = prev.honor_leader_offensive_wars_initiated} } } else = { prev = { set_variable = { which = honor_leader_offensive_wars_initiated value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_systems_gained } prev = { set_variable = { which = honor_leader_systems_gained value = prev.honor_leader_systems_gained} } } else = { prev = { set_variable = { which = honor_leader_systems_gained value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_status_quo_forced_on } prev = { set_variable = { which = honor_leader_status_quo_forced_on value = prev.honor_leader_status_quo_forced_on} } } else = { prev = { set_variable = { which = honor_leader_status_quo_forced_on value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_planets_conquered } prev = { set_variable = { which = honor_leader_planets_conquered value = prev.honor_leader_planets_conquered} } } else = { prev = { set_variable = { which = honor_leader_planets_conquered value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_nations_destroyed } prev = { set_variable = { which = honor_leader_nations_destroyed value = prev.honor_leader_nations_destroyed} } } else = { prev = { set_variable = { which = honor_leader_nations_destroyed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_purged } prev = { set_variable = { which = honor_leader_pops_purged value = prev.honor_leader_pops_purged} } } else = { prev = { set_variable = { which = honor_leader_pops_purged value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_species_purged } prev = { set_variable = { which = honor_leader_species_purged value = prev.honor_leader_species_purged} } } else = { prev = { set_variable = { which = honor_leader_species_purged value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_times_reelected } prev = { set_variable = { which = honor_leader_times_reelected value = prev.honor_leader_times_reelected} } } else = { prev = { set_variable = { which = honor_leader_times_reelected value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_rights_changed } prev = { set_variable = { which = honor_leader_rights_changed value = prev.honor_leader_rights_changed} } } else = { prev = { set_variable = { which = honor_leader_rights_changed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_planetary_populations_modified } prev = { set_variable = { which = honor_leader_planetary_populations_modified value = prev.honor_leader_planetary_populations_modified} } } else = { prev = { set_variable = { which = honor_leader_planetary_populations_modified value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_slaves_sold } prev = { set_variable = { which = honor_leader_slaves_sold value = prev.honor_leader_slaves_sold} } } else = { prev = { set_variable = { which = honor_leader_slaves_sold value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_slaves_bought } prev = { set_variable = { which = honor_leader_slaves_bought value = prev.honor_leader_slaves_bought} } } else = { prev = { set_variable = { which = honor_leader_slaves_bought value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_species_uplifted } prev = { set_variable = { which = honor_leader_species_uplifted value = prev.honor_leader_species_uplifted} } } else = { prev = { set_variable = { which = honor_leader_species_uplifted value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_planets_lost_to_rebels } prev = { set_variable = { which = honor_leader_planets_lost_to_rebels value = prev.honor_leader_planets_lost_to_rebels} } } else = { prev = { set_variable = { which = honor_leader_planets_lost_to_rebels value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_status_quo_forced_upon } prev = { set_variable = { which = honor_leader_status_quo_forced_upon value = prev.honor_leader_status_quo_forced_upon} } } else = { prev = { set_variable = { which = honor_leader_status_quo_forced_upon value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_wars_endured } prev = { set_variable = { which = honor_leader_wars_endured value = prev.honor_leader_wars_endured} } } else = { prev = { set_variable = { which = honor_leader_wars_endured value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pirates_allowed } prev = { set_variable = { which = honor_leader_pirates_allowed value = prev.honor_leader_pirates_allowed} } } else = { prev = { set_variable = { which = honor_leader_pirates_allowed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_policies_changed } prev = { set_variable = { which = honor_leader_policies_changed value = prev.honor_leader_policies_changed } } } else = { prev = { set_variable = { which = honor_leader_policies_changed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_new_systems_claimed } prev = { set_variable = { which = honor_leader_new_systems_claimed value = prev.honor_leader_new_systems_claimed } } } else = { prev = { set_variable = { which = honor_leader_new_systems_claimed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_first_contacts } prev = { set_variable = { which = honor_leader_first_contacts value = prev.honor_leader_first_contacts } } } else = { prev = { set_variable = { which = honor_leader_first_contacts value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_communications_established } prev = { set_variable = { which = honor_leader_communications_established value = prev.honor_leader_communications_established } } } else = { prev = { set_variable = { which = honor_leader_communications_established value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_defensive_wars_initiated } prev = { set_variable = { which = honor_leader_defensive_wars_initiated value = prev.honor_leader_defensive_wars_initiated } } } else = { prev = { set_variable = { which = honor_leader_defensive_wars_initiated value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_systems_lost } prev = { set_variable = { which = honor_leader_systems_lost value = prev.honor_leader_systems_lost } } } else = { prev = { set_variable = { which = honor_leader_systems_lost value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_colonies_lost } prev = { set_variable = { which = honor_leader_colonies_lost value = prev.honor_leader_colonies_lost } } } else = { prev = { set_variable = { which = honor_leader_colonies_lost value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_status_quo_result } prev = { set_variable = { which = honor_leader_status_quo_result value = prev.honor_leader_status_quo_result } } } else = { prev = { set_variable = { which = honor_leader_status_quo_result value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_ship_designs_commissioned } prev = { set_variable = { which = honor_leader_ship_designs_commissioned value = prev.honor_leader_ship_designs_commissioned } } } else = { prev = { set_variable = { which = honor_leader_ship_designs_commissioned value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_offensive_wars_initiated } prev = { set_variable = { which = honor_leader_offensive_wars_initiated value = prev.honor_leader_offensive_wars_initiated } } } else = { prev = { set_variable = { which = honor_leader_offensive_wars_initiated value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_systems_gained } prev = { set_variable = { which = honor_leader_systems_gained value = prev.honor_leader_systems_gained } } } else = { prev = { set_variable = { which = honor_leader_systems_gained value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_status_quo_forced_on } prev = { set_variable = { which = honor_leader_status_quo_forced_on value = prev.honor_leader_status_quo_forced_on } } } else = { prev = { set_variable = { which = honor_leader_status_quo_forced_on value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_planets_conquered } prev = { set_variable = { which = honor_leader_planets_conquered value = prev.honor_leader_planets_conquered } } } else = { prev = { set_variable = { which = honor_leader_planets_conquered value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_nations_destroyed } prev = { set_variable = { which = honor_leader_nations_destroyed value = prev.honor_leader_nations_destroyed } } } else = { prev = { set_variable = { which = honor_leader_nations_destroyed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_purged } prev = { set_variable = { which = honor_leader_pops_purged value = prev.honor_leader_pops_purged } } } else = { prev = { set_variable = { which = honor_leader_pops_purged value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_species_purged } prev = { set_variable = { which = honor_leader_species_purged value = prev.honor_leader_species_purged } } } else = { prev = { set_variable = { which = honor_leader_species_purged value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_times_reelected } prev = { set_variable = { which = honor_leader_times_reelected value = prev.honor_leader_times_reelected } } } else = { prev = { set_variable = { which = honor_leader_times_reelected value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_rights_changed } prev = { set_variable = { which = honor_leader_rights_changed value = prev.honor_leader_rights_changed } } } else = { prev = { set_variable = { which = honor_leader_rights_changed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_planetary_populations_modified } prev = { set_variable = { which = honor_leader_planetary_populations_modified value = prev.honor_leader_planetary_populations_modified } } } else = { prev = { set_variable = { which = honor_leader_planetary_populations_modified value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_slaves_sold } prev = { set_variable = { which = honor_leader_slaves_sold value = prev.honor_leader_slaves_sold } } } else = { prev = { set_variable = { which = honor_leader_slaves_sold value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_slaves_bought } prev = { set_variable = { which = honor_leader_slaves_bought value = prev.honor_leader_slaves_bought } } } else = { prev = { set_variable = { which = honor_leader_slaves_bought value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_species_uplifted } prev = { set_variable = { which = honor_leader_species_uplifted value = prev.honor_leader_species_uplifted } } } else = { prev = { set_variable = { which = honor_leader_species_uplifted value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_planets_lost_to_rebels } prev = { set_variable = { which = honor_leader_planets_lost_to_rebels value = prev.honor_leader_planets_lost_to_rebels } } } else = { prev = { set_variable = { which = honor_leader_planets_lost_to_rebels value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_status_quo_forced_upon } prev = { set_variable = { which = honor_leader_status_quo_forced_upon value = prev.honor_leader_status_quo_forced_upon } } } else = { prev = { set_variable = { which = honor_leader_status_quo_forced_upon value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_wars_endured } prev = { set_variable = { which = honor_leader_wars_endured value = prev.honor_leader_wars_endured } } } else = { prev = { set_variable = { which = honor_leader_wars_endured value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pirates_allowed } prev = { set_variable = { which = honor_leader_pirates_allowed value = prev.honor_leader_pirates_allowed } } } else = { prev = { set_variable = { which = honor_leader_pirates_allowed value = 0 } } }
 				if = { limit = { has_leader_flag = first_ruler } prev = { set_leader_flag = first_ruler } }
 				if = { limit = { has_leader_flag = honor_leader_ruler_allowed_pirates } prev = { set_leader_flag = honor_leader_ruler_allowed_pirates } }
 				if = { limit = { has_leader_flag = honor_leader_ruler_allowed_pirates } prev = { set_leader_flag = honor_leader_ruler_allowed_pirates } }
@@ -1444,41 +1445,41 @@ honor_leader_copy_flags_and_vars = {
 				if = { limit = { has_leader_flag = honor_leader_ruler_unrestricted_wars } prev = { set_leader_flag = honor_leader_ruler_unrestricted_wars } }
 				if = { limit = { has_leader_flag = honor_leader_ruler_uplift } prev = { set_leader_flag = honor_leader_ruler_uplift } }
 				# DLC
-				if = { limit = { is_variable_set = honor_leader_megastructures_built } prev = { set_variable = { which = honor_leader_megastructures_built value = prev.honor_leader_megastructures_built} } } else = { prev = { set_variable = { which = honor_leader_megastructures_built value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_colonies_eradicated } prev = { set_variable = { which = honor_leader_colonies_eradicated value = prev.honor_leader_colonies_eradicated} } } else = { prev = { set_variable = { which = honor_leader_colonies_eradicated value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_abducted } prev = { set_variable = { which = honor_leader_pops_abducted value = prev.honor_leader_pops_abducted} } } else = { prev = { set_variable = { which = honor_leader_pops_abducted value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_times_used_colossus } prev = { set_variable = { which = honor_leader_times_used_colossus value = prev.honor_leader_times_used_colossus} } } else = { prev = { set_variable = { which = honor_leader_times_used_colossus value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_relics_activated } prev = { set_variable = { which = honor_leader_relics_activated value = prev.honor_leader_relics_activated} } } else = { prev = { set_variable = { which = honor_leader_relics_activated value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_megastructures_built } prev = { set_variable = { which = honor_leader_megastructures_built value = prev.honor_leader_megastructures_built } } } else = { prev = { set_variable = { which = honor_leader_megastructures_built value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_colonies_eradicated } prev = { set_variable = { which = honor_leader_colonies_eradicated value = prev.honor_leader_colonies_eradicated } } } else = { prev = { set_variable = { which = honor_leader_colonies_eradicated value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_abducted } prev = { set_variable = { which = honor_leader_pops_abducted value = prev.honor_leader_pops_abducted } } } else = { prev = { set_variable = { which = honor_leader_pops_abducted value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_times_used_colossus } prev = { set_variable = { which = honor_leader_times_used_colossus value = prev.honor_leader_times_used_colossus } } } else = { prev = { set_variable = { which = honor_leader_times_used_colossus value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_relics_activated } prev = { set_variable = { which = honor_leader_relics_activated value = prev.honor_leader_relics_activated } } } else = { prev = { set_variable = { which = honor_leader_relics_activated value = 0 } } }
 				prev = { set_variable = { which = honor_leader_class value = 1 } }
 			}
 			# Governor check_variable = { which = honor_leader_class value = 2 }
 			else = {
-				if = { limit = { is_variable_set = honor_leader_blockers_cleared } prev = { set_variable = { which = honor_leader_blockers_cleared value = prev.honor_leader_blockers_cleared} } } else = { prev = { set_variable = { which = honor_leader_blockers_cleared value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_grown } prev = { set_variable = { which = honor_leader_pops_grown value = prev.honor_leader_pops_grown} } } else = { prev = { set_variable = { which = honor_leader_pops_grown value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_synthetics_assembled } prev = { set_variable = { which = honor_leader_synthetics_assembled value = prev.honor_leader_synthetics_assembled} } } else = { prev = { set_variable = { which = honor_leader_synthetics_assembled value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_resettled } prev = { set_variable = { which = honor_leader_pops_resettled value = prev.honor_leader_pops_resettled} } } else = { prev = { set_variable = { which = honor_leader_pops_resettled value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_purged } prev = { set_variable = { which = honor_leader_pops_purged value = prev.honor_leader_pops_purged} } } else = { prev = { set_variable = { which = honor_leader_pops_purged value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_species_purged } prev = { set_variable = { which = honor_leader_species_purged value = prev.honor_leader_species_purged} } } else = { prev = { set_variable = { which = honor_leader_species_purged value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_buildings_constructed } prev = { set_variable = { which = honor_leader_buildings_constructed value = prev.honor_leader_buildings_constructed} } } else = { prev = { set_variable = { which = honor_leader_buildings_constructed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_buildings_upgraded } prev = { set_variable = { which = honor_leader_buildings_upgraded value = prev.honor_leader_buildings_upgraded} } } else = { prev = { set_variable = { which = honor_leader_buildings_upgraded value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_buildings_replaced } prev = { set_variable = { which = honor_leader_buildings_replaced value = prev.honor_leader_buildings_replaced} } } else = { prev = { set_variable = { which = honor_leader_buildings_replaced value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_districts_constructed } prev = { set_variable = { which = honor_leader_districts_constructed value = prev.honor_leader_districts_constructed} } } else = { prev = { set_variable = { which = honor_leader_districts_constructed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_civilian_ships_built } prev = { set_variable = { which = honor_leader_civilian_ships_built value = prev.honor_leader_civilian_ships_built} } } else = { prev = { set_variable = { which = honor_leader_civilian_ships_built value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_military_ships_built } prev = { set_variable = { which = honor_leader_military_ships_built value = prev.honor_leader_military_ships_built} } } else = { prev = { set_variable = { which = honor_leader_military_ships_built value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_mining_stations_built } prev = { set_variable = { which = honor_leader_mining_stations_built value = prev.honor_leader_mining_stations_built} } } else = { prev = { set_variable = { which = honor_leader_mining_stations_built value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_research_stations_built } prev = { set_variable = { which = honor_leader_research_stations_built value = prev.honor_leader_research_stations_built} } } else = { prev = { set_variable = { which = honor_leader_research_stations_built value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_observation_stations_built } prev = { set_variable = { which = honor_leader_observation_stations_built value = prev.honor_leader_observation_stations_built} } } else = { prev = { set_variable = { which = honor_leader_observation_stations_built value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_colonies_started } prev = { set_variable = { which = honor_leader_colonies_started value = prev.honor_leader_colonies_started} } } else = { prev = { set_variable = { which = honor_leader_colonies_started value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_colonies_founded } prev = { set_variable = { which = honor_leader_colonies_founded value = prev.honor_leader_colonies_founded} } } else = { prev = { set_variable = { which = honor_leader_colonies_founded value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_building_demolished } prev = { set_variable = { which = honor_leader_building_demolished value = prev.honor_leader_building_demolished} } } else = { prev = { set_variable = { which = honor_leader_building_demolished value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_districts_demolished } prev = { set_variable = { which = honor_leader_districts_demolished value = prev.honor_leader_districts_demolished} } } else = { prev = { set_variable = { which = honor_leader_districts_demolished value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_terraforming_started } prev = { set_variable = { which = honor_leader_terraforming_started value = prev.honor_leader_terraforming_started} } } else = { prev = { set_variable = { which = honor_leader_terraforming_started value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_planets_terraformed } prev = { set_variable = { which = honor_leader_planets_terraformed value = prev.honor_leader_planets_terraformed} } } else = { prev = { set_variable = { which = honor_leader_planets_terraformed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_armies_recruited } prev = { set_variable = { which = honor_leader_armies_recruited value = prev.honor_leader_armies_recruited} } } else = { prev = { set_variable = { which = honor_leader_armies_recruited value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_declined } prev = { set_variable = { which = honor_leader_pops_declined value = prev.honor_leader_pops_declined} } } else = { prev = { set_variable = { which = honor_leader_pops_declined value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_displaced } prev = { set_variable = { which = honor_leader_pops_displaced value = prev.honor_leader_pops_displaced} } } else = { prev = { set_variable = { which = honor_leader_pops_displaced value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_emancipated } prev = { set_variable = { which = honor_leader_pops_emancipated value = prev.honor_leader_pops_emancipated} } } else = { prev = { set_variable = { which = honor_leader_pops_emancipated value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_enslaved } prev = { set_variable = { which = honor_leader_pops_enslaved value = prev.honor_leader_pops_enslaved} } } else = { prev = { set_variable = { which = honor_leader_pops_enslaved value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_blockers_cleared } prev = { set_variable = { which = honor_leader_blockers_cleared value = prev.honor_leader_blockers_cleared } } } else = { prev = { set_variable = { which = honor_leader_blockers_cleared value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_grown } prev = { set_variable = { which = honor_leader_pops_grown value = prev.honor_leader_pops_grown } } } else = { prev = { set_variable = { which = honor_leader_pops_grown value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_synthetics_assembled } prev = { set_variable = { which = honor_leader_synthetics_assembled value = prev.honor_leader_synthetics_assembled } } } else = { prev = { set_variable = { which = honor_leader_synthetics_assembled value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_resettled } prev = { set_variable = { which = honor_leader_pops_resettled value = prev.honor_leader_pops_resettled } } } else = { prev = { set_variable = { which = honor_leader_pops_resettled value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_purged } prev = { set_variable = { which = honor_leader_pops_purged value = prev.honor_leader_pops_purged } } } else = { prev = { set_variable = { which = honor_leader_pops_purged value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_species_purged } prev = { set_variable = { which = honor_leader_species_purged value = prev.honor_leader_species_purged } } } else = { prev = { set_variable = { which = honor_leader_species_purged value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_buildings_constructed } prev = { set_variable = { which = honor_leader_buildings_constructed value = prev.honor_leader_buildings_constructed } } } else = { prev = { set_variable = { which = honor_leader_buildings_constructed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_buildings_upgraded } prev = { set_variable = { which = honor_leader_buildings_upgraded value = prev.honor_leader_buildings_upgraded } } } else = { prev = { set_variable = { which = honor_leader_buildings_upgraded value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_buildings_replaced } prev = { set_variable = { which = honor_leader_buildings_replaced value = prev.honor_leader_buildings_replaced } } } else = { prev = { set_variable = { which = honor_leader_buildings_replaced value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_districts_constructed } prev = { set_variable = { which = honor_leader_districts_constructed value = prev.honor_leader_districts_constructed } } } else = { prev = { set_variable = { which = honor_leader_districts_constructed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_civilian_ships_built } prev = { set_variable = { which = honor_leader_civilian_ships_built value = prev.honor_leader_civilian_ships_built } } } else = { prev = { set_variable = { which = honor_leader_civilian_ships_built value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_military_ships_built } prev = { set_variable = { which = honor_leader_military_ships_built value = prev.honor_leader_military_ships_built } } } else = { prev = { set_variable = { which = honor_leader_military_ships_built value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_mining_stations_built } prev = { set_variable = { which = honor_leader_mining_stations_built value = prev.honor_leader_mining_stations_built } } } else = { prev = { set_variable = { which = honor_leader_mining_stations_built value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_research_stations_built } prev = { set_variable = { which = honor_leader_research_stations_built value = prev.honor_leader_research_stations_built } } } else = { prev = { set_variable = { which = honor_leader_research_stations_built value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_observation_stations_built } prev = { set_variable = { which = honor_leader_observation_stations_built value = prev.honor_leader_observation_stations_built } } } else = { prev = { set_variable = { which = honor_leader_observation_stations_built value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_colonies_started } prev = { set_variable = { which = honor_leader_colonies_started value = prev.honor_leader_colonies_started } } } else = { prev = { set_variable = { which = honor_leader_colonies_started value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_colonies_founded } prev = { set_variable = { which = honor_leader_colonies_founded value = prev.honor_leader_colonies_founded } } } else = { prev = { set_variable = { which = honor_leader_colonies_founded value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_building_demolished } prev = { set_variable = { which = honor_leader_building_demolished value = prev.honor_leader_building_demolished } } } else = { prev = { set_variable = { which = honor_leader_building_demolished value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_districts_demolished } prev = { set_variable = { which = honor_leader_districts_demolished value = prev.honor_leader_districts_demolished } } } else = { prev = { set_variable = { which = honor_leader_districts_demolished value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_terraforming_started } prev = { set_variable = { which = honor_leader_terraforming_started value = prev.honor_leader_terraforming_started } } } else = { prev = { set_variable = { which = honor_leader_terraforming_started value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_planets_terraformed } prev = { set_variable = { which = honor_leader_planets_terraformed value = prev.honor_leader_planets_terraformed } } } else = { prev = { set_variable = { which = honor_leader_planets_terraformed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_armies_recruited } prev = { set_variable = { which = honor_leader_armies_recruited value = prev.honor_leader_armies_recruited } } } else = { prev = { set_variable = { which = honor_leader_armies_recruited value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_declined } prev = { set_variable = { which = honor_leader_pops_declined value = prev.honor_leader_pops_declined } } } else = { prev = { set_variable = { which = honor_leader_pops_declined value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_displaced } prev = { set_variable = { which = honor_leader_pops_displaced value = prev.honor_leader_pops_displaced } } } else = { prev = { set_variable = { which = honor_leader_pops_displaced value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_emancipated } prev = { set_variable = { which = honor_leader_pops_emancipated value = prev.honor_leader_pops_emancipated } } } else = { prev = { set_variable = { which = honor_leader_pops_emancipated value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_enslaved } prev = { set_variable = { which = honor_leader_pops_enslaved value = prev.honor_leader_pops_enslaved } } } else = { prev = { set_variable = { which = honor_leader_pops_enslaved value = 0 } } }
 				if = { limit = { has_leader_flag = honor_leader_governor_allowed_rebels } prev = { set_leader_flag = honor_leader_governor_allowed_rebels } }
 				if = { limit = { has_leader_flag = honor_leader_governor_fully_developed_buildings } prev = { set_leader_flag = honor_leader_governor_fully_developed_buildings } }
 				if = { limit = { has_leader_flag = honor_leader_governor_fully_developed_districts } prev = { set_leader_flag = honor_leader_governor_fully_developed_districts } }
@@ -1492,16 +1493,16 @@ honor_leader_copy_flags_and_vars = {
 		else = {
 			# Scientist check_variable = { which = honor_leader_class value = 3 }
 			if = { limit = {  prev = { leader_class = scientist } }
-				if = { limit = { is_variable_set = honor_leader_evaded_hostiles } prev = { set_variable = { which = honor_leader_evaded_hostiles value = prev.honor_leader_evaded_hostiles} } } else = { prev = { set_variable = { which = honor_leader_evaded_hostiles value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_emergency_ftl_jumps } prev = { set_variable = { which = honor_leader_emergency_ftl_jumps value = prev.honor_leader_emergency_ftl_jumps} } } else = { prev = { set_variable = { which = honor_leader_emergency_ftl_jumps value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_systems_discovered } prev = { set_variable = { which = honor_leader_systems_discovered value = prev.honor_leader_systems_discovered} } } else = { prev = { set_variable = { which = honor_leader_systems_discovered value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_objects_surveyed } prev = { set_variable = { which = honor_leader_objects_surveyed value = prev.honor_leader_objects_surveyed} } } else = { prev = { set_variable = { which = honor_leader_objects_surveyed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_systems_surveyed } prev = { set_variable = { which = honor_leader_systems_surveyed value = prev.honor_leader_systems_surveyed} } } else = { prev = { set_variable = { which = honor_leader_systems_surveyed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_anomalies_researched } prev = { set_variable = { which = honor_leader_anomalies_researched value = prev.honor_leader_anomalies_researched} } } else = { prev = { set_variable = { which = honor_leader_anomalies_researched value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_special_projects_researched } prev = { set_variable = { which = honor_leader_special_projects_researched value = prev.honor_leader_special_projects_researched} } } else = { prev = { set_variable = { which = honor_leader_special_projects_researched value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_physics_techs_researched } prev = { set_variable = { which = honor_leader_physics_techs_researched value = prev.honor_leader_physics_techs_researched} } } else = { prev = { set_variable = { which = honor_leader_physics_techs_researched value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_society_techs_researched } prev = { set_variable = { which = honor_leader_society_techs_researched value = prev.honor_leader_society_techs_researched} } } else = { prev = { set_variable = { which = honor_leader_society_techs_researched value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_engineering_techs_researched } prev = { set_variable = { which = honor_leader_engineering_techs_researched value = prev.honor_leader_engineering_techs_researched} } } else = { prev = { set_variable = { which = honor_leader_engineering_techs_researched value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_evaded_hostiles } prev = { set_variable = { which = honor_leader_evaded_hostiles value = prev.honor_leader_evaded_hostiles } } } else = { prev = { set_variable = { which = honor_leader_evaded_hostiles value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_emergency_ftl_jumps } prev = { set_variable = { which = honor_leader_emergency_ftl_jumps value = prev.honor_leader_emergency_ftl_jumps } } } else = { prev = { set_variable = { which = honor_leader_emergency_ftl_jumps value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_systems_discovered } prev = { set_variable = { which = honor_leader_systems_discovered value = prev.honor_leader_systems_discovered } } } else = { prev = { set_variable = { which = honor_leader_systems_discovered value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_objects_surveyed } prev = { set_variable = { which = honor_leader_objects_surveyed value = prev.honor_leader_objects_surveyed } } } else = { prev = { set_variable = { which = honor_leader_objects_surveyed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_systems_surveyed } prev = { set_variable = { which = honor_leader_systems_surveyed value = prev.honor_leader_systems_surveyed } } } else = { prev = { set_variable = { which = honor_leader_systems_surveyed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_anomalies_researched } prev = { set_variable = { which = honor_leader_anomalies_researched value = prev.honor_leader_anomalies_researched } } } else = { prev = { set_variable = { which = honor_leader_anomalies_researched value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_special_projects_researched } prev = { set_variable = { which = honor_leader_special_projects_researched value = prev.honor_leader_special_projects_researched } } } else = { prev = { set_variable = { which = honor_leader_special_projects_researched value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_physics_techs_researched } prev = { set_variable = { which = honor_leader_physics_techs_researched value = prev.honor_leader_physics_techs_researched } } } else = { prev = { set_variable = { which = honor_leader_physics_techs_researched value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_society_techs_researched } prev = { set_variable = { which = honor_leader_society_techs_researched value = prev.honor_leader_society_techs_researched } } } else = { prev = { set_variable = { which = honor_leader_society_techs_researched value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_engineering_techs_researched } prev = { set_variable = { which = honor_leader_engineering_techs_researched value = prev.honor_leader_engineering_techs_researched } } } else = { prev = { set_variable = { which = honor_leader_engineering_techs_researched value = 0 } } }
 				if = { limit = { has_leader_flag = honor_leader_scientist_discovered_ascension_theory } prev = { set_leader_flag = honor_leader_scientist_discovered_ascension_theory } }
 				if = { limit = { has_leader_flag = honor_leader_scientist_discovered_automated_exploration } prev = { set_leader_flag = honor_leader_scientist_discovered_automated_exploration } }
 				if = { limit = { has_leader_flag = honor_leader_scientist_discovered_battleship_hull_2 } prev = { set_leader_flag = honor_leader_scientist_discovered_battleship_hull_2 } }
@@ -1566,36 +1567,36 @@ honor_leader_copy_flags_and_vars = {
 				if = { limit = { has_leader_flag = honor_leader_scientist_discovered_tomb_world_adaption } prev = { set_leader_flag = honor_leader_scientist_discovered_tomb_world_adaption } }
 				if = { limit = { has_leader_flag = honor_leader_scientist_discovered_wormhole_stabilization } prev = { set_leader_flag = honor_leader_scientist_discovered_wormhole_stabilization } }
 				# DLC
-				if = { limit = { is_variable_set = honor_leader_archeology_sites_finished } prev = { set_variable = { which = honor_leader_archeology_sites_finished value = prev.honor_leader_archeology_sites_finished} } } else = { prev = { set_variable = { which = honor_leader_archeology_sites_finished value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_archeology_sites_finished } prev = { set_variable = { which = honor_leader_archeology_sites_finished value = prev.honor_leader_archeology_sites_finished } } } else = { prev = { set_variable = { which = honor_leader_archeology_sites_finished value = 0 } } }
 				prev = { set_variable = { which = honor_leader_class value = 3 } }
 			}
 			# Admiral check_variable = { which = honor_leader_class value = 4 }
 			else_if = { limit = { prev = { leader_class = admiral } }
-				if = { limit = { is_variable_set = honor_leader_space_battles_fought } prev = { set_variable = { which = honor_leader_space_battles_fought value = prev.honor_leader_space_battles_fought} } } else = { prev = { set_variable = { which = honor_leader_space_battles_fought value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_space_battles_won } prev = { set_variable = { which = honor_leader_space_battles_won value = prev.honor_leader_space_battles_won} } } else = { prev = { set_variable = { which = honor_leader_space_battles_won value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_space_battles_lost } prev = { set_variable = { which = honor_leader_space_battles_lost value = prev.honor_leader_space_battles_lost} } } else = { prev = { set_variable = { which = honor_leader_space_battles_lost value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_ships_destroyed } prev = { set_variable = { which = honor_leader_ships_destroyed value = prev.honor_leader_ships_destroyed} } } else = { prev = { set_variable = { which = honor_leader_ships_destroyed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_ships_lost } prev = { set_variable = { which = honor_leader_ships_lost value = prev.honor_leader_ships_lost} } } else = { prev = { set_variable = { which = honor_leader_ships_lost value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_ships_upgraded } prev = { set_variable = { which = honor_leader_ships_upgraded value = prev.honor_leader_ships_upgraded} } } else = { prev = { set_variable = { which = honor_leader_ships_upgraded value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_fleets_destroyed } prev = { set_variable = { which = honor_leader_fleets_destroyed value = prev.honor_leader_fleets_destroyed} } } else = { prev = { set_variable = { which = honor_leader_fleets_destroyed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_fleets_lost } prev = { set_variable = { which = honor_leader_fleets_lost value = prev.honor_leader_fleets_lost} } } else = { prev = { set_variable = { which = honor_leader_fleets_lost value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_fleets_disbanded } prev = { set_variable = { which = honor_leader_fleets_disbanded value = prev.honor_leader_fleets_disbanded} } } else = { prev = { set_variable = { which = honor_leader_fleets_disbanded value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_space_critters_destroyed } prev = { set_variable = { which = honor_leader_space_critters_destroyed value = prev.honor_leader_space_critters_destroyed} } } else = { prev = { set_variable = { which = honor_leader_space_critters_destroyed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pirate_ships_destroyed } prev = { set_variable = { which = honor_leader_pirate_ships_destroyed value = prev.honor_leader_pirate_ships_destroyed} } } else = { prev = { set_variable = { which = honor_leader_pirate_ships_destroyed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_crisis_ships_destroyed } prev = { set_variable = { which = honor_leader_crisis_ships_destroyed value = prev.honor_leader_crisis_ships_destroyed} } } else = { prev = { set_variable = { which = honor_leader_crisis_ships_destroyed value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_days_bombarding_planet } prev = { set_variable = { which = honor_leader_days_bombarding_planet value = prev.honor_leader_days_bombarding_planet} } } else = { prev = { set_variable = { which = honor_leader_days_bombarding_planet value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_space_battles_fought } prev = { set_variable = { which = honor_leader_space_battles_fought value = prev.honor_leader_space_battles_fought } } } else = { prev = { set_variable = { which = honor_leader_space_battles_fought value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_space_battles_won } prev = { set_variable = { which = honor_leader_space_battles_won value = prev.honor_leader_space_battles_won } } } else = { prev = { set_variable = { which = honor_leader_space_battles_won value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_space_battles_lost } prev = { set_variable = { which = honor_leader_space_battles_lost value = prev.honor_leader_space_battles_lost } } } else = { prev = { set_variable = { which = honor_leader_space_battles_lost value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_ships_destroyed } prev = { set_variable = { which = honor_leader_ships_destroyed value = prev.honor_leader_ships_destroyed } } } else = { prev = { set_variable = { which = honor_leader_ships_destroyed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_ships_lost } prev = { set_variable = { which = honor_leader_ships_lost value = prev.honor_leader_ships_lost } } } else = { prev = { set_variable = { which = honor_leader_ships_lost value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_ships_upgraded } prev = { set_variable = { which = honor_leader_ships_upgraded value = prev.honor_leader_ships_upgraded } } } else = { prev = { set_variable = { which = honor_leader_ships_upgraded value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_fleets_destroyed } prev = { set_variable = { which = honor_leader_fleets_destroyed value = prev.honor_leader_fleets_destroyed } } } else = { prev = { set_variable = { which = honor_leader_fleets_destroyed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_fleets_lost } prev = { set_variable = { which = honor_leader_fleets_lost value = prev.honor_leader_fleets_lost } } } else = { prev = { set_variable = { which = honor_leader_fleets_lost value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_fleets_disbanded } prev = { set_variable = { which = honor_leader_fleets_disbanded value = prev.honor_leader_fleets_disbanded } } } else = { prev = { set_variable = { which = honor_leader_fleets_disbanded value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_space_critters_destroyed } prev = { set_variable = { which = honor_leader_space_critters_destroyed value = prev.honor_leader_space_critters_destroyed } } } else = { prev = { set_variable = { which = honor_leader_space_critters_destroyed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pirate_ships_destroyed } prev = { set_variable = { which = honor_leader_pirate_ships_destroyed value = prev.honor_leader_pirate_ships_destroyed } } } else = { prev = { set_variable = { which = honor_leader_pirate_ships_destroyed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_crisis_ships_destroyed } prev = { set_variable = { which = honor_leader_crisis_ships_destroyed value = prev.honor_leader_crisis_ships_destroyed } } } else = { prev = { set_variable = { which = honor_leader_crisis_ships_destroyed value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_days_bombarding_planet } prev = { set_variable = { which = honor_leader_days_bombarding_planet value = prev.honor_leader_days_bombarding_planet } } } else = { prev = { set_variable = { which = honor_leader_days_bombarding_planet value = 0 } } }
 				if = { limit = { has_leader_flag = honor_leader_admiral_undefeated } prev = { set_leader_flag = honor_leader_admiral_undefeated } }
 				# DLC
-				if = { limit = { is_variable_set = honor_leader_colonies_eradicated } prev = { set_variable = { which = honor_leader_colonies_eradicated value = prev.honor_leader_colonies_eradicated} } } else = { prev = { set_variable = { which = honor_leader_colonies_eradicated value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_pops_abducted } prev = { set_variable = { which = honor_leader_pops_abducted value = prev.honor_leader_pops_abducted} } } else = { prev = { set_variable = { which = honor_leader_pops_abducted value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_colonies_eradicated } prev = { set_variable = { which = honor_leader_colonies_eradicated value = prev.honor_leader_colonies_eradicated } } } else = { prev = { set_variable = { which = honor_leader_colonies_eradicated value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_pops_abducted } prev = { set_variable = { which = honor_leader_pops_abducted value = prev.honor_leader_pops_abducted } } } else = { prev = { set_variable = { which = honor_leader_pops_abducted value = 0 } } }
 				if = { limit = { has_leader_flag = honor_leader_admiral_eradicated_colony } prev = { set_leader_flag = honor_leader_admiral_eradicated_colony } }
 				prev = { set_variable = { which = honor_leader_class value = 4 } }
 			}
 			# General check_variable = { which = honor_leader_class value = 5 }
 			else_if = { limit = { prev = { leader_class = general } }
-				if = { limit = { is_variable_set = honor_leader_ground_combats_won } prev = { set_variable = { which = honor_leader_ground_combats_won value = prev.honor_leader_ground_combats_won} } } else = { prev = { set_variable = { which = honor_leader_ground_combats_won value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_ground_combats_lost } prev = { set_variable = { which = honor_leader_ground_combats_lost value = prev.honor_leader_ground_combats_lost} } } else = { prev = { set_variable = { which = honor_leader_ground_combats_lost value = 0 } } }
-				if = { limit = { is_variable_set = honor_leader_planets_leveled_ground_combat } prev = { set_variable = { which = honor_leader_planets_leveled_ground_combat value = prev.honor_leader_planets_leveled_ground_combat} } } else = { prev = { set_variable = { which = honor_leader_planets_leveled_ground_combat value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_ground_combats_won } prev = { set_variable = { which = honor_leader_ground_combats_won value = prev.honor_leader_ground_combats_won } } } else = { prev = { set_variable = { which = honor_leader_ground_combats_won value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_ground_combats_lost } prev = { set_variable = { which = honor_leader_ground_combats_lost value = prev.honor_leader_ground_combats_lost } } } else = { prev = { set_variable = { which = honor_leader_ground_combats_lost value = 0 } } }
+				if = { limit = { is_variable_set = honor_leader_planets_leveled_ground_combat } prev = { set_variable = { which = honor_leader_planets_leveled_ground_combat value = prev.honor_leader_planets_leveled_ground_combat } } } else = { prev = { set_variable = { which = honor_leader_planets_leveled_ground_combat value = 0 } } }
 				if = { limit = { has_leader_flag = honor_leader_general_leveled_a_planet } prev = { set_leader_flag = honor_leader_general_leveled_a_planet } }
 				if = { limit = { has_leader_flag = honor_leader_general_undefeated } prev = { set_leader_flag = honor_leader_general_undefeated } }
 				prev = { set_variable = { which = honor_leader_class value = 5 } }
@@ -1680,10 +1681,20 @@ honor_leader_copy_flags_and_vars = {
 			# }
 		}
 
+		if = {
+			limit = {
+				NOR = {
+					is_variable_set = honor_leader_skill
+					prev = { is_variable_set = honor_leader_skill }
+				}
+			}
+			export_trigger_value_to_variable = { trigger = has_skill variable = honor_leader_skill }
+			# export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level }
+		}
 		## Skill (if not clone)
-		if = { limit = { has_skill = 1 is_variable_set = honor_leader_skill }
-			if		= { limit = { check_variable = { which = honor_leader_skill value = 1 } } prev = { set_skill = 1 } }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 2 } } prev = { set_skill = 2 } }
+		if = { limit = { has_skill > 1 is_variable_set = honor_leader_skill }
+			# if		= { limit = { check_variable = { which = honor_leader_skill value = 1 } } prev = { set_skill = 1 } }
+			if		= { limit = { check_variable = { which = honor_leader_skill value = 2 } } prev = { set_skill = 2 } }
 			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 3 } } prev = { set_skill = 3 } }
 			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 4 } } prev = { set_skill = 4 } }
 			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 5 } } prev = { set_skill = 5 } }
@@ -1694,43 +1705,25 @@ honor_leader_copy_flags_and_vars = {
 			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 10 } } prev = { set_skill = 10 } }
 			# clear_variable = honor_leader_skill
 		}
-		export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level }
 	}
 
-	# change_leader_portrait = event_target:honor_leader
-	# set_name = event_target:honor_leader
+	change_leader_portrait = event_target:honor_leader # (if not clone?)
+	set_name = event_target:honor_leader # (if not clone?)
 
-	if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
-		event_target:honor_leader = {
-			if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
-				export_trigger_value_to_variable = { trigger = has_skill variable = honor_leader_skill }
-			}
-		}
-		set_variable = { which = honor_leader_skill value = event_target:honor_leader.honor_leader_skill }
-	}
+	set_variable = { which = honor_leader_skill value = event_target:honor_leader.honor_leader_skill }
+	set_variable = { which = dead_leader_level value = honor_leader_skill }
+	set_variable = { which = dead_leader_age value = event_target:honor_leader.dead_leader_age }
 
 	if = { limit = { NOT = { is_variable_set = dead_leader_level } }
 		if = { limit = { has_level > 1 }
 			export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level }
 		}
 		else_if = { limit = { event_target:honor_leader = { is_variable_set = dead_leader_level } }
-			set_variable = { which = honor_leader_class value = event_target:honor_leader.dead_leader_level }
+			set_variable = { which = dead_leader_level value = event_target:honor_leader.dead_leader_level }
 		} else = {
 			event_target:honor_leader = { export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level } }
-			set_variable = { which = honor_leader_class value = event_target:honor_leader.dead_leader_level }
+			set_variable = { which = dead_leader_level value = event_target:honor_leader.dead_leader_level }
 		}
-	}
-
-	# Cause of Death
-	if = {
-		limit = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } }
-		event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global }
-		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
-	}
-	else_if = {
-		limit = { event_target:honor_leader = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } } }
-		event_target:honor_leader = { event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global } }
-		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
 	}
 
 	# Cosmetic (if not clone)
@@ -1756,6 +1749,17 @@ honor_leader_copy_flags_and_vars = {
 				general		= { set_variable = { which = honor_leader_class value = 5 } }
 			}
 		}
+	}
+	# Cause of Death
+	if = {
+		limit = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } }
+		event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global }
+		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
+	}
+	else_if = {
+		limit = { event_target:honor_leader = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } } }
+		event_target:honor_leader = { event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global } }
+		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
 	}
 }
 

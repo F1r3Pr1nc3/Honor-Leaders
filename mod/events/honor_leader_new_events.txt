@@ -1,44 +1,44 @@
 namespace = new_honor_leader
 # All - on_game_start_country - Create Clone leaders
-country_event = {
-	id = new_honor_leader.1000
-	hide_window = yes
-	is_triggered_only = yes
-	trigger = {
-		is_ai = no
-		is_regular_empire = yes
-	}
-	immediate = {
-		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = total_leaders }
-		while = {
-			count = total_leaders
-			random_owned_leader = {
-				limit = {
-					NOR = {
-						leader_class = envoy
-						has_leader_flag = honor_clone_created
-					}
-				}
-				set_leader_flag = honor_clone_created
-				save_event_target_as = hon_clone
-				owner = {
-					clone_leader = {
-						target = event_target:hon_clone
-						effect = {
-							set_immortal = yes
-							save_global_event_target_as = honor_copy_@event_target:hon_clone
-							exile_leader_as = clone_leader_exile
-						}
-					}
-				}
-			}
-		}
-	}
-	after = {
-		clear_variable = total_leaders
-		country_event = { id = new_honor_leader.1005 days = 2 }
-	}
-}
+# country_event = {
+# 	id = new_honor_leader.1000
+# 	hide_window = yes
+# 	is_triggered_only = yes
+# 	trigger = {
+# 		is_ai = no
+# 		is_regular_empire = yes
+# 	}
+# 	immediate = {
+# 		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = total_leaders }
+# 		while = {
+# 			count = total_leaders
+# 			random_owned_leader = {
+# 				limit = {
+# 					NOR = {
+# 						leader_class = envoy
+# 						has_leader_flag = honor_clone_created
+# 					}
+# 				}
+# 				set_leader_flag = honor_clone_created
+# 				save_event_target_as = hon_clone
+# 				owner = {
+# 					clone_leader = {
+# 						target = event_target:hon_clone
+# 						effect = {
+# 							set_immortal = yes
+# 							save_global_event_target_as = honor_copy_@event_target:hon_clone
+# 							exile_leader_as = clone_leader_exile
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# 	after = {
+# 		clear_variable = total_leaders
+# 		country_event = { id = honor_leader.4 days = 2 }
+# 	}
+# }
 
 # Scope: Leader (after assignment)
 # All - on_leader_assigned - Create Clone leader for new leaders
@@ -69,68 +69,6 @@ leader_event = {
 	}
 }
 
-# All - on_ruler_set - Set Reign Begin Date Flags
-country_event = {
-	id = new_honor_leader.1005
-	hide_window = yes
-	is_triggered_only = yes
-	trigger = {
-		is_ai = no
-		is_regular_empire = yes
-		days_passed > 1
-	}
-	immediate = {
-		# Consider adding event that lets you set term start date for auths
-		if = {
-			limit = { NOT = { exists = event_target:honor_copy_@ruler } }
-			ruler = {
-				owner = {
-					clone_leader = {
-						target = prev
-						effect = {
-							set_immortal = yes
-							exile_leader_as = clone_leader_exile
-						}
-					}
-					last_created_leader = {
-						save_global_event_target_as = honor_copy_@prevprev
-					}
-				}
-			}
-		}
-		event_target:honor_copy_@ruler = {
-			if = {
-				limit = { NOT = { is_variable_set = stints_as_ruler } }
-				set_variable = { which = stints_as_ruler value = 1 }
-				# if = { limit = { days_passed < 7 } will be done on game start and save load
-				# 	root.ruler = { set_leader_flag = first_ruler }
-				# }
-			}
-			else = {
-				change_variable = { which = stints_as_ruler value = 1 }
-			}
-			get_ruler_term_begin_number = yes
-		}
-	}
-}
-
-# Executed when a ruler has been removed
-# From = Previous Ruler
-# This = Country
-# ALL - on_ruler_back_to_pre_ruler_class - Set Reign End Date Flags
-country_event = {
-	id = new_honor_leader.1010
-	hide_window = yes
-	is_triggered_only = yes
-	trigger = {
-		is_ai = no
-		is_regular_empire = yes
-	}
-	immediate = {
-		event_target:honor_copy_@from = { get_ruler_term_end_number = yes }
-	}
-}
-
 # ALL - on_election_ended - Set Reign End Date Flag for first ruler
 country_event = {
 	id = new_honor_leader.1015
@@ -157,7 +95,6 @@ country_event = {
 }
 
 # Executed just as country is changing its government, before the new one is applied
-# THIS = country
 # ALL - on_post_government_changed - Reset Stints
 country_event = {
 	id = new_honor_leader.1100
@@ -203,7 +140,7 @@ country_event = {
 	desc = "[event_target:honor_copy_@ruler.GetTitle]"
 	hide_window = no
 	is_triggered_only = yes
-
+	is_test_event = yes
 	picture_event_data = {
 		portrait = event_target:honor_copy_@ruler
 		planet_background = root
@@ -211,11 +148,9 @@ country_event = {
 		city_level = root.capital_scope
 		room = root.ruler
 	}
-
 	diplomatic = yes
-
 	option = {
-		text = "Okay"
+		name = OK
 		trigger = { always = yes }
 	}
 }
