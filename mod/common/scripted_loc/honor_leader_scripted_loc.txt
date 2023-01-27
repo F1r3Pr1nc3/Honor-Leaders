@@ -1378,7 +1378,7 @@ defined_text = { # Country/leader scope
 defined_text = { # Country/leader scope
 	name = GetStartingRuler
 	text = {
-		trigger = { has_leader_flag = honor_leader_ruler_starting_ruler }
+		trigger = { has_leader_flag = first_ruler }
 		localization_key = ruler_starting_ruler
 	}
 	text = { localization_key = emptystringnotstring.empty }

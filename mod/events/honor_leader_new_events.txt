@@ -102,9 +102,9 @@ country_event = {
 			if = {
 				limit = { NOT = { is_variable_set = stints_as_ruler } }
 				set_variable = { which = stints_as_ruler value = 1 }
-				if = { limit = { days_passed < 7 }
-					root.ruler = { set_leader_flag = first_ruler }
-				}
+				# if = { limit = { days_passed < 7 } will be done on game start and save load
+				# 	root.ruler = { set_leader_flag = first_ruler }
+				# }
 			}
 			else = {
 				change_variable = { which = stints_as_ruler value = 1 }

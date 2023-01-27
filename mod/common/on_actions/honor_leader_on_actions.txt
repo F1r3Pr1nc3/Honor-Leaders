@@ -33,11 +33,11 @@ on_game_start_country = {
 
 # No scope, like on_game_start
 # Does not run when loading MP saves due to OOS concerns
-# on_single_player_save_game_load = {
-# 	events = {
-# 		honor_leader.1
-# 	}
-# }
+on_single_player_save_game_load = {
+	events = {
+		honor_leader.1
+	}
+}
 
 # this = country
 on_yearly_pulse_country = {

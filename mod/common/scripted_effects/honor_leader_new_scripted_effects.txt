@@ -76,6 +76,9 @@ get_ruler_term_begin_number = {
 }
 
 get_ruler_term_end_number = {
+	set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
+	set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
+	set_variable = { which = honor_leader_class value = 1 }
 	if = {
 		limit = { check_variable = { which = stints_as_ruler value = 1 } }
 		set_saved_date = {

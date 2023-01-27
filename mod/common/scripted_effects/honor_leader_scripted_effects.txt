@@ -1,52 +1,12 @@
 # HONOR CODE
 # Scope country
 honor_leader_honor_leader = {
-	# event_target:honor_leader = {
-		# Test 3.3 var method - not working
-		# event_target:honor_leader_country = {
-		# 	set_variable = { which = honor_leader_skill value = prev.trigger:has_skill }
-		# 	multiply_variable = { which = honor_leader_skill value = 100 }
-		# 	add_resource = { unity = honor_leader_skill }
-		# }
-		# event_target:honor_leader_country = { add_resource = { unity = 100 mult = prev.honor_leader_skill } }
-		# if = {
-		# 	limit = { has_skill = 10 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 1000 } }
-		# } else_if = {
-		# 	limit = { has_skill = 9 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 900 } }
-		# } else_if = {
-		# 	limit = { has_skill = 8 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 800 } }
-		# } else_if = {
-		# 	limit = { has_skill = 7 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 700 } }
-		# } else_if = {
-		# 	limit = { has_skill = 6 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 600 } }
-		# } else_if = {
-		# 	limit = { has_skill = 5 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 500 } }
-		# } else_if = {
-		# 	limit = { has_skill = 4 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 400 } }
-		# } else_if = {
-		# 	limit = { has_skill = 3 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 300 } }
-		# } else_if = {
-		# 	limit = { has_skill = 2 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 200 } }
-		# } else_if = {
-		# 	limit = { has_skill = 1 }
-		# 	event_target:honor_leader_country = { add_resource = { unity = 100 } }
-		# }
-	# }
 	event_target:honor_leader = {
 		if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
 			export_trigger_value_to_variable = { trigger = has_skill variable = honor_leader_skill }
 		}
-		# Unity given based on leader skill level and traits
-		prev = { add_resource = { unity = 100 mult = prev.honor_leader_skill } }
+		# Unity given based on leader skill level and traits ("prev" drops error)
+		prev = { add_resource = { unity = 100 mult = event_target:honor_leader.honor_leader_skill } }
 		# 10 year bonus based on leader traits - ALL VANILLA TRAITS CHECKED
 		# Generic leader traits
 		if = { limit = { has_trait = leader_trait_adaptable } prev = { add_modifier = { modifier = country_memorialized_leader_adaptable years = 10 } } }
@@ -201,7 +161,7 @@ honor_leader_honor_leader = {
 		if = { limit = { has_trait = leader_trait_general_brainslug } prev = { add_modifier = { modifier = country_memorialized_general_brainslug years = 10 } } }
 		### Achievement Modifiers
 		# Ruler Achievements
-		if = { limit = { has_leader_flag = honor_leader_ruler_starting_ruler } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_starting_ruler years = 10 } } }
+		if = { limit = { has_leader_flag = first_ruler } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_starting_ruler years = 10 } } }
 		if = { limit = { has_leader_flag = honor_leader_ruler_first_contact prev = { has_policy_flag = first_contact_cautious } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_first_contact_peaceful years = 10 } } }
 		else_if = { limit = { has_leader_flag = honor_leader_ruler_first_contact prev = { has_policy_flag = first_contact_attack_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_first_contact_aggressive years = 10 } } }
 		if = { limit = { has_leader_flag = honor_leader_ruler_communications_established } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_communications_established years = 10 } } }
@@ -509,7 +469,7 @@ honor_leader_honor_leader_memorial = {
 		if = { limit = { has_trait = leader_trait_general_brainslug } prev = { add_modifier = { modifier = country_memorialized_general_brainslug } } }
 		### Achievement Modifiers
 		# Ruler Achievements
-		if = { limit = { has_leader_flag = honor_leader_ruler_starting_ruler } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_starting_ruler } } }
+		if = { limit = { has_leader_flag = first_ruler } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_starting_ruler } } }
 		if = { limit = { has_leader_flag = honor_leader_ruler_first_contact prev = { has_policy_flag = first_contact_cautious } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_first_contact_peaceful } } }
 		else_if = { limit = { has_leader_flag = honor_leader_ruler_first_contact prev = { has_policy_flag = first_contact_attack_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_first_contact_aggressive } } }
 		if = { limit = { has_leader_flag = honor_leader_ruler_communications_established } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_communications_established } } }
@@ -1398,17 +1358,6 @@ honor_leader_save_leader = {
 }
 # Needs event_target:honor_leader = copy from
 honor_leader_copy_flags_and_vars = {
-	# Cause of Death
-	if = {
-		limit = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } }
-		event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global }
-		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
-	}
-	else_if = {
-		limit = { event_target:honor_leader = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } } }
-		event_target:honor_leader = { event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global } }
-		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
-	}
 
 	### Vars & Flags
 	event_target:honor_leader = {
@@ -1458,7 +1407,7 @@ honor_leader_copy_flags_and_vars = {
 				if = { limit = { is_variable_set = honor_leader_status_quo_forced_upon } prev = { set_variable = { which = honor_leader_status_quo_forced_upon value = prev.honor_leader_status_quo_forced_upon} } } else = { prev = { set_variable = { which = honor_leader_status_quo_forced_upon value = 0 } } }
 				if = { limit = { is_variable_set = honor_leader_wars_endured } prev = { set_variable = { which = honor_leader_wars_endured value = prev.honor_leader_wars_endured} } } else = { prev = { set_variable = { which = honor_leader_wars_endured value = 0 } } }
 				if = { limit = { is_variable_set = honor_leader_pirates_allowed } prev = { set_variable = { which = honor_leader_pirates_allowed value = prev.honor_leader_pirates_allowed} } } else = { prev = { set_variable = { which = honor_leader_pirates_allowed value = 0 } } }
-				if = { limit = { has_leader_flag = honor_leader_ruler_starting_ruler } prev = { set_leader_flag = honor_leader_ruler_starting_ruler } }
+				if = { limit = { has_leader_flag = first_ruler } prev = { set_leader_flag = first_ruler } }
 				if = { limit = { has_leader_flag = honor_leader_ruler_allowed_pirates } prev = { set_leader_flag = honor_leader_ruler_allowed_pirates } }
 				if = { limit = { has_leader_flag = honor_leader_ruler_allowed_pirates } prev = { set_leader_flag = honor_leader_ruler_allowed_pirates } }
 				if = { limit = { has_leader_flag = honor_leader_ruler_allowed_rebels } prev = { set_leader_flag = honor_leader_ruler_allowed_rebels } }
@@ -1732,33 +1681,58 @@ honor_leader_copy_flags_and_vars = {
 		}
 
 		## Skill (if not clone)
-		if = { limit = { is_variable_set = honor_leader_skill }
-			if		= { limit = { check_variable = { which = honor_leader_skill value = 1 } } set_skill = 1 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 2 } } set_skill = 2 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 3 } } set_skill = 3 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 4 } } set_skill = 4 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 5 } } set_skill = 5 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 6 } } set_skill = 6 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 7 } } set_skill = 7 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 8 } } set_skill = 8 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 9 } } set_skill = 9 }
-			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 10 } } set_skill = 10 }
+		if = { limit = { has_skill = 1 is_variable_set = honor_leader_skill }
+			if		= { limit = { check_variable = { which = honor_leader_skill value = 1 } } prev = { set_skill = 1 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 2 } } prev = { set_skill = 2 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 3 } } prev = { set_skill = 3 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 4 } } prev = { set_skill = 4 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 5 } } prev = { set_skill = 5 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 6 } } prev = { set_skill = 6 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 7 } } prev = { set_skill = 7 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 8 } } prev = { set_skill = 8 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 9 } } prev = { set_skill = 9 } }
+			else_if	= { limit = { check_variable = { which = honor_leader_skill value = 10 } } prev = { set_skill = 10 } }
 			# clear_variable = honor_leader_skill
 		}
+		export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level }
 	}
 
-	change_leader_portrait = event_target:honor_leader
-	set_name = event_target:honor_leader
+	# change_leader_portrait = event_target:honor_leader
+	# set_name = event_target:honor_leader
 
 	if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
-		# export_trigger_value_to_variable = { trigger = event_target:honor_leader:has_skill variable = honor_leader_skill }
 		event_target:honor_leader = {
 			if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
 				export_trigger_value_to_variable = { trigger = has_skill variable = honor_leader_skill }
 			}
-			prev = { set_variable = { which = honor_leader_skill value = prev.honor_leader_skill } }
+		}
+		set_variable = { which = honor_leader_skill value = event_target:honor_leader.honor_leader_skill }
+	}
+
+	if = { limit = { NOT = { is_variable_set = dead_leader_level } }
+		if = { limit = { has_level > 1 }
+			export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level }
+		}
+		else_if = { limit = { event_target:honor_leader = { is_variable_set = dead_leader_level } }
+			set_variable = { which = honor_leader_class value = event_target:honor_leader.dead_leader_level }
+		} else = {
+			event_target:honor_leader = { export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level } }
+			set_variable = { which = honor_leader_class value = event_target:honor_leader.dead_leader_level }
 		}
 	}
+
+	# Cause of Death
+	if = {
+		limit = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } }
+		event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global }
+		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
+	}
+	else_if = {
+		limit = { event_target:honor_leader = { exists = event_target:honor_leader_cause_of_death event_target:honor_leader_cause_of_death = { is_scope_valid = yes } } }
+		event_target:honor_leader = { event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global } }
+		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
+	}
+
 	# Cosmetic (if not clone)
 	if = { limit = { NOT = { gender = female } event_target:honor_leader = { is_variable_set = honor_leader_gender check_variable = { which = honor_leader_gender value = 1 } } }
 		set_is_female = yes

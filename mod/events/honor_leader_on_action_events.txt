@@ -2,24 +2,19 @@ namespace = honor_leader
 # TRACKING EVENTS
 
 # on_single_player_save_game_load
-# country_event = {
-# 	id = honor_leader.1
-# 	hide_window = yes
-# 	is_triggered_only = yes
-# 	trigger = { is_ai = no }
-# 	immediate = {
-# 		# temp fix: remove on 3.5
-# 		every_playable_country = {
-# 			limit = {
-# 				is_ai = no
-# 				NOT = { has_country_flag = governor_corrupt_memorialized }
-# 			}
-# 			remove_modifier = country_memorialized_governor_corrupt
-# 			set_country_flag = governor_corrupt_memorialized
-#			## FUNE: dont know what this is, but corrupt governor memorials, seems like something can be done there
-# 		}
-# 	}
-# }
+country_event = {
+	id = honor_leader.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	immediate = {
+		every_playable_country = {
+			limit = { is_ai = no }
+			# Set Reign Begin Date Flags
+			country_event = { id = new_honor_leader.1005 }
+		}
+	}
+}
 
 # On Country game start - setup calender and ruler start date.
 # TODO also AI Player!?
@@ -36,7 +31,7 @@ country_event = {
 		if = { limit = { exists = leader }
 			leader = {
 				set_variable = { which = honor_leader_office_start value = 2200 }
-				set_leader_flag = honor_leader_ruler_starting_ruler
+				set_leader_flag = first_ruler
 				set_variable = { which = honor_leader_ruler_starting_ruler_date value = 2200 }
 			}
 		}
@@ -601,11 +596,13 @@ ship_event = {
 						}
 					}
 				}
-				else = {
-					if = { limit = { exists = leader }
-						leader = {
-							change_variable = { which = honor_leader_civilian_ships_built value = 1 }
-						}
+				else_if = {
+					limit = {
+						NOT = { is_scope_type = starbase }
+						exists = leader
+					}
+					leader = {
+						change_variable = { which = honor_leader_civilian_ships_built value = 1 }
 					}
 				}
 			}
@@ -3436,81 +3433,53 @@ country_event = {
 	}
 	immediate = {
 		set_update_modifiers_batch = begin
-		from = {
-			save_event_target_as = honor_leader
-			export_trigger_value_to_variable = {
-				trigger = has_level
-				variable = dead_leader_level
-			}
-			export_trigger_value_to_variable = {
-				trigger = leader_age
-				variable = dead_leader_age
-			}
-			# Needs to be done this way, any other way seems to cause issues.
-			if = {
-				limit = { leader_class = scientist }
-				set_leader_flag = hon_is_scientist
-			}
-			else_if = {
-				limit = { leader_class = admiral }
-				set_leader_flag = hon_is_admiral
-			}
-			else_if = {
-				limit = { leader_class = general }
-				set_leader_flag = hon_is_general
-			}
-		}
-		if = {
+		if = { # Savegame Fallback (old method)
 			limit = { NOT = { exists = event_target:honor_copy_@from } }
 			clone_leader = {
-				target = event_target:honor_leader
+				target = from
 				effect = {
 					save_event_target_as = event_target:honor_copy_@event_target:honor_leader
 				}
 			}
 		}
-		event_target:honor_copy_@from = {
-			# log = "COPY GOT: [this.GetName]"
+		from = {
+			save_event_target_as = honor_leader
+			log = "FROM IS: [this.GetName]"
+		}
+		event_target:honor_copy_@event_target:honor_leader = {
+			log = "COPY GOT: [this.GetName]"
 			save_event_target_as = honor_leader_clone
 			honor_leader_copy_flags_and_vars = yes
-			set_saved_date = {
-				key = leader_death_fired_date
-				days_from_present = 0
-			}
+			set_saved_date = { key = leader_death_fired_date days_from_present = 0 }
 			set_variable = { which = dead_leader_level value = event_target:honor_leader.dead_leader_level }
 			set_variable = { which = dead_leader_age value = event_target:honor_leader.dead_leader_age }
-			if = {
-				limit = { is_variable_set = months_as_ruler }
-				if = { # Do not divide 0
-					limit = { check_variable = { which = months_as_ruler value < 6 } }
+			# Is or was ruler
+			if = { limit = { is_variable_set = months_as_ruler }
+				if = { limit = { check_variable = { which = months_as_ruler value < 6 } }
 					set_variable = { which = months_as_ruler value = 0.12 }
 				}
 				divide_variable = { which = months_as_ruler value = 12 }
 				round_variable = months_as_ruler
-			}
-			if = {
-				limit = { event_target:honor_leader = { leader_class = ruler } }
-				get_ruler_term_end_number = yes
-			}
-			if = {
-				limit = { event_target:honor_leader = { has_leader_flag = hon_is_scientist } }
-				set_leader_flag = hon_is_scientist
-			}
-			else_if = {
-				limit = { event_target:honor_leader = { has_leader_flag = hon_is_admiral } }
-				set_leader_flag = hon_is_admiral
-			}
-			else_if = {
-				limit = { event_target:honor_leader = { has_leader_flag = hon_is_general } }
-				set_leader_flag = hon_is_general
-			}
-			else = {
-				set_leader_flag = hon_is_governor
+				event_target:honor_leader = {
+					export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level }
+					export_trigger_value_to_variable = { trigger = leader_age variable = dead_leader_age }
+					# Needs to be done this way, any other way seems to cause issues.
+					if		= { limit = { leader_class = scientist } set_leader_flag = hon_is_scientist }
+					else_if = { limit = { leader_class = admiral } set_leader_flag = hon_is_admiral }
+					else_if = { limit = { leader_class = general } set_leader_flag = hon_is_general }
+					if = { leader_class = ruler }
+						get_ruler_term_end_number = yes
+					}
+				}
+
+				if = { limit = { event_target:honor_leader = { has_leader_flag = hon_is_scientist } } set_leader_flag = hon_is_scientist }
+				else_if = { limit = { event_target:honor_leader = { has_leader_flag = hon_is_admiral } } set_leader_flag = hon_is_admiral }
+				else_if = { limit = { event_target:honor_leader = { has_leader_flag = hon_is_general } } set_leader_flag = hon_is_general }
+				else = { set_leader_flag = hon_is_governor }
 			}
 		}
-		if = {
-			limit = { NOT = { has_country_flag = honor_popup_disabled } }
-			country_event = { id = honor_leader.200 }
+		if = { limit = { NOT = { has_country_flag = honor_popup_disabled } }
+			country_event = { id = honor_leader.200 days = -1 } # Can't be leader event, because problem with the portrait display.
 		}
 		else = {
 			# SAVE LEADER HERE FOR LATER.
@@ -3684,7 +3653,7 @@ country_event = {
 		# 	else_if = {
 		# 		limit = {
 		# 			# has_leader_flag = honor_leader_ruler_in_election
-		# 			has_leader_flag = honor_leader_ruler_starting_ruler
+		# 			has_leader_flag = first_ruler
 		# 			NOT = { exists = event_target:honor_leader_clone }
 		# 		}
 		# 		# Clone current leader and set to honor_leader - for Starting ruler losing election - become governor

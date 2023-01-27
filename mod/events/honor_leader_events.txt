@@ -3136,6 +3136,12 @@ country_event = {
 		# 	log = "honor_leader_cause_of_deathScope: [honor_leader_cause_of_death.GetScopeType]"
 		# }
 	}
+	after = {
+		if = { # Only to be sure
+			limit = { exists = fromfrom fromfrom = { is_scope_type = leader } }
+			fromfrom = { kill_leader = { show_notification = no } }
+		}
+	}
 	option = {
 		name = "honor_leader.103.honored"
 		custom_tooltip = honor_leader.103.honored.tooltip
