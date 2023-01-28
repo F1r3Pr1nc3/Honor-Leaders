@@ -1366,7 +1366,7 @@ honor_leader_copy_flags_and_vars = {
 		if = { limit = { is_variable_set = honor_leader_years_of_service } prev = { set_variable = { which = honor_leader_years_of_service value = prev.honor_leader_years_of_service } } } else = { prev = { set_variable = { which = honor_leader_years_of_service value = 0 } } }
 		if = { limit = { is_variable_set = honor_leader_office_start } prev = { set_variable = { which = honor_leader_office_start value = prev.honor_leader_office_start } } } else = { prev = { set_variable = { which = honor_leader_office_start value = 0 } } }
 		if = { limit = { is_variable_set = honor_leader_office_end } prev = { set_variable = { which = honor_leader_office_end value = prev.honor_leader_office_end } } } else = { prev = { set_variable = { which = honor_leader_office_end value = 0 } } }
-		if = { limit = { is_variable_set = honor_leader_years_in_office } prev = { set_variable = { which = honor_leader_years_in_office value = prev.honor_leader_years_in_office } } } else = { prev = { set_variable = { which = honor_leader_years_in_office value = 0 } } }
+		if = { limit = { is_variable_set = hon_years_in_office } prev = { set_variable = { which = hon_years_in_office value = prev.hon_years_in_office } } } else = { prev = { set_variable = { which = hon_years_in_office value = 0 } } }
 		if = { limit = { is_variable_set = honor_leader_years_assisting_research } prev = { set_variable = { which = honor_leader_years_assisting_research value = prev.honor_leader_years_assisting_research } } } else = { prev = { set_variable = { which = honor_leader_years_assisting_research value = 0 } } }
 		if = { limit = { is_variable_set = honor_leader_years_exploring_automatically } prev = { set_variable = { which = honor_leader_years_exploring_automatically value = prev.honor_leader_years_exploring_automatically } } } else = { prev = { set_variable = { which = honor_leader_years_exploring_automatically value = 0 } } }
 		if = { limit = { is_variable_set = honor_leader_years_governing_sector } prev = { set_variable = { which = honor_leader_years_governing_sector value = prev.honor_leader_years_governing_sector } } } else = { prev = { set_variable = { which = honor_leader_years_governing_sector value = 0 } } }
@@ -1744,7 +1744,7 @@ honor_leader_copy_flags_and_vars = {
 			# clear_variable = honor_leader_skill
 		}
 	}
-
+	# old method
 	change_leader_portrait = event_target:honor_leader # (if not clone?)
 	set_name = event_target:honor_leader # (if not clone?)
 
@@ -1785,6 +1785,7 @@ honor_leader_copy_flags_and_vars = {
 				scientist	= { set_variable = { which = honor_leader_class value = 3 } }
 				admiral		= { set_variable = { which = honor_leader_class value = 4 } }
 				general		= { set_variable = { which = honor_leader_class value = 5 } }
+				envoy		= { set_variable = { which = honor_leader_class value = 6 } }
 			}
 		}
 	}

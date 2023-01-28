@@ -1,44 +1,4 @@
 namespace = new_honor_leader
-# All - on_game_start_country - Create Clone leaders
-# country_event = {
-# 	id = new_honor_leader.1000
-# 	hide_window = yes
-# 	is_triggered_only = yes
-# 	trigger = {
-# 		is_ai = no
-# 		is_regular_empire = yes
-# 	}
-# 	immediate = {
-# 		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = total_leaders }
-# 		while = {
-# 			count = total_leaders
-# 			random_owned_leader = {
-# 				limit = {
-# 					NOR = {
-# 						leader_class = envoy
-# 						has_leader_flag = honor_clone_created
-# 					}
-# 				}
-# 				set_leader_flag = honor_clone_created
-# 				save_event_target_as = hon_clone
-# 				owner = {
-# 					clone_leader = {
-# 						target = event_target:hon_clone
-# 						effect = {
-# 							set_immortal = yes
-# 							save_global_event_target_as = honor_copy_@event_target:hon_clone
-# 							exile_leader_as = clone_leader_exile
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-# 	after = {
-# 		clear_variable = total_leaders
-# 		country_event = { id = honor_leader.4 days = 2 }
-# 	}
-# }
 
 # Scope: Leader (after assignment)
 # All - on_leader_assigned - Create Clone leader for new leaders
@@ -63,6 +23,45 @@ leader_event = {
 					set_immortal = yes
 					save_global_event_target_as = honor_copy_@event_target:new_leader_clone
 					exile_leader_as = clone_leader_exile
+				}
+			}
+		}
+	}
+}
+
+# All - on_single_player_save_game_load - Create Clone leaders as global targets
+country_event = {
+	id = new_honor_leader.1003
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		# is_ai = no
+		# is_regular_empire = yes
+		any_owned_leader = {
+			NOR = {
+				leader_class = envoy
+				has_leader_flag = honor_clone_created
+			}
+		}
+	}
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				NOR = {
+					leader_class = envoy
+					has_leader_flag = honor_clone_created
+				}
+			}
+			set_leader_flag = honor_clone_created
+			save_event_target_as = hon_clone
+			root = {
+				clone_leader = {
+					target = event_target:hon_clone
+					effect = {
+						set_immortal = yes
+						save_global_event_target_as = honor_copy_@event_target:hon_clone
+						exile_leader_as = clone_leader_exile
+					}
 				}
 			}
 		}

@@ -681,7 +681,7 @@ country_event = {
 					if = { limit = { leader_class = ruler }
 						set_variable = { which = honor_leader_office_start value = honor_leader_random_start }
 						set_variable = { which = honor_leader_office_end value = honor_leader_random_end }
-						set_variable = { which = honor_leader_years_in_office value = honor_leader_random_service }
+						set_variable = { which = hon_years_in_office value = honor_leader_random_service }
 					}
 				}
 			}
@@ -3074,11 +3074,6 @@ country_event = {
 			event_target:honor_leader_clone = {
 				leader_class = governor
 				NOT = { is_variable_set = stints_as_ruler }
-				# NOR = { falback does not work
-				# 	pre_ruler_leader_class = scientist
-				# 	pre_ruler_leader_class = admiral
-				# 	pre_ruler_leader_class = general
-				# }
 			}
 		}
 		text = honor_leader.200.desc.deadgovernor
