@@ -3566,17 +3566,18 @@ country_event = {
 			save_event_target_as = honor_leader
 			# log = "FROM IS: [this.GetName]"
 		}
-		if = { # Savegame Fallback (old method)
-			limit = { NOT = { exists = event_target:honor_copy_@from } }
-			clone_leader = {
-				target = from
-				effect = {
-					# TODO probably omit global for performance reason
-					# save_global_event_target_as = event_target:honor_copy_@event_target:honor_leader
-					save_event_target_as = event_target:honor_copy_@event_target:honor_leader
-				}
-			}
-		}
+		## FUNE: Causing duplicate leaders. Will fix another way.
+		# if = { # Savegame Fallback (old method)
+		# 	limit = { NOT = { exists = event_target:honor_copy_@from } }
+		# 	clone_leader = {
+		# 		target = from
+		# 		effect = {
+		# 			# TODO probably omit global for performance reason
+		# 			# save_global_event_target_as = event_target:honor_copy_@event_target:honor_leader
+		# 			save_event_target_as = event_target:honor_copy_@event_target:honor_leader
+		# 		}
+		# 	}
+		# }
 		event_target:honor_copy_@from = {
 			# log = "COPY GOT: [this.GetName]"
 			save_event_target_as = honor_leader_clone
