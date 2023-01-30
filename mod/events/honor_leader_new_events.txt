@@ -84,10 +84,7 @@ country_event = {
 			limit = { has_leader_flag = first_ruler }
 			remove_leader_flag = first_ruler
 			event_target:honor_copy_@this = {
-				set_saved_date = {
-					key = ruler_stint_end_date_1
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_end_date_1 days_from_present = 0 }
 			}
 		}
 	}
@@ -101,8 +98,8 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		is_ai = no
-		is_regular_empire = yes
 		exists = ruler
+		is_regular_empire = yes
 	}
 	immediate = {
 		event_target:honor_copy_@ruler = { subtract_variable = { which = stints_as_ruler value = 1 } }
@@ -116,8 +113,8 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		is_ai = no
-		is_regular_empire = yes
 		exists = ruler
+		is_regular_empire = yes
 	}
 	immediate = {
 		event_target:honor_copy_@ruler = {

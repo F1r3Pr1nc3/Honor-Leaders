@@ -2966,15 +2966,15 @@ defined_text = { # leader scope
 # DEPRECATED due performance issue
 defined_text = { # leader scope
 	name = GetSkill
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 1  } } localization_key = skill_icon_1 }
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 2  } } localization_key = skill_icon_2 }
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 3  } } localization_key = skill_icon_3 }
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 4  } } localization_key = skill_icon_4 }
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 5  } } localization_key = skill_icon_5 }
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 6  } } localization_key = skill_icon_6 }
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 7  } } localization_key = skill_icon_7 }
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 8  } } localization_key = skill_icon_8 }
-	text = { trigger = { check_variable = { which = honor_leader_skill value = 9  } } localization_key = skill_icon_9 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 1 } } localization_key = skill_icon_1 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 2 } } localization_key = skill_icon_2 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 3 } } localization_key = skill_icon_3 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 4 } } localization_key = skill_icon_4 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 5 } } localization_key = skill_icon_5 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 6 } } localization_key = skill_icon_6 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 7 } } localization_key = skill_icon_7 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 8 } } localization_key = skill_icon_8 }
+	text = { trigger = { check_variable = { which = honor_leader_skill value = 9 } } localization_key = skill_icon_9 }
 	text = { trigger = { check_variable = { which = honor_leader_skill value = 10 } } localization_key = skill_icon_10 }
 	text = { localization_key = unknownproperty }
 }
@@ -3166,111 +3166,52 @@ defined_text = { # Country/leader scope
 	text = { localization_key = emptystringnotstring.empty }
 }
 
-# Can't believe this isn't a default localization..
+# Can't believe this isn't a default localization...
+# For test only
 defined_text = {
 	name = GetScopeType
-	text = {
-		trigger = { is_scope_type = none }
-		localization_key = succession_type_none
-	}
-	text = {
-		trigger = { is_scope_type = megastructure }
-		localization_key = megastructure
-	}
-	text = {
-		trigger = { is_scope_type = planet }
-		localization_key = planet
-	}
-	text = {
-		trigger = { is_scope_type = leader }
-		localization_key = leader
-	}
-	text = {
-		trigger = { is_scope_type = country }
-		localization_key = countryscope
-	}
-	text = {
-		trigger = { is_scope_type = ship }
-		localization_key = ship
-	}
-	text = {
-		trigger = { is_scope_type = pop }
-		localization_key = pop
-	}
-	text = {
-		trigger = { is_scope_type = fleet }
-		localization_key = FLEET
-	}
-	text = {
-		trigger = { is_scope_type = galactic_object }
-		localization_key = galactic_object
-	}
-	text = {
-		trigger = { is_scope_type = army }
-		localization_key = army
-	}
-	text = {
-		trigger = { is_scope_type = ambient_object }
-		localization_key = ambient_object
-	}
-	text = {
-		trigger = { is_scope_type = species }
-		localization_key = species
-	}
-	text = {
-		trigger = { is_scope_type = design }
-		localization_key = design
-	}
-	text = {
-		trigger = { is_scope_type = pop_faction }
-		localization_key = pop_faction
-	}
-	text = {
-		trigger = { is_scope_type = war }
-		localization_key = war
-	}
-	text = {
-		trigger = { is_scope_type = alliance }
-		localization_key = alliance
-	}
-	text = {
-		trigger = { is_scope_type = starbase }
-		localization_key = starbase
-	}
-	text = {
-		trigger = { is_scope_type = deposit }
-		localization_key = deposit
-	}
-	text = {
-		trigger = { is_scope_type = observer }
-		localization_key = observer
-	}
-	text = {
-		trigger = { is_scope_type = sector }
-		localization_key = sector
-	}
+	text = { trigger = { is_scope_type = none } localization_key = succession_type_none }
+	text = { trigger = { is_scope_type = megastructure } localization_key = "MEGASTRUCTURE" }
+	text = { trigger = { is_scope_type = planet } localization_key = "PLANET" }
+	text = { trigger = { is_scope_type = leader } localization_key = "LEADER" }
+	text = { trigger = { is_scope_type = country } localization_key = "country" }
+	text = { trigger = { is_scope_type = ship } localization_key = "buildable_ship" }
+	text = { trigger = { is_scope_type = pop } localization_key = "POP" }
+	text = { trigger = { is_scope_type = fleet } localization_key = "FLEET" }
+	text = { trigger = { is_scope_type = galactic_object } localization_key = "galactic_object"	}
+	text = { trigger = { is_scope_type = army } localization_key = "buildable_army" }
+	text = { trigger = { is_scope_type = ambient_object } localization_key = any_ambient_object_trigger }
+	text = { trigger = { is_scope_type = species } localization_key = "SPECIES" }
+	text = { trigger = { is_scope_type = design } localization_key = "SHIP_DESIGN" }
+	text = { trigger = { is_scope_type = pop_faction } localization_key = "POP_FACTION" }
+	text = { trigger = { is_scope_type = war } localization_key = "War" }
+	text = { trigger = { is_scope_type = alliance } localization_key = "Alliance" }
+	text = { trigger = { is_scope_type = starbase } localization_key = "TRADE_STARBASE" }
+	text = { trigger = { is_scope_type = deposit } localization_key = any_deposit_trigger }
+	text = { trigger = { is_scope_type = observer } localization_key = "OBSERVER" }
+	text = { trigger = { is_scope_type = sector } localization_key = "SECTOR" }
 }
 
 defined_text = { # Planet scope
 	name = GetMainstarName
-	text = { trigger = { check_variable = { which = honor_leader_stars value = 1  } } localization_key = HL_NAME_A }
-	text = { trigger = { check_variable = { which = honor_leader_stars value = 2  } } localization_key = HL_NAME_B }
-	text = { trigger = { check_variable = { which = honor_leader_stars value = 3  } } localization_key = HL_NAME_C }
+	text = { trigger = { check_variable = { which = honor_leader_stars value = 1 } } localization_key = HL_NAME_A }
+	text = { trigger = { check_variable = { which = honor_leader_stars value = 2 } } localization_key = HL_NAME_B }
+	text = { trigger = { check_variable = { which = honor_leader_stars value = 3 } } localization_key = HL_NAME_C }
 	# text = { localization_key = emptystringnotstring.empty }
 }
 
 # > v3.3
 defined_text = { # Planet/Moon scope
 	name = GetMainstarPlanetName
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 1  } } localization_key = HL_MAINSTAR_PLANET_I }
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 2  } } localization_key = HL_MAINSTAR_PLANET_II }
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 3  } } localization_key = HL_MAINSTAR_PLANET_III }
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 4  } } localization_key = HL_MAINSTAR_PLANET_IV }
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 5  } } localization_key = HL_MAINSTAR_PLANET_V }
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 6  } } localization_key = HL_MAINSTAR_PLANET_VI }
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 7  } } localization_key = HL_MAINSTAR_PLANET_VII }
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 8  } } localization_key = HL_MAINSTAR_PLANET_VIII }
-	text = { trigger = { check_variable = { which = honor_leader_planets value = 9  } } localization_key = HL_MAINSTAR_PLANET_IX }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 1 } } localization_key = HL_MAINSTAR_PLANET_I }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 2 } } localization_key = HL_MAINSTAR_PLANET_II }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 3 } } localization_key = HL_MAINSTAR_PLANET_III }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 4 } } localization_key = HL_MAINSTAR_PLANET_IV }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 5 } } localization_key = HL_MAINSTAR_PLANET_V }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 6 } } localization_key = HL_MAINSTAR_PLANET_VI }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 7 } } localization_key = HL_MAINSTAR_PLANET_VII }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 8 } } localization_key = HL_MAINSTAR_PLANET_VIII }
+	text = { trigger = { check_variable = { which = honor_leader_planets value = 9 } } localization_key = HL_MAINSTAR_PLANET_IX }
 	text = { trigger = { check_variable = { which = honor_leader_planets value = 10 } } localization_key = HL_MAINSTAR_PLANET_X }
 	text = { trigger = { check_variable = { which = honor_leader_planets value = 11 } } localization_key = HL_MAINSTAR_PLANET_XI }
 	text = { trigger = { check_variable = { which = honor_leader_planets value = 12 } } localization_key = HL_MAINSTAR_PLANET_XII }

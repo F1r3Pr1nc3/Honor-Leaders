@@ -28,14 +28,15 @@ country_event = {
 		is_regular_empire = yes
 	}
 	immediate = {
-		set_variable = { which = honor_leader_calender_year value = 2200 }
+		# set_variable = { which = honor_leader_calender_year value = 2200 }
+		# Ruler
 		if = { limit = { exists = leader }
 			leader = {
-				set_variable = { which = honor_leader_office_start value = 2200 }
-				set_variable = { which = honor_leader_ruler_starting_ruler_date value = 2200 }
+				# set_variable = { which = honor_leader_office_start value = 2200 }
 				set_leader_flag = first_ruler
 			}
 		}
+		# By FUNE
 		export_trigger_value_to_variable = { trigger = num_owned_leaders variable = total_leaders }
 		while = {
 			count = total_leaders
@@ -50,7 +51,7 @@ country_event = {
 				save_event_target_as = hon_clone
 				owner = {
 					clone_leader = {
-						target = event_target:hon_clone
+						target = prev
 						effect = {
 							set_immortal = yes
 							save_global_event_target_as = honor_copy_@event_target:hon_clone
@@ -58,7 +59,7 @@ country_event = {
 						}
 					}
 				}
-				set_variable = { which = honor_leader_calender_year value = 2200 }
+				# set_variable = { which = honor_leader_calender_year value = 2200 }
 				# remove_leader_flag = honor_leader_is_pool_leader
 			}
 		}
@@ -81,16 +82,16 @@ country_event = {
 	}
 	immediate = {
 		# save_event_target_as = honor_leader_country
-		change_variable = { which = honor_leader_calender_year value = 1 }
+		# change_variable = { which = honor_leader_calender_year value = 1 }
 		every_owned_leader = {
 			change_variable = { which = honor_leader_years_of_service value = 1 }
-			change_variable = { which = honor_leader_calender_year value = 1 }
+			# change_variable = { which = honor_leader_calender_year value = 1 }
 		}
-		if = { limit = { exists = leader }
-			leader = {
-				change_variable = { which = hon_years_in_office value = 1 }
-			}
-		}
+		# if = { limit = { exists = leader }
+		# 	leader = {
+		# 		change_variable = { which = hon_years_in_office value = 1 }
+		# 	}
+		# }
 		every_owned_fleet = {
 			limit = {
 				has_fleet_order = assist_research_order
@@ -183,12 +184,11 @@ country_event = {
 		# days_passed > 1
 	}
 	immediate = {
-		if = { limit = { NOT = { is_variable_set = honor_leader_calender_year } }
-			export_trigger_value_to_variable = { trigger = years_passed variable = honor_leader_calender_year }
-		}
+		# if = { limit = { NOT = { is_variable_set = honor_leader_calender_year } }
+		# 	export_trigger_value_to_variable = { trigger = years_passed variable = honor_leader_calender_year }
+		# 	change_variable = { which = honor_leader_calender_year value = 2200 }
+		# }
 		ruler = {
-			set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
-			set_variable = { which = honor_leader_office_start value = honor_leader_calender_year }
 			# Consider adding event that lets you set term start date for auths
 			if = { limit = { NOT = { has_leader_flag = honor_clone_created } days_passed > 1 }
 				set_leader_flag = honor_clone_created
@@ -208,7 +208,7 @@ country_event = {
 		event_target:honor_copy_@ruler = {
 			if = { limit = { NOT = { is_variable_set = stints_as_ruler } }
 				set_variable = { which = stints_as_ruler value = 1 }
-				# if = { limit = { days_passed < 7 } will be done on game start and save load
+				# if = { limit = { days_passed < 7 } will be done on game-start and save-load
 				# 	root.ruler = { set_leader_flag = first_ruler }
 				# }
 			} else = {
@@ -216,63 +216,33 @@ country_event = {
 			}
 			# get_ruler_term_begin_number = yes
 			if = { limit = { check_variable = { which = stints_as_ruler value = 1 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_1
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_1 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 2 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_2
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_2 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 3 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_3
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_3 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 4 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_4
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_4 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 5 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_5
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_5 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 6 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_6
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_6 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 7 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_7
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_7 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 8 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_8
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_8 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 9 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_9
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_9 days_from_present = 0 }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 10 } }
-				set_saved_date = {
-					key = ruler_stint_start_date_10
-					days_from_present = 0
-				}
+				set_saved_date = { key = ruler_stint_start_date_10 days_from_present = 0 }
 			}
 			# Savegame Fallback
 			prev.ruler = {
 				switch = { trigger = pre_ruler_leader_class
+					governor	= { prev = { set_variable = { which = honor_leader_class value = 2 } } }
 					scientist	= { prev = { set_variable = { which = honor_leader_class value = 3 } } }
 					admiral		= { prev = { set_variable = { which = honor_leader_class value = 4 } } }
 					general		= { prev = { set_variable = { which = honor_leader_class value = 5 } } }
-					governor	= { prev = { set_variable = { which = honor_leader_class value = 2 } } }
 					envoy		= { prev = { set_variable = { which = honor_leader_class value = 6 } } }
 				}
 			}
@@ -296,125 +266,94 @@ country_event = {
 	immediate = {
 		from = {
 			if = { limit = { leader_class = ruler }
-				set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
-				set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
-				event_target:honor_copy_@this = {
-					set_variable = { which = hon_years_in_office value = prev.honor_leader_calender_year }
+				# set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
+				# set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
+				## Savegame fallback (does not work with dyn.target exists check - remove in 3.7)
+				if = { limit = { NOT = { has_leader_flag = honor_clone_created } }
+					set_leader_flag = honor_clone_created
+					root = {
+						clone_leader = {
+							target = prev
+							effect = {
+								set_immortal = yes
+								exile_leader_as = clone_leader_exile
+							}
+						}
+						last_created_leader = { save_global_event_target_as = honor_copy_@prevprev }
+					}
+					if = {
+						limit = {
+							is_variable_set = honor_leader_office_start
+							check_variable = { which = honor_leader_office_start value > 0 }
+						}
+						change_variable = { which = honor_leader_office_start value = -2200 }
+						multiply_variable = { which = honor_leader_office_start value = -360 } # Convert to days
+						round_variable = honor_leader_office_start
+						export_trigger_value_to_variable = { trigger = days_passed variable = honor_leader_office_end }
+						event_target:honor_copy_@this = {
+							set_variable = { which = stints_as_ruler value = 1 }
+							set_saved_date = { key = ruler_stint_start_date_1 days_from_present = prev.honor_leader_office_start }
+							set_variable = { which = months_as_ruler value = prev.honor_leader_office_end }
+							subtract_variable = { which = months_as_ruler value = prev.honor_leader_office_start }
+							divide_variable = { which = months_as_ruler value = -12 } # Convert to months
+							round_variable = months_as_ruler
+						}
+						clear_variable = honor_leader_office_start
+						clear_variable = honor_leader_office_end
+					}
 				}
-				# Savegame fallback (does not work because global target check)
-				# if = { limit = { NOT = { exists = event_target:honor_copy_@from } }
-				# 	set_leader_flag = honor_clone_created
-				# 	root = {
-				# 		clone_leader = {
-				# 			target = prev
-				# 			effect = {
-				# 				set_immortal = yes
-				# 				exile_leader_as = clone_leader_exile
-				# 			}
-				# 		}
-				# 		last_created_leader = { save_global_event_target_as = honor_copy_@prevprev }
-				# 	}
-				# }
 			}
 		}
 		event_target:honor_copy_@from = {
 			# get_ruler_term_end_number = yes
-			if = {
-				limit = { is_variable_set  = stints_as_ruler }
-				if = {
-					limit = { check_variable = { which = stints_as_ruler value = 1 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_1
-						days_from_present = 0
-					}
+			if = { limit = { is_variable_set  = stints_as_ruler }
+				if = { limit = { check_variable = { which = stints_as_ruler value = 1 } }
+					set_saved_date = { key = ruler_stint_end_date_1 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 2 } }
+					set_saved_date = { key = ruler_stint_end_date_2 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 3 } }
+					set_saved_date = { key = ruler_stint_end_date_3 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 4 } }
+					set_saved_date = { key = ruler_stint_end_date_4 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 5 } }
+					set_saved_date = { key = ruler_stint_end_date_5 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 6 } }
+					set_saved_date = { key = ruler_stint_end_date_6 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 7 } }
+					set_saved_date = { key = ruler_stint_end_date_7 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 8 } }
+					set_saved_date = { key = ruler_stint_end_date_8 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 9 } }
+					set_saved_date = { key = ruler_stint_end_date_9 days_from_present = 0 }
+				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 10 } }
+					set_saved_date = { key = ruler_stint_end_date_10 days_from_present = 0 }
 				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 2 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_2
-						days_from_present = 0
-					}
+				if = { limit = { check_variable = { which = months_as_ruler value < 6 } }
+					set_variable = { which = hon_years_in_office value = 0.12 }
 				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 3 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_3
-						days_from_present = 0
-					}
-				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 4 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_4
-						days_from_present = 0
-					}
-				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 5 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_5
-						days_from_present = 0
-					}
-				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 6 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_6
-						days_from_present = 0
-					}
-				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 7 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_7
-						days_from_present = 0
-					}
-				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 8 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_8
-						days_from_present = 0
-					}
-				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 9 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_9
-						days_from_present = 0
-					}
-				}
-				else_if = {
-					limit = { check_variable = { which = stints_as_ruler value = 10 } }
-					set_saved_date = {
-						key = ruler_stint_end_date_10
-						days_from_present = 0
-					}
-				}
+				divide_variable = { which = hon_years_in_office value = 12 }
+				round_variable_to_closest = { which = hon_years_in_office value = 0.1 }
 				set_variable = { which = hon_years_in_office value = months_as_ruler }
 			}
 			root.from = {
 				# Savegame Fallback
-				if = {
-					limit = { leader_class = ruler }
+				if = { limit = { leader_class = ruler }
 					switch = { trigger = pre_ruler_leader_class
+						governor	= { prev = { set_variable = { which = honor_leader_class value = 2 } } }
 						scientist	= { prev = { set_variable = { which = honor_leader_class value = 3 } } }
 						admiral		= { prev = { set_variable = { which = honor_leader_class value = 4 } } }
 						general		= { prev = { set_variable = { which = honor_leader_class value = 5 } } }
+						envoy		= { prev = { set_variable = { which = honor_leader_class value = 6 } } }
+					}
+				} else = {
+					switch = { trigger = leader_class
 						governor	= { prev = { set_variable = { which = honor_leader_class value = 2 } } }
+						scientist	= { prev = { set_variable = { which = honor_leader_class value = 3 } } }
+						admiral		= { prev = { set_variable = { which = honor_leader_class value = 4 } } }
+						general		= { prev = { set_variable = { which = honor_leader_class value = 5 } } }
 						envoy		= { prev = { set_variable = { which = honor_leader_class value = 6 } } }
 					}
 				}
-				# else = {
-				# 	switch = { trigger = leader_class
-				# 		scientist	= { prev = { set_variable = { which = honor_leader_class value = 3 } } }
-				# 		admiral		= { prev = { set_variable = { which = honor_leader_class value = 4 } } }
-				# 		general		= { prev = { set_variable = { which = honor_leader_class value = 5 } } }
-				# 		governor	= { prev = { set_variable = { which = honor_leader_class value = 2 } } }
-				#		envoy		= { prev = { set_variable = { which = honor_leader_class value = 6 } } }
-				# 		ruler		= { }
-				# 	}
-				# }
 				set_leader_flag = honor_leader_was_ruler
 			}
 		}
@@ -3355,7 +3294,7 @@ country_event = {
 	}
 	immediate = {
 		from = {
-			set_variable = { which = honor_leader_calender_year value = prev.honor_leader_calender_year }
+			# set_variable = { which = honor_leader_calender_year value = prev.honor_leader_calender_year }
 			set_leader_flag = honor_leader_is_pool_leader
 		}
 	}
@@ -3579,7 +3518,7 @@ country_event = {
 		set_update_modifiers_batch = begin
 		from = {
 			save_event_target_as = honor_leader
-			log = "FROM IS: [This.GetName]"
+			# log = "FROM IS: [This.GetName]"
 			# Vanilla bug: Dynamic target exists check do not work right!
 			# if = { limit = { has_leader_flag = honor_clone_created exists = event_target:honor_copy_@this } gives false positives
 			# 	log = "FROM CLONE exists: [honor_copy_@This.GetName]"
@@ -3587,27 +3526,20 @@ country_event = {
 			# 	log = "FROM CLONE NOT exists! [honor_copy_@This.GetName]"
 			# }
 		}
-		if = {
-			limit = { from = { has_leader_flag = honor_clone_created } }
+		if = { limit = { from = { has_leader_flag = honor_clone_created } }
 			event_target:honor_copy_@from = {
-				log = "COPY GOT: [This.GetName]"
+				# log = "COPY GOT: [This.GetName]"
 				save_event_target_as = honor_leader_clone
 				honor_leader_copy_flags_and_vars = yes
 				set_saved_date = { key = leader_death_fired_date days_from_present = 0 }
-				if = { # Is or was ruler
-					limit = { is_variable_set = months_as_ruler }
-					if = { limit = { check_variable = { which = months_as_ruler value < 6 } }
-						set_variable = { which = months_as_ruler value = 0.12 }
-					}
-					divide_variable = { which = months_as_ruler value = 12 }
-					round_variable = months_as_ruler
+				# Is or was ruler
+				if = { limit = { is_variable_set = stints_as_ruler }
 					event_target:honor_leader = {
 						root = { country_event = { id = honor_leader.5 days = -1 scopes = { from = prev } } }
 					}
 				}
 			}
-		}
-		else = { # Fallback (Old Method - should be not possible as every leader should have a clone)
+		} else = { # Fallback (Old Method - should be not possible as every leader should have a clone)
 			log = "FALLBACK COPY: [honor_copy_@event_target:honor_leader.GetName]"
 			clone_leader = {
 				target = from
@@ -3843,34 +3775,7 @@ country_event = {
 		# 			}
 		# 		}
 		# 	}
-		# 	if = {
-		# 		limit = {
-		# 			exists = event_target:honor_leader_clone
-		# 			event_target:honor_leader_clone = { is_scope_valid = yes is_scope_type = leader }
-		# 			exists = last_created_leader
-		# 			last_created_leader = { is_same_value = event_target:honor_leader_clone }
-		# 		}
-		# 		event_target:honor_leader_clone = {
-		# 			# save_event_target_as = honor_leader_clone
-		# 			# log="Class [This.honor_leader_class]"
-		# 			# Remove for empty trait set.
-		# 			remove_trait = leader_trait_resilient
-		# 			# Dead Leader Flags
-		# 			set_leader_flag = honor_leader_dead_leader
-		# 			set_leader_flag = honor_leader_interim_leader
-		# 			# Add Traitss
-		# 			honor_leader_add_traits = yes
-		# 			if = {
-		# 				limit = {
-		# 					NAND = {
-		# 						exists = event_target:honor_leader
-		# 						event_target:honor_leader = { is_scope_valid = yes is_scope_type = leader }
-		# 					}
-		# 				}
-		# 				save_event_target_as = honor_leader
-		# 			}
-		# 		}
-		# 	}
+
 		# }
 		set_update_modifiers_batch = end
 	}
@@ -3879,20 +3784,29 @@ country_event = {
 			limit = {
 				exists = event_target:honor_leader_clone
 				event_target:honor_leader_clone = { is_scope_valid = yes is_scope_type = leader }
-				exists = last_created_leader
-				last_created_leader = { is_same_value = event_target:honor_leader_clone }
+				# exists = last_created_leader
+				# last_created_leader = { is_same_value = event_target:honor_leader_clone }
 			}
 			event_target:honor_leader_clone = {
 				# log="Class [This.honor_leader_class]"
 				# leader_event = { id = honor_leader.200 days = -1 }
 				# Remove for empty trait set. ## FUNE: Why is it necessary to remove a trait from a leader were going to kill?
-				remove_trait = leader_trait_resilient
+				# remove_trait = leader_trait_resilient Because it is not a real clone
 				# Dead Leader Flags
 				set_leader_flag = honor_leader_dead_leader
 				set_leader_flag = honor_leader_interim_leader
-				# Add Traitss
+				# Add Traits
 				honor_leader_add_traits = yes
-				save_event_target_as = honor_leader
+				if = {
+					limit = {
+						NAND = {
+							exists = event_target:honor_leader
+							event_target:honor_leader = { is_scope_valid = yes is_scope_type = leader }
+						}
+					}
+					save_event_target_as = honor_leader
+				}
+				# save_event_target_as = honor_leader
 			}
 		}
 	}
