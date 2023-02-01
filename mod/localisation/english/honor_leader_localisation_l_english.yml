@@ -571,7 +571,7 @@
  honor_leader.111.nextgovernor: "View the next Governor!"
  honor_leader.111.nextrandom: "View the next Random Leader!"
  honor_leader.111.nextscientist: "View the next Scientist!"
- honor_leader.111.noneleft: "No more leaders to view. $honor_leader.111.exit$"
+ honor_leader.111.noneleft: "No more leaders to view. $RETURN_ORDER$."
  honor_leader.111.rulerpage1: "Bio Page 1"
  honor_leader.111.rulerpage2: "Bio Page 2"
  honor_leader.111.rulerpage3: "Bio Page 3"

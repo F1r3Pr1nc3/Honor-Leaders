@@ -1,318 +1,8 @@
 # HONOR CODE
 
 # Scope country
-honor_leader_honor_leader = {
-	event_target:honor_leader = {
-		if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
-			export_trigger_value_to_variable = { trigger = has_level variable = honor_leader_skill }
-		}
-		# Unity given based on leader skill level and traits ("prev" drops error)
-		prev = { add_resource = { unity = 100 mult = event_target:honor_leader.honor_leader_skill } }
-		# 10 year bonus based on leader traits - ALL VANILLA TRAITS CHECKED
-		# Generic leader traits
-		if = { limit = { has_trait = leader_trait_adaptable } prev = { add_modifier = { modifier = country_memorialized_leader_adaptable years = 10 } } }
-		if = { limit = { has_trait = leader_trait_stubborn } prev = { add_modifier = { modifier = country_memorialized_leader_stubborn years = 10 } } }
-		if = { limit = { has_trait = leader_trait_resilient } prev = { add_modifier = { modifier = country_memorialized_leader_resilient years = 10 } } }
-		if = { limit = { has_trait = leader_trait_substance_abuser } prev = { add_modifier = { modifier = country_memorialized_leader_substance_abuser years = 10 } } }
-		if = { limit = { has_trait = leader_trait_eager } prev = { add_modifier = { modifier = country_memorialized_leader_eager years = 10 } } }
-		if = { limit = { has_trait = leader_trait_arrested_development } prev = { add_modifier = { modifier = country_memorialized_leader_arrested_development years = 10 } } }
-		# Ruler traits
-		if = { limit = { has_trait = trait_ruler_corvette_focus } prev = { add_modifier = { modifier = country_memorialized_ruler_corvette years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_destroyer_focus } prev = { add_modifier = { modifier = country_memorialized_ruler_destroyer years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_cruiser_focus } prev = { add_modifier = { modifier = country_memorialized_ruler_cruiser years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_battleship_focus } prev = { add_modifier = { modifier = country_memorialized_ruler_battleship years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_recruiter } prev = { add_modifier = { modifier = country_memorialized_ruler_recruiter years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_from_the_ranks } prev = { add_modifier = { modifier = country_memorialized_ruler_from_the_ranks years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_fortifier } prev = { add_modifier = { modifier = country_memorialized_ruler_fortifier years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_logistic_understanding } prev = { add_modifier = { modifier = country_memorialized_ruler_logistic_understanding years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_military_pioneer } prev = { add_modifier = { modifier = country_memorialized_ruler_military_pioneer years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_warlike } prev = { add_modifier = { modifier = country_memorialized_ruler_warlike years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_architectural_sense } prev = { add_modifier = { modifier = country_memorialized_ruler_architectural_sense years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_frontier_spirit } prev = { add_modifier = { modifier = country_memorialized_ruler_frontier_spirit years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_world_shaper } prev = { add_modifier = { modifier = country_memorialized_ruler_world_shaper years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_home_in_the_sky } prev = { add_modifier = { modifier = country_memorialized_ruler_home_in_the_sky years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_industrialist } prev = { add_modifier = { modifier = country_memorialized_ruler_industrialist years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_eye_for_talent } prev = { add_modifier = { modifier = country_memorialized_ruler_eye_for_talent years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_deep_connections } prev = { add_modifier = { modifier = country_memorialized_ruler_deep_connections years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_charismatic } prev = { add_modifier = { modifier = country_memorialized_ruler_charismatic years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_champion_of_the_people } prev = { add_modifier = { modifier = country_memorialized_ruler_champion_of_the_people years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_expansionist } prev = { add_modifier = { modifier = country_memorialized_ruler_expansionist years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_fertility_preacher } prev = { add_modifier = { modifier = country_memorialized_ruler_fertility_preacher years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_investor } prev = { add_modifier = { modifier = country_memorialized_ruler_investor years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_space_miner } prev = { add_modifier = { modifier = country_memorialized_ruler_space_miner years = 10 } } }
-		if = { limit = { has_trait = trait_ruler_explorer } prev = { add_modifier = { modifier = country_memorialized_ruler_explorer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_fleet_organizer } prev = { add_modifier = { modifier = country_memorialized_ruler_fleet_organizer years = 10 } } }
-		# Governor traits
-		if = { limit = { has_trait = leader_trait_iron_fist prev = { has_policy_flag = slavery_allowed } } prev = { add_modifier = { modifier = country_memorialized_governor_iron_fist years = 10 } } }
-		if = { limit = { has_trait = leader_trait_army_veteran } prev = { add_modifier = { modifier = country_memorialized_governor_army_veteran years = 10 } } }
-		if = { limit = { has_trait = leader_trait_retired_fleet_officer } prev = { add_modifier = { modifier = country_memorialized_governor_retired_fleet_officer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_architectural_interest } prev = { add_modifier = { modifier = country_memorialized_governor_architectural_interest years = 10 } } }
-		if = { limit = { has_trait = leader_trait_agrarian_upbringing } prev = { add_modifier = { modifier = country_memorialized_governor_agrarian_upbringing years = 10 } } }
-		if = { limit = { has_trait = leader_trait_intellectual } prev = { add_modifier = { modifier = country_memorialized_governor_intellectual years = 10 } } }
-		if = { limit = { has_trait = leader_trait_environmental_engineer } prev = { add_modifier = { modifier = country_memorialized_governor_environmental_engineer years = 10 } } }
-		# Scientist traits
-		if = { limit = { has_trait = leader_trait_meticulous } prev = { add_modifier = { modifier = country_memorialized_scientist_meticulous years = 10 } } }
-		if = { limit = { has_trait = leader_trait_spark_of_genius } prev = { add_modifier = { modifier = country_memorialized_scientist_spark_of_genius years = 10 } } }
-		if = { limit = { has_trait = leader_trait_carefree } prev = { add_modifier = { modifier = country_memorialized_scientist_carefree years = 10 } } }
-		if = { limit = { has_trait = leader_trait_roamer } prev = { add_modifier = { modifier = country_memorialized_scientist_roamer years = 10 } } }
-		# Figure out ancient relics vs base.
-		# if = { limit = { has_trait = leader_trait_archaeologist } prev = { add_modifier = { modifier = country_memorialized_scientist_archaeologist years = 10 } } }
-		if = { limit = { has_trait = leader_trait_paranoid } prev = { add_modifier = { modifier = country_memorialized_scientist_paranoid years = 10 } } }
-		if = { limit = { has_trait = leader_trait_maniacal } prev = { add_modifier = { modifier = country_memorialized_scientist_maniacal years = 10 } } }
-		if = { limit = { has_trait = leader_trait_custom_AI_assistant } prev = { add_modifier = { modifier = country_memorialized_scientist_custom_AI_assistant years = 10 } } }
-		if = { limit = { has_trait = leader_trait_sapient_AI_assistant NOT = { prev = { has_policy_flag = ai_outlawed } } } prev = { add_modifier = { modifier = country_memorialized_scientist_sapient_AI_assistant years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_materials } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_materials years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_propulsion } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_propulsion years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_voidcraft } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_voidcraft years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_industry } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_industry years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_field_manipulation } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_field_manipulation years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_particles } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_particles years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_computing } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_computing years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_psionics } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_psionics years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_new_worlds } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_new_worlds years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_statecraft } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_statecraft years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_biology } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_biology years = 10 } } }
-		if = { limit = { has_trait = leader_trait_expertise_military_theory } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_military_theory years = 10 } } }
-		if = { limit = { has_trait = leader_trait_towel } prev = { add_modifier = { modifier = country_memorialized_scientist_towel years = 10 } } }
-		# Admiral Traits
-		if = { limit = { has_trait = leader_trait_trickster } prev = { add_modifier = { modifier = country_memorialized_admiral_trickster years = 10 } } }
-		if = { limit = { has_trait = leader_trait_fleet_logistician } prev = { add_modifier = { modifier = country_memorialized_admiral_fleet_logistician years = 10 } } }
-		if = { limit = { has_trait = leader_trait_engineer } prev = { add_modifier = { modifier = country_memorialized_admiral_engineer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_aggressive } prev = { add_modifier = { modifier = country_memorialized_admiral_aggressive years = 10 } } }
-		if = { limit = { has_trait = leader_trait_cautious } prev = { add_modifier = { modifier = country_memorialized_admiral_cautious years = 10 } } }
-		if = { limit = { has_trait = leader_trait_scout } prev = { add_modifier = { modifier = country_memorialized_admiral_scout years = 10 } } }
-		if = { limit = { has_trait = leader_trait_unyielding } prev = { add_modifier = { modifier = country_memorialized_admiral_unyielding years = 10 } } }
-		if = { limit = { has_trait = leader_trait_nervous } prev = { add_modifier = { modifier = country_memorialized_admiral_nervous years = 10 } } }
-		if = { limit = { has_trait = leader_trait_gale_speed } prev = { add_modifier = { modifier = country_memorialized_admiral_gale_speed years = 10 } } }
-		if = { limit = { has_trait = leader_trait_lethargic } prev = { add_modifier = { modifier = country_memorialized_admiral_lethargic years = 10 } } }
-		# General Traits
-		if = { limit = { has_trait = leader_trait_restrained } prev = { add_modifier = { modifier = country_memorialized_general_restrained years = 10 } } }
-		if = { limit = { has_trait = leader_trait_charismatic } prev = { add_modifier = { modifier = country_memorialized_general_charismatic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_butcher } prev = { add_modifier = { modifier = country_memorialized_general_butcher years = 10 } } }
-		if = { limit = { has_trait = leader_trait_glory_seeker } prev = { add_modifier = { modifier = country_memorialized_general_glory_seeker years = 10 } } }
-		if = { limit = { has_trait = leader_trait_armchair_commander } prev = { add_modifier = { modifier = country_memorialized_general_armchair_commander years = 10 } } }
-		if = { limit = { has_trait = leader_trait_army_logistician } prev = { add_modifier = { modifier = country_memorialized_general_army_logistician years = 10 } } }
-		# DLC Traits
-		if = { limit = { has_trait = leader_trait_shroud_age } prev = { add_modifier = { modifier = country_memorialized_leader_shroud_age years = 10 } } }
-		if = { limit = { has_trait = leader_trait_flexible_programming } prev = { add_modifier = { modifier = country_memorialized_leader_flexible_programming years = 10 } } }
-		if = { limit = { has_trait = leader_trait_rigid_programming } prev = { add_modifier = { modifier = country_memorialized_leader_rigid_programming years = 10 } } }
-		if = { limit = { has_trait = leader_trait_newboot } prev = { add_modifier = { modifier = country_memorialized_leader_newboot years = 10 } } }
-		if = { limit = { has_trait = leader_trait_reformer } prev = { add_modifier = { modifier = country_memorialized_ruler_reformer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ruler_erudite } prev = { add_modifier = { modifier = country_memorialized_ruler_erudite years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ruler_cyborg } prev = { add_modifier = { modifier = country_memorialized_ruler_cyborg years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ruler_synthetic } prev = { add_modifier = { modifier = country_memorialized_ruler_synthetic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ruler_psionic } prev = { add_modifier = { modifier = country_memorialized_ruler_psionic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ruler_chosen } prev = { add_modifier = { modifier = country_memorialized_ruler_chosen years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ruler_hive_mind } prev = { add_modifier = { modifier = country_memorialized_ruler_hive_mind years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ruler_machine_intelligence } prev = { add_modifier = { modifier = country_memorialized_ruler_machine_intelligence years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ruler_brainslug } prev = { add_modifier = { modifier = country_memorialized_ruler_brainslug years = 10 } } }
-		if = { limit = { has_trait = leader_trait_governor_erudite } prev = { add_modifier = { modifier = country_memorialized_governor_erudite years = 10 } } }
-		if = { limit = { has_trait = leader_trait_governor_cyborg } prev = { add_modifier = { modifier = country_memorialized_governor_cyborg years = 10 } } }
-		if = { limit = { has_trait = leader_trait_governor_synthetic } prev = { add_modifier = { modifier = country_memorialized_governor_synthetic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_governor_psionic } prev = { add_modifier = { modifier = country_memorialized_governor_psionic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_governor_chosen } prev = { add_modifier = { modifier = country_memorialized_governor_chosen years = 10 } } }
-		if = { limit = { has_trait = leader_trait_righteous } prev = { add_modifier = { modifier = country_memorialized_governor_righteous years = 10 } } }
-		if = { limit = { has_trait = leader_trait_corrupt } prev = { add_modifier = { modifier = country_memorialized_governor_corrupt years = 5 } } }
-		if = { limit = { has_trait = leader_trait_warbot_tinkerer } prev = { add_modifier = { modifier = country_memorialized_governor_warbot_tinkerer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_ai_aided_design } prev = { add_modifier = { modifier = country_memorialized_governor_ai_aided_design years = 10 } } }
-		if = { limit = { has_trait = leader_trait_bulldozer } prev = { add_modifier = { modifier = country_memorialized_governor_bulldozer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_analytical } prev = { add_modifier = { modifier = country_memorialized_governor_analytical years = 10 } } }
-		if = { limit = { has_trait = leader_trait_governor_brainslug } prev = { add_modifier = { modifier = country_memorialized_governor_brainslug years = 10 } } }
-		if = { limit = { has_trait = leader_trait_governor_gray } prev = { add_modifier = { modifier = country_memorialized_governor_gray years = 10 } } }
-		if = { limit = { has_trait = leader_trait_enclave_trader } prev = { add_modifier = { modifier = country_memorialized_governor_enclave_trader years = 10 } } }
-		if = { limit = { has_trait = leader_trait_waste_management_specialist } prev = { add_modifier = { modifier = country_memorialized_governor_waste_management_specialist years = 10 } } }
-		if = { limit = { has_trait = leader_trait_nuumismatic_priest } prev = { add_modifier = { modifier = country_memorialized_governor_nuumismatic_priest years = 10 } } }
-		if = { limit = { has_trait = leader_trait_governor_oracle } prev = { add_modifier = { modifier = country_memorialized_governor_oracle years = 10 } } }
-		if = { limit = { has_trait = leader_trait_curator } prev = { add_modifier = { modifier = country_memorialized_scientist_curator years = 10 } } }
-		if = { limit = { has_trait = leader_trait_scientist_erudite } prev = { add_modifier = { modifier = country_memorialized_scientist_erudite years = 10 } } }
-		if = { limit = { has_trait = leader_trait_scientist_cyborg } prev = { add_modifier = { modifier = country_memorialized_scientist_cyborg years = 10 } } }
-		if = { limit = { has_trait = leader_trait_scientist_synthetic } prev = { add_modifier = { modifier = country_memorialized_scientist_synthetic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_scientist_psionic } prev = { add_modifier = { modifier = country_memorialized_scientist_psionic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_scientist_chosen } prev = { add_modifier = { modifier = country_memorialized_scientist_chosen years = 10 } } }
-		if = { limit = { has_trait = leader_trait_cataloger } prev = { add_modifier = { modifier = country_memorialized_scientist_cataloger years = 10 } } }
-		if = { limit = { has_trait = leader_trait_scientist_brainslug } prev = { add_modifier = { modifier = country_memorialized_scientist_brainslug years = 10 } } }
-		# if = { limit = { has_trait = leader_trait_traumatized } prev = { add_modifier = { modifier = country_memorialized_scientist_traumatized years = 10 } } }
-		if = { limit = { has_trait = leader_trait_maimed } prev = { add_modifier = { modifier = country_memorialized_scientist_maimed years = 10 } } }
-		if = { limit = { has_trait = leader_trait_inspired_archaeologist } prev = { add_modifier = { modifier = country_memorialized_scientist_inspired_archaeologist years = 10 } } }
-		if = { limit = { has_trait = leader_trait_inspired_researcher } prev = { add_modifier = { modifier = country_memorialized_scientist_inspired_researcher years = 10 } } }
-		if = { limit = { has_trait = leader_trait_inspired_surveyor } prev = { add_modifier = { modifier = country_memorialized_scientist_inspired_surveyor years = 10 } } }
-		if = { limit = { has_trait = leader_trait_dragonslayer } prev = { add_modifier = { modifier = country_memorialized_admiral_dragonslayer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_admiral_erudite } prev = { add_modifier = { modifier = country_memorialized_admiral_erudite years = 10 } } }
-		if = { limit = { has_trait = leader_trait_admiral_cyborg } prev = { add_modifier = { modifier = country_memorialized_admiral_cyborg years = 10 } } }
-		if = { limit = { has_trait = leader_trait_admiral_synthetic } prev = { add_modifier = { modifier = country_memorialized_admiral_synthetic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_admiral_psionic } prev = { add_modifier = { modifier = country_memorialized_admiral_psionic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_admiral_chosen } prev = { add_modifier = { modifier = country_memorialized_admiral_chosen years = 10 } } }
-		if = { limit = { has_trait = leader_trait_mercenary_warrior } prev = { add_modifier = { modifier = country_memorialized_admiral_mercenary_warrior years = 10 } } }
-		if = { limit = { has_trait = leader_trait_foredoomed_to_a_rendezvous } prev = { add_modifier = { modifier = country_memorialized_admiral_foredoomed_to_a_rendezvous years = 10 } } }
-		if = { limit = { has_trait = leader_trait_maintenance_loop } prev = { add_modifier = { modifier = country_memorialized_admiral_maintenance_loop years = 10 } } }
-		if = { limit = { has_trait = leader_trait_unstable_code_base } prev = { add_modifier = { modifier = country_memorialized_admiral_unstable_code_base years = 10 } } }
-		if = { limit = { has_trait = leader_trait_restore_point } prev = { add_modifier = { modifier = country_memorialized_admiral_restore_point years = 10 } } }
-		if = { limit = { has_trait = leader_trait_admiral_brainslug } prev = { add_modifier = { modifier = country_memorialized_admiral_brainslug years = 10 } } }
-		if = { limit = { has_trait = leader_trait_admiral_hells_heart } prev = { add_modifier = { modifier = country_memorialized_admiral_hells_heart years = 10 } } }
-		if = { limit = { has_trait = leader_trait_caravan_counter } prev = { add_modifier = { modifier = country_memorialized_admiral_caravan_counter years = 10 } } }
-		if = { limit = { has_trait = leader_trait_general_erudite } prev = { add_modifier = { modifier = country_memorialized_general_erudite years = 10 } } }
-		if = { limit = { has_trait = leader_trait_general_cyborg } prev = { add_modifier = { modifier = country_memorialized_general_cyborg years = 10 } } }
-		if = { limit = { has_trait = leader_trait_general_synthetic } prev = { add_modifier = { modifier = country_memorialized_general_synthetic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_general_psionic } prev = { add_modifier = { modifier = country_memorialized_general_psionic years = 10 } } }
-		if = { limit = { has_trait = leader_trait_general_chosen } prev = { add_modifier = { modifier = country_memorialized_general_chosen years = 10 } } }
-		if = { limit = { has_trait = leader_trait_general_mercenary_warrior } prev = { add_modifier = { modifier = country_memorialized_general_mercenary_warrior years = 10 } } }
-		if = { limit = { has_trait = leader_trait_parts_cannibalizer } prev = { add_modifier = { modifier = country_memorialized_general_parts_cannibalizer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_demoralizer } prev = { add_modifier = { modifier = country_memorialized_general_demoralizer years = 10 } } }
-		if = { limit = { has_trait = leader_trait_erratic_morality_core } prev = { add_modifier = { modifier = country_memorialized_general_erratic_morality_core years = 10 } } }
-		if = { limit = { has_trait = leader_trait_general_brainslug } prev = { add_modifier = { modifier = country_memorialized_general_brainslug years = 10 } } }
-		### Achievement Modifiers
-		# Ruler Achievements
-		if = { limit = { has_leader_flag = first_ruler } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_starting_ruler years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_first_contact prev = { has_policy_flag = first_contact_cautious } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_first_contact_peaceful years = 10 } } }
-		else_if = { limit = { has_leader_flag = honor_leader_ruler_first_contact prev = { has_policy_flag = first_contact_attack_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_first_contact_aggressive years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_communications_established } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_communications_established years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_allowed_rebels } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_allowed_rebels years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_banned_ai prev = { has_policy_flag = ai_outlawed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_banned_ai years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_banned_robots prev = { has_policy_flag = robots_outlawed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_banned_robots years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_commissioned_new_ship_design } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_commissioned_new_ship_design years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_defensive_only prev = { has_policy_flag = no_wars } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_defensive_only years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_destroyer_of_nations } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_destroyer_of_nations years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_new_systems_claimed value > 10 } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_new_territory_expansionist years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_gained_territory } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_gained_territory years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_systems_gained value > 10 } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_territory_expansionist years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_lost_territory } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_lost_territory years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_purge_allowed prev = { has_policy_flag = purge_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_purge_allowed years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_purge_not_allowed prev = { has_policy_flag = purge_not_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_purge_not_allowed years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_refugees_allowed prev = { has_policy_flag = refugees_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_refugees_allowed years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_refugees_not_allowed prev = { has_policy_flag = refugees_not_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_refugees_not_allowed years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_slavery_not_allowed prev = { has_policy_flag = slavery_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_slavery_allowed years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_slavery_not_allowed prev = { has_policy_flag = slavery_not_allowed } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_slavery_not_allowed years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_species_drugged } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_species_drugged years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_species_enslaved } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_species_enslaved years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_species_given_citizenship } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_species_given_citizenship years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_species_purging } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_species_purging years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_unrestricted_wars prev = { has_policy_flag = unrestricted_wars } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_unrestricted_wars years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_uplift } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_uplift years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_changed_policy } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_changed_policy years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_changed_species_rights } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_changed_species_rights years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_systems_discovered value > 25 } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_great_explorer years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_purged_pops } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_purged_pops years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_pops_purged value > 50 } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_purged_pops_many years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_purged_species_from_galaxy } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_purged_species_from_galaxy years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_species_purged value > 10 } } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_purged_species_many years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_ruler_slumlord } prev = { add_modifier = { modifier = country_memorialized_ruler_achievement_slumlord years = 10 } } }
-		# Governor
-		if = { limit = { check_variable = { which = honor_leader_civilian_ships_built value > 10 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_civilian_buildup years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_mining_stations_built value > 10 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_mining_expansionist years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_research_stations_built value > 10 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_research_expansionist years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_observation_stations_built value > 2 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_observation_expansionist years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_colonies_started value > 4 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_colonization_wave years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_colonies_founded value > 4 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_colony_founder years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_blockers_cleared value > 10 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_terrain_leveler years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_pops_grown value > 50 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_pops_flourishing years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_buildings_constructed value > 10 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_edifice_constructor years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_districts_constructed value > 20 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_district_constructor years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_military_ships_built value > 25 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_military_buildup years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_armies_recruited value > 15 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_recruitment_drive years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_governor_allowed_rebels } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_allowed_rebels years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_governor_fully_developed_buildings } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_fully_developed_buildings years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_governor_fully_developed_districts } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_fully_developed_districts years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_governor_fully_developed_planet } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_fully_developed_planet years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_governor_purged_pops } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_purged_pops years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_pops_purged value > 50 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_purged_pops_many years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_governor_purged_species_from_galaxy } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_purged_species_from_galaxy years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_species_purged value > 10 } } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_purged_species_many years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_governor_slumlord } prev = { add_modifier = { modifier = country_memorialized_governor_achievement_slumlord years = 10 } } }
-		# Scientist
-		if = { limit = { check_variable = { which = honor_leader_evaded_hostiles value > 10 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_survivor years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_systems_discovered value > 15 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_grand_explorer years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_objects_surveyed value > 150 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_expert_rock_turner years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_systems_surveyed value > 10 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_system_surveyor years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_anomalies_researched value > 10 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_anomalist years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_special_projects_researched value > 10 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_project_manager years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_years_assisting_research value > 10 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_research_assistant years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_physics_techs_researched value > 10 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_physics_researcher years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_society_techs_researched value > 10 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_society_researcher years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_engineering_techs_researched value > 10 } } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_engineering_researcher years = 10 } } }
-		# Scientist Discoveries
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_automated_exploration } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_automated_exploration years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_cold_fusion_power } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_cold_fusion_power years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_wormhole_stabilization } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_wormhole_stabilization years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_jump_drive_1 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_jump_drive_1 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_ftl_inhibitor } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_ftl_inhibitor years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_combat_computers_3 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_combat_computers_3 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_synchronized_defences } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_synchronized_defences years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_planetary_shield_generator } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_planetary_shield_generator years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_mine_volatile_motes } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_mine_volatile_motes years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_mine_dark_matter } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_mine_dark_matter years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_lasers_2 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_lasers_2 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_extradimensional_weapon_1 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_extradimensional_weapon_1 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_mining_drone_weapon_1 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_mining_drone_weapon_1 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_space_cloud_weapon_1 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_space_cloud_weapon_1 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_null_void_beam } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_null_void_beam years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_deflector } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_dark_matter_deflector years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_power_core } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_dark_matter_power_core years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_psionic_barrier } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_psionic_barrier years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_space_whale_weapon_1 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_space_whale_weapon_1 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_galactic_markets } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_galactic_markets years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_nutrient_replication } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_nutrient_replication years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_tomb_world_adaption } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_tomb_world_adaption years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_gene_banks } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_gene_banks years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_morphogenetic_field_mastery } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_morphogenetic_field_mastery years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_genetic_resequencing } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_genetic_resequencing years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_gene_expressions } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_gene_expressions years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_selected_lineages } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_selected_lineages years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_capacity_boosters } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_capacity_boosters years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_regenerative_hull_tissue } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_regenerative_hull_tissue years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_psionic_theory } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_psionic_theory years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_subdermal_stimulation } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_subdermal_stimulation years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_ascension_theory } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_ascension_theory years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_penal_colonies } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_penal_colonies years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_resort_colonies } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_resort_colonies years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_epigenetic_triggers } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_epigenetic_triggers years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_gene_tailoring } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_gene_tailoring years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_terrestrial_sculpting } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_terrestrial_sculpting years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_ecological_adaptation } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_ecological_adaptation years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_climate_restoration } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_climate_restoration years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_neural_implants } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_neural_implants years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_galactic_administration } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_galactic_administration years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_mine_zro } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_mine_zro years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_corvette_hull_2 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_corvette_hull_2 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_destroyer_hull_2 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_destroyer_hull_2 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_cruiser_hull_2 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_cruiser_hull_2 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_battleship_hull_2 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_battleship_hull_2 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_defense_platform_hull_1 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_defense_platform_hull_1 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_modular_engineering } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_modular_engineering years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_space_defense_station_improvement } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_space_defense_station_improvement years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_crystal_armor_1 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_crystal_armor_1 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_crystal_armor_2 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_crystal_armor_2 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_robotic_workers } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_robotic_workers years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_droid_workers } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_droid_workers years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_synthetic_workers } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_synthetic_workers years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_construction_templates } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_construction_templates years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_starbase_5 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_starbase_5 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_housing_1 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_housing_1 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_housing_2 } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_housing_2 years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_propulsion } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_dark_matter_propulsion years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_mine_living_metal } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_mine_living_metal years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_mine_betharian } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_mine_betharian years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_mine_exotic_gases } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_mine_exotic_gases years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_scientist_discovered_mine_rare_crystals } prev = { add_modifier = { modifier = country_memorialized_scientist_achievement_discovered_mine_rare_crystals years = 10 } } }
-		# Admiral
-		if = { limit = { check_variable = { which = honor_leader_ships_lost value > 50 } } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_cursed_command years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_ships_destroyed value > 100 } } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_skilled_combat_veteran years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_space_critters_destroyed value > 100 } } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_exterminator years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_pirate_ships_destroyed value > 100 } } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_pirate_cleanser years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_crisis_ships_destroyed value > 100 } } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_hero_of_the_galaxy years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_fleets_destroyed value > 100 } } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_red_death years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_admiral_undefeated } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_undefeated years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_days_bombarding_planet value > 365 } } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_orbital_bombarder years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_space_battles_fought value > 25 } } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_seasoned_veteran years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_years_orbital_training_excersises value > 25 } leader_class = admiral } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_desk_admiral years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_admiral_eradicated_colony } prev = { add_modifier = { modifier = country_memorialized_admiral_achievement_eradicated_colony years = 10 } } }
-		# General
-		if = { limit = { check_variable = { which = honor_leader_years_orbital_training_excersises value > 25 } leader_class = general } prev = { add_modifier = { modifier = country_memorialized_general_achievement_desk_general_orbit years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_years_planet_training_excersises value > 25 } } prev = { add_modifier = { modifier = country_memorialized_general_achievement_desk_general_planet years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_general_undefeated } prev = { add_modifier = { modifier = country_memorialized_general_achievement_undefeated years = 10 } } }
-		if = { limit = { check_variable = { which = honor_leader_ground_combats_won value > 10 } } prev = { add_modifier = { modifier = country_memorialized_general_achievement_seasoned years = 10 } } }
-		if = { limit = { has_leader_flag = honor_leader_general_leveled_a_planet } prev = { add_modifier = { modifier = country_memorialized_general_achievement_total_war years = 10 } } }
-	}
-}
+# honor_leader_honor_leader = {
+# }
 # HONOR CODE for Memorials - permanent traits and accomplishments
 honor_leader_honor_leader_memorial = {
 	# Permanent bonus based on leader traits - ALL VANILLA TRAITS CHECKED.
@@ -652,7 +342,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = ruler
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = trait_ruler_eye_for_talent }
 							gender = male
@@ -679,7 +369,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = ruler
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = trait_ruler_eye_for_talent }
 							gender = male
@@ -706,7 +396,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = ruler
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = trait_ruler_eye_for_talent }
 							gender = male
@@ -733,7 +423,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = ruler
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = trait_ruler_eye_for_talent }
 							gender = male
@@ -760,7 +450,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = ruler
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = trait_ruler_eye_for_talent }
 							gender = male
@@ -795,7 +485,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = governor
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -822,7 +512,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = governor
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -849,7 +539,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = governor
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -876,7 +566,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = governor
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -903,7 +593,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = governor
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -938,7 +628,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = scientist
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -965,7 +655,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = scientist
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -992,7 +682,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = scientist
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1019,7 +709,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = scientist
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1046,7 +736,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = scientist
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1081,7 +771,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = admiral
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1108,7 +798,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = admiral
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1135,7 +825,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = admiral
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1162,7 +852,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = admiral
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1189,7 +879,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = admiral
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1224,7 +914,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = general
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1251,7 +941,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = general
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1278,7 +968,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = general
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1305,7 +995,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = general
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1332,7 +1022,7 @@ honor_leader_save_leader = {
 							event_leader = no
 							class = general
 							species = event_target:honor_leader_species
-							name = "NAME"
+							name = prev
 							skill = 1
 							traits = { trait = leader_trait_resilient }
 							gender = male
@@ -1744,9 +1434,11 @@ honor_leader_copy_flags_and_vars = {
 			# clear_variable = honor_leader_skill
 		}
 	}
-	# old method
-	# change_leader_portrait = event_target:honor_leader # (if not clone?)
-	# set_name = event_target:honor_leader # (if not clone?)
+	if = { # (if not clone) needed for restore saved leader
+		limit = { NOT = { has_leader_flag = honor_leader_interim_leader } has_leader_flag = honor_leader_dead_leader }
+		change_leader_portrait = event_target:honor_leader
+		set_name = event_target:honor_leader
+	}
 
 	set_variable = { which = honor_leader_skill value = event_target:honor_leader.honor_leader_skill }
 	set_variable = { which = dead_leader_level value = honor_leader_skill }
@@ -1802,6 +1494,7 @@ honor_leader_copy_flags_and_vars = {
 	}
 }
 
+# TODO update actual vanilla traits
 honor_leader_add_traits = {
 	event_target:honor_leader = {
 		# Generic leader traits
@@ -1811,6 +1504,12 @@ honor_leader_add_traits = {
 		if = { limit = { has_trait = leader_trait_substance_abuser } prev = { add_trait = leader_trait_substance_abuser } }
 		if = { limit = { has_trait = leader_trait_eager } prev = { add_trait = leader_trait_eager } }
 		if = { limit = { has_trait = leader_trait_arrested_development } prev = { add_trait = leader_trait_arrested_development } }
+		# DLC Traits generic
+		if = { limit = { has_trait = leader_trait_shroud_age } prev = { add_trait = leader_trait_shroud_age } }
+		if = { limit = { has_trait = leader_trait_flexible_programming } prev = { add_trait = leader_trait_flexible_programming } }
+		if = { limit = { has_trait = leader_trait_rigid_programming } prev = { add_trait = leader_trait_rigid_programming } }
+		if = { limit = { has_trait = leader_trait_newboot } prev = { add_trait = leader_trait_newboot } }
+
 		# if = { limit = { prev = { check_variable = { which = honor_leader_class value = 1 } } }
 		if = { limit = { prev = { leader_class = ruler } }
 			# Ruler traits
@@ -1874,9 +1573,9 @@ honor_leader_add_traits = {
 			if = { limit = { has_trait = leader_trait_enclave_trader } prev = { add_trait = leader_trait_enclave_trader } }
 			if = { limit = { has_trait = leader_trait_analytical } prev = { add_trait = leader_trait_analytical } }
 			if = { limit = { has_trait = leader_trait_righteous } prev = { add_trait = leader_trait_righteous } }
-			if = { limit = { has_trait = leader_trait_corrupt } prev = { add_trait = leader_trait_corrupt } }
+			else_if = { limit = { has_trait = leader_trait_corrupt } prev = { add_trait = leader_trait_corrupt } }
 			if = { limit = { has_trait = leader_trait_warbot_tinkerer } prev = { add_trait = leader_trait_warbot_tinkerer } }
-			if = { limit = { has_trait = leader_trait_ai_aided_design } prev = { add_trait = leader_trait_ai_aided_design } }
+			else_if = { limit = { has_trait = leader_trait_ai_aided_design } prev = { add_trait = leader_trait_ai_aided_design } }
 			if = { limit = { has_trait = leader_trait_bulldozer } prev = { add_trait = leader_trait_bulldozer } }
 		} else_if = { limit = { prev = { check_variable = { which = honor_leader_class value = 3 } } }
 			# Scientist traits
@@ -1962,11 +1661,6 @@ honor_leader_add_traits = {
 			if = { limit = { has_trait = leader_trait_demoralizer } prev = { add_trait = leader_trait_demoralizer } }
 			if = { limit = { has_trait = leader_trait_parts_cannibalizer } prev = { add_trait = leader_trait_parts_cannibalizer } }
 		}
-		# DLC Traits
-		if = { limit = { has_trait = leader_trait_shroud_age } prev = { add_trait = leader_trait_shroud_age } }
-		if = { limit = { has_trait = leader_trait_flexible_programming } prev = { add_trait = leader_trait_flexible_programming } }
-		if = { limit = { has_trait = leader_trait_rigid_programming } prev = { add_trait = leader_trait_rigid_programming } }
-		if = { limit = { has_trait = leader_trait_newboot } prev = { add_trait = leader_trait_newboot } }
 	}
 }
 

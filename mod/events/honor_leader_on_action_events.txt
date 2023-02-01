@@ -3530,6 +3530,9 @@ country_event = {
 			event_target:honor_copy_@from = {
 				# log = "COPY GOT: [This.GetName]"
 				save_event_target_as = honor_leader_clone
+				# Dead Leader Flags
+				set_leader_flag = honor_leader_dead_leader
+				set_leader_flag = honor_leader_interim_leader
 				honor_leader_copy_flags_and_vars = yes
 				set_saved_date = { key = leader_death_fired_date days_from_present = 0 }
 				# Is or was ruler
@@ -3547,6 +3550,9 @@ country_event = {
 					# TODO probably omit global for performance reason
 					save_event_target_as = event_target:honor_copy_@event_target:honor_leader
 					save_event_target_as = honor_leader_clone
+					# Dead Leader Flags
+					set_leader_flag = honor_leader_dead_leader
+					set_leader_flag = honor_leader_interim_leader
 					set_saved_date = { key = leader_death_fired_date days_from_present = 0 }
 					event_target:honor_leader = {
 						if = { # Is or was ruler
