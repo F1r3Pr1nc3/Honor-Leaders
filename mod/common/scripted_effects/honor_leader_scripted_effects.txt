@@ -1,4 +1,5 @@
 # HONOR CODE
+
 # Scope country
 honor_leader_honor_leader = {
 	event_target:honor_leader = {
@@ -1358,7 +1359,6 @@ honor_leader_save_leader = {
 }
 # Needs event_target:honor_leader = copy from
 honor_leader_copy_flags_and_vars = {
-
 	### Vars & Flags
 	event_target:honor_leader = {
 		export_trigger_value_to_variable = { trigger = leader_age variable = dead_leader_age }

@@ -1,5 +1,3 @@
-# TODO convert events to leader_event.
-
 namespace = honor_leader
 
 # Honor Leader- Dynamic pick leader type - load names
@@ -12,10 +10,69 @@ country_event = {
 		}
 		text = honor_leader.102.desc.egalitarian
 	}
+	desc = {
+		trigger = {
+			is_authoritarian = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 2 }
+		}
+		text = honor_leader.102.desc.authoritarian
+	}
+	desc = {
+		trigger = {
+			is_xenophobe = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 3 }
+		}
+		text = honor_leader.102.desc.xenophobe
+	}
+	desc = {
+		trigger = {
+			is_xenophile = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 4 }
+		}
+		text = honor_leader.102.desc.xenophile
+	}
+	desc = {
+		trigger = {
+			is_pacifist = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 5 }
+		}
+		text = honor_leader.102.desc.pacifist
+	}
+	desc = {
+		trigger = {
+			is_militarist = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 6 }
+		}
+		text = honor_leader.102.desc.militarist
+	}
+	desc = {
+		trigger = {
+			is_spiritualist = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 7 }
+		}
+		text = honor_leader.102.desc.spiritualist
+	}
+	desc = {
+		trigger = {
+			is_materialist = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 8 }
+		}
+		text = honor_leader.102.desc.materialist
+	}
+	desc = {
+		trigger = {
+			is_gestalt = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 9 }
+		}
+		text = honor_leader.102.desc.gestalt
+	}
 	title = "honor_leader.101.title"
 	picture = "GFX_evt_alien_propaganda"
 	is_triggered_only = yes
-	trigger = { }
+	# trigger = {  }
+	immediate = {
+		save_event_target_as = honor_leader_country
+	}
 	option = {
 		name = "honor_leader.101.ruler"
 		# Retrieve leaders and set event targets for names.
@@ -54,7 +111,6 @@ country_event = {
 				effect = { save_event_target_as = honor_leader5 }
 			}
 		}
-		save_event_target_as = honor_leader_country
 		set_variable = { which = honor_leader_type_selected value = 1 }
 		country_event = { id = honor_leader.102 }
 	}
@@ -96,7 +152,6 @@ country_event = {
 				effect = { save_event_target_as = honor_leader5 }
 			}
 		}
-		save_event_target_as = honor_leader_country
 		set_variable = { which = honor_leader_type_selected value = 2 }
 		country_event = { id = honor_leader.102 }
 	}
@@ -138,7 +193,6 @@ country_event = {
 				effect = { save_event_target_as = honor_leader5 }
 			}
 		}
-		save_event_target_as = honor_leader_country
 		set_variable = { which = honor_leader_type_selected value = 3 }
 		country_event = { id = honor_leader.102 }
 	}
@@ -180,7 +234,6 @@ country_event = {
 				effect = { save_event_target_as = honor_leader5 }
 			}
 		}
-		save_event_target_as = honor_leader_country
 		set_variable = { which = honor_leader_type_selected value = 4 }
 		country_event = { id = honor_leader.102 }
 	}
@@ -222,7 +275,6 @@ country_event = {
 				effect = { save_event_target_as = honor_leader5 }
 			}
 		}
-		save_event_target_as = honor_leader_country
 		set_variable = { which = honor_leader_type_selected value = 5 }
 		country_event = { id = honor_leader.102 }
 	}
@@ -239,12 +291,71 @@ country_event = {
 		}
 		text = honor_leader.102.desc.egalitarian
 	}
+	desc = {
+		trigger = {
+			is_authoritarian = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 2 }
+		}
+		text = honor_leader.102.desc.authoritarian
+	}
+	desc = {
+		trigger = {
+			is_xenophobe = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 3 }
+		}
+		text = honor_leader.102.desc.xenophobe
+	}
+	desc = {
+		trigger = {
+			is_xenophile = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 4 }
+		}
+		text = honor_leader.102.desc.xenophile
+	}
+	desc = {
+		trigger = {
+			is_pacifist = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 5 }
+		}
+		text = honor_leader.102.desc.pacifist
+	}
+	desc = {
+		trigger = {
+			is_militarist = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 6 }
+		}
+		text = honor_leader.102.desc.militarist
+	}
+	desc = {
+		trigger = {
+			is_spiritualist = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 7 }
+		}
+		text = honor_leader.102.desc.spiritualist
+	}
+	desc = {
+		trigger = {
+			is_materialist = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 8 }
+		}
+		text = honor_leader.102.desc.materialist
+	}
+	desc = {
+		trigger = {
+			is_gestalt = yes
+			# check_variable = { which = honor_leader_ethic_selected value = 9 }
+		}
+		text = honor_leader.102.desc.gestalt
+	}
 	title = "honor_leader.102.title"
 	picture = "GFX_evt_alien_propaganda"
 	is_triggered_only = yes
-	trigger = { }
+	# trigger = {  }
 	option = {
-		name = "honor_leader.102.first"
+		name = {
+			trigger = { exists = event_target:honor_leader1 }
+			text = "honor_leader.102.first"
+		}
 		trigger = {
 			exists = event_target:honor_leader1
 			OR = {
@@ -555,38 +666,25 @@ country_event = {
 					# honor_leader_randomize_leader_stats = yes
 					set_variable_to_random_value = { which = honor_leader_random_start min = 111 max = 2111 rounded = yes }
 					# Years of Service
-					set_variable_to_random_value = { which = honor_leader_random_service min = 11 max = 110 rounded = yes }
-					set_variable = { which = honor_leader_years_of_service value = honor_leader_random_service }
+					set_variable_to_random_value = { which = honor_leader_years_of_service min = 11 max = 110 rounded = yes }
 					# set_variable = { which = honor_leader_calender_year value = honor_leader_random_start }
 					set_variable = { which = honor_leader_random_end value = honor_leader_random_start }
-					change_variable = { which = honor_leader_random_end value = honor_leader_random_service }
+					change_variable = { which = honor_leader_random_end value = honor_leader_years_of_service }
 					subtract_variable = { which = honor_leader_random_start value = 20 }
 					subtract_variable = { which = honor_leader_random_end value = 20 }
-
-					random_list = {
-						10 = { set_variable = { which = honor_leader_random_skill value = 1 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 2 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 3 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 4 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 5 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 6 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 7 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 8 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 9 } }
-						10 = { set_variable = { which = honor_leader_random_skill value = 10 } }
-					}
-					set_variable = { which = honor_leader_skill value = honor_leader_random_skill }
 					## Skill (if not clone)
-					if = { limit	=	{ check_variable = { which = honor_leader_skill value = 1 } } set_skill = 1 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 2 } } set_skill = 2 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 3 } } set_skill = 3 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 4 } } set_skill = 4 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 5 } } set_skill = 5 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 6 } } set_skill = 6 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 7 } } set_skill = 7 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 8 } } set_skill = 8 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 9 } } set_skill = 9 }
-					else_if  = { limit = { check_variable = { which = honor_leader_skill value = 10 } } set_skill = 10 }
+					random_list = {
+						1 = { set_skill = 1 set_variable = { which = honor_leader_skill value = 1 } }
+						1 = { set_skill = 2 set_variable = { which = honor_leader_skill value = 2 } }
+						1 = { set_skill = 3 set_variable = { which = honor_leader_skill value = 3 } }
+						1 = { set_skill = 4 set_variable = { which = honor_leader_skill value = 4 } }
+						1 = { set_skill = 5 set_variable = { which = honor_leader_skill value = 5 } }
+						1 = { set_skill = 6 set_variable = { which = honor_leader_skill value = 6 } }
+						1 = { set_skill = 7 set_variable = { which = honor_leader_skill value = 7 } }
+						1 = { set_skill = 8 set_variable = { which = honor_leader_skill value = 8 } }
+						1 = { set_skill = 9 set_variable = { which = honor_leader_skill value = 9 } }
+						1 = { set_skill = 10 set_variable = { which = honor_leader_skill value = 10 } }
+					}
 
 					set_leader_flag = honor_dead_leader
 					set_leader_flag = honor_leader_historical_leader
@@ -596,7 +694,7 @@ country_event = {
 						multiply_variable = { which = honor_leader_office_start value = -360 }
 						set_variable = { which = honor_leader_office_end value = honor_leader_random_end }
 						multiply_variable = { which = honor_leader_office_end value = -360 }
-						set_variable = { which = hon_years_in_office value = honor_leader_random_service }
+						set_variable = { which = hon_years_in_office value = honor_leader_years_of_service }
 						set_saved_date = { key = ruler_stint_start_date_1 days_from_present = honor_leader_office_start }
 						set_saved_date = { key = ruler_stint_end_date_1 days_from_present = honor_leader_office_end }
 					}
@@ -854,7 +952,7 @@ leader_event = {
 	}
 	title = "honor_leader.103.title"
 	picture_event_data = {
-		portrait = event_target:honor_leader.species # Without species not working!?
+		portrait = root # event_target:honor_leader.species Without species not working!?
 		planet_background = event_target:honor_leader_country
 		graphical_culture = event_target:honor_leader_country
 		city_level = event_target:honor_leader_country
@@ -927,346 +1025,8 @@ leader_event = {
 			play_sound = event_celebration
 			add_resource = { influence = -25 unity = -100 }
 			hidden_effect = {
-				if = {
-					limit = {
-						NOT = { has_country_flag = honor_leader_disable_renaming }
-					}
-					set_spawn_system_batch = begin
-					if = {
-						limit = {
-							event_target:honor_leader = {
-								OR = {
-									leader_class = ruler
-									has_leader_flag = honor_leader_was_ruler
-								}
-							}
-						}
-						# Rename entire system after ruler - credit to https://steamcommunity.com/sharedfiles/filedetails/?id=1323820517 for original implementation via planet edict
-						random_system_within_border = {
-							limit = {
-								starting_system = no
-								NOT = { has_star_flag = honor_leader_renamed }
-							}
-							starbase = {
-								fleet = {
-									random_owned_ship = {
-										limit = { is_ship_class = shipclass_starbase }
-										set_name = { key = "honor_leader.Rename_starbase" variable_string = "honor_leader.GetName" }
-									}
-									set_name = { key = "honor_leader.Rename_starbase" variable_string = "honor_leader.GetName" }
-								}
-							}
-							set_name = root
-							set_star_flag = honor_leader_renamed
-							export_trigger_value_to_variable = {
-								trigger = count_system_planet
-								parameters = { limit = { is_star = yes } }
-								variable = honor_leader_stars
-							}
-							if = {
-								limit = {
-									check_variable = { which = honor_leader_stars value > 1 }
-								}
-								every_system_planet = {
-									limit = {
-										is_star = yes
-										NOT = { has_planet_flag = honor_leader_renamed }
-									}
-									# set_name = "[Prev.GetMainstarName]"
-									set_name = {
-										key = "NAME_honor_leader_star"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMainstarName"
-									}
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_observation_outpost = yes }
-										observation_outpost = {
-											set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									set_planet_flag = honor_leader_renamed
-								} else = { set_name = prev }
-							}
-							clear_variable = honor_leader_stars
-							every_system_planet = {
-								limit = {
-									is_star = yes
-									has_moon = yes
-								}
-								clear_variable = honor_leader_planets
-								every_moon = {
-									limit = {
-										is_asteroid = no
-										is_artificial = no
-									}
-									prev = {
-										change_variable = { which = honor_leader_planets value = 1 }
-									}
-									# set_name = "[Prev.GetMainstarPlanetName]"
-									set_name = {
-										key = "NAME_honor_leader_planet"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMainstarPlanetName"
-									}
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_observation_outpost = yes }
-										observation_outpost = {
-											set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									set_planet_flag = honor_leader_renamed
-								}
-								clear_variable = honor_leader_planets
-							}
-							clear_variable = honor_leader_planets
-							every_system_planet = {
-								limit = {
-									is_asteroid = no
-									is_star = no
-									is_moon = no
-									is_artificial = no
-									NOT = { has_planet_flag = honor_leader_renamed }
-								}
-								prev = {
-									change_variable = { which = honor_leader_planets value = 1 }
-								}
-								# set_name = "[Prev.GetMainstarPlanetName]"
-								set_name = {
-									key = "NAME_honor_leader_planet"
-									variable_string = "Prev.GetName"
-									variable_string = "Prev.GetMainstarPlanetName"
-								}
-								if = { limit = { has_mining_station = yes }
-									mining_station = {
-										set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_research_station = yes }
-									research_station = {
-										set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_observation_outpost = yes }
-									observation_outpost = {
-										set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								set_planet_flag = honor_leader_renamed
-								clear_variable = honor_leader_moons
-								every_moon = {
-									limit = {
-										is_asteroid = no
-										is_artificial = no
-									}
-									prev = {
-										change_variable = { which = honor_leader_moons value = 1 }
-									}
-									# set_name = "[Prev.GetMoonNameSS]"
-									set_name = {
-										key = "NAME_honor_leader_moon"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMoonNameSS"
-									}
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_observation_outpost = yes }
-										observation_outpost = {
-											set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									set_planet_flag = honor_leader_renamed
-								}
-								clear_variable = honor_leader_moons
-							}
-							clear_variable = honor_leader_planets
-							every_system_planet = {
-								limit = { merg_is_habitat = no }
-								every_moon = {
-									limit = { merg_is_habitat = yes }
-									set_name = { key = "honor_leader.Rename_colony" variable_string = "honor_leader.GetName" }
-								}
-							}
-						}
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = corvette
-									is_ship_size = destroyer
-									is_ship_size = cruiser
-									is_ship_size = battleship
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-						}
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = { leader_class = governor }
-						}
-						random_owned_planet = {
-							limit = {
-								NOT = { has_planet_flag = honor_leader_renamed }
-							}
-							set_planet_flag = honor_leader_renamed
-							set_name = root
-						}
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = colonizer
-									is_ship_size = sponsored_colonizer
-									is_ship_size = constructor
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-							fleet = {
-								set_fleet_flag = honor_leader_renamed
-								set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-							}
-						}
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = { leader_class = scientist }
-						}
-						random_system_within_border = {
-							limit = {
-								NOT = { has_star_flag = honor_leader_renamed }
-							}
-							random_system_planet = {
-								limit = {
-									NOT = { has_planet_flag = honor_leader_renamed }
-								}
-								set_planet_flag = honor_leader_renamed
-								set_name = root
-								if = { limit = { has_mining_station = yes }
-									mining_station = {
-										set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_research_station = yes }
-									research_station = {
-										set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_observation_outpost = yes }
-									observation_outpost = {
-										set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-							}
-						}
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = science
-									is_ship_size = constructor
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-							fleet = {
-								set_fleet_flag = honor_leader_renamed
-								set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-							}
-						}
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = { leader_class = admiral }
-						}
-						random_owned_fleet = {
-							limit = {
-								NOT = { has_fleet_flag = honor_leader_renamed }
-								num_ships > 1
-							}
-							set_fleet_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_fleet" variable_string = "honor_leader.GetName" }
-						}
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = corvette
-									is_ship_size = destroyer
-									is_ship_size = cruiser
-									is_ship_size = battleship
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-						}
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = { leader_class = general }
-						}
-						random_owned_army = { set_name = { key = "honor_leader.Rename_fleet" variable_string = "honor_leader.GetName" } }
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = corvette
-									is_ship_size = destroyer
-									is_ship_size = cruiser
-									is_ship_size = battleship
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-						}
-					}
-					set_spawn_system_batch = end
-				}
-				if = { limit = { NOT = { has_country_flag = honor_leader_disable_bonus } }
-					honor_leader_honor_leader = yes
-				}
+				save_event_target_as = honor_leader_country
+				country_event = { id = new_honor_leader.203 days = -1 }
 				## Resave name leaders, key and flag of selected.
 				# Names
 				if = { limit = { exists = event_target:honor_leader1 }
@@ -1479,7 +1239,7 @@ leader_event = {
 						kill_leader = { show_notification = no }
 					}
 				}
-				every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+				random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 				remove_country_flag = honor_leader_view_page_2
 				remove_country_flag = honor_leader_view_page_3
 				remove_country_flag = honor_leader_view_page_4
@@ -1704,7 +1464,7 @@ leader_event = {
 						kill_leader = { show_notification = no }
 					}
 				}
-				every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+				random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 				remove_country_flag = honor_leader_view_page_2
 				remove_country_flag = honor_leader_view_page_3
 				remove_country_flag = honor_leader_view_page_4
@@ -2109,7 +1869,7 @@ leader_event = {
 					}
 					remove_country_flag = honor_leader_has_dead_general5
 				}
-				every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+				random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 				remove_country_flag = honor_leader_view_page_2
 				remove_country_flag = honor_leader_view_page_3
 				remove_country_flag = honor_leader_view_page_4
@@ -2322,7 +2082,6 @@ leader_event = {
 		from = {
 			set_country_flag = honor_leader_view_page_2
 			leader = {
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2343,7 +2102,6 @@ leader_event = {
 		from = {
 			set_country_flag = honor_leader_view_page_3
 			leader = {
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2364,7 +2122,6 @@ leader_event = {
 		from = {
 			set_country_flag = honor_leader_view_page_4
 			leader = {
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2390,356 +2147,8 @@ leader_event = {
 			play_sound = event_celebration
 			add_resource = { influence = -70 unity = -250 }
 			hidden_effect = {
-				save_event_target_as = honor_leader_country
-				if = {
-					limit = {
-						NOT = { has_country_flag = honor_leader_disable_renaming }
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = {
-								OR = {
-									leader_class = ruler
-									has_leader_flag = honor_leader_was_ruler
-								}
-							}
-						}
-						# Rename entire system after ruler - credit to https://steamcommunity.com/sharedfiles/filedetails/?id=1323820517 for original implementation via planet edict
-						random_system_within_border = {
-							limit = {
-								starting_system = no
-								NOT = { has_star_flag = honor_leader_renamed }
-							}
-							starbase = {
-								fleet = {
-									random_owned_ship = {
-										limit = { is_ship_class = shipclass_starbase }
-										set_name = { key = "honor_leader.Rename_starbase" variable_string = "honor_leader.GetName" }
-									}
-									set_name = { key = "honor_leader.Rename_starbase" variable_string = "honor_leader.GetName" }
-								}
-							}
-							set_name = root
-							set_star_flag = honor_leader_renamed
-							# Errors thrown on galactic_object for the stars are fine since stars count as planet and galactic_object scopes.
-							export_trigger_value_to_variable = {
-								trigger = count_system_planet
-								parameters = { limit = { is_star = yes } }
-								variable = honor_leader_stars
-							}
-							every_system_planet = {
-								limit = {
-									is_star = yes
-									NOT = { has_planet_flag = honor_leader_renamed }
-								}
-								if = {
-									limit = {
-										prev = {
-											check_variable = { which = honor_leader_stars value > 1 }
-										}
-									}
-									# set_name = "[Prev.GetMainstarName]"
-									set_name = {
-										key = "NAME_honor_leader_star"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMainstarName"
-									}
-								} else = { set_name = prev }
-								if = { limit = { has_mining_station = yes }
-									mining_station = {
-										set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_research_station = yes }
-									research_station = {
-										set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-							}
-							clear_variable = honor_leader_stars
-							every_system_planet = {
-								limit = {
-									is_star = yes
-									has_moon = yes
-								}
-								clear_variable = honor_leader_planets
-								every_moon = {
-									limit = {
-										is_asteroid = no
-										is_artificial = no
-									}
-									prev = {
-										change_variable = { which = honor_leader_planets value = 1 }
-									}
-									# set_name = "[Prev.GetMainstarPlanetName]"
-									set_name = {
-										key = "NAME_honor_leader_planet"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMainstarPlanetName"
-									}
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_observation_outpost = yes }
-										observation_outpost = {
-											set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									set_planet_flag = honor_leader_renamed
-									clear_variable = honor_leader_moons
-									every_moon = {
-										limit = {
-											is_asteroid = no
-											is_artificial = no
-										}
-										prev = {
-											change_variable = { which = honor_leader_moons value = 1 }
-										}
-										# set_name = "[Prev.GetMoonNameSS]"
-										set_name = {
-											key = "NAME_honor_leader_moon"
-											variable_string = "Prev.GetName"
-											variable_string = "Prev.GetMoonNameSS"
-										}
-										if = { limit = { has_mining_station = yes }
-											mining_station = {
-												set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-												random_owned_ship = { set_name = prev }
-											}
-										}
-										if = { limit = { has_research_station = yes }
-											research_station = {
-												set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-												random_owned_ship = { set_name = prev }
-											}
-										}
-										if = { limit = { has_observation_outpost = yes }
-											observation_outpost = {
-												set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-												random_owned_ship = { set_name = prev }
-											}
-										}
-										set_planet_flag = honor_leader_renamed
-									}
-									clear_variable = honor_leader_moons
-								}
-								clear_variable = honor_leader_planets
-							}
-							clear_variable = honor_leader_planets
-							every_system_planet = {
-								limit = {
-									is_asteroid = no
-									is_star = no
-									is_moon = no
-									is_artificial = no
-									NOT = { has_planet_flag = honor_leader_renamed }
-								}
-								prev = {
-									change_variable = { which = honor_leader_planets value = 1 }
-								}
-								# set_name = "[Prev.GetMainstarPlanetName]"
-								set_name = {
-									key = "NAME_honor_leader_planet"
-									variable_string = "Prev.GetName"
-									variable_string = "Prev.GetMainstarPlanetName"
-								}
-								if = { limit = { has_mining_station = yes }
-									mining_station = {
-										set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_research_station = yes }
-									research_station = {
-										set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_observation_outpost = yes }
-									observation_outpost = {
-										set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								set_planet_flag = honor_leader_renamed
-								clear_variable = honor_leader_moons
-								every_moon = {
-									limit = {
-										is_asteroid = no
-										is_artificial = no
-									}
-									prev = {
-										change_variable = { which = honor_leader_moons value = 1 }
-									}
-										# set_name = "[Prev.GetMoonNameSS]"
-										set_name = {
-											key = "NAME_honor_leader_moon"
-											variable_string = "Prev.GetName"
-											variable_string = "Prev.GetMoonNameSS"
-										}
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_observation_outpost = yes }
-										observation_outpost = {
-											set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									set_planet_flag = honor_leader_renamed
-								}
-								clear_variable = honor_leader_moons
-							}
-							clear_variable = honor_leader_planets
-							every_system_planet = {
-								limit = { merg_is_habitat = no }
-								every_moon = {
-									limit = { merg_is_habitat = yes }
-									set_name = { key = "honor_leader.Rename_colony" variable_string = "honor_leader.GetName" }
-								}
-							}
-						}
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = corvette
-									is_ship_size = destroyer
-									is_ship_size = cruiser
-									is_ship_size = battleship
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-						}
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = { leader_class = governor }
-						}
-						random_owned_planet = {
-							limit = {
-								NOT = { has_planet_flag = honor_leader_renamed }
-								is_homeworld = no
-							}
-							set_planet_flag = honor_leader_renamed
-							set_name = root
-						}
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = colonizer
-									is_ship_size = sponsored_colonizer
-									is_ship_size = constructor
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-						}
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = { leader_class = scientist }
-						}
-						random_system_within_border = {
-							limit = {
-								NOT = { has_star_flag = honor_leader_renamed }
-							}
-							random_system_planet = {
-								limit = {
-									NOT = { has_planet_flag = honor_leader_renamed }
-									is_homeworld = no
-								}
-								set_planet_flag = honor_leader_renamed
-								set_name = root
-							}
-						}
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = science
-									is_ship_size = constructor
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-						}
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = { leader_class = admiral }
-						}
-						random_owned_fleet = {
-							limit = {
-								NOT = { has_fleet_flag = honor_leader_renamed }
-								num_ships > 1
-								fleet_size > 1
-							}
-							set_fleet_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_fleet" variable_string = "honor_leader.GetName" }
-						}
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = corvette
-									is_ship_size = destroyer
-									is_ship_size = cruiser
-									is_ship_size = battleship
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-						}
-					}
-					if = {
-						limit = {
-							event_target:honor_leader = { leader_class = general }
-						}
-						random_owned_army = { set_name = { key = "honor_leader.Rename_fleet" variable_string = "honor_leader.GetName" } }
-						random_owned_ship = {
-							limit = {
-								NOT = { has_ship_flag = honor_leader_renamed }
-								OR = {
-									is_ship_size = corvette
-									is_ship_size = destroyer
-									is_ship_size = cruiser
-									is_ship_size = battleship
-								}
-							}
-							set_ship_flag = honor_leader_renamed
-							set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-						}
-					}
-				}
-				if = { limit = { NOT = { has_country_flag = honor_leader_disable_bonus } }
-					honor_leader_honor_leader = yes
-				}
-
-				every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+				country_event = { id = new_honor_leader.203 days = -1 }
+				random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 				remove_country_flag = honor_leader_view_page_2
 				remove_country_flag = honor_leader_view_page_3
 				remove_country_flag = honor_leader_view_page_4
@@ -2759,7 +2168,6 @@ leader_event = {
 		from = {
 			leader = {
 				set_leader_flag = honor_leader_has_been_viewed
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2777,8 +2185,11 @@ leader_event = {
 		from = {
 			random_owned_leader = {
 				limit = { leader_class = governor }
+				weights = {
+					base = 1
+					modifier = { add = 9 NOT = { has_leader_flag = honor_leader_has_been_viewed } }
+				}
 				set_leader_flag = honor_leader_has_been_viewed
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2796,8 +2207,11 @@ leader_event = {
 		from = {
 			random_owned_leader = {
 				limit = { leader_class = scientist }
+				weights = {
+					base = 1
+					modifier = { add = 9 NOT = { has_leader_flag = honor_leader_has_been_viewed } }
+				}
 				set_leader_flag = honor_leader_has_been_viewed
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2815,8 +2229,11 @@ leader_event = {
 		from = {
 			random_owned_leader = {
 				limit = { leader_class = admiral }
+				weights = {
+					base = 1
+					modifier = { add = 9 NOT = { has_leader_flag = honor_leader_has_been_viewed } }
+				}
 				set_leader_flag = honor_leader_has_been_viewed
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2834,8 +2251,11 @@ leader_event = {
 		from = {
 			random_owned_leader = {
 				limit = { leader_class = general }
+				weights = {
+					base = 1
+					modifier = { add = 9 NOT = { has_leader_flag = honor_leader_has_been_viewed } }
+				}
 				set_leader_flag = honor_leader_has_been_viewed
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2851,8 +2271,8 @@ leader_event = {
 		}
 		from = {
 			random_owned_leader = {
+				limit = { NOT = { has_leader_flag = honor_leader_has_been_viewed } }
 				set_leader_flag = honor_leader_has_been_viewed
-				save_event_target_as = honor_leader
 				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
 			}
 		}
@@ -2869,7 +2289,7 @@ leader_event = {
 			}
 		}
 		from = {
-			every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+			random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 			remove_country_flag = honor_leader_view_page_2
 			remove_country_flag = honor_leader_view_page_3
 			remove_country_flag = honor_leader_view_page_4
@@ -2879,7 +2299,7 @@ leader_event = {
 		name = "honor_leader.111.exit"
 		trigger = { }
 		from = {
-			every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+			random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 			remove_country_flag = honor_leader_view_page_2
 			remove_country_flag = honor_leader_view_page_3
 			remove_country_flag = honor_leader_view_page_4
@@ -3058,20 +2478,20 @@ country_event = {
 		}
 	}
 	after = {
-		if = { # Only to be sure
-			limit = {
-				exists = fromfrom
-				fromfrom = {
-					is_scope_type = leader
-					OR = {
-						has_leader_flag = honor_clone_created
-						NOT = { is_same_value = event_target:honor_leader_clone }
+		hidden_effect = {
+			if = { # Only to be sure
+				limit = {
+					exists = fromfrom
+					fromfrom = {
+						is_scope_type = leader
+						OR = {
+							has_leader_flag = honor_clone_created
+							NOT = { is_same_value = event_target:honor_leader_clone }
+						}
 					}
 				}
+				fromfrom = { kill_leader = { show_notification = no } }
 			}
-			fromfrom = { kill_leader = { show_notification = no } }
-		}
-		hidden_effect = {
 			remove_country_flag = honor_leader_view_page_1
 			remove_country_flag = honor_leader_view_page_2
 			remove_country_flag = honor_leader_view_page_3
@@ -3087,413 +2507,15 @@ country_event = {
 			# resource_stockpile_compare = { resource = unity value >= ?? }
 		}
 		add_resource = { influence = -75 }
+		play_sound = event_celebration
 		hidden_effect = {
-			play_sound = event_celebration
 			save_event_target_as = honor_leader_country
 			if = { limit = { NOT = { exists = event_target:honor_leader } }
 				event_target:honor_leader_clone = { save_event_target_as = honor_leader } # for loc?
 			}
-			if = { limit = { NOT = { has_country_flag = honor_leader_disable_renaming } }
-				if = {
-					limit = {
-						event_target:honor_leader = {
-							OR = {
-								leader_class = ruler
-								has_leader_flag = honor_leader_was_ruler
-							}
-						}
-					}
-					# Rename entire system after ruler - credit to https://steamcommunity.com/sharedfiles/filedetails/?id=1323820517 for original implementation via planet edict
-					random_system_within_border = {
-						limit = {
-							starting_system = no
-							is_capital_system = no
-							NOT = { has_star_flag = honor_leader_renamed }
-						}
-						starbase = {
-							fleet = {
-								random_owned_ship = {
-									limit = { is_ship_class = shipclass_starbase }
-									set_name = { key = "honor_leader.Rename_starbase" variable_string = "honor_leader.GetName" }
-								}
-								set_name = { key = "honor_leader.Rename_starbase" variable_string = "honor_leader.GetName" }
-							}
-						}
-						hidden_effect = {
-							set_name = event_target:honor_leader_clone
-							set_star_flag = honor_leader_renamed
-							set_variable = { which = honor_leader_stars value = 0 }
-							# Errors thown on galactic_object for the stars are fine since stars count as planet and galactic_object scopes.
-							every_system_planet = {
-								limit = { is_star = yes }
-								prev = {
-									change_variable = { which = honor_leader_stars value = 1 }
-								}
-								if = {
-									limit = {
-										prev = {
-											check_variable = { which = honor_leader_stars value > 1 }
-										}
-									}
-									# set_name = "[Prev.GetName] B"
-									set_name = {
-										key = "NAME_honor_leader_star"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMainstarName"
-									}
-									set_planet_flag = honor_leader_renamed
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-								}
-							}
-							every_system_planet = {
-								limit = {
-									is_star = yes
-									NOT = { has_planet_flag = honor_leader_renamed }
-								}
-								if = {
-									limit = {
-										prev = {
-											check_variable = { which = honor_leader_stars value >= 2 }
-										}
-									}
-									# set_name = "[Prev.GetName] A"
-									set_name = {
-										key = "NAME_honor_leader_star"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMainstarName"
-									}
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-								} else = {
-									set_name = prev
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-								}
-							}
-							every_system_planet = {
-								limit = {
-									is_star = yes
-									has_moon = yes
-								}
-								prev = {
-									set_variable = { which = honor_leader_planets value = 0 }
-								}
-								every_moon = {
-									limit = {
-										is_asteroid = no
-										is_artificial = no
-									}
-									prevprev = {
-										change_variable = { which = honor_leader_planets value = 1 }
-									}
-									# set_name = "[Prev.GetName] I"
-									set_name = {
-										key = "NAME_honor_leader_planet"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMainstarPlanetName"
-									}
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_observation_outpost = yes }
-										observation_outpost = {
-											set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-
-									set_planet_flag = honor_leader_renamed
-									prevprev = {
-										set_variable = { which = honor_leader_moons value = 0 }
-									}
-									every_moon = {
-										limit = {
-											is_asteroid = no
-											is_artificial = no
-										}
-										prevprevprev = {
-											change_variable = { which = honor_leader_moons value = 1 }
-										}
-										# set_name = "[Prev.GetName]a"
-										set_name = {
-											key = "NAME_honor_leader_moon"
-											variable_string = "Prev.GetName"
-											variable_string = "Prev.GetMoonNameSS"
-										}
-										if = { limit = { has_mining_station = yes }
-											mining_station = {
-												set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-												random_owned_ship = { set_name = prev }
-											}
-										}
-										if = { limit = { has_research_station = yes }
-											research_station = {
-												set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-												random_owned_ship = { set_name = prev }
-											}
-										}
-										if = { limit = { has_observation_outpost = yes }
-											observation_outpost = {
-												set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-												random_owned_ship = { set_name = prev }
-											}
-										}
-										set_planet_flag = honor_leader_renamed
-									}
-								}
-							}
-							set_variable = { which = honor_leader_planets value = 0 }
-							every_system_planet = {
-								limit = {
-									is_asteroid = no
-									is_star = no
-									is_moon = no
-									is_artificial = no
-									NOT = { has_planet_flag = honor_leader_renamed }
-								}
-								prev = {
-									change_variable = { which = honor_leader_planets value = 1 }
-								}
-								# set_name = "[Prev.GetName] I"
-								set_name = {
-									key = "NAME_honor_leader_planet"
-									variable_string = "Prev.GetName"
-									variable_string = "Prev.GetMainstarPlanetName"
-								}
-								if = { limit = { has_mining_station = yes }
-									mining_station = {
-										set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_research_station = yes }
-									research_station = {
-										set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								if = { limit = { has_observation_outpost = yes }
-									observation_outpost = {
-										set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-										random_owned_ship = { set_name = prev }
-									}
-								}
-								set_planet_flag = honor_leader_renamed
-								prev = {
-									set_variable = { which = honor_leader_moons value = 0 }
-								}
-								every_moon = {
-									limit = {
-										is_asteroid = no
-										is_artificial = no
-									}
-									prevprev = {
-										change_variable = { which = honor_leader_moons value = 1 }
-									}
-
-									# set_name = "[Prev.GetName]a"
-									set_name = {
-										key = "NAME_honor_leader_moon"
-										variable_string = "Prev.GetName"
-										variable_string = "Prev.GetMoonNameSS"
-									}
-									if = { limit = { has_mining_station = yes }
-										mining_station = {
-											set_name = { key = "honor_leader.Rename_mining" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-									}
-									if = { limit = { has_research_station = yes }
-										research_station = {
-											set_name = { key = "honor_leader.Rename_research" variable_string = "Prev.GetName" }
-											random_owned_ship = { set_name = prev }
-										}
-										if = { limit = { has_observation_outpost = yes }
-											observation_outpost = {
-												set_name = { key = "honor_leader.Rename_observation" variable_string = "Prev.GetName" }
-												random_owned_ship = { set_name = prev }
-											}
-										}
-									}
-									set_planet_flag = honor_leader_renamed
-								}
-							}
-							every_system_planet = {
-								limit = {
-									NOR = {
-										merg_is_habitat = yes
-										is_planet_class = pc_habitat_shielded
-									}
-								}
-								every_moon = {
-									limit = {
-										OR = {
-											merg_is_habitat = yes
-											is_planet_class = pc_habitat_shielded
-										}
-									}
-									set_name = { key = "honor_leader.Rename_colony" variable_string = "honor_leader.GetName" }
-								}
-							}
-						}
-					}
-					random_owned_ship = {
-						limit = {
-							NOT = { has_ship_flag = honor_leader_renamed }
-							OR = {
-								is_ship_size = corvette
-								is_ship_size = destroyer
-								is_ship_size = cruiser
-								is_ship_size = battleship
-								is_ship_size = titan
-							}
-						}
-						set_ship_flag = honor_leader_renamed
-						set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-					}
-				}
-				if = { limit = { event_target:honor_leader = { leader_class = governor } }
-					random_owned_planet = {
-						limit = {
-							NOT = { has_planet_flag = honor_leader_renamed }
-							is_homeworld = no
-						}
-						set_planet_flag = honor_leader_renamed
-						set_name = event_target:honor_leader
-					}
-					random_owned_ship = {
-						limit = {
-							NOT = { has_ship_flag = honor_leader_renamed }
-							OR = {
-								is_ship_size = colonizer
-								is_ship_size = sponsored_colonizer
-								is_ship_size = constructor
-							}
-						}
-						set_ship_flag = honor_leader_renamed
-						set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-					}
-				}
-				if = { limit = { event_target:honor_leader = { leader_class = scientist } }
-					random_system_within_border = {
-						limit = {
-							NOT = { has_star_flag = honor_leader_renamed }
-						}
-						random_system_planet = {
-							limit = {
-								NOT = { has_planet_flag = honor_leader_renamed }
-								is_homeworld = no
-							}
-							set_planet_flag = honor_leader_renamed
-							set_name = event_target:honor_leader_clone
-						}
-					}
-					random_owned_ship = {
-						limit = {
-							NOT = { has_ship_flag = honor_leader_renamed }
-							OR = {
-								is_ship_size = science
-								is_ship_size = constructor
-							}
-						}
-						set_ship_flag = honor_leader_renamed
-						set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-					}
-				}
-				if = { limit = { event_target:honor_leader = { leader_class = admiral } }
-					random_owned_fleet = {
-						limit = {
-							NOT = { has_fleet_flag = honor_leader_renamed }
-							num_ships > 1
-							fleet_size > 1
-						}
-						set_fleet_flag = honor_leader_renamed
-						set_name = { key = "honor_leader.Rename_fleet" variable_string = "honor_leader.GetName" }
-					}
-					random_owned_ship = {
-						limit = {
-							NOT = { has_ship_flag = honor_leader_renamed }
-							OR = {
-								is_ship_size = corvette
-								is_ship_size = destroyer
-								is_ship_size = cruiser
-								is_ship_size = battleship
-							}
-						}
-						set_ship_flag = honor_leader_renamed
-						set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-					}
-				}
-				if = { limit = { event_target:honor_leader = { leader_class = general } }
-					random_owned_army = { set_name = { key = "honor_leader.Rename_fleet" variable_string = "honor_leader.GetName" } }
-					random_owned_ship = {
-						limit = {
-							NOT = { has_ship_flag = honor_leader_renamed }
-							OR = {
-								is_ship_size = corvette
-								is_ship_size = destroyer
-								is_ship_size = cruiser
-								is_ship_size = battleship
-							}
-						}
-						set_ship_flag = honor_leader_renamed
-						set_name = { key = "honor_leader.Rename_ship" variable_string = "honor_leader.GetName" }
-					}
-				}
-			}
-			if = { limit = { NOT = { has_country_flag = honor_leader_disable_bonus } }
-				honor_leader_honor_leader = yes
-			}
-
 			# SAVE LEADER HERE FOR LATER.
 			event_target:honor_leader_clone = { honor_leader_save_leader = yes }
-			every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
-			every_owned_leader = {
-				limit = { has_leader_flag = honor_leader_interim_leader }
-				# Civil Wars compat flag
-				set_leader_flag = dead_ruler
-				kill_leader = { show_notification = no }
-			}
+			country_event = { id = new_honor_leader.203 days = -1 }
 		}
 	}
 	option = {
@@ -3504,7 +2526,7 @@ country_event = {
 			save_event_target_as = honor_leader_country
 			# SAVE LEADER HERE FOR LATER.
 			event_target:honor_leader = { honor_leader_save_leader = yes }
-			every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+			random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 			every_owned_leader = { # Civil Wars compat flag
 				limit = {
 					has_leader_flag = honor_leader_interim_leader
@@ -3518,7 +2540,7 @@ country_event = {
 		name = "honor_leader.103.notherhimremove"
 		custom_tooltip = honor_leader.103.notherhimremove.tooltip
 		# DON'T SAVE AND CARRY ON.
-		every_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+		random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 		every_owned_leader = {
 			limit = { has_leader_flag = honor_leader_interim_leader }
 			# Civil Wars compat flag

@@ -3575,7 +3575,7 @@ country_event = {
 				set_leader_flag = dead_ruler
 				kill_leader = { show_notification = no }
 			}
-			random_owned_leader = { remove_leader_flag = honor_leader_has_been_viewed }
+			random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 		}
 
 		# FUNE: From what I can tell, this is looking for a scope that doesnt exist

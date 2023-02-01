@@ -3155,14 +3155,8 @@ defined_text = { # leader scope
 
 defined_text = { # Country/leader scope
 	name = GetInElection
-	text = {
-		trigger = { has_leader_flag = honor_leader_ruler_in_election }
-		localization_key = in_election_ruler
-	}
-	text = {
-		trigger = { has_leader_flag = honor_leader_leader_in_election }
-		localization_key = in_election_leader
-	}
+	text = { trigger = { has_leader_flag = honor_leader_ruler_in_election } localization_key = in_election_ruler }
+	text = { trigger = { has_leader_flag = honor_leader_leader_in_election } localization_key = in_election_leader }
 	text = { localization_key = emptystringnotstring.empty }
 }
 
