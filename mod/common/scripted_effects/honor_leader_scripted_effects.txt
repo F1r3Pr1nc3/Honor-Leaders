@@ -1165,153 +1165,113 @@ honor_leader_copy_flags_and_vars = {
 			if = { limit = { is_variable_set = honor_leader_relics_activated } prev = { set_variable = { which = honor_leader_relics_activated value = prev.honor_leader_relics_activated } } } else = { prev = { set_variable = { which = honor_leader_relics_activated value = 0 } } }
 			# prev = { set_variable = { which = honor_leader_class value = 1 } }
 			prev = {
-				if = { limit = { check_variable = { which = stints_as_ruler value = 1 } }
-					if = { limit = { is_variable_set = ruler_var_start_date_1 }
-						set_variable = { which = days_from_present value = calender_day }
-						# set_variable = { which = ruler_var_start_date_1 value = prev.ruler_var_start_date_1 }
-						subtract_variable = { which = days_from_present value = ruler_var_start_date_1 }
-						multiply_variable = { which = days_from_present value = -1 }
-						set_saved_date = { key = ruler_stint_start_date_1 days_from_present = days_from_present }
-					}
+				if = { limit = { is_variable_set = ruler_var_start_date_1 }
+					set_variable = { which = days_from_present value = calender_day }
+					subtract_variable = { which = days_from_present value = ruler_var_start_date_1 }
+					multiply_variable = { which = days_from_present value = -1 }
+					set_saved_date = { key = ruler_stint_start_date_1 days_from_present = days_from_present }
 					if = { limit = { is_variable_set = ruler_var_end_date_1 }
 						set_variable = { which = days_from_present value = calender_day }
-						# set_variable = { which = ruler_var_end_date_1 value = prev.ruler_var_end_date_1 }
 						subtract_variable = { which = days_from_present value = ruler_var_end_date_1 }
 						multiply_variable = { which = days_from_present value = -1 }
 						set_saved_date = { key = ruler_stint_end_date_1 days_from_present = days_from_present }
 					}
 				}
-				if = { limit = { check_variable = { which = stints_as_ruler value = 2 } }
-					if = { limit = { is_variable_set = ruler_var_start_date_2 }
-						set_variable = { which = days_from_present value = calender_day }
-						# set_variable = { which = ruler_var_start_date_2 value = prev.ruler_var_start_date_2 }
-						subtract_variable = { which = days_from_present value = ruler_var_start_date_2 }
-						multiply_variable = { which = days_from_present value = -1 }
-						set_saved_date = { key = ruler_stint_start_date_2 days_from_present = days_from_present }
-					}
+				if = { limit = { is_variable_set = ruler_var_start_date_2 }
+					set_variable = { which = days_from_present value = calender_day }
+					subtract_variable = { which = days_from_present value = ruler_var_start_date_2 }
+					multiply_variable = { which = days_from_present value = -1 }
+					set_saved_date = { key = ruler_stint_start_date_2 days_from_present = days_from_present }
 					if = { limit = { is_variable_set = ruler_var_end_date_2 }
 						set_variable = { which = days_from_present value = calender_day }
-						# set_variable = { which = ruler_var_end_date_2 value = prev.ruler_var_end_date_2 }
 						subtract_variable = { which = days_from_present value = ruler_var_end_date_2 }
 						multiply_variable = { which = days_from_present value = -1 }
 						set_saved_date = { key = ruler_stint_end_date_2 days_from_present = days_from_present }
 					}
-					if = { limit = { check_variable = { which = stints_as_ruler value = 3 } }
-						if = { limit = { is_variable_set = ruler_var_start_date_3 }
-							set_variable = { which = days_from_present value = calender_day }
-							# set_variable = { which = ruler_var_start_date_3 value = prev.ruler_var_start_date_3 }
-							subtract_variable = { which = days_from_present value = ruler_var_start_date_3 }
-							multiply_variable = { which = days_from_present value = -1 }
-							set_saved_date = { key = ruler_stint_start_date_3 days_from_present = days_from_present }
-						}
+					if = { limit = { is_variable_set = ruler_var_start_date_3 }
+						set_variable = { which = days_from_present value = calender_day }
+						subtract_variable = { which = days_from_present value = ruler_var_start_date_3 }
+						multiply_variable = { which = days_from_present value = -1 }
+						set_saved_date = { key = ruler_stint_start_date_3 days_from_present = days_from_present }
 						if = { limit = { is_variable_set = ruler_var_end_date_3 }
 							set_variable = { which = days_from_present value = calender_day }
-							# set_variable = { which = ruler_var_end_date_3 value = prev.ruler_var_end_date_3 }
 							subtract_variable = { which = days_from_present value = ruler_var_end_date_3 }
 							multiply_variable = { which = days_from_present value = -1 }
 							set_saved_date = { key = ruler_stint_end_date_3 days_from_present = days_from_present }
 						}
-						if = { limit = { check_variable = { which = stints_as_ruler value = 4 } }
-							if = { limit = { is_variable_set = ruler_var_start_date_4 }
-								set_variable = { which = days_from_present value = calender_day }
-								# set_variable = { which = ruler_var_start_date_4 value = prev.ruler_var_start_date_4 }
-								subtract_variable = { which = days_from_present value = ruler_var_start_date_4 }
-								multiply_variable = { which = days_from_present value = -1 }
-								set_saved_date = { key = ruler_stint_start_date_4 days_from_present = days_from_present }
-							}
+						if = { limit = { is_variable_set = ruler_var_start_date_4 }
+							set_variable = { which = days_from_present value = calender_day }
+							subtract_variable = { which = days_from_present value = ruler_var_start_date_4 }
+							multiply_variable = { which = days_from_present value = -1 }
+							set_saved_date = { key = ruler_stint_start_date_4 days_from_present = days_from_present }
 							if = { limit = { is_variable_set = ruler_var_end_date_4 }
 								set_variable = { which = days_from_present value = calender_day }
-								# set_variable = { which = ruler_var_end_date_4 value = prev.ruler_var_end_date_4 }
 								subtract_variable = { which = days_from_present value = ruler_var_end_date_4 }
 								multiply_variable = { which = days_from_present value = -1 }
 								set_saved_date = { key = ruler_stint_end_date_4 days_from_present = days_from_present }
 							}
-							if = { limit = { check_variable = { which = stints_as_ruler value = 5 } }
-								if = { limit = { is_variable_set = ruler_var_start_date_5 }
-									set_variable = { which = days_from_present value = calender_day }
-									# set_variable = { which = ruler_var_start_date_5 value = prev.ruler_var_start_date_5 }
-									subtract_variable = { which = days_from_present value = ruler_var_start_date_5 }
-									multiply_variable = { which = days_from_present value = -1 }
-									set_saved_date = { key = ruler_stint_start_date_5 days_from_present = days_from_present }
-								}
+							if = { limit = { is_variable_set = ruler_var_start_date_5 }
+								set_variable = { which = days_from_present value = calender_day }
+								subtract_variable = { which = days_from_present value = ruler_var_start_date_5 }
+								multiply_variable = { which = days_from_present value = -1 }
+								set_saved_date = { key = ruler_stint_start_date_5 days_from_present = days_from_present }
 								if = { limit = { is_variable_set = ruler_var_end_date_5 }
 									set_variable = { which = days_from_present value = calender_day }
-									# set_variable = { which = ruler_var_end_date_5 value = prev.ruler_var_end_date_5 }
 									subtract_variable = { which = days_from_present value = ruler_var_end_date_5 }
 									multiply_variable = { which = days_from_present value = -1 }
 									set_saved_date = { key = ruler_stint_end_date_5 days_from_present = days_from_present }
 								}
-								if = { limit = { check_variable = { which = stints_as_ruler value = 6 } }
-									if = { limit = { is_variable_set = ruler_var_start_date_6 }
-										set_variable = { which = days_from_present value = calender_day }
-										# set_variable = { which = ruler_var_start_date_6 value = prev.ruler_var_start_date_6 }
-										subtract_variable = { which = days_from_present value = ruler_var_start_date_6 }
-										multiply_variable = { which = days_from_present value = -1 }
-										set_saved_date = { key = ruler_stint_start_date_6 days_from_present = days_from_present }
-									}
+								if = { limit = { is_variable_set = ruler_var_start_date_6 }
+									set_variable = { which = days_from_present value = calender_day }
+									subtract_variable = { which = days_from_present value = ruler_var_start_date_6 }
+									multiply_variable = { which = days_from_present value = -1 }
+									set_saved_date = { key = ruler_stint_start_date_6 days_from_present = days_from_present }
 									if = { limit = { is_variable_set = ruler_var_end_date_6 }
 										set_variable = { which = days_from_present value = calender_day }
-										# set_variable = { which = ruler_var_end_date_6 value = prev.ruler_var_end_date_6 }
 										subtract_variable = { which = days_from_present value = ruler_var_end_date_6 }
 										multiply_variable = { which = days_from_present value = -1 }
 										set_saved_date = { key = ruler_stint_end_date_6 days_from_present = days_from_present }
 									}
-									if = { limit = { check_variable = { which = stints_as_ruler value = 7 } }
-										if = { limit = { is_variable_set = ruler_var_start_date_7 }
-											set_variable = { which = days_from_present value = calender_day }
-											# set_variable = { which = ruler_var_start_date_7 value = prev.ruler_var_start_date_7 }
-											subtract_variable = { which = days_from_present value = ruler_var_start_date_7 }
-											multiply_variable = { which = days_from_present value = -1 }
-											set_saved_date = { key = ruler_stint_start_date_7 days_from_present = days_from_present }
-										}
+									if = { limit = { is_variable_set = ruler_var_start_date_7 }
+										set_variable = { which = days_from_present value = calender_day }
+										subtract_variable = { which = days_from_present value = ruler_var_start_date_7 }
+										multiply_variable = { which = days_from_present value = -1 }
+										set_saved_date = { key = ruler_stint_start_date_7 days_from_present = days_from_present }
 										if = { limit = { is_variable_set = ruler_var_end_date_7 }
 											set_variable = { which = days_from_present value = calender_day }
-											# set_variable = { which = ruler_var_end_date_7 value = prev.ruler_var_end_date_7 }
 											subtract_variable = { which = days_from_present value = ruler_var_end_date_7 }
 											multiply_variable = { which = days_from_present value = -1 }
 											set_saved_date = { key = ruler_stint_end_date_7 days_from_present = days_from_present }
 										}
-										if = { limit = { check_variable = { which = stints_as_ruler value = 8 } }
-											if = { limit = { is_variable_set = ruler_var_start_date_8 }
-												set_variable = { which = days_from_present value = calender_day }
-												# set_variable = { which = ruler_var_start_date_8 value = prev.ruler_var_start_date_8 }
-												subtract_variable = { which = days_from_present value = ruler_var_start_date_8 }
-												multiply_variable = { which = days_from_present value = -1 }
-												set_saved_date = { key = ruler_stint_start_date_8 days_from_present = days_from_present }
-											}
+										if = { limit = { is_variable_set = ruler_var_start_date_8 }
+											set_variable = { which = days_from_present value = calender_day }
+											subtract_variable = { which = days_from_present value = ruler_var_start_date_8 }
+											multiply_variable = { which = days_from_present value = -1 }
+											set_saved_date = { key = ruler_stint_start_date_8 days_from_present = days_from_present }
 											if = { limit = { is_variable_set = ruler_var_end_date_8 }
 												set_variable = { which = days_from_present value = calender_day }
-												# set_variable = { which = ruler_var_end_date_8 value = prev.ruler_var_end_date_8 }
 												subtract_variable = { which = days_from_present value = ruler_var_end_date_8 }
 												multiply_variable = { which = days_from_present value = -1 }
 												set_saved_date = { key = ruler_stint_end_date_8 days_from_present = days_from_present }
 											}
-											if = { limit = { check_variable = { which = stints_as_ruler value = 9 } }
-												if = { limit = { is_variable_set = ruler_var_start_date_9 }
-													set_variable = { which = days_from_present value = calender_day }
-													# set_variable = { which = ruler_var_start_date_9 value = prev.ruler_var_start_date_9 }
-													subtract_variable = { which = days_from_present value = ruler_var_start_date_9 }
-													multiply_variable = { which = days_from_present value = -1 }
-													set_saved_date = { key = ruler_stint_start_date_9 days_from_present = days_from_present }
-												}
+											if = { limit = { is_variable_set = ruler_var_start_date_9 }
+												set_variable = { which = days_from_present value = calender_day }
+												subtract_variable = { which = days_from_present value = ruler_var_start_date_9 }
+												multiply_variable = { which = days_from_present value = -1 }
+												set_saved_date = { key = ruler_stint_start_date_9 days_from_present = days_from_present }
 												if = { limit = { is_variable_set = ruler_var_end_date_9 }
 													set_variable = { which = days_from_present value = calender_day }
-													# set_variable = { which = ruler_var_end_date_9 value = prev.ruler_var_end_date_9 }
 													subtract_variable = { which = days_from_present value = ruler_var_end_date_9 }
 													multiply_variable = { which = days_from_present value = -1 }
 													set_saved_date = { key = ruler_stint_end_date_9 days_from_present = days_from_present }
 												}
-												if = { limit = { check_variable = { which = stints_as_ruler value = 10 } }
-													if = { limit = { is_variable_set = ruler_var_start_date_10 }
-														set_variable = { which = days_from_present value = calender_day }
-														# set_variable = { which = ruler_var_start_date_10 value = prev.ruler_var_start_date_10 }
-														subtract_variable = { which = days_from_present value = ruler_var_start_date_10 }
-														multiply_variable = { which = days_from_present value = -1 }
-														set_saved_date = { key = ruler_stint_start_date_10 days_from_present = days_from_present }
-													}
+												if = { limit = { is_variable_set = ruler_var_start_date_10 }
+													set_variable = { which = days_from_present value = calender_day }
+													subtract_variable = { which = days_from_present value = ruler_var_start_date_10 }
+													multiply_variable = { which = days_from_present value = -1 }
+													set_saved_date = { key = ruler_stint_start_date_10 days_from_present = days_from_present }
 													if = { limit = { is_variable_set = ruler_var_end_date_10 }
 														set_variable = { which = days_from_present value = calender_day }
-														# set_variable = { which = ruler_var_end_date_10 value = prev.ruler_var_end_date_10 }
 														subtract_variable = { which = days_from_present value = ruler_var_end_date_10 }
 														multiply_variable = { which = days_from_present value = -1 }
 														set_saved_date = { key = ruler_stint_end_date_10 days_from_present = days_from_present }
