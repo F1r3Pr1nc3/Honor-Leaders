@@ -7,7 +7,7 @@ country_event = {
 	title = "honor_leader.203.title"
 	desc = "honor_leader.203.desc"
 	location = event_target:honor_leader_location
-	picture = GFX_evt_ship_in_orbit # GFX_evt_announcement
+	picture = GFX_evt_ship_in_orbit_3 # GFX_evt_announcement
 	show_sound = event_salute # event_celebration
 	is_triggered_only = yes
 	# trigger = {	}
@@ -553,6 +553,9 @@ country_event = {
 				if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
 					export_trigger_value_to_variable = { trigger = has_level variable = honor_leader_skill }
 				}
+				if = { limit = { has_leader_flag = honor_leader_dead_leader NOT = { is_variable_set = leader_death_fired_day } }
+					export_trigger_value_to_variable = { trigger = days_passed variable = leader_death_fired_day }
+				}
 				# Unity given based on leader skill level and traits ("prev" drops error)
 				prev = { add_resource = { unity = 100 mult = event_target:honor_leader.honor_leader_skill } }
 				# 10 year bonus based on leader traits - ALL VANILLA TRAITS CHECKED
@@ -1006,6 +1009,7 @@ country_event = {
 			limit = { has_leader_flag = first_ruler }
 			remove_leader_flag = first_ruler
 			event_target:honor_copy_@this = {
+				export_trigger_value_to_variable = { trigger = days_passed variable = ruler_var_end_date_1 }
 				set_saved_date = { key = ruler_stint_end_date_1 days_from_present = 0 }
 			}
 		}
