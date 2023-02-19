@@ -355,10 +355,10 @@ country_event = {
 				}
 				if = { limit = { is_variable_set  = months_as_ruler }
 					if = { limit = { check_variable = { which = months_as_ruler value < 6 } }
-						set_variable = { which = hon_years_in_office value = 0.12 }
+						set_variable = { which = months_as_ruler value = 0.12 }
 					}
-					divide_variable = { which = hon_years_in_office value = 12 }
-					round_variable_to_closest = { which = hon_years_in_office value = 0.1 }
+					divide_variable = { which = months_as_ruler value = 12 }
+					round_variable_to_closest = { which = months_as_ruler value = 0.1 }
 					set_variable = { which = hon_years_in_office value = months_as_ruler }
 				}
 			}
