@@ -323,6 +323,9 @@ honor_leader_save_leader = {
 	if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
 		export_trigger_value_to_variable = { trigger = has_level variable = honor_leader_skill }
 	}
+	if = { limit = { has_leader_flag = honor_leader_dead_leader NOT = { is_variable_set = leader_death_fired_day } }
+		export_trigger_value_to_variable = { trigger = days_passed variable = leader_death_fired_day }
+	}
 	switch = {
 		trigger = leader_class
 		ruler = {
@@ -1049,9 +1052,21 @@ honor_leader_save_leader = {
 }
 # Needs event_target:honor_leader = copy from
 honor_leader_copy_flags_and_vars = {
+	export_trigger_value_to_variable = { trigger = days_passed variable = calender_day }
+	if = {
+		limit = {
+			has_leader_flag = honor_leader_dead_leader
+			# has_leader_flag = honor_leader_interim_leader
+			NOT = { is_variable_set = leader_death_fired_day }
+		}
+		set_variable = { which = leader_death_fired_day value = calender_day }
+		set_saved_date = { key = leader_death_fired_date days_from_present = 0 }
+	}
+
 	### Vars & Flags
 	event_target:honor_leader = {
 		export_trigger_value_to_variable = { trigger = leader_age variable = dead_leader_age }
+		if = { limit = { is_variable_set = leader_death_fired_day } prev = { set_variable = { which = leader_death_fired_day value = prev.leader_death_fired_day } } }
 		# Time
 		if = { limit = { is_variable_set = honor_leader_years_of_service } prev = { set_variable = { which = honor_leader_years_of_service value = prev.honor_leader_years_of_service } } } else = { prev = { set_variable = { which = honor_leader_years_of_service value = 0 } } }
 		# if = { limit = { is_variable_set = honor_leader_office_start } prev = { set_variable = { which = honor_leader_office_start value = prev.honor_leader_office_start } } } else = { prev = { set_variable = { which = honor_leader_office_start value = 0 } } }
@@ -1149,6 +1164,128 @@ honor_leader_copy_flags_and_vars = {
 			if = { limit = { is_variable_set = honor_leader_times_used_colossus } prev = { set_variable = { which = honor_leader_times_used_colossus value = prev.honor_leader_times_used_colossus } } } else = { prev = { set_variable = { which = honor_leader_times_used_colossus value = 0 } } }
 			if = { limit = { is_variable_set = honor_leader_relics_activated } prev = { set_variable = { which = honor_leader_relics_activated value = prev.honor_leader_relics_activated } } } else = { prev = { set_variable = { which = honor_leader_relics_activated value = 0 } } }
 			# prev = { set_variable = { which = honor_leader_class value = 1 } }
+			prev = {
+				if = { limit = { is_variable_set = ruler_var_start_date_1 }
+					set_variable = { which = days_from_present value = calender_day }
+					subtract_variable = { which = days_from_present value = ruler_var_start_date_1 }
+					multiply_variable = { which = days_from_present value = -1 }
+					set_saved_date = { key = ruler_stint_start_date_1 days_from_present = days_from_present }
+					if = { limit = { is_variable_set = ruler_var_end_date_1 }
+						set_variable = { which = days_from_present value = calender_day }
+						subtract_variable = { which = days_from_present value = ruler_var_end_date_1 }
+						multiply_variable = { which = days_from_present value = -1 }
+						set_saved_date = { key = ruler_stint_end_date_1 days_from_present = days_from_present }
+					}
+				}
+				if = { limit = { is_variable_set = ruler_var_start_date_2 }
+					set_variable = { which = days_from_present value = calender_day }
+					subtract_variable = { which = days_from_present value = ruler_var_start_date_2 }
+					multiply_variable = { which = days_from_present value = -1 }
+					set_saved_date = { key = ruler_stint_start_date_2 days_from_present = days_from_present }
+					if = { limit = { is_variable_set = ruler_var_end_date_2 }
+						set_variable = { which = days_from_present value = calender_day }
+						subtract_variable = { which = days_from_present value = ruler_var_end_date_2 }
+						multiply_variable = { which = days_from_present value = -1 }
+						set_saved_date = { key = ruler_stint_end_date_2 days_from_present = days_from_present }
+					}
+					if = { limit = { is_variable_set = ruler_var_start_date_3 }
+						set_variable = { which = days_from_present value = calender_day }
+						subtract_variable = { which = days_from_present value = ruler_var_start_date_3 }
+						multiply_variable = { which = days_from_present value = -1 }
+						set_saved_date = { key = ruler_stint_start_date_3 days_from_present = days_from_present }
+						if = { limit = { is_variable_set = ruler_var_end_date_3 }
+							set_variable = { which = days_from_present value = calender_day }
+							subtract_variable = { which = days_from_present value = ruler_var_end_date_3 }
+							multiply_variable = { which = days_from_present value = -1 }
+							set_saved_date = { key = ruler_stint_end_date_3 days_from_present = days_from_present }
+						}
+						if = { limit = { is_variable_set = ruler_var_start_date_4 }
+							set_variable = { which = days_from_present value = calender_day }
+							subtract_variable = { which = days_from_present value = ruler_var_start_date_4 }
+							multiply_variable = { which = days_from_present value = -1 }
+							set_saved_date = { key = ruler_stint_start_date_4 days_from_present = days_from_present }
+							if = { limit = { is_variable_set = ruler_var_end_date_4 }
+								set_variable = { which = days_from_present value = calender_day }
+								subtract_variable = { which = days_from_present value = ruler_var_end_date_4 }
+								multiply_variable = { which = days_from_present value = -1 }
+								set_saved_date = { key = ruler_stint_end_date_4 days_from_present = days_from_present }
+							}
+							if = { limit = { is_variable_set = ruler_var_start_date_5 }
+								set_variable = { which = days_from_present value = calender_day }
+								subtract_variable = { which = days_from_present value = ruler_var_start_date_5 }
+								multiply_variable = { which = days_from_present value = -1 }
+								set_saved_date = { key = ruler_stint_start_date_5 days_from_present = days_from_present }
+								if = { limit = { is_variable_set = ruler_var_end_date_5 }
+									set_variable = { which = days_from_present value = calender_day }
+									subtract_variable = { which = days_from_present value = ruler_var_end_date_5 }
+									multiply_variable = { which = days_from_present value = -1 }
+									set_saved_date = { key = ruler_stint_end_date_5 days_from_present = days_from_present }
+								}
+								if = { limit = { is_variable_set = ruler_var_start_date_6 }
+									set_variable = { which = days_from_present value = calender_day }
+									subtract_variable = { which = days_from_present value = ruler_var_start_date_6 }
+									multiply_variable = { which = days_from_present value = -1 }
+									set_saved_date = { key = ruler_stint_start_date_6 days_from_present = days_from_present }
+									if = { limit = { is_variable_set = ruler_var_end_date_6 }
+										set_variable = { which = days_from_present value = calender_day }
+										subtract_variable = { which = days_from_present value = ruler_var_end_date_6 }
+										multiply_variable = { which = days_from_present value = -1 }
+										set_saved_date = { key = ruler_stint_end_date_6 days_from_present = days_from_present }
+									}
+									if = { limit = { is_variable_set = ruler_var_start_date_7 }
+										set_variable = { which = days_from_present value = calender_day }
+										subtract_variable = { which = days_from_present value = ruler_var_start_date_7 }
+										multiply_variable = { which = days_from_present value = -1 }
+										set_saved_date = { key = ruler_stint_start_date_7 days_from_present = days_from_present }
+										if = { limit = { is_variable_set = ruler_var_end_date_7 }
+											set_variable = { which = days_from_present value = calender_day }
+											subtract_variable = { which = days_from_present value = ruler_var_end_date_7 }
+											multiply_variable = { which = days_from_present value = -1 }
+											set_saved_date = { key = ruler_stint_end_date_7 days_from_present = days_from_present }
+										}
+										if = { limit = { is_variable_set = ruler_var_start_date_8 }
+											set_variable = { which = days_from_present value = calender_day }
+											subtract_variable = { which = days_from_present value = ruler_var_start_date_8 }
+											multiply_variable = { which = days_from_present value = -1 }
+											set_saved_date = { key = ruler_stint_start_date_8 days_from_present = days_from_present }
+											if = { limit = { is_variable_set = ruler_var_end_date_8 }
+												set_variable = { which = days_from_present value = calender_day }
+												subtract_variable = { which = days_from_present value = ruler_var_end_date_8 }
+												multiply_variable = { which = days_from_present value = -1 }
+												set_saved_date = { key = ruler_stint_end_date_8 days_from_present = days_from_present }
+											}
+											if = { limit = { is_variable_set = ruler_var_start_date_9 }
+												set_variable = { which = days_from_present value = calender_day }
+												subtract_variable = { which = days_from_present value = ruler_var_start_date_9 }
+												multiply_variable = { which = days_from_present value = -1 }
+												set_saved_date = { key = ruler_stint_start_date_9 days_from_present = days_from_present }
+												if = { limit = { is_variable_set = ruler_var_end_date_9 }
+													set_variable = { which = days_from_present value = calender_day }
+													subtract_variable = { which = days_from_present value = ruler_var_end_date_9 }
+													multiply_variable = { which = days_from_present value = -1 }
+													set_saved_date = { key = ruler_stint_end_date_9 days_from_present = days_from_present }
+												}
+												if = { limit = { is_variable_set = ruler_var_start_date_10 }
+													set_variable = { which = days_from_present value = calender_day }
+													subtract_variable = { which = days_from_present value = ruler_var_start_date_10 }
+													multiply_variable = { which = days_from_present value = -1 }
+													set_saved_date = { key = ruler_stint_start_date_10 days_from_present = days_from_present }
+													if = { limit = { is_variable_set = ruler_var_end_date_10 }
+														set_variable = { which = days_from_present value = calender_day }
+														subtract_variable = { which = days_from_present value = ruler_var_end_date_10 }
+														multiply_variable = { which = days_from_present value = -1 }
+														set_saved_date = { key = ruler_stint_end_date_10 days_from_present = days_from_present }
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 		# Governor check_variable = { which = honor_leader_class value = 2 }
 		if = {
@@ -1434,21 +1571,31 @@ honor_leader_copy_flags_and_vars = {
 			# clear_variable = honor_leader_skill
 		}
 	}
-	if = { # (if not clone) needed for restore saved leader
-		limit = { NOT = { has_leader_flag = honor_leader_interim_leader } has_leader_flag = honor_leader_dead_leader }
-		change_leader_portrait = event_target:honor_leader
-		set_name = event_target:honor_leader
-	}
 
 	set_variable = { which = honor_leader_skill value = event_target:honor_leader.honor_leader_skill }
 	set_variable = { which = dead_leader_level value = honor_leader_skill }
 	set_variable = { which = dead_leader_age value = event_target:honor_leader.dead_leader_age }
 
+	if = { limit = { has_leader_flag = honor_leader_dead_leader }
+		if = { # (if not clone) needed for restore saved leader
+			limit = { NOT = { has_leader_flag = honor_leader_interim_leader } }
+			change_leader_portrait = event_target:honor_leader
+			set_name = event_target:honor_leader
+			set_age = dead_leader_age
+			# Workaround for copy saved_date
+			if = { limit = { is_variable_set = leader_death_fired_day }
+				set_variable = { which = days_from_present value = calender_day }
+				subtract_variable = { which = days_from_present value = leader_death_fired_day }
+				multiply_variable = { which = days_from_present value = -1 }
+				set_saved_date = { key = leader_death_fired_date days_from_present = days_from_present }
+			} else = { log_error = "Var 'leader_death_fired_day' not found" }
+		}
+	}
+
 	if = { limit = { NOT = { is_variable_set = dead_leader_level } }
 		if = { limit = { has_level > 1 }
 			export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level }
-		}
-		else_if = { limit = { event_target:honor_leader = { is_variable_set = dead_leader_level } }
+		} else_if = { limit = { event_target:honor_leader = { is_variable_set = dead_leader_level } }
 			set_variable = { which = dead_leader_level value = event_target:honor_leader.dead_leader_level }
 		} else = {
 			event_target:honor_leader = { export_trigger_value_to_variable = { trigger = has_level variable = dead_leader_level } }
@@ -1492,6 +1639,8 @@ honor_leader_copy_flags_and_vars = {
 		event_target:honor_leader = { event_target:honor_leader_cause_of_death = { save_global_event_target_as = honor_leader_cause_of_death_global } }
 		event_target:honor_leader_cause_of_death_global = { save_event_target_as = honor_leader_cause_of_death }
 	}
+	clear_variable = days_from_present
+	clear_variable = calender_day
 }
 
 # TODO update actual vanilla traits

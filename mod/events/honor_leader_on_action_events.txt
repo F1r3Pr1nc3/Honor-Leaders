@@ -215,26 +215,38 @@ country_event = {
 				change_variable = { which = stints_as_ruler value = 1 }
 			}
 			# get_ruler_term_begin_number = yes
+			export_trigger_value_to_variable = { trigger = days_passed variable = calender_day }
+
 			if = { limit = { check_variable = { which = stints_as_ruler value = 1 } }
 				set_saved_date = { key = ruler_stint_start_date_1 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_1 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 2 } }
 				set_saved_date = { key = ruler_stint_start_date_2 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_2 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 3 } }
 				set_saved_date = { key = ruler_stint_start_date_3 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_3 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 4 } }
 				set_saved_date = { key = ruler_stint_start_date_4 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_4 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 5 } }
 				set_saved_date = { key = ruler_stint_start_date_5 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_5 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 6 } }
 				set_saved_date = { key = ruler_stint_start_date_6 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_6 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 7 } }
 				set_saved_date = { key = ruler_stint_start_date_7 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_7 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 8 } }
 				set_saved_date = { key = ruler_stint_start_date_8 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_8 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 9 } }
 				set_saved_date = { key = ruler_stint_start_date_9 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_9 value = calender_day }
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 10 } }
 				set_saved_date = { key = ruler_stint_start_date_10 days_from_present = 0 }
+				set_variable = { which = ruler_var_start_date_10 value = calender_day }
 			}
 			# Savegame Fallback
 			prev.ruler = {
@@ -287,11 +299,13 @@ country_event = {
 							check_variable = { which = honor_leader_office_start value > 0 }
 						}
 						change_variable = { which = honor_leader_office_start value = -2200 }
-						multiply_variable = { which = honor_leader_office_start value = -360 } # Convert to days
+						multiply_variable = { which = honor_leader_office_start value = 360 } # Convert to days
 						round_variable = honor_leader_office_start
 						export_trigger_value_to_variable = { trigger = days_passed variable = honor_leader_office_end }
 						event_target:honor_copy_@this = {
 							set_variable = { which = stints_as_ruler value = 1 }
+							set_variable = { which = ruler_var_start_date_1 value = prev.honor_leader_office_start }
+							prev = { subtract_variable = { which = honor_leader_office_start value = honor_leader_office_end } }
 							set_saved_date = { key = ruler_stint_start_date_1 days_from_present = prev.honor_leader_office_start }
 							set_variable = { which = months_as_ruler value = prev.honor_leader_office_end }
 							subtract_variable = { which = months_as_ruler value = prev.honor_leader_office_start }
@@ -307,33 +321,46 @@ country_event = {
 		event_target:honor_copy_@from = {
 			# get_ruler_term_end_number = yes
 			if = { limit = { is_variable_set  = stints_as_ruler }
+				export_trigger_value_to_variable = { trigger = days_passed variable = calender_day }
 				if = { limit = { check_variable = { which = stints_as_ruler value = 1 } }
 					set_saved_date = { key = ruler_stint_end_date_1 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_1 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 2 } }
 					set_saved_date = { key = ruler_stint_end_date_2 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_2 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 3 } }
 					set_saved_date = { key = ruler_stint_end_date_3 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_3 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 4 } }
 					set_saved_date = { key = ruler_stint_end_date_4 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_4 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 5 } }
 					set_saved_date = { key = ruler_stint_end_date_5 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_5 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 6 } }
 					set_saved_date = { key = ruler_stint_end_date_6 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_6 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 7 } }
 					set_saved_date = { key = ruler_stint_end_date_7 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_7 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 8 } }
 					set_saved_date = { key = ruler_stint_end_date_8 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_8 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 9 } }
 					set_saved_date = { key = ruler_stint_end_date_9 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_9 value = calender_day }
 				} else_if = { limit = { check_variable = { which = stints_as_ruler value = 10 } }
 					set_saved_date = { key = ruler_stint_end_date_10 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_10 value = calender_day }
 				}
-				if = { limit = { check_variable = { which = months_as_ruler value < 6 } }
-					set_variable = { which = hon_years_in_office value = 0.12 }
+				if = { limit = { is_variable_set  = months_as_ruler }
+					if = { limit = { check_variable = { which = months_as_ruler value < 6 } }
+						set_variable = { which = months_as_ruler value = 0.12 }
+					}
+					divide_variable = { which = months_as_ruler value = 12 }
+					round_variable_to_closest = { which = months_as_ruler value = 0.1 }
+					set_variable = { which = hon_years_in_office value = months_as_ruler }
 				}
-				divide_variable = { which = hon_years_in_office value = 12 }
-				round_variable_to_closest = { which = hon_years_in_office value = 0.1 }
-				set_variable = { which = hon_years_in_office value = months_as_ruler }
 			}
 			root.from = {
 				# Savegame Fallback
@@ -3534,12 +3561,9 @@ country_event = {
 				set_leader_flag = honor_leader_dead_leader
 				set_leader_flag = honor_leader_interim_leader
 				honor_leader_copy_flags_and_vars = yes
-				set_saved_date = { key = leader_death_fired_date days_from_present = 0 }
 				# Is or was ruler
 				if = { limit = { is_variable_set = stints_as_ruler }
-					event_target:honor_leader = {
-						root = { country_event = { id = honor_leader.5 days = -1 scopes = { from = prev } } }
-					}
+					root = { country_event = { id = honor_leader.5 days = -1 scopes = { from = event_target:honor_leader } } }
 				}
 			}
 		} else = { # Fallback (Old Method - should be not possible as every leader should have a clone)
@@ -3553,7 +3577,6 @@ country_event = {
 					# Dead Leader Flags
 					set_leader_flag = honor_leader_dead_leader
 					set_leader_flag = honor_leader_interim_leader
-					set_saved_date = { key = leader_death_fired_date days_from_present = 0 }
 					event_target:honor_leader = {
 						if = { # Is or was ruler
 							limit = {

@@ -1,5 +1,5 @@
 namespace = honor_leader
-
+# Vanilla Bug: leader_events do not work with portrait sometimes.
 # Honor Leader- Dynamic pick leader type - load names
 country_event = {
 	id = honor_leader.101
@@ -296,10 +296,7 @@ country_event = {
 	is_triggered_only = yes
 	# trigger = { }
 	option = {
-		name = {
-			trigger = { exists = event_target:honor_leader1 }
-			text = "honor_leader.102.first"
-		}
+		name = "[honor_leader1.GetName]" # "honor_leader.102.first"
 		trigger = {
 			exists = event_target:honor_leader1
 			OR = {
@@ -328,6 +325,7 @@ country_event = {
 		event_target:honor_leader1 = {
 			save_event_target_as = honor_leader
 			species = { save_event_target_as = honor_leader_species }
+			honor_leader_copy_flags_and_vars = yes # Init?
 		}
 		hidden_effect = {
 			if		= { limit = { check_variable = { which = honor_leader_type_selected value = 1 } } set_variable = { which = honor_ruler_selected		value = 1 } }
@@ -336,10 +334,10 @@ country_event = {
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 4 } } set_variable = { which = honor_admiral_selected	value = 1 } }
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 5 } } set_variable = { which = honor_general_selected	value = 1 } }
 		}
-		event_target:honor_leader = { leader_event = { id = honor_leader.103 } }
+		country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
 	}
 	option = {
-		name = "honor_leader.102.second"
+		name = "[honor_leader2.GetName]" # "honor_leader.102.second"
 		trigger = {
 			exists = event_target:honor_leader2
 			OR = {
@@ -368,6 +366,7 @@ country_event = {
 		event_target:honor_leader2 = {
 			save_event_target_as = honor_leader
 			species = { save_event_target_as = honor_leader_species }
+			honor_leader_copy_flags_and_vars = yes # Init?
 		}
 		hidden_effect = {
 			if		= { limit = { check_variable = { which = honor_leader_type_selected value = 1 } } set_variable = { which = honor_ruler_selected		value = 2 } }
@@ -376,10 +375,10 @@ country_event = {
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 4 } } set_variable = { which = honor_admiral_selected	value = 2 } }
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 5 } } set_variable = { which = honor_general_selected	value = 2 } }
 		}
-		event_target:honor_leader = { leader_event = { id = honor_leader.103 } }
+		country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
 	}
 	option = {
-		name = "honor_leader.102.third"
+		name = "[honor_leader3.GetName]" # "honor_leader.102.third"
 		trigger = {
 			exists = event_target:honor_leader3
 			OR = {
@@ -408,6 +407,7 @@ country_event = {
 		event_target:honor_leader3 = {
 			save_event_target_as = honor_leader
 			species = { save_event_target_as = honor_leader_species }
+			honor_leader_copy_flags_and_vars = yes # Init?
 		}
 		hidden_effect = {
 			if		= { limit = { check_variable = { which = honor_leader_type_selected value = 1 } } set_variable = { which = honor_ruler_selected		value = 3 } }
@@ -416,10 +416,10 @@ country_event = {
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 4 } } set_variable = { which = honor_admiral_selected	value = 3 } }
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 5 } } set_variable = { which = honor_general_selected	value = 3 } }
 		}
-		event_target:honor_leader = { leader_event = { id = honor_leader.103 } }
+		country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
 	}
 	option = {
-		name = "honor_leader.102.fourth"
+		name = "[honor_leader4.GetName]" # "honor_leader.102.fourth"
 		trigger = {
 			exists = event_target:honor_leader4
 			OR = {
@@ -448,6 +448,7 @@ country_event = {
 		event_target:honor_leader4 = {
 			save_event_target_as = honor_leader
 			species = { save_event_target_as = honor_leader_species }
+			honor_leader_copy_flags_and_vars = yes # Init?
 		}
 		hidden_effect = {
 			if		= { limit = { check_variable = { which = honor_leader_type_selected value = 1 } } set_variable = { which = honor_ruler_selected		value = 4 } }
@@ -456,10 +457,10 @@ country_event = {
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 4 } } set_variable = { which = honor_admiral_selected	value = 4 } }
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 5 } } set_variable = { which = honor_general_selected	value = 4 } }
 		}
-		event_target:honor_leader = { leader_event = { id = honor_leader.103 } }
+		country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
 	}
 	option = {
-		name = "honor_leader.102.fifth"
+		name = "[honor_leader5.GetName]" # "honor_leader.102.fifth"
 		trigger = {
 			exists = event_target:honor_leader5
 			OR = {
@@ -473,6 +474,7 @@ country_event = {
 		event_target:honor_leader5 = {
 			save_event_target_as = honor_leader
 			species = { save_event_target_as = honor_leader_species }
+			honor_leader_copy_flags_and_vars = yes # Init?
 		}
 		hidden_effect = {
 			if		= { limit = { check_variable = { which = honor_leader_type_selected value = 1 } } set_variable = { which = honor_ruler_selected		value = 5 } }
@@ -481,7 +483,7 @@ country_event = {
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 4 } } set_variable = { which = honor_admiral_selected	value = 5 } }
 			else_if = { limit = { check_variable = { which = honor_leader_type_selected value = 5 } } set_variable = { which = honor_general_selected	value = 5 } }
 		}
-		event_target:honor_leader = { leader_event = { id = honor_leader.103 } }
+		country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
 	}
 	option = {
 		name = "honor_leader.102.historical"
@@ -579,10 +581,9 @@ country_event = {
 					# Years of Service
 					set_variable_to_random_value = { which = honor_leader_years_of_service min = 11 max = 110 rounded = yes }
 					# set_variable = { which = honor_leader_calender_year value = honor_leader_random_start }
+					subtract_variable = { which = honor_leader_random_start value = 20 } # Why?
 					set_variable = { which = honor_leader_random_end value = honor_leader_random_start }
 					change_variable = { which = honor_leader_random_end value = honor_leader_years_of_service }
-					subtract_variable = { which = honor_leader_random_start value = 20 }
-					subtract_variable = { which = honor_leader_random_end value = 20 }
 					## Skill (if not clone)
 					random_list = {
 						1 = { set_skill = 1 set_variable = { which = honor_leader_skill value = 1 } }
@@ -609,1189 +610,650 @@ country_event = {
 						set_saved_date = { key = ruler_stint_start_date_1 days_from_present = honor_leader_office_start }
 						set_saved_date = { key = ruler_stint_end_date_1 days_from_present = honor_leader_office_end }
 					}
+					honor_leader_copy_flags_and_vars = yes # Init?
 				}
 			}
 		}
-		event_target:honor_leader = { leader_event = { id = honor_leader.103 } }
+		country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
 	}
 	option = {
 		name = "honor_leader.110.nope"
 		hidden_effect = {
-			if = { limit = { exists = event_target:honor_leader1 }
-				event_target:honor_leader1 = {
-					save_event_target_as = honor_leader
-					event_target:honor_leader_country = {
-						if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_ruler1
-								check_variable = { which = honor_leader_type_selected value = 1 }
-							}
-							remove_country_flag = honor_leader_has_dead_ruler1
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_governor1
-								check_variable = { which = honor_leader_type_selected value = 2 }
-							}
-							remove_country_flag = honor_leader_has_dead_governor1
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_scientist1
-								check_variable = { which = honor_leader_type_selected value = 3 }
-							}
-							remove_country_flag = honor_leader_has_dead_scientist1
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_admiral1
-								check_variable = { which = honor_leader_type_selected value = 4 }
-							}
-							remove_country_flag = honor_leader_has_dead_admiral1
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_general1
-								check_variable = { which = honor_leader_type_selected value = 5 }
-							}
-							remove_country_flag = honor_leader_has_dead_general1
-						}
-					}
-					honor_leader_save_leader = yes
-					# Civil Wars compat flag
-					set_leader_flag = dead_ruler
-					kill_leader = { show_notification = no }
-				}
-			}
-			if = { limit = { exists = event_target:honor_leader2 }
-				event_target:honor_leader2 = {
-					save_event_target_as = honor_leader
-					event_target:honor_leader_country = {
-						if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_ruler2
-								check_variable = { which = honor_leader_type_selected value = 1 }
-							}
-							remove_country_flag = honor_leader_has_dead_ruler2
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_governor2
-								check_variable = { which = honor_leader_type_selected value = 2 }
-							}
-							remove_country_flag = honor_leader_has_dead_governor2
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_scientist2
-								check_variable = { which = honor_leader_type_selected value = 3 }
-							}
-							remove_country_flag = honor_leader_has_dead_scientist2
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_admiral2
-								check_variable = { which = honor_leader_type_selected value = 4 }
-							}
-							remove_country_flag = honor_leader_has_dead_admiral2
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_general2
-								check_variable = { which = honor_leader_type_selected value = 5 }
-							}
-							remove_country_flag = honor_leader_has_dead_general2
-						}
-					}
-					honor_leader_save_leader = yes
-					# Civil Wars compat flag
-					set_leader_flag = dead_ruler
-					kill_leader = { show_notification = no }
-				}
-			}
-			if = { limit = { exists = event_target:honor_leader3 }
-				event_target:honor_leader3 = {
-					save_event_target_as = honor_leader
-					event_target:honor_leader_country = {
-						if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_ruler3
-								check_variable = { which = honor_leader_type_selected value = 1 }
-							}
-							remove_country_flag = honor_leader_has_dead_ruler3
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_governor3
-								check_variable = { which = honor_leader_type_selected value = 2 }
-							}
-							remove_country_flag = honor_leader_has_dead_governor3
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_scientist3
-								check_variable = { which = honor_leader_type_selected value = 3 }
-							}
-							remove_country_flag = honor_leader_has_dead_scientist3
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_admiral3
-								check_variable = { which = honor_leader_type_selected value = 4 }
-							}
-							remove_country_flag = honor_leader_has_dead_admiral3
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_general3
-								check_variable = { which = honor_leader_type_selected value = 5 }
-							}
-							remove_country_flag = honor_leader_has_dead_general3
-						}
-					}
-					honor_leader_save_leader = yes
-					# Civil Wars compat flag
-					set_leader_flag = dead_ruler
-					kill_leader = { show_notification = no }
-				}
-			}
-			if = { limit = { exists = event_target:honor_leader4 }
-				event_target:honor_leader4 = {
-					save_event_target_as = honor_leader
-					event_target:honor_leader_country = {
-						if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_ruler4
-								check_variable = { which = honor_leader_type_selected value = 1 }
-							}
-							remove_country_flag = honor_leader_has_dead_ruler4
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_governor4
-								check_variable = { which = honor_leader_type_selected value = 2 }
-							}
-							remove_country_flag = honor_leader_has_dead_governor4
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_scientist4
-								check_variable = { which = honor_leader_type_selected value = 3 }
-							}
-							remove_country_flag = honor_leader_has_dead_scientist4
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_admiral4
-								check_variable = { which = honor_leader_type_selected value = 4 }
-							}
-							remove_country_flag = honor_leader_has_dead_admiral4
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_general4
-								check_variable = { which = honor_leader_type_selected value = 5 }
-							}
-							remove_country_flag = honor_leader_has_dead_general4
-						}
-					}
-					honor_leader_save_leader = yes
-					# Civil Wars compat flag
-					set_leader_flag = dead_ruler
-					kill_leader = { show_notification = no }
-				}
-			}
-			if = { limit = { exists = event_target:honor_leader5 }
-				event_target:honor_leader5 = {
-					save_event_target_as = honor_leader
-					event_target:honor_leader_country = {
-						if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_ruler5
-								check_variable = { which = honor_leader_type_selected value = 1 }
-							}
-							remove_country_flag = honor_leader_has_dead_ruler5
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_governor5
-								check_variable = { which = honor_leader_type_selected value = 2 }
-							}
-							remove_country_flag = honor_leader_has_dead_governor5
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_scientist5
-								check_variable = { which = honor_leader_type_selected value = 3 }
-							}
-							remove_country_flag = honor_leader_has_dead_scientist5
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_admiral5
-								check_variable = { which = honor_leader_type_selected value = 4 }
-							}
-							remove_country_flag = honor_leader_has_dead_admiral5
-						} else_if = {
-							limit = {
-								has_country_flag = honor_leader_has_dead_general5
-								check_variable = { which = honor_leader_type_selected value = 5 }
-							}
-							remove_country_flag = honor_leader_has_dead_general5
-						}
-					}
-					honor_leader_save_leader = yes
-					# Civil Wars compat flag
-					set_leader_flag = dead_ruler
-					kill_leader = { show_notification = no }
-				}
-			}
+			country_event = { id = honor_leader.104 }
 		}
 	}
 }
 
 # Leader bio
-# Scope = event_target:honor_leader
-# from = owner
-leader_event = {
+# from = event_target:honor_leader
+# root = owner
+country_event = {
 	id = honor_leader.103
+	title = "honor_leader.103.title"
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 			}
+	# 			is_variable_set = stints_as_ruler
+	# 		}
+	# 		# NOR = {
+	# 		# 	has_country_flag = honor_leader_view_page_2
+	# 		# 	has_country_flag = honor_leader_view_page_3
+	# 		# 	has_country_flag = honor_leader_view_page_4
+	# 		# }
+	# 	}
+	# 	text = honor_leader.103.desc.deadrulerpage1
+	# }
 	desc = {
 		trigger = {
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
-			}
+			# hidden:event_target:honor_leader = { NOT = { is_variable_set = stints_as_ruler } } not working
+			# text = initialstats
+			# text = death_date
+			success_text = { text = "known_dismissal"						NAND = { exists = event_target:honor_leader event_target:honor_leader = { is_scope_type = leader } } }
+			success_text = { text = "honor_leader.103.desc.deadrulerpage1"	event_target:honor_leader = { OR = { leader_class = ruler has_leader_flag = honor_leader_was_ruler is_variable_set = stints_as_ruler } } }
+			success_text = { text = "honor_leader.103.desc.deadgovernor"	event_target:honor_leader = { NOT = { is_variable_set = stints_as_ruler } leader_class = governor	} }
+			success_text = { text = "honor_leader.103.desc.deadscientist"	event_target:honor_leader = { NOT = { is_variable_set = stints_as_ruler } leader_class = scientist	} }
+			success_text = { text = "honor_leader.103.desc.deadadmiral"		event_target:honor_leader = { NOT = { is_variable_set = stints_as_ruler } leader_class = admiral	} }
+			success_text = { text = "honor_leader.103.desc.deadgeneral"		event_target:honor_leader = { NOT = { is_variable_set = stints_as_ruler } leader_class = general	} }
+			# success_text = { text = "administration"	event_target:honor_leader = { leader_class = governor	} }
+			# success_text = { text = "sciencebio"		event_target:honor_leader = { leader_class = scientist	} }
+			# success_text = { text = "spacewarfare"		event_target:honor_leader = { leader_class = admiral	} }
+			# success_text = { text = "groundwarfare"		event_target:honor_leader = { leader_class = general	} }
+			# text = stats_bio
+			# success_text = { text = "stats_admin"		event_target:honor_leader = { leader_class = governor	} }
+			# success_text = { text = "stats_science"		event_target:honor_leader = { leader_class = scientist	} }
+			# success_text = { text = "stats_spacewar"	event_target:honor_leader = { leader_class = admiral	} }
+			# success_text = { text = "stats_groundwar"	event_target:honor_leader = { leader_class = general	} }
+			# text = stats_misc
 		}
-		text = honor_leader.103.desc.deadrulerpage1
 	}
-	desc = {
-		trigger = { leader_class = governor }
-		text = honor_leader.103.desc.deadgovernor
-	}
-	desc = {
-		trigger = { leader_class = scientist }
-		text = honor_leader.103.desc.deadscientist
-	}
-	desc = {
-		trigger = { leader_class = admiral }
-		text = honor_leader.103.desc.deadadmiral
-	}
-	desc = {
-		trigger = { leader_class = general }
-		text = honor_leader.103.desc.deadgeneral
-	}
-	title = "honor_leader.103.title"
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 			}
+	# 		}
+	# 		AND = {
+	# 			has_country_flag = honor_leader_view_page_2
+	# 			NOR = {
+	# 				has_country_flag = honor_leader_view_page_3
+	# 				has_country_flag = honor_leader_view_page_4
+	# 			}
+	# 		}
+	# 	}
+	# 	text = honor_leader.103.desc.deadrulerpage2
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 			}
+	# 		}
+	# 		has_country_flag = honor_leader_view_page_3
+	# 		NOT = { has_country_flag = honor_leader_view_page_4 }
+	# 	}
+	# 	text = honor_leader.103.desc.deadrulerpage3
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 			}
+	# 		}
+	# 		has_country_flag = honor_leader_view_page_4
+	# 	}
+	# 	text = honor_leader.103.desc.deadrulerpage4
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = { leader_class = governor }
+	# 	}
+	# 	text = honor_leader.103.desc.deadgovernor
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = { leader_class = scientist }
+	# 	}
+	# 	text = honor_leader.103.desc.deadscientist
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = { leader_class = admiral }
+	# 	}
+	# 	text = honor_leader.103.desc.deadadmiral
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = { leader_class = general }
+	# 	}
+	# 	text = honor_leader.103.desc.deadgeneral
+	# }
+
 	picture_event_data = {
-		portrait = root # event_target:honor_leader.species Without species not working!?
-		planet_background = event_target:honor_leader_country
-		graphical_culture = event_target:honor_leader_country
-		city_level = event_target:honor_leader_country
-		room = event_target:honor_leader_country.ruler
+		portrait = event_target:honor_leader
+		planet_background = root # event_target:honor_leader_country
+		graphical_culture = root # event_target:honor_leader_country
+		city_level = root # event_target:honor_leader_country
+		room = root.ruler # event_target:honor_leader_country.ruler
 	}
 	diplomatic = yes
 	is_triggered_only = yes
-	trigger = { is_scope_type = leader }
+	# trigger = {}
 	immediate = {
 		if = { limit = { NOT = { exists = event_target:honor_leader } }
-			save_event_target_as = honor_leader
-			save_event_target_as = honor_leader_clone # for loc?
+			from = {
+				save_event_target_as = honor_leader
+				save_event_target_as = honor_leader_clone
+			}
 		}
-		if = { limit = { NOT = { exists = event_target:honor_leader_country } }
-			from = { save_event_target_as = honor_leader_country }
+		if = { limit = { NOT = { exists = event_target:honor_leader_clone } }
+			from = { save_event_target_as = honor_leader_clone }
 		}
-		export_trigger_value_to_variable = { trigger = has_level variable = honor_leader_skill }
+		# if = { limit = { NOT = { exists = event_target:honor_leader_country } }
+		# 	save_event_target_as = honor_leader_country
+		# }
+	}
+	option = {
+		name = "honor_leader.111.rulerpage1"
+		trigger = {
+			event_target:honor_leader = {
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
+			}
+		}
+		allow = {
+			OR = {
+				has_country_flag = honor_leader_view_page_2
+				has_country_flag = honor_leader_view_page_3
+				has_country_flag = honor_leader_view_page_4
+			}
+		}
+		response_text = "honor_leader.103.desc.deadrulerpage1"
+		is_dialog_only = yes
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+			# country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage2"
 		trigger = {
-			from = {
-				NOT = { has_country_flag = honor_leader_view_page_2 }
-			}
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
+			event_target:honor_leader = {
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
 			}
 		}
-		from = { set_country_flag = honor_leader_view_page_2 }
-		leader_event = { id = honor_leader.103 scopes = { from = from } }
+		allow = {
+			NOT = { has_country_flag = honor_leader_view_page_2 }
+		}
+		response_text = honor_leader.111.desc.viewlivingrulerpage2 # "honor_leader.103.desc.deadrulerpage2"
+		is_dialog_only = yes
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+			set_country_flag = honor_leader_view_page_2
+			# country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage3"
 		trigger = {
-			from = {
-				NOT = { has_country_flag = honor_leader_view_page_3 }
-			}
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
+			event_target:honor_leader = {
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
 			}
 		}
-		from = { set_country_flag = honor_leader_view_page_3 }
-		leader_event = { id = honor_leader.103 scopes = { from = from } }
+		allow = {
+			NOT = { has_country_flag = honor_leader_view_page_3 }
+		}
+		response_text = honor_leader.111.desc.viewlivingrulerpage3 # "honor_leader.103.desc.deadrulerpage3"
+		is_dialog_only = yes
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_4
+			set_country_flag = honor_leader_view_page_3
+			# country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
+		}
 	}
 	option = {
 		name = "honor_leader.111.rulerpage4"
 		trigger = {
-			from = {
-				NOT = { has_country_flag = honor_leader_view_page_4 }
-			}
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
+			event_target:honor_leader = {
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
 			}
 		}
-		from = { set_country_flag = honor_leader_view_page_4 }
-		leader_event = { id = honor_leader.103 scopes = { from = from } }
+		allow = {
+			NOT = { has_country_flag = honor_leader_view_page_4 }
+		}
+		response_text = honor_leader.111.desc.viewlivingrulerpage4 # "honor_leader.103.desc.deadrulerpage4"
+		is_dialog_only = yes
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			set_country_flag = honor_leader_view_page_4
+			# country_event = { id = honor_leader.103 scopes = { from = event_target:honor_leader } }
+		}
 	}
 	option = {
 		name = "honor_leader.103.honored"
 		allow = {
-			from = {
-				resource_stockpile_compare = { resource = influence value > 25 }
-				resource_stockpile_compare = { resource = unity value > 100 }
-			}
+			resource_stockpile_compare = { resource = influence value > 25 }
+			resource_stockpile_compare = { resource = unity value > 100 }
 		}
-		from = {
-			play_sound = event_celebration
-			add_resource = { influence = -25 unity = -100 }
-			hidden_effect = {
-				save_event_target_as = honor_leader_country
-				country_event = { id = new_honor_leader.203 days = -1 }
-				## Resave name leaders, key and flag of selected.
-				# Names
-				if = { limit = { exists = event_target:honor_leader1 }
-					event_target:honor_leader1 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler1
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler1
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor1
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor1
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist1
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist1
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral1
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral1
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general1
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general1
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader2 }
-					event_target:honor_leader2 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler2
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler2
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor2
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor2
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist2
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist2
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral2
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral2
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general2
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general2
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader3 }
-					event_target:honor_leader3 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler3
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler3
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor3
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor3
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist3
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist3
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral3
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral3
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general3
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general3
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader4 }
-					event_target:honor_leader4 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler4
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler4
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor4
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor4
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist4
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist4
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral4
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral4
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general4
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general4
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader5 }
-					event_target:honor_leader5 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler5
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler5
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor5
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor5
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist5
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist5
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral5
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral5
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general5
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general5
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
-				remove_country_flag = honor_leader_view_page_2
-				remove_country_flag = honor_leader_view_page_3
-				remove_country_flag = honor_leader_view_page_4
-			}
-		}
+		play_sound = event_celebration
+		add_resource = { influence = -25 unity = -100 }
 		hidden_effect = {
-			kill_leader = { show_notification = no }
+			save_event_target_as = honor_leader_country
+			country_event = { id = new_honor_leader.203 days = -1 }
+			## Resave name leaders, key and flag of selected.
+			# Names
+			country_event = { id = honor_leader.104 }
+			# event_target:honor_leader = { kill_leader = { show_notification = no } }
 		}
 	}
 	option = {
 		name = "honor_leader.103.notherhim"
 		hidden_effect = {
-			kill_leader = { show_notification = no }
-			from = {
-				if = { limit = { exists = event_target:honor_leader1 }
-					event_target:honor_leader1 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler1
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler1
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor1
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor1
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist1
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist1
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral1
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral1
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general1
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general1
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader2 }
-					event_target:honor_leader2 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler2
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler2
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor2
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor2
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist2
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist2
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral2
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral2
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general2
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general2
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader3 }
-					event_target:honor_leader3 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler3
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler3
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor3
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor3
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist3
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist3
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral3
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral3
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general3
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general3
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader4 }
-					event_target:honor_leader4 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler4
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler4
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor4
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor4
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist4
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist4
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral4
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral4
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general4
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general4
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader5 }
-					event_target:honor_leader5 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler5
-									check_variable = { which = honor_leader_type_selected value = 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler5
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor5
-									check_variable = { which = honor_leader_type_selected value = 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor5
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist5
-									check_variable = { which = honor_leader_type_selected value = 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist5
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral5
-									check_variable = { which = honor_leader_type_selected value = 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral5
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general5
-									check_variable = { which = honor_leader_type_selected value = 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general5
-							}
-						}
-						honor_leader_save_leader = yes
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
-				remove_country_flag = honor_leader_view_page_2
-				remove_country_flag = honor_leader_view_page_3
-				remove_country_flag = honor_leader_view_page_4
-			}
+			country_event = { id = honor_leader.104 }
+			event_target:honor_leader = { kill_leader = { show_notification = no } }
 		}
 	}
 	option = {
 		name = "honor_leader.103.notherhimremove"
 		hidden_effect = {
-			log = "Remove Leader from saved"
+			event_target:honor_leader = {
+				log = "Remove Leader from saved"
+				log = "honor_leader: [This.GetName]"
+				log = "honor_leader: [This.GetScopeType]"
+				# Civil Wars compat flag
+				set_leader_flag = dead_ruler
+				kill_leader = { show_notification = no }
+			}
+			log = "This: [This.GetName]"
+			log = "This: [This.GetScopeType]"
+			log = "This: [This.honor_leader_type_selected]"
+			country_event = { id = honor_leader.104 }
+			if = {
+				limit = {
+					check_variable = { which = honor_ruler_selected value = 1 }
+				}
+				remove_country_flag = honor_leader_has_dead_ruler1
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_ruler_selected value = 2 }
+				}
+				remove_country_flag = honor_leader_has_dead_ruler2
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_ruler_selected value = 3 }
+				}
+				remove_country_flag = honor_leader_has_dead_ruler3
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_ruler_selected value = 4 }
+				}
+				remove_country_flag = honor_leader_has_dead_ruler4
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_ruler_selected value = 5 }
+				}
+				remove_country_flag = honor_leader_has_dead_ruler5
+			}
+			if = {
+				limit = {
+					check_variable = { which = honor_governor_selected value = 1 }
+				}
+				remove_country_flag = honor_leader_has_dead_governor1
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_governor_selected value = 2 }
+				}
+				remove_country_flag = honor_leader_has_dead_governor2
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_governor_selected value = 3 }
+				}
+				remove_country_flag = honor_leader_has_dead_governor3
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_governor_selected value = 4 }
+				}
+				remove_country_flag = honor_leader_has_dead_governor4
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_governor_selected value = 5 }
+				}
+				remove_country_flag = honor_leader_has_dead_governor5
+			}
+			if = {
+				limit = {
+					check_variable = { which = honor_scientist_selected value = 1 }
+				}
+				remove_country_flag = honor_leader_has_dead_scientist1
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_scientist_selected value = 2 }
+				}
+				remove_country_flag = honor_leader_has_dead_scientist2
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_scientist_selected value = 3 }
+				}
+				remove_country_flag = honor_leader_has_dead_scientist3
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_scientist_selected value = 4 }
+				}
+				remove_country_flag = honor_leader_has_dead_scientist4
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_scientist_selected value = 5 }
+				}
+				remove_country_flag = honor_leader_has_dead_scientist5
+			}
+			if = {
+				limit = {
+					check_variable = { which = honor_admiral_selected value = 1 }
+				}
+				remove_country_flag = honor_leader_has_dead_admiral1
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_admiral_selected value = 2 }
+				}
+				remove_country_flag = honor_leader_has_dead_admiral2
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_admiral_selected value = 3 }
+				}
+				remove_country_flag = honor_leader_has_dead_admiral3
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_admiral_selected value = 4 }
+				}
+				remove_country_flag = honor_leader_has_dead_admiral4
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_admiral_selected value = 5 }
+				}
+				remove_country_flag = honor_leader_has_dead_admiral5
+			}
+			if = {
+				limit = {
+					check_variable = { which = honor_general_selected value = 1 }
+				}
+				remove_country_flag = honor_leader_has_dead_general1
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_general_selected value = 2 }
+				}
+				remove_country_flag = honor_leader_has_dead_general2
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_general_selected value = 3 }
+				}
+				remove_country_flag = honor_leader_has_dead_general3
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_general_selected value = 4 }
+				}
+				remove_country_flag = honor_leader_has_dead_general4
+			} else_if = {
+				limit = {
+					check_variable = { which = honor_general_selected value = 5 }
+				}
+				remove_country_flag = honor_leader_has_dead_general5
+			}
+			log = "Remove Leader from saved END"
 			log = "honor_leader: [honor_leader.GetName]"
 			log = "honor_leader: [honor_leader.GetScopeType]"
-			# Civil Wars compat flag
-			set_leader_flag = dead_ruler
-			kill_leader = { show_notification = no }
-			from = {
-				log = "This: [This.GetName]"
-				log = "This: [This.GetScopeType]"
-				log = "This: [This.honor_leader_type_selected]"
-				if = { limit = { exists = event_target:honor_leader1 }
-					event_target:honor_leader1 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler1
-									check_variable = { which = honor_leader_type_selected value = 1 }
-									check_variable = { which = honor_ruler_selected value != 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler1
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor1
-									check_variable = { which = honor_leader_type_selected value = 2 }
-									check_variable = { which = honor_governor_selected value != 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor1
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist1
-									check_variable = { which = honor_leader_type_selected value = 3 }
-									check_variable = { which = honor_scientist_selected value != 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist1
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral1
-									check_variable = { which = honor_leader_type_selected value = 4 }
-									check_variable = { which = honor_admiral_selected value != 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral1
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general1
-									check_variable = { which = honor_leader_type_selected value = 5 }
-									check_variable = { which = honor_general_selected value != 1 }
-								}
-								remove_country_flag = honor_leader_has_dead_general1
-								prev = { honor_leader_save_leader = yes }
-							}
+			log = "This: [This.GetName]"
+			log = "This: [This.GetScopeType]"
+			log = "This: [This.honor_leader_type_selected]"
+		}
+	}
+}
+
+## Resave name leaders, key and flag of selected. (HIDDEN)
+country_event = {
+	id = honor_leader.104
+	hide_window = yes
+	is_triggered_only = yes
+	# trigger = { is_ai = no }
+	immediate = {
+		if = { limit = { exists = event_target:honor_leader1 }
+			event_target:honor_leader1 = {
+				save_event_target_as = honor_leader
+				event_target:honor_leader_country = {
+					if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_ruler1
+							check_variable = { which = honor_leader_type_selected value = 1 }
 						}
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader2 }
-					event_target:honor_leader2 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler2
-									check_variable = { which = honor_leader_type_selected value = 1 }
-									check_variable = { which = honor_ruler_selected value != 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler2
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor2
-									check_variable = { which = honor_leader_type_selected value = 2 }
-									check_variable = { which = honor_governor_selected value != 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor2
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist2
-									check_variable = { which = honor_leader_type_selected value = 3 }
-									check_variable = { which = honor_scientist_selected value != 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist2
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral2
-									check_variable = { which = honor_leader_type_selected value = 4 }
-									check_variable = { which = honor_admiral_selected value != 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral2
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general2
-									check_variable = { which = honor_leader_type_selected value = 5 }
-									check_variable = { which = honor_general_selected value != 2 }
-								}
-								remove_country_flag = honor_leader_has_dead_general2
-								prev = { honor_leader_save_leader = yes }
-							}
+						remove_country_flag = honor_leader_has_dead_ruler1
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_governor1
+							check_variable = { which = honor_leader_type_selected value = 2 }
 						}
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader3 }
-					event_target:honor_leader3 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler3
-									check_variable = { which = honor_leader_type_selected value = 1 }
-									check_variable = { which = honor_ruler_selected value != 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler3
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor3
-									check_variable = { which = honor_leader_type_selected value = 2 }
-									check_variable = { which = honor_governor_selected value != 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor3
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist3
-									check_variable = { which = honor_leader_type_selected value = 3 }
-									check_variable = { which = honor_scientist_selected value != 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist3
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral3
-									check_variable = { which = honor_leader_type_selected value = 4 }
-									check_variable = { which = honor_admiral_selected value != 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral3
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general3
-									check_variable = { which = honor_leader_type_selected value = 5 }
-									check_variable = { which = honor_general_selected value != 3 }
-								}
-								remove_country_flag = honor_leader_has_dead_general3
-								prev = { honor_leader_save_leader = yes }
-							}
+						remove_country_flag = honor_leader_has_dead_governor1
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_scientist1
+							check_variable = { which = honor_leader_type_selected value = 3 }
 						}
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader4 }
-					event_target:honor_leader4 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler4
-									check_variable = { which = honor_leader_type_selected value = 1 }
-									check_variable = { which = honor_ruler_selected value != 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler4
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor4
-									check_variable = { which = honor_leader_type_selected value = 2 }
-									check_variable = { which = honor_governor_selected value != 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor4
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist4
-									check_variable = { which = honor_leader_type_selected value = 3 }
-									check_variable = { which = honor_scientist_selected value != 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist4
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral4
-									check_variable = { which = honor_leader_type_selected value = 4 }
-									check_variable = { which = honor_admiral_selected value != 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral4
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general4
-									check_variable = { which = honor_leader_type_selected value = 5 }
-									check_variable = { which = honor_general_selected value != 4 }
-								}
-								remove_country_flag = honor_leader_has_dead_general4
-								prev = { honor_leader_save_leader = yes }
-							}
+						remove_country_flag = honor_leader_has_dead_scientist1
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_admiral1
+							check_variable = { which = honor_leader_type_selected value = 4 }
 						}
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
-					}
-				}
-				if = { limit = { exists = event_target:honor_leader5 }
-					event_target:honor_leader5 = {
-						save_event_target_as = honor_leader
-						event_target:honor_leader_country = {
-							if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_ruler5
-									check_variable = { which = honor_leader_type_selected value = 1 }
-									check_variable = { which = honor_ruler_selected value != 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_ruler5
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_governor5
-									check_variable = { which = honor_leader_type_selected value = 2 }
-									check_variable = { which = honor_governor_selected value != 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_governor5
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_scientist5
-									check_variable = { which = honor_leader_type_selected value = 3 }
-									check_variable = { which = honor_scientist_selected value != 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_scientist5
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_admiral5
-									check_variable = { which = honor_leader_type_selected value = 4 }
-									check_variable = { which = honor_admiral_selected value != 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_admiral5
-								prev = { honor_leader_save_leader = yes }
-							} else_if = {
-								limit = {
-									has_country_flag = honor_leader_has_dead_general5
-									check_variable = { which = honor_leader_type_selected value = 5 }
-									check_variable = { which = honor_general_selected value != 5 }
-								}
-								remove_country_flag = honor_leader_has_dead_general5
-								prev = { honor_leader_save_leader = yes }
-							}
+						remove_country_flag = honor_leader_has_dead_admiral1
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_general1
+							check_variable = { which = honor_leader_type_selected value = 5 }
 						}
-						# Civil Wars compat flag
-						set_leader_flag = dead_ruler
-						kill_leader = { show_notification = no }
+						remove_country_flag = honor_leader_has_dead_general1
 					}
 				}
-				if = {
-					limit = {
-						check_variable = { which = honor_ruler_selected value = 1 }
-					}
-					remove_country_flag = honor_leader_has_dead_ruler1
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_ruler_selected value = 2 }
-					}
-					remove_country_flag = honor_leader_has_dead_ruler2
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_ruler_selected value = 3 }
-					}
-					remove_country_flag = honor_leader_has_dead_ruler3
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_ruler_selected value = 4 }
-					}
-					remove_country_flag = honor_leader_has_dead_ruler4
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_ruler_selected value = 5 }
-					}
-					remove_country_flag = honor_leader_has_dead_ruler5
-				}
-				if = {
-					limit = {
-						check_variable = { which = honor_governor_selected value = 1 }
-					}
-					remove_country_flag = honor_leader_has_dead_governor1
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_governor_selected value = 2 }
-					}
-					remove_country_flag = honor_leader_has_dead_governor2
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_governor_selected value = 3 }
-					}
-					remove_country_flag = honor_leader_has_dead_governor3
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_governor_selected value = 4 }
-					}
-					remove_country_flag = honor_leader_has_dead_governor4
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_governor_selected value = 5 }
-					}
-					remove_country_flag = honor_leader_has_dead_governor5
-				}
-				if = {
-					limit = {
-						check_variable = { which = honor_scientist_selected value = 1 }
-					}
-					remove_country_flag = honor_leader_has_dead_scientist1
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_scientist_selected value = 2 }
-					}
-					remove_country_flag = honor_leader_has_dead_scientist2
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_scientist_selected value = 3 }
-					}
-					remove_country_flag = honor_leader_has_dead_scientist3
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_scientist_selected value = 4 }
-					}
-					remove_country_flag = honor_leader_has_dead_scientist4
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_scientist_selected value = 5 }
-					}
-					remove_country_flag = honor_leader_has_dead_scientist5
-				}
-				if = {
-					limit = {
-						check_variable = { which = honor_admiral_selected value = 1 }
-					}
-					remove_country_flag = honor_leader_has_dead_admiral1
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_admiral_selected value = 2 }
-					}
-					remove_country_flag = honor_leader_has_dead_admiral2
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_admiral_selected value = 3 }
-					}
-					remove_country_flag = honor_leader_has_dead_admiral3
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_admiral_selected value = 4 }
-					}
-					remove_country_flag = honor_leader_has_dead_admiral4
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_admiral_selected value = 5 }
-					}
-					remove_country_flag = honor_leader_has_dead_admiral5
-				}
-				if = {
-					limit = {
-						check_variable = { which = honor_general_selected value = 1 }
-					}
-					remove_country_flag = honor_leader_has_dead_general1
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_general_selected value = 2 }
-					}
-					remove_country_flag = honor_leader_has_dead_general2
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_general_selected value = 3 }
-					}
-					remove_country_flag = honor_leader_has_dead_general3
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_general_selected value = 4 }
-					}
-					remove_country_flag = honor_leader_has_dead_general4
-				} else_if = {
-					limit = {
-						check_variable = { which = honor_general_selected value = 5 }
-					}
-					remove_country_flag = honor_leader_has_dead_general5
-				}
-				random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
-				remove_country_flag = honor_leader_view_page_2
-				remove_country_flag = honor_leader_view_page_3
-				remove_country_flag = honor_leader_view_page_4
-				log = "Remove Leader from saved END"
-				log = "honor_leader: [honor_leader.GetName]"
-				log = "honor_leader: [honor_leader.GetScopeType]"
-				log = "This: [This.GetName]"
-				log = "This: [This.GetScopeType]"
-				log = "This: [This.honor_leader_type_selected]"
+				honor_leader_save_leader = yes
+				# Civil Wars compat flag
+				set_leader_flag = dead_ruler
+				kill_leader = { show_notification = no }
 			}
 		}
+		if = { limit = { exists = event_target:honor_leader2 }
+			event_target:honor_leader2 = {
+				save_event_target_as = honor_leader
+				event_target:honor_leader_country = {
+					if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_ruler2
+							check_variable = { which = honor_leader_type_selected value = 1 }
+						}
+						remove_country_flag = honor_leader_has_dead_ruler2
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_governor2
+							check_variable = { which = honor_leader_type_selected value = 2 }
+						}
+						remove_country_flag = honor_leader_has_dead_governor2
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_scientist2
+							check_variable = { which = honor_leader_type_selected value = 3 }
+						}
+						remove_country_flag = honor_leader_has_dead_scientist2
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_admiral2
+							check_variable = { which = honor_leader_type_selected value = 4 }
+						}
+						remove_country_flag = honor_leader_has_dead_admiral2
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_general2
+							check_variable = { which = honor_leader_type_selected value = 5 }
+						}
+						remove_country_flag = honor_leader_has_dead_general2
+					}
+				}
+				honor_leader_save_leader = yes
+				# Civil Wars compat flag
+				set_leader_flag = dead_ruler
+				kill_leader = { show_notification = no }
+			}
+		}
+		if = { limit = { exists = event_target:honor_leader3 }
+			event_target:honor_leader3 = {
+				save_event_target_as = honor_leader
+				event_target:honor_leader_country = {
+					if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_ruler3
+							check_variable = { which = honor_leader_type_selected value = 1 }
+						}
+						remove_country_flag = honor_leader_has_dead_ruler3
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_governor3
+							check_variable = { which = honor_leader_type_selected value = 2 }
+						}
+						remove_country_flag = honor_leader_has_dead_governor3
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_scientist3
+							check_variable = { which = honor_leader_type_selected value = 3 }
+						}
+						remove_country_flag = honor_leader_has_dead_scientist3
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_admiral3
+							check_variable = { which = honor_leader_type_selected value = 4 }
+						}
+						remove_country_flag = honor_leader_has_dead_admiral3
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_general3
+							check_variable = { which = honor_leader_type_selected value = 5 }
+						}
+						remove_country_flag = honor_leader_has_dead_general3
+					}
+				}
+				honor_leader_save_leader = yes
+				# Civil Wars compat flag
+				set_leader_flag = dead_ruler
+				kill_leader = { show_notification = no }
+			}
+		}
+		if = { limit = { exists = event_target:honor_leader4 }
+			event_target:honor_leader4 = {
+				save_event_target_as = honor_leader
+				event_target:honor_leader_country = {
+					if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_ruler4
+							check_variable = { which = honor_leader_type_selected value = 1 }
+						}
+						remove_country_flag = honor_leader_has_dead_ruler4
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_governor4
+							check_variable = { which = honor_leader_type_selected value = 2 }
+						}
+						remove_country_flag = honor_leader_has_dead_governor4
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_scientist4
+							check_variable = { which = honor_leader_type_selected value = 3 }
+						}
+						remove_country_flag = honor_leader_has_dead_scientist4
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_admiral4
+							check_variable = { which = honor_leader_type_selected value = 4 }
+						}
+						remove_country_flag = honor_leader_has_dead_admiral4
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_general4
+							check_variable = { which = honor_leader_type_selected value = 5 }
+						}
+						remove_country_flag = honor_leader_has_dead_general4
+					}
+				}
+				honor_leader_save_leader = yes
+				# Civil Wars compat flag
+				set_leader_flag = dead_ruler
+				kill_leader = { show_notification = no }
+			}
+		}
+		if = { limit = { exists = event_target:honor_leader5 }
+			event_target:honor_leader5 = {
+				save_event_target_as = honor_leader
+				event_target:honor_leader_country = {
+					if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_ruler5
+							check_variable = { which = honor_leader_type_selected value = 1 }
+						}
+						remove_country_flag = honor_leader_has_dead_ruler5
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_governor5
+							check_variable = { which = honor_leader_type_selected value = 2 }
+						}
+						remove_country_flag = honor_leader_has_dead_governor5
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_scientist5
+							check_variable = { which = honor_leader_type_selected value = 3 }
+						}
+						remove_country_flag = honor_leader_has_dead_scientist5
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_admiral5
+							check_variable = { which = honor_leader_type_selected value = 4 }
+						}
+						remove_country_flag = honor_leader_has_dead_admiral5
+					} else_if = {
+						limit = {
+							has_country_flag = honor_leader_has_dead_general5
+							check_variable = { which = honor_leader_type_selected value = 5 }
+						}
+						remove_country_flag = honor_leader_has_dead_general5
+					}
+				}
+				honor_leader_save_leader = yes
+				# Civil Wars compat flag
+				set_leader_flag = dead_ruler
+				kill_leader = { show_notification = no }
+			}
+		}
+		random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
+		remove_country_flag = honor_leader_view_page_2
+		remove_country_flag = honor_leader_view_page_3
+		remove_country_flag = honor_leader_view_page_4
 	}
 }
 
@@ -1811,8 +1273,8 @@ country_event = {
 		leader = {
 			set_leader_flag = honor_leader_has_been_viewed
 			save_event_target_as = honor_leader
-			leader_event = { id = honor_leader.111 }
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.110.governor"
@@ -1823,8 +1285,8 @@ country_event = {
 			limit = { leader_class = governor }
 			set_leader_flag = honor_leader_has_been_viewed
 			save_event_target_as = honor_leader
-			leader_event = { id = honor_leader.111 }
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.110.scientist"
@@ -1835,8 +1297,8 @@ country_event = {
 			limit = { leader_class = scientist }
 			set_leader_flag = honor_leader_has_been_viewed
 			save_event_target_as = honor_leader
-			leader_event = { id = honor_leader.111 }
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.110.admiral"
@@ -1847,8 +1309,8 @@ country_event = {
 			limit = { leader_class = admiral }
 			set_leader_flag = honor_leader_has_been_viewed
 			save_event_target_as = honor_leader
-			leader_event = { id = honor_leader.111 }
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.110.general"
@@ -1859,8 +1321,8 @@ country_event = {
 			limit = { leader_class = general }
 			set_leader_flag = honor_leader_has_been_viewed
 			save_event_target_as = honor_leader
-			leader_event = { id = honor_leader.111 }
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.110.random"
@@ -1868,8 +1330,8 @@ country_event = {
 		random_owned_leader = {
 			set_leader_flag = honor_leader_has_been_viewed
 			save_event_target_as = honor_leader
-			leader_event = { id = honor_leader.111 }
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.110.nope"
@@ -1877,166 +1339,250 @@ country_event = {
 	}
 }
 
-# Scope = event_target:honor_leader
-# from = owner
-leader_event = {
+# Required = event_target:honor_leader
+# root = owner
+country_event = {
 	id = honor_leader.111
-	desc = {
-		trigger = {
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
-			}
-			from = {
-				NOR = {
-					has_country_flag = honor_leader_view_page_2
-					has_country_flag = honor_leader_view_page_3
-					has_country_flag = honor_leader_view_page_4
-				}
-			}
-		}
-		text = honor_leader.111.desc.viewlivingrulerpage1
-	}
-	desc = {
-		trigger = {
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
-			}
-			from = {
-				has_country_flag = honor_leader_view_page_2
-				NOR = {
-					has_country_flag = honor_leader_view_page_3
-					has_country_flag = honor_leader_view_page_4
-				}
-			}
-		}
-		text = honor_leader.111.desc.viewlivingrulerpage2
-	}
-	desc = {
-		trigger = {
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
-			}
-			from = {
-				has_country_flag = honor_leader_view_page_3
-				NOT = { has_country_flag = honor_leader_view_page_4 }
-			}
-		}
-		text = honor_leader.111.desc.viewlivingrulerpage3
-	}
-	desc = {
-		trigger = {
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
-			}
-			from = { has_country_flag = honor_leader_view_page_4 }
-		}
-		text = honor_leader.111.desc.viewlivingrulerpage4
-	}
-	desc = {
-		trigger = { leader_class = governor }
-		text = honor_leader.111.desc.viewlivinggovernor
-	}
-	desc = {
-		trigger = { leader_class = scientist }
-		text = honor_leader.111.desc.viewlivingscientist
-	}
-	desc = {
-		trigger = { leader_class = admiral }
-		text = honor_leader.111.desc.viewlivingadmiral
-	}
-	desc = {
-		trigger = { leader_class = general }
-		text = honor_leader.111.desc.viewlivinggeneral
-	}
 	title = "honor_leader.111.title"
+	desc = {
+		trigger = {
+			# hidden:event_target:honor_leader = { is_scope_type = leader  OR = { leader_class = ruler has_leader_flag = honor_leader_was_ruler is_variable_set = stints_as_ruler } } not working
+			success_text = { text = "known_dismissal"							NAND = { exists = event_target:honor_leader event_target:honor_leader = { is_scope_type = leader } } }
+			success_text = { text = "honor_leader.111.desc.viewlivingrulerpage1" event_target:honor_leader = {  OR = { leader_class = ruler has_leader_flag = honor_leader_was_ruler is_variable_set = stints_as_ruler } } NOR = { has_country_flag = honor_leader_view_page_2 has_country_flag = honor_leader_view_page_3 has_country_flag = honor_leader_view_page_4 } }
+			success_text = { text = "honor_leader.111.desc.viewlivingrulerpage2" event_target:honor_leader = {  OR = { leader_class = ruler has_leader_flag = honor_leader_was_ruler is_variable_set = stints_as_ruler } } has_country_flag = honor_leader_view_page_2 NOR = { has_country_flag = honor_leader_view_page_3 has_country_flag = honor_leader_view_page_4 } }
+			success_text = { text = "honor_leader.111.desc.viewlivingrulerpage3" event_target:honor_leader = {  OR = { leader_class = ruler has_leader_flag = honor_leader_was_ruler is_variable_set = stints_as_ruler } } has_country_flag = honor_leader_view_page_3 NOR = { has_country_flag = honor_leader_view_page_2 has_country_flag = honor_leader_view_page_4 } }
+			success_text = { text = "honor_leader.111.desc.viewlivingrulerpage4" event_target:honor_leader = {  OR = { leader_class = ruler has_leader_flag = honor_leader_was_ruler is_variable_set = stints_as_ruler } } has_country_flag = honor_leader_view_page_4 NOR = { has_country_flag = honor_leader_view_page_3 has_country_flag = honor_leader_view_page_2 } }
+			success_text = { text = "honor_leader.111.desc.viewlivinggovernor"	event_target:honor_leader = { NOR = { is_variable_set = stints_as_ruler has_leader_flag = honor_leader_was_ruler } leader_class = governor	} }
+			success_text = { text = "honor_leader.111.desc.viewlivingscientist"	event_target:honor_leader = { NOR = { is_variable_set = stints_as_ruler has_leader_flag = honor_leader_was_ruler } leader_class = scientist	} }
+			success_text = { text = "honor_leader.111.desc.viewlivingadmiral"	event_target:honor_leader = { NOR = { is_variable_set = stints_as_ruler has_leader_flag = honor_leader_was_ruler } leader_class = admiral	} }
+			success_text = { text = "honor_leader.111.desc.viewlivinggeneral"	event_target:honor_leader = { NOR = { is_variable_set = stints_as_ruler has_leader_flag = honor_leader_was_ruler } leader_class = general	} }
+		}
+	}
+	# desc = {
+	# 	trigger = {
+	# 		hidden:event_target:honor_leader = { NOR = { is_variable_set = stints_as_ruler has_leader_flag = honor_leader_was_ruler } }
+	# 		text = initialstats
+	# 		text = biography
+	# 		success_text = { text = "administration"	event_target:honor_leader = { leader_class = governor	} }
+	# 		success_text = { text = "sciencebio"		event_target:honor_leader = { leader_class = scientist	} }
+	# 		success_text = { text = "spacewarfare"		event_target:honor_leader = { leader_class = admiral	} }
+	# 		success_text = { text = "groundwarfare"		event_target:honor_leader = { leader_class = general	} }
+	# 		text = stats_bio
+	# 		success_text = { text = "stats_admin"		event_target:honor_leader = { leader_class = governor	} }
+	# 		success_text = { text = "stats_science"		event_target:honor_leader = { leader_class = scientist	} }
+	# 		success_text = { text = "stats_spacewar"	event_target:honor_leader = { leader_class = admiral	} }
+	# 		success_text = { text = "stats_groundwar"	event_target:honor_leader = { leader_class = general	} }
+	# 		text = stats_misc
+	# 	}
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 			}
+	# 		}
+	# 		# NOR = {
+	# 		# 	has_country_flag = honor_leader_view_page_2
+	# 		# 	has_country_flag = honor_leader_view_page_3
+	# 		# 	has_country_flag = honor_leader_view_page_4
+	# 		# }
+	# 	}
+	# 	text = honor_leader.111.desc.viewlivingrulerpage1
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 			}
+	# 		}
+	# 		has_country_flag = honor_leader_view_page_2
+	# 		NOR = {
+	# 			has_country_flag = honor_leader_view_page_3
+	# 			has_country_flag = honor_leader_view_page_4
+	# 		}
+	# 	}
+	# 	text = honor_leader.111.desc.viewlivingrulerpage2
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 			}
+	# 		}
+	# 		has_country_flag = honor_leader_view_page_3
+	# 		NOT = { has_country_flag = honor_leader_view_page_4 }
+	# 	}
+	# 	text = honor_leader.111.desc.viewlivingrulerpage3
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 			}
+	# 		}
+	# 		has_country_flag = honor_leader_view_page_4
+	# 	}
+	# 	text = honor_leader.111.desc.viewlivingrulerpage4
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = { leader_class = governor }
+	# 	}
+	# 	text = honor_leader.111.desc.viewlivinggovernor
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = { leader_class = scientist }
+	# 	}
+	# 	text = honor_leader.111.desc.viewlivingscientist
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = { leader_class = admiral }
+	# 	}
+	# 	text = honor_leader.111.desc.viewlivingadmiral
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader = { leader_class = general }
+	# 	}
+	# 	text = honor_leader.111.desc.viewlivinggeneral
+	# }
 	picture_event_data = {
-		portrait = event_target:honor_leader.species
-		planet_background = event_target:honor_leader_country
-		graphical_culture = event_target:honor_leader_country
-		city_level = event_target:honor_leader_country
-		room = event_target:honor_leader_country.ruler
+		portrait = event_target:honor_leader
+		planet_background = root # event_target:honor_leader_country
+		graphical_culture = root # event_target:honor_leader_country
+		city_level = root # event_target:honor_leader_country
+		room = root.ruler # event_target:honor_leader_country.ruler
 	}
 	show_sound = event_conversation
 	diplomatic = yes
 	is_triggered_only = yes
-	trigger = { is_scope_type = leader }
+	# trigger = {}
 	immediate = {
-		if = { limit = { NOT = { exists = event_target:honor_leader } }
-			save_event_target_as = honor_leader
-			save_event_target_as = honor_leader_clone # for loc?
+		if = { limit = { NOT = { exists = event_target:honor_leader } exists = event_target:honor_leader_clone }
+			event_target:honor_leader_clone = { save_event_target_as = honor_leader }
+		} else_if = { limit = { NOT = { exists = event_target:honor_leader_clone } exists = event_target:honor_leader }
+			event_target:honor_leader = { save_event_target_as = honor_leader_clone }
 		}
 		if = { limit = { NOT = { exists = event_target:honor_leader_country } }
-			from = { save_event_target_as = honor_leader_country }
+			save_event_target_as = honor_leader_country
 		}
-		honor_leader_copy_flags_and_vars = yes # Init?
-		if = { limit = { NOT = { is_variable_set = honor_leader_skill } }
-			export_trigger_value_to_variable = { trigger = has_level variable = honor_leader_skill }
+		event_target:honor_leader = {
+			honor_leader_copy_flags_and_vars = yes # Init?
 		}
+	}
+	option = {
+		name = "honor_leader.111.rulerpage1"
+		trigger = {
+			exists = leader
+			leader = { has_leader_flag = honor_leader_has_been_viewed }
+			event_target:honor_leader = {
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
+			}
+		}
+		allow = {
+			OR = {
+				has_country_flag = honor_leader_view_page_2
+				has_country_flag = honor_leader_view_page_3
+				has_country_flag = honor_leader_view_page_4
+			}
+		}
+		response_text = "honor_leader.111.desc.viewlivingrulerpage1"
+		# is_dialog_only = yes
+		hidden_effect = {
+			leader = { save_event_target_as = honor_leader }
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.rulerpage2"
 		trigger = {
-			from = {
-				exists = leader
-				leader = { has_leader_flag = honor_leader_has_been_viewed }
-				NOT = { has_country_flag = honor_leader_view_page_2 }
-			}
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
+			exists = leader
+			leader = { has_leader_flag = honor_leader_has_been_viewed }
+			event_target:honor_leader = {
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
 			}
 		}
-		from = {
+		allow = {
+			NOT = { has_country_flag = honor_leader_view_page_2 }
+		}
+		response_text = "honor_leader.111.desc.viewlivingrulerpage2"
+		# is_dialog_only = yes
+		hidden_effect = {
 			set_country_flag = honor_leader_view_page_2
-			leader = {
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
-			}
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
+			leader = { save_event_target_as = honor_leader }
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.rulerpage3"
 		trigger = {
-			from = {
-				exists = leader
-				leader = { has_leader_flag = honor_leader_has_been_viewed }
-				NOT = { has_country_flag = honor_leader_view_page_3 }
-			}
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
+			exists = leader
+			leader = { has_leader_flag = honor_leader_has_been_viewed }
+			event_target:honor_leader = {
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
 			}
 		}
-		from = {
+		allow = {
+			NOT = { has_country_flag = honor_leader_view_page_3 }
+		}
+		response_text = "honor_leader.111.desc.viewlivingrulerpage3"
+		# is_dialog_only = yes
+		hidden_effect = {
 			set_country_flag = honor_leader_view_page_3
-			leader = {
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
-			}
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_4
+			leader = { save_event_target_as = honor_leader }
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.rulerpage4"
 		trigger = {
-			from = {
-				exists = leader
-				leader = { has_leader_flag = honor_leader_has_been_viewed }
-				NOT = { has_country_flag = honor_leader_view_page_4 }
-			}
-			OR = {
-				leader_class = ruler
-				has_leader_flag = honor_leader_was_ruler
+			exists = leader
+			leader = { has_leader_flag = honor_leader_has_been_viewed }
+			event_target:honor_leader = {
+				OR = {
+					leader_class = ruler
+					has_leader_flag = honor_leader_was_ruler
+				}
 			}
 		}
-		from = {
+		allow = {
+			NOT = { has_country_flag = honor_leader_view_page_4 }
+		}
+		response_text = "honor_leader.111.desc.viewlivingrulerpage4"
+		# is_dialog_only = yes
+		hidden_effect = {
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
 			set_country_flag = honor_leader_view_page_4
-			leader = {
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
-			}
+			leader = { save_event_target_as = honor_leader }
 		}
-
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.honored"
@@ -2049,51 +1595,44 @@ leader_event = {
 			}
 		}
 		allow = {
-			from = {
-				resource_stockpile_compare = { resource = influence value > 70 }
-				resource_stockpile_compare = { resource = unity value > 250 }
-			}
+			resource_stockpile_compare = { resource = influence value > 70 }
+			resource_stockpile_compare = { resource = unity value > 250 }
 		}
-		from = {
-			play_sound = event_celebration
-			add_resource = { influence = -70 unity = -250 }
-			hidden_effect = {
-				country_event = { id = new_honor_leader.203 days = -1 }
-				random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
-				remove_country_flag = honor_leader_view_page_2
-				remove_country_flag = honor_leader_view_page_3
-				remove_country_flag = honor_leader_view_page_4
-			}
+		play_sound = event_celebration
+		add_resource = { influence = -70 unity = -250 }
+		hidden_effect = {
+			country_event = { id = new_honor_leader.203 days = -1 }
+			random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
+			remove_country_flag = honor_leader_view_page_2
+			remove_country_flag = honor_leader_view_page_3
+			remove_country_flag = honor_leader_view_page_4
 		}
 	}
 	option = {
 		name = "honor_leader.110.ruler"
 		trigger = {
-			from = {
-				exists = leader
-				leader = {
-					NOT = { has_leader_flag = honor_leader_has_been_viewed }
-				}
+			exists = leader
+			leader = {
+				NOT = { has_leader_flag = honor_leader_has_been_viewed }
 			}
 		}
-		from = {
+		hidden_effect = {
 			leader = {
 				set_leader_flag = honor_leader_has_been_viewed
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
+				save_event_target_as = honor_leader
 			}
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.nextgovernor"
 		trigger = {
-			from = {
-				any_owned_leader = {
-					leader_class = governor
-					NOT = { has_leader_flag = honor_leader_has_been_viewed }
-				}
+			any_owned_leader = {
+				leader_class = governor
+				NOT = { has_leader_flag = honor_leader_has_been_viewed }
 			}
 		}
-		from = {
+		hidden_effect = {
 			random_owned_leader = {
 				limit = { leader_class = governor }
 				weights = {
@@ -2101,21 +1640,20 @@ leader_event = {
 					modifier = { add = 9 NOT = { has_leader_flag = honor_leader_has_been_viewed } }
 				}
 				set_leader_flag = honor_leader_has_been_viewed
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
+				save_event_target_as = honor_leader
 			}
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.nextscientist"
 		trigger = {
-			from = {
-				any_owned_leader = {
-					leader_class = scientist
-					NOT = { has_leader_flag = honor_leader_has_been_viewed }
-				}
+			any_owned_leader = {
+				leader_class = scientist
+				NOT = { has_leader_flag = honor_leader_has_been_viewed }
 			}
 		}
-		from = {
+		hidden_effect = {
 			random_owned_leader = {
 				limit = { leader_class = scientist }
 				weights = {
@@ -2123,21 +1661,20 @@ leader_event = {
 					modifier = { add = 9 NOT = { has_leader_flag = honor_leader_has_been_viewed } }
 				}
 				set_leader_flag = honor_leader_has_been_viewed
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
+				save_event_target_as = honor_leader
 			}
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.nextadmiral"
 		trigger = {
-			from = {
-				any_owned_leader = {
-					leader_class = admiral
-					NOT = { has_leader_flag = honor_leader_has_been_viewed }
-				}
+			any_owned_leader = {
+				leader_class = admiral
+				NOT = { has_leader_flag = honor_leader_has_been_viewed }
 			}
 		}
-		from = {
+		hidden_effect = {
 			random_owned_leader = {
 				limit = { leader_class = admiral }
 				weights = {
@@ -2145,21 +1682,20 @@ leader_event = {
 					modifier = { add = 9 NOT = { has_leader_flag = honor_leader_has_been_viewed } }
 				}
 				set_leader_flag = honor_leader_has_been_viewed
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
+				save_event_target_as = honor_leader
 			}
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.nextgeneral"
 		trigger = {
-			from = {
-				any_owned_leader = {
-					leader_class = general
-					NOT = { has_leader_flag = honor_leader_has_been_viewed }
-				}
+			any_owned_leader = {
+				leader_class = general
+				NOT = { has_leader_flag = honor_leader_has_been_viewed }
 			}
 		}
-		from = {
+		hidden_effect = {
 			random_owned_leader = {
 				limit = { leader_class = general }
 				weights = {
@@ -2167,39 +1703,33 @@ leader_event = {
 					modifier = { add = 9 NOT = { has_leader_flag = honor_leader_has_been_viewed } }
 				}
 				set_leader_flag = honor_leader_has_been_viewed
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
+				save_event_target_as = honor_leader
 			}
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.nextrandom"
 		trigger = {
-			from = {
-				any_owned_leader = {
-					NOT = { has_leader_flag = honor_leader_has_been_viewed }
-				}
+			any_owned_leader = {
+				NOT = { has_leader_flag = honor_leader_has_been_viewed }
 			}
 		}
-		from = {
+		hidden_effect = {
 			random_owned_leader = {
 				limit = { NOT = { has_leader_flag = honor_leader_has_been_viewed } }
 				set_leader_flag = honor_leader_has_been_viewed
-				leader_event = { id = honor_leader.111 scopes = { from = root.from } }
+				save_event_target_as = honor_leader
 			}
 		}
+		country_event = { id = honor_leader.111 }
 	}
 	option = {
 		name = "honor_leader.111.noneleft"
 		trigger = {
-			from = {
-				NOT = {
-					any_owned_leader = {
-						NOT = { has_leader_flag = honor_leader_has_been_viewed }
-					}
-				}
-			}
+			NOT = { any_owned_leader = { NOT = { has_leader_flag = honor_leader_has_been_viewed } } }
 		}
-		from = {
+		hidden_effect = {
 			random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 			remove_country_flag = honor_leader_view_page_2
 			remove_country_flag = honor_leader_view_page_3
@@ -2209,7 +1739,7 @@ leader_event = {
 	option = {
 		name = RETURN_ORDER # "honor_leader.111.exit"
 		trigger = { }
-		from = {
+		hidden_effect = {
 			random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 			remove_country_flag = honor_leader_view_page_2
 			remove_country_flag = honor_leader_view_page_3
@@ -2223,137 +1753,176 @@ leader_event = {
 # fromfrom = dead leader? (honor_leader.2000)
 country_event = {
 	id = honor_leader.200
-	desc = {
-		exclusive_trigger = {
-			NAND = {
-				exists = event_target:honor_leader_clone
-				event_target:honor_leader_clone = { is_scope_type = leader }
-			}
-		}
-		text = known_dismissal
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				OR = {
-					leader_class = ruler
-					has_leader_flag = honor_leader_was_ruler
-					is_variable_set = stints_as_ruler
-				}
-				check_variable = { which = stints_as_ruler value <= 1 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_1
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 2 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_2
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 3 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_3
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 4 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_4
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 5 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_5
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 6 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_6
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 7 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_7
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 8 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_8
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 9 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_9
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				check_variable = { which = stints_as_ruler value = 10 }
-			}
-		}
-		text = honor_leader.200.desc.deadruler_10
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				leader_class = governor
-				NOT = { is_variable_set = stints_as_ruler }
-			}
-		}
-		text = honor_leader.200.desc.deadgovernor
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				leader_class = scientist
-				NOT = { is_variable_set = stints_as_ruler }
-			}
-		}
-		text = honor_leader.200.desc.deadscientist
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				leader_class = admiral
-				NOT = { is_variable_set = stints_as_ruler }
-			}
-		}
-		text = honor_leader.200.desc.deadadmiral
-	}
-	desc = {
-		trigger = {
-			event_target:honor_leader_clone = {
-				leader_class = general
-				NOT = { is_variable_set = stints_as_ruler }
-			}
-		}
-		text = honor_leader.200.desc.deadgeneral
-	}
 	title = "honor_leader.103.title"
+	desc = {
+		trigger = {
+			# hidden:event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } } not working
+			# text = newline
+			success_text = { text = "known_dismissal"						NAND = { exists = event_target:honor_leader_clone event_target:honor_leader_clone = { is_scope_type = leader } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_1"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value <= 1 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_2"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 2 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_3"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 3 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_4"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 4 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_5"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 5 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_6"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 6 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_7"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 7 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_8"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 8 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_9"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 9 } } }
+			success_text = { text = "honor_leader.200.desc.deadruler_10"	event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 10 } } }
+			success_text = { text = "honor_leader.200.desc.deadscientist"	event_target:honor_leader_clone = { NOT = { is_variable_set = stints_as_ruler } leader_class = scientist	} }
+			success_text = { text = "honor_leader.200.desc.deadgovernor"	event_target:honor_leader_clone = { NOT = { is_variable_set = stints_as_ruler } leader_class = governor		} }
+			success_text = { text = "honor_leader.200.desc.deadadmiral"		event_target:honor_leader_clone = { NOT = { is_variable_set = stints_as_ruler } leader_class = admiral		} }
+			success_text = { text = "honor_leader.200.desc.deadgeneral"		event_target:honor_leader_clone = { NOT = { is_variable_set = stints_as_ruler } leader_class = general		} }
+		}
+	}
+	# desc = {
+	# 	trigger = {
+	# 		hidden:event_target:honor_leader_clone = { NOT = { is_variable_set = stints_as_ruler } }
+	# 		text = initialstats_other
+	# 		text = death_date
+	# 		success_text = { text = "administration"	event_target:honor_leader_clone = { leader_class = governor } }
+	# 		success_text = { text = "sciencebio"		event_target:honor_leader_clone = { leader_class = scientist } }
+	# 		success_text = { text = "spacewarfare"		event_target:honor_leader_clone = { leader_class = admiral	 } }
+	# 		success_text = { text = "groundwarfare"		event_target:honor_leader_clone = { leader_class = general	 } }
+	# 		text = stats_bio
+	# 		success_text = { text = "stats_admin"		event_target:honor_leader_clone = { leader_class = governor } }
+	# 		success_text = { text = "stats_science"		event_target:honor_leader_clone = { leader_class = scientist } }
+	# 		success_text = { text = "stats_spacewar"	event_target:honor_leader_clone = { leader_class = admiral	 } }
+	# 		success_text = { text = "stats_groundwar"	event_target:honor_leader_clone = { leader_class = general	 } }
+	# 		text = stats_misc
+	# 	}
+	# }
+	# desc = {
+	# 	exclusive_trigger = {
+	# 		NAND = {
+	# 			exists = event_target:honor_leader_clone
+	# 			event_target:honor_leader_clone = { is_scope_type = leader }
+	# 		}
+	# 	}
+	# 	text = known_dismissal
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			OR = {
+	# 				leader_class = ruler
+	# 				has_leader_flag = honor_leader_was_ruler
+	# 				is_variable_set = stints_as_ruler
+	# 			}
+	# 			check_variable = { which = stints_as_ruler value <= 1 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_1
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 2 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_2
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 3 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_3
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 4 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_4
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 5 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_5
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 6 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_6
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 7 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_7
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 8 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_8
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 9 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_9
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			check_variable = { which = stints_as_ruler value = 10 }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadruler_10
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			leader_class = governor
+	# 			NOT = { is_variable_set = stints_as_ruler }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadgovernor
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			leader_class = scientist
+	# 			NOT = { is_variable_set = stints_as_ruler }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadscientist
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			leader_class = admiral
+	# 			NOT = { is_variable_set = stints_as_ruler }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadadmiral
+	# }
+	# desc = {
+	# 	trigger = {
+	# 		event_target:honor_leader_clone = {
+	# 			leader_class = general
+	# 			NOT = { is_variable_set = stints_as_ruler }
+	# 		}
+	# 	}
+	# 	text = honor_leader.200.desc.deadgeneral
+	# }
+
 	diplomatic = yes
 	picture_event_data = {
 		portrait = event_target:honor_leader_clone
@@ -2436,8 +2005,11 @@ country_event = {
 		trigger = { is_scope_valid = yes }
 		hidden_effect = {
 			save_event_target_as = honor_leader_country
+			if = { limit = { NOT = { exists = event_target:honor_leader } }
+				event_target:honor_leader_clone = { save_event_target_as = honor_leader } # for loc?
+			}
 			# SAVE LEADER HERE FOR LATER.
-			event_target:honor_leader = { honor_leader_save_leader = yes }
+			event_target:honor_leader_clone = { honor_leader_save_leader = yes }
 			every_owned_leader = { # Civil Wars compat flag
 				limit = {
 					has_leader_flag = honor_leader_interim_leader
@@ -2662,7 +2234,7 @@ country_event = {
 	}
 	option = {
 		name = "honor_leader.111.rulerpage2"
-		response_text = "honor_leader.200.desc.deadrulerpage2"
+		response_text = honor_leader.111.desc.viewlivingrulerpage2 # "honor_leader.200.desc.deadrulerpage2"
 		is_dialog_only = yes
 		trigger = {
 			event_target:honor_leader_clone = {
@@ -2682,7 +2254,7 @@ country_event = {
 	}
 	option = {
 		name = "honor_leader.111.rulerpage3"
-		response_text = "honor_leader.200.desc.deadrulerpage3"
+		response_text = honor_leader.111.desc.viewlivingrulerpage3 # "honor_leader.200.desc.deadrulerpage3"
 		is_dialog_only = yes
 		trigger = {
 			event_target:honor_leader_clone = {
@@ -2702,7 +2274,7 @@ country_event = {
 	}
 	option = {
 		name = "honor_leader.111.rulerpage4"
-		response_text = "honor_leader.200.desc.deadrulerpage4"
+		response_text = honor_leader.111.desc.viewlivingrulerpage4 # "honor_leader.200.desc.deadrulerpage4"
 		is_dialog_only = yes
 		trigger = {
 			event_target:honor_leader_clone = {
