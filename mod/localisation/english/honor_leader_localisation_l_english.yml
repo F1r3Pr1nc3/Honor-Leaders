@@ -632,7 +632,7 @@
  in_election_leader: "Died During an Election Campaign"
  in_election_ruler: "Died During a Re-Election Campaign"
  # GetTitle leads on clones to not resolved strings sometimes
- initialstats_other: "§LProfession:§! [honor_leader_clone.GetClass]\n§LTotal Years of Service:§! [honor_leader_clone.honor_leader_years_of_service]\n§LLevel:§! [honor_leader_clone.dead_leader_level]\n"
+ initialstats_other: "§LProfession:§! [honor_leader_clone.GetOriginalClass]\n§LTotal Years of Service:§! [honor_leader_clone.honor_leader_years_of_service]\n§LLevel:§! [honor_leader_clone.dead_leader_level]\n"
  initialstats: "Skill: [honor_leader.honor_leader_skill] Years of Service: [honor_leader_clone.honor_leader_years_of_service]\n"
  known_age: "Old Age"
  known_dismissal: "Dismissed"

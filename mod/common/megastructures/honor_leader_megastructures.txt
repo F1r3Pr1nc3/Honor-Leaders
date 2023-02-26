@@ -6,6 +6,7 @@ honor_leader_memorial_ruler_0 = {
 	portrait = "GFX_mega_art_installation_background"
 	place_entity_on_planet_plane = yes
 	entity_offset = { x = -7 y = -7 }
+	show_in_outliner = no
 	build_time = 360
 
 	resources = {
@@ -292,6 +293,7 @@ honor_leader_memorial_governor_0 = {
 	portrait = "GFX_megastructure_interstellar_assembly_background"
 	place_entity_on_planet_plane = yes
 	entity_offset = { x = -7 y = -7 }
+	show_in_outliner = no
 	build_time = 360
 
 	resources = {
@@ -588,6 +590,7 @@ honor_leader_memorial_scientist_0 = {
 	portrait = "GFX_megastructure_think_tank_background"
 	place_entity_on_planet_plane = yes
 	entity_offset = { x = -7 y = -7 }
+	show_in_outliner = no
 	build_time = 360
 
 	resources = {
@@ -889,6 +892,7 @@ honor_leader_memorial_admiral_0 = {
 	portrait = "GFX_megastructure_strategic_coordination_center_background"
 	place_entity_on_planet_plane = yes
 	entity_offset = { x = -7 y = -7 }
+	show_in_outliner = no
 	build_time = 360
 
 	resources = {
@@ -1185,6 +1189,7 @@ honor_leader_memorial_general_0 = {
 	portrait = "GFX_megastructure_strategic_coordination_center_background"
 	place_entity_on_planet_plane = yes
 	entity_offset = { x = -7 y = -7 }
+	show_in_outliner = no
 	build_time = 360
 
 	resources = {

@@ -3542,6 +3542,7 @@ country_event = {
 		}
 	}
 	immediate = {
+		log = "2000 HAPPENED"
 		set_update_modifiers_batch = begin
 		from = {
 			save_event_target_as = honor_leader
@@ -3566,7 +3567,8 @@ country_event = {
 					root = { country_event = { id = honor_leader.5 days = -1 scopes = { from = event_target:honor_leader } } }
 				}
 			}
-		} else = { # Fallback (Old Method - should be not possible as every leader should have a clone)
+		}
+		else = { # Fallback (Old Method - should be not possible as every leader should have a clone)
 			log = "FALLBACK COPY: [honor_copy_@event_target:honor_leader.GetName]"
 			clone_leader = {
 				target = from
@@ -3595,7 +3597,8 @@ country_event = {
 		}
 		if = { limit = { NOT = { has_country_flag = honor_popup_disabled } }
 			country_event = { id = honor_leader.200 } # Can't be leader event, because problem with the portrait display.
-		} else = {
+		}
+		else = {
 			# SAVE LEADER HERE FOR LATER.
 			event_target:honor_leader_clone = { honor_leader_save_leader = yes }
 			every_owned_leader = {
@@ -3607,205 +3610,6 @@ country_event = {
 			random_owned_leader = { limit = { has_leader_flag = honor_leader_has_been_viewed } remove_leader_flag = honor_leader_has_been_viewed }
 		}
 
-		# FUNE: From what I can tell, this is looking for a scope that doesnt exist
-		# from = {
-		# 	if = { limit = { exists = from }
-		# 		from = {
-		# 			if = {
-		# 				limit = {
-		# 					is_scope_valid = yes
-		# 					OR = {
-		# 						is_scope_type = ship
-		# 						is_scope_type = fleet
-		# 						is_scope_type = country
-		# 						is_scope_type = leader
-		# 						is_scope_type = galactic_object
-		# 						is_scope_type = planet
-		# 						is_scope_type = army
-		# 					}
-		# 				}
-		# 				save_event_target_as = honor_leader_cause_of_death
-		# 				# "Cause of Death Scope" if on fleet this is exact same as the leader??
-		# 				#  log = "honor_leader_cause_of_death: \\[honor_leader_cause_of_death.GetName] Scope: \\[honor_leader_cause_of_death.GetScopeType]"
-		# 			}
-		# 		}
-		# 		# TODO: to much resources?
-		# 		# if = { limit = { exists = fleet }
-		# 		# 	set_leader_flag = leader_on_fleet
-		# 		# 	fleet = {
-		# 		# 		if = { limit = { exists = solar_system }
-		# 		# 			solar_system = { save_event_target_as = honor_leader_system }
-		# 		# 		}
-		# 		# 	}
-		# 		# }
-		# 	}
-		# 	prev = { save_event_target_as = honor_leader_country }
-		# 	# if = { limit = { gender = female }
-		# 	# 	set_variable = { which = honor_leader_gender value = 1 }
-		# 	# }
-		# else = { # indeterminable still not used
-		# 	# 	set_variable = { which = honor_leader_gender value = 2 }
-		# 	# }
-		# 	# export_trigger_value_to_variable = { trigger = has_level variable = honor_leader_skill }
-		# 	if = {
-		# 		limit = {
-		# 			NOR = {
-		# 				has_leader_flag = honor_leader_ruler_in_election
-		# 				exists = event_target:honor_leader_clone
-		# 			}
-		# 		}
-		# 		# Clone current leader and set to honor_leader - for Old Age death trigger.
-		# 		# Add time effects if not dead.
-		# 		switch = {
-		# 			trigger = leader_class
-		# 			ruler = {
-		# 				if = { limit = { NOT = { has_leader_flag = honor_leader_dead_leader } }
-		# 					set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
-		# 					set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
-		# 					set_variable = { which = honor_leader_class value = 1 }
-		# 					root = {
-		# 						create_leader = {
-		# 							class = ruler
-		# 							species = prev.species
-		# 							name = "NAME"
-		# 							skill = 1
-		# 							# traits = { trait = trait_ruler_eye_for_talent }
-		# 							traits = { trait = leader_trait_resilient }
-		# 							gender = male
-		# 							set_age = 21
-		# 							effect = {
-		# 								set_variable = { which = honor_leader_class value = 1 }
-		# 								save_event_target_as = honor_leader_clone
-		# 								honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
-		# 								leader_event = { id = honor_leader.200 days = -1 }
-		# 							}
-		# 						}
-		# 					}
-		# 				}
-		# 			}
-		# 			governor = {
-		# 				set_variable = { which = honor_leader_class value = 2 }
-		# 				root = {
-		# 					create_leader = {
-		# 						class = governor
-		# 						species = prev.species
-		# 						name = "NAME"
-		# 						skill = 1
-		# 						traits = { trait = leader_trait_resilient }
-		# 						gender = male
-		# 						set_age = 21
-		# 						effect = {
-		# 							set_variable = { which = honor_leader_class value = 2 }
-		# 							save_event_target_as = honor_leader_clone
-		# 							honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
-		# 							leader_event = { id = honor_leader.200 days = -1 }
-		# 						}
-		# 					}
-		# 				}
-		# 			}
-		# 			scientist = {
-		# 				set_variable = { which = honor_leader_class value = 3 }
-		# 				root = {
-		# 					create_leader = {
-		# 						class = scientist
-		# 						species = prev.species
-		# 						name = "NAME"
-		# 						skill = 1
-		# 						traits = { trait = leader_trait_resilient }
-		# 						gender = male
-		# 						set_age = 21
-		# 						effect = {
-		# 							set_variable = { which = honor_leader_class value = 3 }
-		# 							save_event_target_as = honor_leader_clone
-		# 							honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
-		# 							leader_event = { id = honor_leader.200 days = -1 }
-		# 						}
-		# 					}
-		# 				}
-		# 			}
-		# 			admiral = {
-		# 				set_variable = { which = honor_leader_class value = 4 }
-		# 				root = {
-		# 					create_leader = {
-		# 						class = admiral
-		# 						species = prev.species
-		# 						name = "NAME"
-		# 						skill = 1
-		# 						traits = { trait = leader_trait_resilient }
-		# 						gender = male
-		# 						set_age = 21
-		# 						effect = {
-		# 							set_variable = { which = honor_leader_class value = 4 }
-		# 							save_event_target_as = honor_leader_clone
-		# 							honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
-		# 							leader_event = { id = honor_leader.200 days = -1 }
-		# 						}
-		# 					}
-		# 				}
-		# 			}
-		# 			general = {
-		# 				set_variable = { which = honor_leader_class value = 5 }
-		# 				root = {
-		# 					create_leader = {
-		# 						class = general
-		# 						species = prev.species
-		# 						name = "NAME"
-		# 						skill = 1
-		# 						traits = { trait = leader_trait_resilient }
-		# 						gender = male
-		# 						set_age = 21
-		# 						effect = {
-		# 							set_variable = { which = honor_leader_class value = 5 }
-		# 							save_event_target_as = honor_leader_clone
-		# 							honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
-		# 							leader_event = { id = honor_leader.200 days = -1 }
-		# 						}
-		# 					}
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-		# 	else_if = {
-		# 		limit = {
-		# 			# has_leader_flag = honor_leader_ruler_in_election
-		# 			has_leader_flag = first_ruler
-		# 			NOT = { exists = event_target:honor_leader_clone }
-		# 		}
-		# 		# Clone current leader and set to honor_leader - for Starting ruler losing election - become governor
-		# 		# Add time effects if not dead.
-		# 		if = {
-		# 			limit = {
-		# 				leader_class = ruler
-		# 				NOT = { has_leader_flag = honor_leader_dead_leader }
-		# 			}
-		# 			set_variable = { which = honor_leader_calender_year value = owner.honor_leader_calender_year }
-		# 			set_variable = { which = honor_leader_office_end value = honor_leader_calender_year }
-		# 		}
-		# 		root = {
-		# 			create_leader = {
-		# 				class = governor
-		# 				species = prev.species
-		# 				name = "NAME"
-		# 				skill = 1
-		# 				traits = { trait = random_trait }
-		# 				gender = male
-		# 				set_age = 28
-		# 				effect = {
-		# 					set_leader_flag = honor_leader_was_ruler # Was Ruler Flag
-		# 					honor_leader_copy_flags_and_vars = yes # Copy Vars and flags
-		# 					honor_leader_add_traits = yes # Add Traits
-		# 					# Remove unnessesary flags and traits.
-		# 					remove_trait = leader_trait_trickster
-		# 					remove_leader_flag = honor_leader_is_pool_leader
-		# 					# save_event_target_as = honor_leader
-		# 					save_event_target_as = honor_leader_clone
-		# 					# leader_event = { id = honor_leader.200 }
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-
-		# }
 		set_update_modifiers_batch = end
 	}
 	after = {

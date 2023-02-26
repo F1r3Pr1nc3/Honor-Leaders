@@ -4,11 +4,12 @@ namespace = new_honor_leader
 # Honor Leader - Show location
 country_event = {
 	id = new_honor_leader.203
-	title = "honor_leader.203.title"
-	desc = "honor_leader.203.desc"
+	# title = "honor_leader.203.title"
+	# desc = "honor_leader.203.desc"
 	location = event_target:honor_leader_location
 	picture = GFX_evt_ship_in_orbit_3 # GFX_evt_announcement
 	show_sound = event_salute # event_celebration
+	hide_window = yes
 	is_triggered_only = yes
 	# trigger = {	}
 	immediate = {
@@ -922,7 +923,7 @@ country_event = {
 			}
 		}
 	}
-	option = { name = 02_END_RIVALRY_ACCEPT_NEUTRA }
+	option = { name = 02_END_RIVALRY_ACCEPT_NEUTRAL }
 }
 
 # Scope: Leader (after assignment)
