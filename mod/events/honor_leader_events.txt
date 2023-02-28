@@ -4,40 +4,17 @@ namespace = honor_leader
 country_event = {
 	id = honor_leader.101
 	desc = {
-		trigger = { is_egalitarian = yes }
-		text = honor_leader.102.desc.egalitarian
-	}
-	desc = {
-		trigger = { is_authoritarian = yes }
-		text = honor_leader.102.desc.authoritarian
-	}
-	desc = {
-		trigger = { is_xenophobe = yes }
-		text = honor_leader.102.desc.xenophobe
-	}
-	desc = {
-		trigger = { is_xenophile = yes }
-		text = honor_leader.102.desc.xenophile
-	}
-	desc = {
-		trigger = { is_pacifist = yes }
-		text = honor_leader.102.desc.pacifist
-	}
-	desc = {
-		trigger = { is_militarist = yes }
-		text = honor_leader.102.desc.militarist
-	}
-	desc = {
-		trigger = { is_spiritualist = yes }
-		text = honor_leader.102.desc.spiritualist
-	}
-	desc = {
-		trigger = { is_materialist = yes }
-		text = honor_leader.102.desc.materialist
-	}
-	desc = {
-		trigger = { is_gestalt = yes }
-		text = honor_leader.102.desc.gestalt
+		trigger = {
+			success_text = { text = honor_leader.102.desc.egalitarian is_egalitarian = yes }
+			success_text = { text = honor_leader.102.desc.authoritarian is_authoritarian = yes }
+			success_text = { text = honor_leader.102.desc.xenophobe is_xenophobe = yes }
+			success_text = { text = honor_leader.102.desc.xenophile is_xenophile = yes }
+			success_text = { text = honor_leader.102.desc.pacifist is_pacifist = yes }
+			success_text = { text = honor_leader.102.desc.militarist is_militarist = yes }
+			success_text = { text = honor_leader.102.desc.spiritualist is_spiritualist = yes }
+			success_text = { text = honor_leader.102.desc.materialist is_materialist = yes }
+			success_text = { text = honor_leader.102.desc.gestalt is_gestalt = yes }
+		}
 	}
 	title = "honor_leader.101.title"
 	picture = "GFX_evt_alien_propaganda"
@@ -256,40 +233,17 @@ country_event = {
 country_event = {
 	id = honor_leader.102
 	desc = {
-		trigger = { is_egalitarian = yes }
-		text = honor_leader.102.desc.egalitarian
-	}
-	desc = {
-		trigger = { is_authoritarian = yes }
-		text = honor_leader.102.desc.authoritarian
-	}
-	desc = {
-		trigger = { is_xenophobe = yes }
-		text = honor_leader.102.desc.xenophobe
-	}
-	desc = {
-		trigger = { is_xenophile = yes }
-		text = honor_leader.102.desc.xenophile
-	}
-	desc = {
-		trigger = { is_pacifist = yes }
-		text = honor_leader.102.desc.pacifist
-	}
-	desc = {
-		trigger = { is_militarist = yes }
-		text = honor_leader.102.desc.militarist
-	}
-	desc = {
-		trigger = { is_spiritualist = yes }
-		text = honor_leader.102.desc.spiritualist
-	}
-	desc = {
-		trigger = { is_materialist = yes }
-		text = honor_leader.102.desc.materialist
-	}
-	desc = {
-		trigger = { is_gestalt = yes }
-		text = honor_leader.102.desc.gestalt
+		trigger = {
+			success_text = { text = honor_leader.102.desc.egalitarian is_egalitarian = yes }
+			success_text = { text = honor_leader.102.desc.authoritarian is_authoritarian = yes }
+			success_text = { text = honor_leader.102.desc.xenophobe is_xenophobe = yes }
+			success_text = { text = honor_leader.102.desc.xenophile is_xenophile = yes }
+			success_text = { text = honor_leader.102.desc.pacifist is_pacifist = yes }
+			success_text = { text = honor_leader.102.desc.militarist is_militarist = yes }
+			success_text = { text = honor_leader.102.desc.spiritualist is_spiritualist = yes }
+			success_text = { text = honor_leader.102.desc.materialist is_materialist = yes }
+			success_text = { text = honor_leader.102.desc.gestalt is_gestalt = yes }
+		}
 	}
 	title = "honor_leader.102.title"
 	picture = "GFX_evt_alien_propaganda"
@@ -2301,6 +2255,17 @@ country_event = {
 	title = "honor_leader.3000.title"
 	picture = "GFX_evt_unity_symbol"
 	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_flag = honor_leader3000 }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = honor_leader3000 } }
+				country_event = { id = honor_leader.3000 }
+			}
+		}
+	}
 	option = {
 		trigger = { NOT = { has_country_flag = honor_popup_disabled } }
 		name = "honor_leader.3000.popups"
@@ -2322,6 +2287,22 @@ country_event = {
 		trigger = { has_country_flag = honor_leader_disable_renaming }
 		name = "honor_leader.3000.enablerenaming"
 		remove_country_flag = honor_leader_disable_renaming
+	}
+	option = {
+		trigger = {
+			NOT = { has_country_flag = honor_leader_disable_renaming_planets }
+		}
+		allow = { NOT = { has_country_flag = honor_leader_disable_renaming } }
+		name = "honor_leader.3000.disablerenamingplanets"
+		set_country_flag = honor_leader_disable_renaming_planets
+	}
+	option = {
+		trigger = {
+			has_country_flag = honor_leader_disable_renaming_planets
+		}
+		allow = { NOT = { has_country_flag = honor_leader_disable_renaming } }
+		name = "honor_leader.3000.enablerenamingplanets"
+		remove_country_flag = honor_leader_disable_renaming_planets
 	}
 	option = {
 		trigger = {
@@ -2689,5 +2670,10 @@ country_event = {
 			remove_modifier = country_memorialized_general_achievement_total_war
 		}
 	}
-	option = { name = "honor_leader.110.nope" }
+	option = {
+		name = "honor_leader.110.nope"
+		hidden_effect = {
+			set_timed_country_flag = { flag = honor_leader3000 days = 3 }
+		}
+	}
 }

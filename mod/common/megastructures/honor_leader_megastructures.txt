@@ -131,8 +131,8 @@ honor_leader_memorial_ruler_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_ruler_memorial"
-						variable_string = "Prev.GetRulerTitle"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[Prev.GetRulerTitle]"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_ruler1
 				}
@@ -164,8 +164,8 @@ honor_leader_memorial_ruler_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_ruler_memorial"
-						variable_string = "Prev.GetRulerTitle"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[Prev.GetRulerTitle]"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_ruler2
 				}
@@ -197,8 +197,8 @@ honor_leader_memorial_ruler_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_ruler_memorial"
-						variable_string = "Prev.GetRulerTitle"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[Prev.GetRulerTitle]"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_ruler3
 				}
@@ -230,8 +230,8 @@ honor_leader_memorial_ruler_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_ruler_memorial"
-						variable_string = "Prev.GetRulerTitle"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[Prev.GetRulerTitle]"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_ruler4
 				}
@@ -263,8 +263,8 @@ honor_leader_memorial_ruler_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_ruler_memorial"
-						variable_string = "Prev.GetRulerTitle"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[Prev.GetRulerTitle]"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_ruler5
 				}
@@ -417,13 +417,13 @@ honor_leader_memorial_governor_0 = {
 				random_owned_leader = {
 					limit = { has_leader_flag = honor_governor1 }
 					save_event_target_as = honor_leader
-				}
-				from = {
-					set_name = {
-						key = "honor_leader.Rename_governor_memorial"
-						variable_string = "honor_leader.GetName"
+					root.fromfrom = {
+						set_name = {
+							key = "honor_leader.Rename_governor_memorial"
+							variable_string = "[honor_leader.GetName]"
+						}
+						set_megastructure_flag = honor_leader_memorial_dead_governor1
 					}
-					set_megastructure_flag = honor_leader_memorial_dead_governor1
 				}
 				if = {
 					limit = {
@@ -452,13 +452,13 @@ honor_leader_memorial_governor_0 = {
 				random_owned_leader = {
 					limit = { has_leader_flag = honor_governor2 }
 					save_event_target_as = honor_leader
-				}
-				from = {
-					set_name = {
-						key = "honor_leader.Rename_governor_memorial"
-						variable_string = "honor_leader.GetName"
+					root.fromfrom = {
+						set_name = {
+							key = "honor_leader.Rename_governor_memorial"
+							variable_string = "[honor_leader.GetName]"
+						}
+						set_megastructure_flag = honor_leader_memorial_dead_governor2
 					}
-					set_megastructure_flag = honor_leader_memorial_dead_governor2
 				}
 				if = {
 					limit = {
@@ -487,13 +487,13 @@ honor_leader_memorial_governor_0 = {
 				random_owned_leader = {
 					limit = { has_leader_flag = honor_governor3 }
 					save_event_target_as = honor_leader
-				}
-				from = {
-					set_name = {
-						key = "honor_leader.Rename_governor_memorial"
-						variable_string = "honor_leader.GetName"
+					root.fromfrom = {
+						set_name = {
+							key = "honor_leader.Rename_governor_memorial"
+							variable_string = "[honor_leader.GetName]"
+						}
+						set_megastructure_flag = honor_leader_memorial_dead_governor3
 					}
-					set_megastructure_flag = honor_leader_memorial_dead_governor3
 				}
 				if = {
 					limit = {
@@ -522,13 +522,13 @@ honor_leader_memorial_governor_0 = {
 				random_owned_leader = {
 					limit = { has_leader_flag = honor_governor4 }
 					save_event_target_as = honor_leader
-				}
-				from = {
-					set_name = {
-						key = "honor_leader.Rename_governor_memorial"
-						variable_string = "honor_leader.GetName"
+					root.fromfrom = {
+						set_name = {
+							key = "honor_leader.Rename_governor_memorial"
+							variable_string = "[honor_leader.GetName]"
+						}
+						set_megastructure_flag = honor_leader_memorial_dead_governor4
 					}
-					set_megastructure_flag = honor_leader_memorial_dead_governor4
 				}
 				if = {
 					limit = {
@@ -557,13 +557,13 @@ honor_leader_memorial_governor_0 = {
 				random_owned_leader = {
 					limit = { has_leader_flag = honor_governor5 }
 					save_event_target_as = honor_leader
-				}
-				from = {
-					set_name = {
-						key = "honor_leader.Rename_governor_memorial"
-						variable_string = "honor_leader.GetName"
+					root.fromfrom = {
+						set_name = {
+							key = "honor_leader.Rename_governor_memorial"
+							variable_string = "[honor_leader.GetName]"
+						}
+						set_megastructure_flag = honor_leader_memorial_dead_governor5
 					}
-					set_megastructure_flag = honor_leader_memorial_dead_governor5
 				}
 				if = {
 					limit = {
@@ -723,7 +723,7 @@ honor_leader_memorial_scientist_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_scientist_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_scientist1
 				}
@@ -758,7 +758,7 @@ honor_leader_memorial_scientist_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_scientist_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_scientist2
 				}
@@ -793,7 +793,7 @@ honor_leader_memorial_scientist_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_scientist_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_scientist3
 				}
@@ -828,7 +828,7 @@ honor_leader_memorial_scientist_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_scientist_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_scientist4
 				}
@@ -863,7 +863,7 @@ honor_leader_memorial_scientist_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_scientist_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_scientist5
 				}
@@ -1020,7 +1020,7 @@ honor_leader_memorial_admiral_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_admiral_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_admiral1
 				}
@@ -1055,7 +1055,7 @@ honor_leader_memorial_admiral_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_admiral_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_admiral2
 				}
@@ -1090,7 +1090,7 @@ honor_leader_memorial_admiral_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_admiral_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_admiral3
 				}
@@ -1125,7 +1125,7 @@ honor_leader_memorial_admiral_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_admiral_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_admiral4
 				}
@@ -1160,7 +1160,7 @@ honor_leader_memorial_admiral_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_admiral_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_admiral5
 				}
@@ -1317,7 +1317,7 @@ honor_leader_memorial_general_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_general_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_general1
 				}
@@ -1352,7 +1352,7 @@ honor_leader_memorial_general_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_general_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_general2
 				}
@@ -1387,7 +1387,7 @@ honor_leader_memorial_general_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_general_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_general3
 				}
@@ -1422,7 +1422,7 @@ honor_leader_memorial_general_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_general_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_general4
 				}
@@ -1457,7 +1457,7 @@ honor_leader_memorial_general_0 = {
 				from = {
 					set_name = {
 						key = "honor_leader.Rename_general_memorial"
-						variable_string = "honor_leader.GetName"
+						variable_string = "[honor_leader.GetName]"
 					}
 					set_megastructure_flag = honor_leader_memorial_dead_general5
 				}
