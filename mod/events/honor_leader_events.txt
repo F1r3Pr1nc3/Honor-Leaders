@@ -1753,7 +1753,7 @@ country_event = {
 # fromfrom = dead leader? (honor_leader.2000)
 country_event = {
 	id = honor_leader.200
-	title = "honor_leader.103.title"
+	title = "honor_leader.200.title"
 	desc = {
 		trigger = {
 			# hidden:event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } } not working

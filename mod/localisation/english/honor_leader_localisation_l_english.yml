@@ -577,6 +577,7 @@
  honor_leader.111.rulerpage3: "Bio Page 3"
  honor_leader.111.rulerpage4: "Bio Page 4"
  honor_leader.111.title: "Accomplishments and Deeds:"
+ honor_leader.200.title: "Biography of §H[honor_leader_clone.GetName]§!"
  honor_leader.200.desc.deadadmiral: "$initialstats_other$$death_date$$spacewarfare$$stats_bio$$stats_spacewar$$stats_misc$"
  honor_leader.200.desc.deadgeneral: "$initialstats_other$$death_date$$groundwarfare$$stats_bio$$stats_groundwar$$stats_misc$"
  honor_leader.200.desc.deadgovernor: "$initialstats_other$$death_date$$administration$$stats_bio$$stats_admin$$stats_misc$"

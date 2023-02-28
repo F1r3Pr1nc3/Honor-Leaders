@@ -3542,7 +3542,6 @@ country_event = {
 		}
 	}
 	immediate = {
-		log = "2000 HAPPENED"
 		set_update_modifiers_batch = begin
 		from = {
 			save_event_target_as = honor_leader

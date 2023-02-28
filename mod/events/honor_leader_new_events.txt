@@ -923,7 +923,7 @@ country_event = {
 			}
 		}
 	}
-	option = { name = 02_END_RIVALRY_ACCEPT_NEUTRAL }
+	option = { name = 02_END_RIVALRY_ACCEPT_NEUTRA }
 }
 
 # Scope: Leader (after assignment)
