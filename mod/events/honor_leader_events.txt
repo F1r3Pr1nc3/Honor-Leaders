@@ -2260,10 +2260,9 @@ country_event = {
 	}
 	after = {
 		hidden_effect = {
-			if = {
-				limit = { NOT = { has_country_flag = honor_leader3000 } }
+			if = { limit = { NOT = { has_country_flag = honor_leader3000 } }
 				country_event = { id = honor_leader.3000 }
-			}
+			} else = { remove_country_flag = honor_leader3000 }
 		}
 	}
 	option = {

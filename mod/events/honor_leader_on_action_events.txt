@@ -223,30 +223,66 @@ country_event = {
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 2 } }
 				set_saved_date = { key = ruler_stint_start_date_2 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_2 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_1 } }
+					set_saved_date = { key = ruler_stint_end_date_1 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_1 value = calender_day }
+				}
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 3 } }
 				set_saved_date = { key = ruler_stint_start_date_3 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_3 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_2 } }
+					set_saved_date = { key = ruler_stint_end_date_2 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_2 value = calender_day }
+				}
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 4 } }
 				set_saved_date = { key = ruler_stint_start_date_4 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_4 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_3 } }
+					set_saved_date = { key = ruler_stint_end_date_3 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_3 value = calender_day }
+				}
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 5 } }
 				set_saved_date = { key = ruler_stint_start_date_5 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_5 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_4 } }
+					set_saved_date = { key = ruler_stint_end_date_4 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_4 value = calender_day }
+				}
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 6 } }
 				set_saved_date = { key = ruler_stint_start_date_6 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_6 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_5 } }
+					set_saved_date = { key = ruler_stint_end_date_5 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_5 value = calender_day }
+				}
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 7 } }
 				set_saved_date = { key = ruler_stint_start_date_7 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_7 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_6 } }
+					set_saved_date = { key = ruler_stint_end_date_6 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_6 value = calender_day }
+				}
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 8 } }
 				set_saved_date = { key = ruler_stint_start_date_8 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_8 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_7 } }
+					set_saved_date = { key = ruler_stint_end_date_7 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_7 value = calender_day }
+				}
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 9 } }
 				set_saved_date = { key = ruler_stint_start_date_9 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_9 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_8 } }
+					set_saved_date = { key = ruler_stint_end_date_8 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_8 value = calender_day }
+				}
 			} else_if = { limit = { check_variable = { which = stints_as_ruler value = 10 } }
 				set_saved_date = { key = ruler_stint_start_date_10 days_from_present = 0 }
 				set_variable = { which = ruler_var_start_date_10 value = calender_day }
+				if = { limit = { NOT = { is_variable_set = ruler_var_end_date_9 } }
+					set_saved_date = { key = ruler_stint_end_date_9 days_from_present = 0 }
+					set_variable = { which = ruler_var_end_date_9 value = calender_day }
+				}
 			}
 			# Savegame Fallback
 			prev.ruler = {
