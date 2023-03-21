@@ -72,8 +72,10 @@ honor_leader_honor_leader_memorial = {
 		if = { limit = { has_trait = leader_trait_expertise_biology } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_biology } } }
 		if = { limit = { has_trait = leader_trait_expertise_military_theory } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_military_theory } } }
 		if = { limit = { has_trait = leader_trait_towel } prev = { add_modifier = { modifier = country_memorialized_scientist_towel } } }
+		if = { limit = { has_trait = leader_trait_percussive_maintainer } prev = { add_modifier = { modifier = country_memorialized_scientist_percussive_maintainer } } }
+		if = { limit = { has_trait = leader_trait_expertise_archaeostudies } prev = { add_modifier = { modifier = country_memorialized_scientist_expertise_archaeostudies } } }
 		# Admiral Traits
-		if = { limit = { has_trait = leader_trait_trickster } prev = { add_modifier = { modifier = country_memorialized_admiral_trickster } } }
+		if = { limit = { OR = { has_trait = leader_trait_trickster has_trait = leader_trait_trickster_fircon } } prev = { add_modifier = { modifier = country_memorialized_admiral_trickster } } }
 		if = { limit = { has_trait = leader_trait_fleet_logistician } prev = { add_modifier = { modifier = country_memorialized_admiral_fleet_logistician } } }
 		if = { limit = { has_trait = leader_trait_engineer } prev = { add_modifier = { modifier = country_memorialized_admiral_engineer } } }
 		if = { limit = { has_trait = leader_trait_aggressive } prev = { add_modifier = { modifier = country_memorialized_admiral_aggressive } } }
@@ -1751,6 +1753,7 @@ honor_leader_add_traits = {
 			if = { limit = { has_trait = leader_trait_expertise_biology } prev = { add_trait = leader_trait_expertise_biology } }
 			if = { limit = { has_trait = leader_trait_expertise_military_theory } prev = { add_trait = leader_trait_expertise_military_theory } }
 			if = { limit = { has_trait = leader_trait_towel } prev = { add_trait = leader_trait_towel } }
+			if = { limit = { has_trait = leader_trait_percussive_maintainer } prev = { add_trait = leader_trait_percussive_maintainer } }
 			# DLC
 			if = { limit = { has_trait = leader_trait_scientist_erudite } prev = { add_trait = leader_trait_scientist_erudite } }
 			if = { limit = { has_trait = leader_trait_scientist_cyborg } prev = { add_trait = leader_trait_scientist_cyborg } }
@@ -1768,6 +1771,7 @@ honor_leader_add_traits = {
 		} else_if = { limit = { prev = { check_variable = { which = honor_leader_class value = 4 } } }
 			# Admiral traits
 			if = { limit = { has_trait = leader_trait_trickster } prev = { add_trait = leader_trait_trickster } }
+			else_if = { limit = { has_trait = leader_trait_trickster_fircon } prev = { add_trait = leader_trait_trickster_fircon } }
 			if = { limit = { has_trait = leader_trait_fleet_logistician } prev = { add_trait = leader_trait_fleet_logistician } }
 			if = { limit = { has_trait = leader_trait_engineer } prev = { add_trait = leader_trait_engineer } }
 			if = { limit = { has_trait = leader_trait_aggressive } prev = { add_trait = leader_trait_aggressive } }

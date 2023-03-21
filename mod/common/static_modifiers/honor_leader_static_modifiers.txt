@@ -891,7 +891,8 @@ country_memorialized_scientist_achievement_discovered_mine_rare_crystals = {
 	country_rare_crystals_produces_mult = 0.05
 	country_engineering_tech_research_speed = 0.01
 }
-# Admiral
+
+## Admiral
 country_memorialized_admiral_achievement_cursed_command = {
 	ship_disengage_chance_mult = 0.5
 	ship_emergency_ftl_min_days_mult = -0.5
@@ -1150,7 +1151,7 @@ country_memorialized_scientist_maimed = {
 }
 country_memorialized_scientist_inspired_archaeologist = {
 	species_leader_exp_gain = 0.125
-	ship_archaeological_site_excavation_speed_mult = 5
+	ship_archaeological_site_excavation_speed_mult = 0.3
 }
 country_memorialized_scientist_inspired_researcher = {
 	species_leader_exp_gain = 0.125
@@ -1159,6 +1160,13 @@ country_memorialized_scientist_inspired_researcher = {
 country_memorialized_scientist_inspired_surveyor = {
 	species_leader_exp_gain = 0.125
 	ship_anomaly_research_speed_mult = 0.05
+}
+country_memorialized_scientist_percussive_maintainer = {
+	category_computing_research_speed_mult = 0.05
+	ship_archaeological_site_excavation_speed_mult = 0.1
+}
+country_memorialized_scientist_expertise_archaeostudies = {
+	category_archaeostudies_research_speed_mult = 0.1
 }
 country_memorialized_admiral_dragonslayer = {
 	ship_speed_mult = 0.05
