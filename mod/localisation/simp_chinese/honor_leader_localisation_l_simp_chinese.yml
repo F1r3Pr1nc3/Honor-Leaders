@@ -618,7 +618,7 @@
  known_ship_voidspawn: "被虚空产卵杀死"
  known_ship_wraith: "幻影杀"
  known_ship_xeno_empire: "被Xenos帝国杀死"
- leader_trait_archaeologist_tooltip_honor_leader: "§古代文明异常：§！\n异常研究速度：§G+25％§！"
+ leader_trait_archaeologist_tooltip_honor_leader: "§古代文明异常：§! \n异常研究速度：§G+25％§!"
  noo: "Noo"
  ruler_allowed_rebels: "让叛军占领我们的星球之一！\n"
  ruler_banned_ai: "禁止创建可恶的综合情报。\n"
