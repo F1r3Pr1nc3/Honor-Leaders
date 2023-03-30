@@ -82,7 +82,7 @@
 # 		}
 # 		localization_key = honorific.gestalt
 # 	}
-# 	text = { localization_key = emptystringnotstring.empty }
+# 	# default = ""
 # }
 
 # Weighted towards fanatic
@@ -190,7 +190,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = honorific.gestalt
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Traits localization + customization from leader tracking vars.
@@ -202,7 +202,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_adaptable }
 		localization_key = get_trait_adaptable
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -211,7 +211,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_stubborn }
 		localization_key = get_trait_stubborn
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -220,7 +220,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_resilient }
 		localization_key = get_trait_resilient
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -229,16 +229,16 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_substance_abuser }
 		localization_key = get_trait_substance_abuser
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
 	name = GetTraitEager
 	text = {
 		trigger = { has_trait = leader_trait_eager }
-		localization_key = leader_trait_eager_desc
+		localization_key = get_trait_eager # leader_trait_eager_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -247,7 +247,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_arrested_development }
 		localization_key = get_trait_arrested_development
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Ruler traits
@@ -257,7 +257,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_corvette_focus }
 		localization_key = get_trait_corvette_focus
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitDestroyerFocus
@@ -265,7 +265,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_destroyer_focus }
 		localization_key = get_trait_destroyer_focus
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitCruiserFocus
@@ -273,7 +273,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_cruiser_focus }
 		localization_key = get_trait_cruiser_focus
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitBattleshipFocus
@@ -281,7 +281,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_battleship_focus }
 		localization_key = get_trait_battleship_focus
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRecruiter
@@ -289,15 +289,15 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_recruiter }
 		localization_key = get_trait_recruiter
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitFromTheRanks
 	text = {
 		trigger = { has_trait = trait_ruler_from_the_ranks }
-		localization_key = trait_ruler_from_the_ranks_desc
+		localization_key = get_trait_from_the_ranks # trait_ruler_from_the_ranks_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitFortifier
@@ -305,7 +305,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_fortifier }
 		localization_key = get_trait_fortifier
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitLogisticUnderstanding
@@ -313,7 +313,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_logistic_understanding }
 		localization_key = get_trait_logistic_understanding
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitMilitaryPioneer
@@ -321,15 +321,15 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_military_pioneer }
 		localization_key = get_trait_military_pioneer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitWarlike
 	text = {
 		trigger = { has_trait = trait_ruler_warlike }
-		localization_key = trait_ruler_warlike_desc
+		localization_key = get_trait_warlike # trait_ruler_warlike_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitArchitecturalSense
@@ -337,39 +337,39 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_architectural_sense }
 		localization_key = get_trait_architectural_sense
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitFrontierSpirit
 	text = {
 		trigger = { has_trait = trait_ruler_frontier_spirit }
-		localization_key = trait_ruler_frontier_spirit_desc
+		localization_key = get_trait_frontier_spirit # trait_ruler_frontier_spirit_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitWorldShaper
 	text = {
 		trigger = { has_trait = trait_ruler_world_shaper }
-		localization_key = trait_ruler_world_shaper_desc
+		localization_key = get_trait_world_shaper # trait_ruler_world_shaper_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitHomeInTheSky
 	text = {
 		trigger = { has_trait = trait_ruler_home_in_the_sky }
-		localization_key = trait_ruler_home_in_the_sky_desc
+		localization_key = get_trait_home_in_the_sky # trait_ruler_home_in_the_sky_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitIndustrialist
 	text = {
 		trigger = { has_trait = trait_ruler_industrialist }
-		localization_key = trait_ruler_industrialist_desc
+		localization_key = get_trait_industrialist # trait_ruler_industrialist_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitEyeForTalent
@@ -377,7 +377,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_eye_for_talent }
 		localization_key = get_trait_eye_for_talent
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitDeepConnections
@@ -385,7 +385,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_deep_connections }
 		localization_key = get_trait_deep_connections
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetRulerTraitCharismatic
@@ -393,23 +393,23 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_charismatic }
 		localization_key = get_trait_charismatic
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitChampionOfThePeople
 	text = {
 		trigger = { has_trait = trait_ruler_champion_of_the_people }
-		localization_key = trait_ruler_champion_of_the_people_desc
+		localization_key = get_trait_champion_of_the_people # trait_ruler_champion_of_the_people_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpansionist
 	text = {
 		trigger = { has_trait = trait_ruler_expansionist }
-		localization_key = trait_ruler_expansionist_desc
+		localization_key = get_trait_expansionist # trait_ruler_expansionist_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitFertilityPreacher
@@ -417,7 +417,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_fertility_preacher }
 		localization_key = get_trait_fertility_preacher
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitInvestor
@@ -425,7 +425,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_investor }
 		localization_key = get_trait_investor
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitSpaceMiner
@@ -433,7 +433,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_space_miner }
 		localization_key = get_trait_space_miner
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExplorer
@@ -441,7 +441,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = trait_ruler_explorer }
 		localization_key = get_trait_explorer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitFleetOrganizer
@@ -449,7 +449,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_fleet_organizer }
 		localization_key = get_trait_fleet_organizer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Governor Traits
@@ -466,7 +466,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = get_trait_iron_fist_banned
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -475,7 +475,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_army_veteran }
 		localization_key = get_trait_army_veteran
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRetiredFleetOfficer
@@ -483,7 +483,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_retired_fleet_officer }
 		localization_key = get_trait_retired_fleet_officer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitArchitecturalInterest
@@ -491,7 +491,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_architectural_interest }
 		localization_key = get_trait_architectural_interest
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitAgrarianUpbringing
@@ -499,7 +499,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_agrarian_upbringing }
 		localization_key = get_trait_agrarian_upbringing
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitIntellectual
@@ -507,7 +507,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_intellectual }
 		localization_key = get_trait_intellectual
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitEnvironmentalEngineer
@@ -515,7 +515,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_environmental_engineer }
 		localization_key = get_trait_environmental_engineer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Scientist Traits
@@ -525,31 +525,31 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_meticulous }
 		localization_key = get_trait_meticulous
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitSparkOfGenius
 	text = {
 		trigger = { has_trait = leader_trait_spark_of_genius }
-		localization_key = leader_trait_spark_of_genius_desc
+		localization_key = get_trait_spark_of_genius # leader_trait_spark_of_genius_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitCarefree
 	text = {
 		trigger = { has_trait = leader_trait_carefree }
-		localization_key = leader_trait_carefree_desc
+		localization_key = get_trait_carefree # leader_trait_carefree_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRoamer
 	text = {
 		trigger = { has_trait = leader_trait_roamer }
-		localization_key = leader_trait_roamer_desc
+		localization_key = get_trait_roamer # leader_trait_roamer_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitArchaeologist
@@ -557,23 +557,23 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_archaeologist }
 		localization_key = get_trait_archaeologist
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitParanoid
 	text = {
 		trigger = { has_trait = leader_trait_paranoid }
-		localization_key = leader_trait_paranoid_desc
+		localization_key = get_trait_paranoid # leader_trait_paranoid_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitManiacal
 	text = {
 		trigger = { has_trait = leader_trait_maniacal }
-		localization_key = leader_trait_maniacal_desc
+		localization_key = get_trait_maniacal # leader_trait_maniacal_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitCustomAIAssistant
@@ -581,13 +581,13 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_custom_AI_assistant }
 		localization_key = get_trait_custom_AI_assistant
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitSapientAIAssistant
 	text = {
 		trigger = { has_trait = leader_trait_sapient_AI_assistant }
-		localization_key = leader_trait_sapient_AI_assistant_desc
+		localization_key = get_trait_sapient_AI_assistant # leader_trait_sapient_AI_assistant_desc
 	}
 	text = {
 		trigger = {
@@ -596,7 +596,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = get_trait_sapient_AI_assistant_banned
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseMaterials
@@ -604,7 +604,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_materials }
 		localization_key = get_trait_expertise_materials
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertisePropulsion
@@ -612,7 +612,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_propulsion }
 		localization_key = get_trait_expertise_propulsion
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseVoidcraft
@@ -620,7 +620,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_voidcraft }
 		localization_key = get_trait_expertise_voidcraft
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseIndustry
@@ -628,7 +628,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_industry }
 		localization_key = get_trait_expertise_industry
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseFieldManipulation
@@ -636,7 +636,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_field_manipulation }
 		localization_key = get_trait_expertise_field_manipulation
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseParticles
@@ -644,7 +644,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_particles }
 		localization_key = get_trait_expertise_particles
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertisePsionics
@@ -652,7 +652,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_psionics }
 		localization_key = get_trait_expertise_psionics
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseComputing
@@ -660,15 +660,15 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_computing }
 		localization_key = get_trait_expertise_computing
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseNewWorlds
 	text = {
 		trigger = { has_trait = leader_trait_expertise_new_worlds }
-		localization_key = get_trait_expertise_new_worlds
+		localization_key = get_trait_expertise_new_worlds$
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseStatecraft
@@ -676,7 +676,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_statecraft }
 		localization_key = get_trait_expertise_statecraft
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseBiology
@@ -684,7 +684,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_biology }
 		localization_key = get_trait_expertise_biology
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseMilitaryTheory
@@ -692,31 +692,31 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_expertise_military_theory }
 		localization_key = get_trait_expertise_military_theory
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitTowel
 	text = {
 		trigger = { has_trait = leader_trait_towel }
-		localization_key = leader_trait_towel_desc
+		localization_key = get_trait_towel # leader_trait_towel_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitPercussiveMaintainer
 	text = {
 		trigger = { has_trait = leader_trait_percussive_maintainer }
-		localization_key = leader_trait_percussive_maintainer_desc
+		localization_key = get_trait_percussive_maintainer # leader_trait_percussive_maintainer_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitExpertiseArchaeostudies
 	text = {
 		trigger = { has_trait = leader_trait_expertise_archaeostudies }
-		localization_key = leader_trait_expertise_archaeostudies_desc
+		localization_key = get_trait_expertise_archaeostudies # leader_trait_expertise_archaeostudies_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Admiral Traits
@@ -731,7 +731,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = get_trait_trickster
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitFleetLogistician
@@ -739,7 +739,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_fleet_logistician }
 		localization_key = get_trait_fleet_logistician
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitNervous
@@ -747,7 +747,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_nervous }
 		localization_key = get_trait_nervous
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitEngineer
@@ -755,7 +755,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_engineer }
 		localization_key = get_trait_engineer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitAggressive
@@ -763,7 +763,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_aggressive }
 		localization_key = get_trait_aggressive
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitCautious
@@ -771,7 +771,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_cautious }
 		localization_key = get_trait_cautious
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitScout
@@ -779,7 +779,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_scout }
 		localization_key = get_trait_scout
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitUnyielding
@@ -787,7 +787,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_unyielding }
 		localization_key = get_trait_unyielding
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGaleSpeed
@@ -795,7 +795,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_gale_speed }
 		localization_key = get_trait_gale_speed
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitLethargic
@@ -803,7 +803,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_lethargic }
 		localization_key = get_trait_lethargic
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # General Traits
@@ -813,7 +813,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_restrained }
 		localization_key = get_trait_restrained
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetLeaderTraitCharismatic
@@ -821,7 +821,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_charismatic }
 		localization_key = get_trait_charismatic
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitButcher
@@ -829,7 +829,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_butcher }
 		localization_key = get_trait_butcher
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGlorySeeker
@@ -837,7 +837,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_glory_seeker }
 		localization_key = get_trait_glory_seeker
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitArmchairCommander
@@ -845,7 +845,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_armchair_commander }
 		localization_key = get_trait_armchair_commander
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitArmyLogistician
@@ -853,7 +853,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_army_logistician }
 		localization_key = get_trait_army_logistician
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # DLC Traits
@@ -863,7 +863,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_shroud_age }
 		localization_key = get_trait_shroud_age
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitFlexibleProgramming
@@ -871,7 +871,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_flexible_programming }
 		localization_key = get_trait_flexible_programming
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRigidProgramming
@@ -879,7 +879,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_rigid_programming }
 		localization_key = get_trait_rigid_programming
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitNewboot
@@ -887,7 +887,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_newboot }
 		localization_key = get_trait_newboot
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitReformer
@@ -895,7 +895,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_reformer }
 		localization_key = get_trait_reformer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRulerErudite
@@ -903,7 +903,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_ruler_erudite }
 		localization_key = get_trait_ruler_erudite
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRulerCyborg
@@ -911,7 +911,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_ruler_cyborg }
 		localization_key = get_trait_ruler_cyborg
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRulerSynthetic
@@ -919,7 +919,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_ruler_synthetic }
 		localization_key = get_trait_ruler_synthetic
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRulerHiveMind
@@ -927,7 +927,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_ruler_hive_mind }
 		localization_key = get_trait_ruler_hive_mind
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRulerMachineIntelligence
@@ -935,7 +935,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_ruler_machine_intelligence }
 		localization_key = get_trait_ruler_machine_intelligence
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitBrainslug
@@ -951,7 +951,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = get_trait_ruler_brainslug
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGovernorErudite
@@ -959,7 +959,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_governor_erudite }
 		localization_key = get_trait_governor_erudite
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGovernorCyborg
@@ -967,7 +967,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_governor_cyborg }
 		localization_key = get_trait_governor_cyborg
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGovernorSynthetic
@@ -975,7 +975,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_governor_synthetic }
 		localization_key = get_trait_ruler_synthetic
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitPsionic
@@ -989,9 +989,9 @@ defined_text = { # Country/leader scope
 				has_trait = leader_trait_general_psionic
 			}
 		}
-		localization_key = leader_trait_governor_psionic_desc
+		localization_key = get_trait_governor_psionic # leader_trait_governor_psionic_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRighteous
@@ -999,7 +999,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_righteous }
 		localization_key = get_trait_righteous
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitCorrupt
@@ -1007,7 +1007,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_corrupt }
 		localization_key = get_trait_corrupt
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitWarbotTinkerer
@@ -1015,7 +1015,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_warbot_tinkerer }
 		localization_key = get_trait_warbot_tinkerer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitAIAidedDesign
@@ -1023,7 +1023,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_ai_aided_design }
 		localization_key = get_trait_ai_aided_design
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitBulldozer
@@ -1031,7 +1031,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_bulldozer }
 		localization_key = get_trait_bulldozer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitAnalytical
@@ -1039,7 +1039,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_analytical }
 		localization_key = get_trait_analytical
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGovernorGray
@@ -1047,7 +1047,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_governor_gray }
 		localization_key = get_trait_governor_gray
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitEnclaveTrader
@@ -1055,7 +1055,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_enclave_trader }
 		localization_key = get_trait_enclave_trader
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitWasteManagementSpecialist
@@ -1063,23 +1063,23 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_waste_management_specialist }
 		localization_key = get_trait_waste_management_specialist
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitNuumismaticPriest
 	text = {
 		trigger = { has_trait = leader_trait_nuumismatic_priest }
-		localization_key = leader_trait_nuumismatic_priest_desc
+		localization_key = get_trait_nuumismatic_priest # leader_trait_nuumismatic_priest_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGovernorOracle
 	text = {
 		trigger = { has_trait = leader_trait_governor_oracle }
-		localization_key = oracle_software_integration_desc
+		localization_key = get_trait_governor_oracle # oracle_software_integration_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitCurator
@@ -1087,7 +1087,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_curator }
 		localization_key = get_trait_curator
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitScientistErudite
@@ -1095,7 +1095,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_scientist_erudite }
 		localization_key = get_trait_scientist_erudite
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitScientistCyborg
@@ -1103,7 +1103,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_scientist_cyborg }
 		localization_key = get_trait_scientist_cyborg
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitScientistSynthetic
@@ -1111,7 +1111,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_scientist_synthetic }
 		localization_key = get_trait_scientist_synthetic
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitCataloger
@@ -1119,7 +1119,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_cataloger }
 		localization_key = get_trait_cataloger
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitTraumatized
@@ -1127,7 +1127,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_traumatized }
 		localization_key = get_trait_traumatized
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitMaimed
@@ -1135,39 +1135,39 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_maimed }
 		localization_key = get_trait_maimed
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitInspiredArchaeologist
 	text = {
 		trigger = { has_trait = leader_trait_inspired_archaeologist }
-		localization_key = leader_trait_inspired_archaeologist_desc
+		localization_key = get_trait_inspired_archaeologist # leader_trait_inspired_archaeologist_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitInspiredResearcher
 	text = {
 		trigger = { has_trait = leader_trait_inspired_researcher }
-		localization_key = leader_trait_inspired_archaeologist_desc
+		localization_key = get_trait_inspired_archaeologist # leader_trait_inspired_archaeologist_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitInspiredSurveyor
 	text = {
 		trigger = { has_trait = leader_trait_inspired_surveyor }
-		localization_key = leader_trait_inspired_archaeologist_desc
+		localization_key = get_trait_inspired_archaeologist # leader_trait_inspired_archaeologist_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitDragonslayer
 	text = {
 		trigger = { has_trait = leader_trait_dragonslayer }
-		localization_key = leader_trait_dragonslayer_desc
+		localization_key = get_trait_dragonslayer # leader_trait_dragonslayer_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitAdmiralErudite
@@ -1175,7 +1175,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_admiral_erudite }
 		localization_key = get_trait_admiral_erudite
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitAdmiralCyborg
@@ -1183,7 +1183,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_admiral_cyborg }
 		localization_key = get_trait_admiral_cyborg
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitAdmiralSynthetic
@@ -1191,7 +1191,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_admiral_synthetic }
 		localization_key = get_trait_admiral_synthetic
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitChosen
@@ -1205,25 +1205,25 @@ defined_text = { # Country/leader scope
 				has_trait = leader_trait_general_chosen
 			}
 		}
-		localization_key = leader_trait_admiral_chosen_desc
+		localization_key = get_trait_admiral_chosen # leader_trait_admiral_chosen_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitMercenaryWarrior
 	text = {
 		trigger = { has_trait = leader_trait_mercenary_warrior }
-		localization_key = leader_trait_mercenary_warrior_desc
+		localization_key = get_trait_mercenary_warrior # leader_trait_mercenary_warrior_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitForedoomedToARendezvous
 	text = {
 		trigger = { has_trait = leader_trait_foredoomed_to_a_rendezvous }
-		localization_key = leader_trait_foredoomed_to_a_rendezvous_desc
+		localization_key = get_trait_foredoomed_to_a_rendezvous # leader_trait_foredoomed_to_a_rendezvous_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitMaintenanceLoop
@@ -1231,7 +1231,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_maintenance_loop }
 		localization_key = get_trait_maintenance_loop
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitUnstableCodeBase
@@ -1239,7 +1239,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_unstable_code_base }
 		localization_key = get_trait_unstable_code_base
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitRestorePoint
@@ -1247,7 +1247,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_restore_point }
 		localization_key = get_trait_restore_point
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitAdmiralHellsHeart
@@ -1255,7 +1255,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_admiral_hells_heart }
 		localization_key = get_trait_admiral_hells_heart
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitCaravanCounter
@@ -1263,7 +1263,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_caravan_counter }
 		localization_key = get_trait_caravan_counter
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGeneralErudite
@@ -1271,7 +1271,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_general_erudite }
 		localization_key = get_trait_general_erudite
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGeneralCyborg
@@ -1279,7 +1279,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_general_cyborg }
 		localization_key = get_trait_general_cyborg
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGeneralSynthetic
@@ -1287,15 +1287,15 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_general_synthetic }
 		localization_key = get_trait_general_synthetic
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitGeneralMercenaryWarrior
 	text = {
 		trigger = { has_trait = leader_trait_general_mercenary_warrior }
-		localization_key = leader_trait_mercenary_warrior_desc
+		localization_key = get_trait_mercenary_warrior # leader_trait_mercenary_warrior_desc
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitPartsCannibalizer
@@ -1303,7 +1303,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_parts_cannibalizer }
 		localization_key = get_trait_parts_cannibalizer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitDemoralizer
@@ -1311,7 +1311,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_demoralizer }
 		localization_key = get_trait_demoralizer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetTraitErraticMoralityCore
@@ -1319,7 +1319,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_trait = leader_trait_erratic_morality_core }
 		localization_key = get_trait_erratic_morality_core
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 # Rulership Flags
 # Is starting ruler
@@ -1329,7 +1329,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = first_ruler }
 		localization_key = ruler_starting_ruler
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1338,7 +1338,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_first_contact }
 		localization_key = ruler_first_contact
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1347,7 +1347,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_communications_established }
 		localization_key = ruler_communications_established
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1361,7 +1361,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = ruler_allowed_rebels
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1370,7 +1370,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_banned_ai }
 		localization_key = ruler_banned_ai
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1379,7 +1379,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_banned_robots }
 		localization_key = ruler_banned_robots
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1388,7 +1388,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_commissioned_new_ship_design }
 		localization_key = ruler_commissioned_new_ship_design
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1397,7 +1397,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_defensive_only }
 		localization_key = ruler_defensive_only
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1406,7 +1406,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_destroyer_of_nations }
 		localization_key = ruler_destroyer_of_nations
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1419,7 +1419,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = ruler_new_territory_expansionist
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1428,7 +1428,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_gained_territory }
 		localization_key = ruler_gained_territory
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1441,7 +1441,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = ruler_territory_expansionist
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1450,7 +1450,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_lost_territory }
 		localization_key = ruler_lost_territory
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1459,7 +1459,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_purge_allowed }
 		localization_key = ruler_purge_allowed
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1468,7 +1468,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_purge_not_allowed }
 		localization_key = ruler_purge_not_allowed
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1477,7 +1477,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_refugees_allowed }
 		localization_key = ruler_refugees_allowed
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1486,7 +1486,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_refugees_not_allowed }
 		localization_key = ruler_refugees_not_allowed
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1495,7 +1495,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_slavery_allowed }
 		localization_key = ruler_slavery_allowed
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1504,7 +1504,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_slavery_not_allowed }
 		localization_key = ruler_slavery_not_allowed
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1513,7 +1513,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_species_drugged }
 		localization_key = ruler_species_drugged
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1522,7 +1522,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_species_enslaved }
 		localization_key = ruler_species_enslaved
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1531,7 +1531,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_species_given_citizenship }
 		localization_key = ruler_species_given_citizenship
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1540,7 +1540,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_species_purging }
 		localization_key = ruler_species_purging
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1549,7 +1549,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_unrestricted_wars }
 		localization_key = ruler_unrestricted_wars
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1558,7 +1558,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_uplift }
 		localization_key = ruler_uplift
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1567,7 +1567,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_changed_policy }
 		localization_key = ruler_changed_policy
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1576,7 +1576,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_changed_species_rights }
 		localization_key = ruler_changed_species_rights
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1589,7 +1589,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = ruler_great_explorer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1598,7 +1598,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_purged_pops }
 		localization_key = ruler_purged_pops
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetPurgedPopsManyRuler
@@ -1610,7 +1610,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = ruler_purged_pops_many
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetPurgedSpeciesFromGalaxyRuler
@@ -1618,7 +1618,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_purged_species_from_galaxy }
 		localization_key = ruler_purged_species_from_galaxy
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetPurgedSpeciesManyRuler
@@ -1630,7 +1630,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = ruler_purged_species_many
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetSlumlordRuler
@@ -1638,7 +1638,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_ruler_slumlord }
 		localization_key = ruler_slumlord
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Governor Flags/ thresholds
@@ -1652,7 +1652,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_civilian_buildup
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1665,7 +1665,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_mining_expansionist
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1678,7 +1678,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_research_expansionist
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1691,7 +1691,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_observation_expansionist
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1704,7 +1704,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_colonization_wave
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1717,7 +1717,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_colony_founder
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1730,7 +1730,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_terrain_leveler
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1743,7 +1743,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_pops_flourishing
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1756,7 +1756,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_edifice_constructor
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1769,7 +1769,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_district_constructor
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1782,7 +1782,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_military_buildup
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1795,7 +1795,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_recruitment_drive
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1804,7 +1804,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_governor_fully_developed_buildings }
 		localization_key = governor_fully_developed_buildings
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1813,7 +1813,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_governor_fully_developed_districts }
 		localization_key = governor_fully_developed_districts
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1822,7 +1822,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_governor_fully_developed_planet }
 		localization_key = governor_fully_developed_planet
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1831,7 +1831,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_governor_purged_pops }
 		localization_key = governor_purged_pops
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetPurgedPopsManyGovernor
@@ -1843,7 +1843,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_purged_pops_many
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetPurgedSpeciesFromGalaxyGovernor
@@ -1851,7 +1851,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_governor_purged_species_from_galaxy }
 		localization_key = governor_purged_species_from_galaxy
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetPurgedSpeciesManyGovernor
@@ -1863,7 +1863,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = governor_purged_species_many
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetSlumlordGovernor
@@ -1871,7 +1871,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_governor_slumlord }
 		localization_key = governor_slumlord
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Scientist Flags/ thresholds
@@ -1885,7 +1885,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_survivor
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1898,7 +1898,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_grand_explorer
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1911,7 +1911,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_expert_rock_turner
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1924,7 +1924,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_system_surveyor
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1937,7 +1937,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_anomalist
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1950,7 +1950,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_project_manager
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1963,7 +1963,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_research_assistant
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1976,7 +1976,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_physics_researcher
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -1989,7 +1989,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_society_researcher
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2002,7 +2002,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = scientist_engineering_researcher
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Scientist tech discoveries
@@ -2012,7 +2012,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_automated_exploration }
 		localization_key = scientist_discovered_automated_exploration
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2021,7 +2021,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_cold_fusion_power }
 		localization_key = scientist_discovered_cold_fusion_power
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2030,7 +2030,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_wormhole_stabilization }
 		localization_key = scientist_discovered_wormhole_stabilization
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2039,7 +2039,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_jump_drive_1 }
 		localization_key = scientist_discovered_jump_drive_1
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2048,7 +2048,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_ftl_inhibitor }
 		localization_key = scientist_discovered_ftl_inhibitor
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2057,7 +2057,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_combat_computers_3 }
 		localization_key = scientist_discovered_combat_computers_3
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2066,7 +2066,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_synchronized_defences }
 		localization_key = scientist_discovered_synchronized_defences
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2075,7 +2075,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_planetary_shield_generator }
 		localization_key = scientist_discovered_planetary_shield_generator
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2084,7 +2084,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_volatile_motes }
 		localization_key = scientist_discovered_mine_volatile_motes
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2093,7 +2093,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_dark_matter }
 		localization_key = scientist_discovered_mine_dark_matter
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2102,7 +2102,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_lasers_2 }
 		localization_key = scientist_discovered_lasers_2
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2111,7 +2111,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_extradimensional_weapon_1 }
 		localization_key = scientist_discovered_extradimensional_weapon_1
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2120,7 +2120,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_mining_drone_weapon_1 }
 		localization_key = scientist_discovered_mining_drone_weapon_1
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2129,7 +2129,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_space_cloud_weapon_1 }
 		localization_key = scientist_discovered_space_cloud_weapon_1
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2138,7 +2138,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_null_void_beam }
 		localization_key = scientist_discovered_null_void_beam
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2147,7 +2147,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_deflector }
 		localization_key = scientist_discovered_dark_matter_deflector
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2156,7 +2156,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_power_core }
 		localization_key = scientist_discovered_dark_matter_power_core
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2165,7 +2165,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_psionic_barrier }
 		localization_key = scientist_discovered_psionic_barrier
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2174,7 +2174,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_space_whale_weapon_1 }
 		localization_key = scientist_discovered_space_whale_weapon_1
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2183,7 +2183,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_galactic_markets }
 		localization_key = scientist_discovered_galactic_markets
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2192,7 +2192,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_nutrient_replication }
 		localization_key = scientist_discovered_nutrient_replication
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2201,7 +2201,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_tomb_world_adaption }
 		localization_key = scientist_discovered_tomb_world_adaption
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2210,7 +2210,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_gene_banks }
 		localization_key = scientist_discovered_gene_banks
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2219,7 +2219,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_morphogenetic_field_mastery }
 		localization_key = scientist_discovered_morphogenetic_field_mastery
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2228,7 +2228,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_genetic_resequencing }
 		localization_key = scientist_discovered_genetic_resequencing
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2237,7 +2237,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_gene_expressions }
 		localization_key = scientist_discovered_gene_expressions
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2246,7 +2246,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_selected_lineages }
 		localization_key = scientist_discovered_selected_lineages
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2255,7 +2255,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_capacity_boosters }
 		localization_key = scientist_discovered_capacity_boosters
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2264,7 +2264,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_regenerative_hull_tissue }
 		localization_key = scientist_discovered_regenerative_hull_tissue
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2273,7 +2273,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_psionic_theory }
 		localization_key = scientist_discovered_psionic_theory
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2282,7 +2282,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_subdermal_stimulation }
 		localization_key = scientist_discovered_subdermal_stimulation
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2291,7 +2291,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_ascension_theory }
 		localization_key = scientist_discovered_ascension_theory
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2300,7 +2300,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_penal_colonies }
 		localization_key = scientist_discovered_penal_colonies
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2309,7 +2309,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_resort_colonies }
 		localization_key = scientist_discovered_resort_colonies
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2318,7 +2318,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_epigenetic_triggers }
 		localization_key = scientist_discovered_epigenetic_triggers
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2327,7 +2327,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_gene_tailoring }
 		localization_key = scientist_discovered_gene_tailoring
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2336,7 +2336,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_terrestrial_sculpting }
 		localization_key = scientist_discovered_terrestrial_sculpting
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2345,7 +2345,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_ecological_adaptation }
 		localization_key = scientist_discovered_ecological_adaptation
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2354,7 +2354,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_climate_restoration }
 		localization_key = scientist_discovered_climate_restoration
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2363,7 +2363,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_neural_implants }
 		localization_key = scientist_discovered_neural_implants
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2372,7 +2372,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_galactic_administration }
 		localization_key = scientist_discovered_galactic_administration
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2381,7 +2381,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_zro }
 		localization_key = scientist_discovered_mine_zro
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2390,7 +2390,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_corvette_hull_2 }
 		localization_key = scientist_discovered_corvette_hull_2
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2399,7 +2399,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_destroyer_hull_2 }
 		localization_key = scientist_discovered_destroyer_hull_2
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2408,7 +2408,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_cruiser_hull_2 }
 		localization_key = scientist_discovered_cruiser_hull_2
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2417,7 +2417,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_battleship_hull_2 }
 		localization_key = scientist_discovered_battleship_hull_2
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2426,7 +2426,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_defense_platform_hull_1 }
 		localization_key = scientist_discovered_defense_platform_hull_1
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2435,7 +2435,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_modular_engineering }
 		localization_key = scientist_discovered_modular_engineering
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2444,7 +2444,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_space_defense_station_improvement }
 		localization_key = scientist_discovered_space_defense_station_improvement
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 defined_text = { # Country/leader scope
 	name = GetDiscoveredCrystalInfusedArmor
@@ -2452,7 +2452,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_crystal_armor_1 }
 		localization_key = scientist_discovered_crystal_armor_1
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2461,7 +2461,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_crystal_armor_2 }
 		localization_key = scientist_discovered_crystal_armor_2
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2470,7 +2470,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_robotic_workers }
 		localization_key = scientist_discovered_robotic_workers
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2479,7 +2479,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_droid_workers }
 		localization_key = scientist_discovered_droid_workers
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2488,7 +2488,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_synthetic_workers }
 		localization_key = scientist_discovered_synthetic_workers
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2497,7 +2497,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_construction_templates }
 		localization_key = scientist_discovered_construction_templates
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2506,7 +2506,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_starbase_5 }
 		localization_key = scientist_discovered_starbase_5
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2515,7 +2515,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_housing_1 }
 		localization_key = scientist_discovered_housing_1
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2524,7 +2524,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_housing_2 }
 		localization_key = scientist_discovered_housing_2
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2533,7 +2533,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_dark_matter_propulsion }
 		localization_key = scientist_discovered_dark_matter_propulsion
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2542,7 +2542,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_living_metal }
 		localization_key = scientist_discovered_mine_living_metal
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2551,7 +2551,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_betharian }
 		localization_key = scientist_discovered_mine_betharian
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2560,7 +2560,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_exotic_gases }
 		localization_key = scientist_discovered_mine_exotic_gases
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2569,7 +2569,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_scientist_discovered_mine_rare_crystals }
 		localization_key = scientist_discovered_mine_rare_crystals
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Admiral accomplishments
@@ -2583,7 +2583,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_cursed_command
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2596,7 +2596,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_skilled_combat_veteran
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2609,7 +2609,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_exterminator
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2622,7 +2622,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_pirate_cleanser
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2635,7 +2635,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_hero_of_the_galaxy
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2648,7 +2648,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_red_death
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2657,7 +2657,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_admiral_undefeated }
 		localization_key = admiral_undefeated
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2670,7 +2670,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_orbital_bombarder
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2683,7 +2683,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_seasoned_veteran
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2696,7 +2696,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = admiral_desk_admiral
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2705,7 +2705,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_admiral_eradicated_colony }
 		localization_key = admiral_eradicated_colony
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # General accomplishments
@@ -2719,7 +2719,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = general_desk_general_orbit
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2732,7 +2732,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = general_desk_general_planet
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2741,7 +2741,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_general_undefeated }
 		localization_key = general_undefeated
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2754,7 +2754,7 @@ defined_text = { # Country/leader scope
 		}
 		localization_key = general_seasoned
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 defined_text = { # Country/leader scope
@@ -2763,7 +2763,7 @@ defined_text = { # Country/leader scope
 		trigger = { has_leader_flag = honor_leader_general_leveled_a_planet }
 		localization_key = general_total_war
 	}
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # # Class icon
@@ -2789,7 +2789,7 @@ defined_text = { # Country/leader scope
 # 		trigger = { leader_class = general }
 # 		localization_key = class_general_icon
 # 	}
-# 	text = { localization_key = emptystringnotstring.empty }
+# 	# default = ""
 # }
 
 # Somehow this works only random
@@ -3101,7 +3101,7 @@ defined_text = { # Country/leader scope
 	name = GetInElection
 	text = { trigger = { has_leader_flag = honor_leader_ruler_in_election } localization_key = in_election_ruler }
 	text = { trigger = { has_leader_flag = honor_leader_leader_in_election } localization_key = in_election_leader }
-	text = { localization_key = emptystringnotstring.empty }
+	# default = ""
 }
 
 # Can't believe this isn't a default localization...
@@ -3135,7 +3135,6 @@ defined_text = { # Planet scope
 	text = { trigger = { check_variable = { which = honor_leader_stars value = 1 } } localization_key = HL_NAME_A }
 	text = { trigger = { check_variable = { which = honor_leader_stars value = 2 } } localization_key = HL_NAME_B }
 	text = { trigger = { check_variable = { which = honor_leader_stars value = 3 } } localization_key = HL_NAME_C }
-	# text = { localization_key = emptystringnotstring.empty }
 }
 
 # > v3.3
@@ -3154,7 +3153,6 @@ defined_text = { # Planet/Moon scope
 	text = { trigger = { check_variable = { which = honor_leader_planets value = 11 } } localization_key = HL_MAINSTAR_PLANET_XI }
 	text = { trigger = { check_variable = { which = honor_leader_planets value = 12 } } localization_key = HL_MAINSTAR_PLANET_XII }
 	text = { trigger = { check_variable = { which = honor_leader_planets value = 13 } } localization_key = HL_MAINSTAR_PLANET_XIII }
-	# text = { localization_key = emptystringnotstring.empty }
 }
 
 defined_text = { # Moon scope
@@ -3168,7 +3166,6 @@ defined_text = { # Moon scope
 	text = { trigger = { check_variable = { which = honor_leader_moons value = 7 } } localization_key = HL_MOON_NAME_SS_g }
 	text = { trigger = { check_variable = { which = honor_leader_moons value = 8 } } localization_key = HL_MOON_NAME_SS_h }
 	text = { trigger = { check_variable = { which = honor_leader_moons value = 9 } } localization_key = HL_MOON_NAME_SS_i }
-	# text = { localization_key = emptystringnotstring.empty }
 }
 
 ## Get the previous leader class
