@@ -1710,8 +1710,6 @@ country_event = {
 	title = "honor_leader.200.title"
 	desc = {
 		trigger = {
-			# hidden:event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } } not working
-			# text = newline
 			success_text = { text = "known_dismissal"						NAND = { exists = event_target:honor_leader_clone event_target:honor_leader_clone = { is_scope_type = leader } } }
 			success_text = { text = "honor_leader.200.desc.deadruler_1"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value <= 1 } } }
 			success_text = { text = "honor_leader.200.desc.deadruler_2"		event_target:honor_leader_clone = { OR = { leader_class = ruler is_variable_set = stints_as_ruler } check_variable = { which = stints_as_ruler value = 2 } } }
@@ -1727,6 +1725,7 @@ country_event = {
 			success_text = { text = "honor_leader.200.desc.deadgovernor"	event_target:honor_leader_clone = { NOT = { is_variable_set = stints_as_ruler } leader_class = governor		} }
 			success_text = { text = "honor_leader.200.desc.deadadmiral"		event_target:honor_leader_clone = { NOT = { is_variable_set = stints_as_ruler } leader_class = admiral		} }
 			success_text = { text = "honor_leader.200.desc.deadgeneral"		event_target:honor_leader_clone = { NOT = { is_variable_set = stints_as_ruler } leader_class = general		} }
+			fail_text = { text = "known_dismissal" }
 		}
 	}
 	# desc = {

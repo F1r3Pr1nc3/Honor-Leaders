@@ -666,7 +666,7 @@ defined_text = { # Country/leader scope
 	name = GetTraitExpertiseNewWorlds
 	text = {
 		trigger = { has_trait = leader_trait_expertise_new_worlds }
-		localization_key = get_trait_expertise_new_worlds$
+		localization_key = get_trait_expertise_new_worlds
 	}
 	# default = ""
 }
